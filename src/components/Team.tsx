@@ -2,7 +2,6 @@ import React from 'react';
 import { Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-// Define the team member type
 interface TeamMember {
   name: string;
   role: string;
@@ -15,7 +14,6 @@ interface TeamMember {
     instagram?: string;
   };
 }
-
 
 const teamCategories = {
   "Team Captain": "Team Captain",
@@ -32,34 +30,114 @@ interface CategorizedTeamMembers {
   [category: string]: TeamMember[];
 }
 
-const categorizeTeamMembers = (members: TeamMember[]): CategorizedTeamMembers => {
-  const categorized: CategorizedTeamMembers = {};
-
-  members.forEach((member: TeamMember) => {
-    const categoryKey = Object.keys(teamCategories).find((key) =>
-        member.role.includes(key)
-    );
-    const category = teamCategories[categoryKey as keyof typeof teamCategories] || "Others";
-    if (!categorized[category]) {
-      categorized[category] = [];
-    }
-    categorized[category].push(member);
-  });
-
-  return categorized;
-};
-
 const Team = () => {
   const { t } = useTranslation();
-  // Remove image preloading state since we're using direct paths
 
-  // Function to get image path with cache busting
   const getImagePath = (filename: string) => {
-    // Remove leading slash if present and ensure .png extension
-    let cleanPath = filename.startsWith('/') ? filename.substring(1) : filename;
-    cleanPath = cleanPath.replace(/\.png$/i, '.png');
-    // Use relative path with cache busting
-    return `/${cleanPath}?v=1.0.0`;
+    const cleanName = filename.replace(/^\//, '').replace(/\.png$/i, '').toUpperCase();
+    return `/${cleanName}.png`;
+  };
+
+  const teamMembers: TeamMember[] = [
+    {
+      name: "Hüseyin Poyraz Kocamış",
+      role: t("Team Captain"),
+      department: t("Civil Engineering"),
+      image: getImagePath("/poyraz.png"),
+      social: {
+        linkedin: "https://www.linkedin.com/in/poyrazkocamis",
+        email: "poyraz@iztechracing.com"
+      }
+    },
+    // Add other team members here...
+  ];
+
+  const categorizeTeamMembers = (members: TeamMember[]): CategorizedTeamMembers => {
+    const categorized: CategorizedTeamMembers = {};
+
+    members.forEach((member) => {
+      const categoryKey = Object.keys(teamCategories).find((key) =>
+        member.role.includes(key)
+      );
+      const category = teamCategories[categoryKey as keyof typeof teamCategories] || "Others";
+      if (!categorized[category]) {
+        categorized[category] = [];
+      }
+      categorized[category].push(member);
+    });
+
+    return categorized;
+  };
+
+  const groupedMembers = categorizeTeamMembers(teamMembers);
+  const categories = Object.entries(groupedMembers);
+
+  return (
+    <section id="team" className="py-20 bg-[#0f0f0f] relative">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            {t('team.title')}
+          </h2>
+          <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
+            {t('team.description')}
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-16">
+          {categories.map(([category, members]) => (
+            <div key={category} className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6">
+              <h3 className="text-2xl font-semibold text-white mb-6 text-center">
+                {category}
+              </h3>
+              <div className="flex flex-wrap justify-center gap-6">
+                {members.map((member, index) => (
+                  <div key={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 w-72">
+                    <div className="relative h-64 w-full bg-[#1a1a1a] flex items-center justify-center">
+                      <div className="relative w-full h-full">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = '/insan.png'; // Fallback image
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="p-4 text-center">
+                      <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                      <p className="text-[#a02638] font-semibold">{member.role}</p>
+                      <p className="text-[#cccccc] text-sm">{member.department}</p>
+                      <div className="flex justify-center gap-3 mt-3">
+                        <a 
+                          href={member.social.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-white transition-colors"
+                        >
+                          <Linkedin className="w-5 h-5" />
+                        </a>
+                        <a 
+                          href={`mailto:${member.social.email}`}
+                          className="text-gray-400 hover:text-white transition-colors"
+                        >
+                          <Mail className="w-5 h-5" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
   };
 
   // Get team members
@@ -393,10 +471,12 @@ const Team = () => {
     return categories;
   };
 
-  // Preload images
+  // Preload images with error handling
   React.useEffect(() => {
     teamMembers.forEach(member => {
       const img = new Image();
+      img.onload = () => console.log(`Loaded: ${member.image}`);
+      img.onerror = () => console.error(`Failed to load: ${member.image}`);
       img.src = member.image;
     });
   }, [teamMembers]);
@@ -426,48 +506,28 @@ const Team = () => {
                 {members.map((member, index) => (
                   <div key={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 w-72">
                     <div className="relative h-64 w-full bg-[#1a1a1a] flex items-center justify-center">
-                      <div className="relative w-full h-full">
-                        <img
-                          key={`${member.name}-img`}
-                          src={member.image}
-                          alt={member.name}
-                          width={300}
-                          height={300}
-                          className="absolute inset-0 w-full h-full object-cover"
-                          loading="eager"
-                          onLoad={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            console.log('✅ Image loaded successfully:', {
-                              src: target.src,
-                              complete: target.complete,
-                              naturalWidth: target.naturalWidth,
-                              naturalHeight: target.naturalHeight,
-                              currentSrc: target.currentSrc
-                            });
-                            target.style.opacity = '1';
-                          }}
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            console.error('❌ Image failed to load:', {
-                              src: target.src,
-                              error: 'Failed to load image',
-                              currentSrc: target.currentSrc || 'no currentSrc',
-                              complete: target.complete
-                            });
-                            target.style.opacity = '0';
-                            if (target.src !== '/insan.png') {
-                              console.log('🔄 Trying fallback image...');
-                              target.src = '/insan.png';
-                            }
-                          }}
-                          style={{
-                            opacity: 0,
-                            transition: 'opacity 0.3s ease-in-out',
-                            backgroundColor: '#1a1a1a',
-                            objectFit: 'cover'
-                          }}
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        onLoad={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.opacity = '1';
+                        }}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          if (target.src !== '/insan.png') {
+                            target.src = '/insan.png';
+                          }
+                        }}
+                        style={{
+                          opacity: 0,
+                          transition: 'opacity 0.3s ease-in-out',
+                          backgroundColor: '#1a1a1a',
+                          objectFit: 'cover'
+                        }}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">
                           {member.image}
                         </div>
                       </div>
