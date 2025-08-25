@@ -2,39 +2,6 @@ import React from 'react';
 import { Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-// Team member image paths with exact filenames from public directory
-const teamImages: Record<string, string> = {
-  'poyraz': '/POYRAZ.png',
-  'serkan': '/SERKAN.png',
-  'emre': '/EMRE.png',
-  'onur': '/ONUR.png',
-  'efe': '/EFE.png',
-  'altayalp': '/ALTAYALP.png',
-  'ardaakpolat': '/ARDAAKPOLAT.png',
-  'ardakeskin': '/ARDAKESKIN.png',
-  'ardaonuk': '/ARDAONUK.png',
-  'batu': '/BATU.png',
-  'berkant': '/BERKANT.png',
-  'duha': '/DUHA.png',
-  'ediz': '/EDIZ.png',
-  'emiryasa': '/EMIRYASA.png',
-  'erenkarasakal': '/ERENKARASAKAL.png',
-  'erenurus': '/ERENURUS.png',
-  'gt': '/GT.png',
-  'hakan': '/HAKAN.png',
-  'kerem': '/KEREM.png',
-  'khayal': '/KHAYAL.png',
-  'kuzey': '/KUZEY.png',
-  'odulyarkinbaran': '/ODULYARKINBARAN.png',
-  'senanur': '/SENANUR.png',
-  'sinanefe': '/SiNANEFE.png',
-  'tarikalperenocal': '/TARIKALPERENOCAL.png',
-  'tugce': '/TUGCE.png',
-  'tunakurban': '/TUNAKURBAN.png',
-  'yagizyalcin': '/YAGIZYALCIN.png'
-};
-
-
 // Define the team member type
 interface TeamMember {
   name: string;
@@ -86,17 +53,13 @@ const Team = () => {
   const { t } = useTranslation();
   // Remove image preloading state since we're using direct paths
 
-  // Function to get image path with exact filename matching
+  // Function to get image path with cache busting
   const getImagePath = (filename: string) => {
-    // Extract just the filename part and convert to lowercase for lookup
-    const baseName = filename
-      .split('/')
-      .pop()
-      ?.replace(/\.(png|PNG|jpg|JPG|jpeg|JPEG)$/, '')
-      .toLowerCase() || '';
-    
-    // Return the exact path from our images object or a fallback
-    return teamImages[baseName] || '/insan.png';
+    // Remove leading slash if present and ensure .png extension
+    let cleanPath = filename.startsWith('/') ? filename.substring(1) : filename;
+    cleanPath = cleanPath.replace(/\.png$/i, '.png');
+    // Use relative path with cache busting
+    return `/${cleanPath}?v=1.0.0`;
   };
 
   // Get team members
@@ -430,27 +393,10 @@ const Team = () => {
     return categories;
   };
 
-  // Log image loading status with more details
+  // Preload images
   React.useEffect(() => {
     teamMembers.forEach(member => {
       const img = new Image();
-      img.onload = () => {
-        console.log(`✅ Loaded: ${member.image}`, {
-          width: img.width,
-          height: img.height,
-          complete: img.complete,
-          naturalWidth: img.naturalWidth,
-          naturalHeight: img.naturalHeight
-        });
-      };
-      img.onerror = (e) => {
-        console.error(`❌ Failed to load: ${member.image}`, {
-          error: e,
-          currentSrc: img.currentSrc,
-          src: img.src
-        });
-      };
-      console.log(`Attempting to load: ${member.image}`);
       img.src = member.image;
     });
   }, [teamMembers]);
