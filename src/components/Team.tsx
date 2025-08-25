@@ -1,3 +1,4 @@
+import React from 'react';
 import { Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -55,9 +56,11 @@ const Team = () => {
 
   // Function to get image path with cache busting
   const getImagePath = (filename: string) => {
-    return `${filename}?v=${new Date().getTime()}`;
+    // Always use a fixed version for now to allow caching
+    return `${filename}?v=1.0.0`;
   };
 
+  // Get team members
   const teamMembers: TeamMember[] = [
     {
       name: "Hüseyin Poyraz Kocamış",
@@ -106,7 +109,7 @@ const Team = () => {
       name: "Efe Yıldırım",
       role: t("Aerodynamics Team Leader"),
       department: t("Mechanical Engineering"),
-      image: getImagePath("/EFEYILDIRIR.png"),
+      image: getImagePath("/EFE.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/efeyldrm/",
         email: "@iztechracing.com",
@@ -388,6 +391,23 @@ const Team = () => {
     return categories;
   };
 
+  // Preload images when component mounts
+  React.useEffect(() => {
+    teamMembers.forEach(member => {
+      const img = new Image();
+      img.src = member.image;
+      img.onload = () => {
+        // Image is loaded, update all matching images
+        const elements = document.querySelectorAll<HTMLImageElement>(`img[src="${member.image}"]`);
+        elements.forEach(el => {
+          if (el) {
+            el.style.opacity = '1';
+          }
+        });
+      };
+    });
+  }, [teamMembers]);
+
   const groupedMembers = categorizeTeamMembers(teamMembers);
   const categories = Object.entries(groupedMembers);
 
@@ -422,9 +442,17 @@ const Team = () => {
                             <img
                               src={member.image}
                               alt={member.name}
+                              width={300}
+                              height={300}
                               className="w-full h-full object-cover"
                               loading="eager"
                               fetchPriority="high"
+                              decoding="async"
+                              style={{
+                                opacity: 0,
+                                transition: 'opacity 0.3s ease-in-out',
+                                backgroundColor: '#1a1a1a'
+                              }}
                             />
                           </div>
                           {/* Member Info */}
