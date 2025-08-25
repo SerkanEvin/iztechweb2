@@ -56,8 +56,12 @@ const Team = () => {
 
   // Function to get image path from public directory
   const getImagePath = (filename: string) => {
-    // Remove leading slash if present and prepend public path
-    const cleanPath = filename.startsWith('/') ? filename.substring(1) : filename;
+    // Remove leading slash if present and ensure .png extension
+    let cleanPath = filename.startsWith('/') ? filename.substring(1) : filename;
+    if (!cleanPath.endsWith('.png')) {
+      cleanPath += '.png';
+    }
+    // Return path relative to public directory with cache busting
     return `/${cleanPath}`;
   };
 
@@ -394,10 +398,24 @@ const Team = () => {
 
   // Preload images when component mounts
   React.useEffect(() => {
-    teamMembers.forEach(member => {
+    const preloadImage = (src: string) => {
       const img = new Image();
-      img.src = member.image;
-    });
+      img.src = src;
+      return new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    };
+
+    const preloadAllImages = async () => {
+      try {
+        await Promise.all(teamMembers.map(member => preloadImage(member.image)));
+      } catch (error) {
+        console.error('Error preloading images:', error);
+      }
+    };
+
+    preloadAllImages();
   }, [teamMembers]);
 
   const groupedMembers = categorizeTeamMembers(teamMembers);
@@ -432,6 +450,7 @@ const Team = () => {
                           {/* Member Image */}
                           <div className="relative h-64 overflow-hidden">
                             <img
+                              key={`${member.name}-img`}
                               src={member.image}
                               alt={member.name}
                               width={300}
@@ -446,6 +465,10 @@ const Team = () => {
                                 const target = e.target as HTMLImageElement;
                                 console.error(`Failed to load image: ${member.image}`);
                                 target.style.opacity = '1';
+                                // Set a fallback background color
+                                target.style.backgroundColor = '#1a1a1a';
+                                // Try to load a fallback image
+                                target.src = '/insan.png'; // Default image in public folder
                               }}
                               style={{
                                 opacity: 0,
