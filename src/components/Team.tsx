@@ -2,6 +2,38 @@ import React from 'react';
 import { Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+// Team member image paths with exact filenames from public directory
+const teamImages: Record<string, string> = {
+  'poyraz': '/POYRAZ.png',
+  'serkan': '/SERKAN.png',
+  'emre': '/EMRE.png',
+  'onur': '/ONUR.png',
+  'efe': '/EFE.png',
+  'altayalp': '/ALTAYALP.png',
+  'ardaakpolat': '/ARDAAKPOLAT.png',
+  'ardakeskin': '/ARDAKESKIN.png',
+  'ardaonuk': '/ARDAONUK.png',
+  'batu': '/BATU.png',
+  'berkant': '/BERKANT.png',
+  'duha': '/DUHA.png',
+  'ediz': '/EDIZ.png',
+  'emiryasa': '/EMIRYASA.png',
+  'erenkarasakal': '/ERENKARASAKAL.png',
+  'erenurus': '/ERENURUS.png',
+  'gt': '/GT.png',
+  'hakan': '/HAKAN.png',
+  'kerem': '/KEREM.png',
+  'khayal': '/KHAYAL.png',
+  'kuzey': '/KUZEY.png',
+  'odulyarkinbaran': '/ODULYARKINBARAN.png',
+  'senanur': '/SENANUR.png',
+  'sinanefe': '/SiNANEFE.png',
+  'tarikalperenocal': '/TARIKALPERENOCAL.png',
+  'tugce': '/TUGCE.png',
+  'tunakurban': '/TUNAKURBAN.png',
+  'yagizyalcin': '/YAGIZYALCIN.png'
+};
+
 
 // Define the team member type
 interface TeamMember {
@@ -56,16 +88,15 @@ const Team = () => {
 
   // Function to get image path with exact filename matching
   const getImagePath = (filename: string) => {
-    // Remove leading slash if present
-    let cleanPath = filename.startsWith('/') ? filename.substring(1) : filename;
-    // Remove .png if present (we'll add it back)
-    cleanPath = cleanPath.replace(/\.png$/i, '');
-    // Convert to uppercase to match actual filenames
-    cleanPath = cleanPath.toUpperCase();
-    // Add .PNG extension
-    const fullPath = `/${cleanPath}.PNG`;
-    console.log(`Image path: ${fullPath}`);
-    return fullPath;
+    // Extract just the filename part and convert to lowercase for lookup
+    const baseName = filename
+      .split('/')
+      .pop()
+      ?.replace(/\.(png|PNG|jpg|JPG|jpeg|JPEG)$/, '')
+      .toLowerCase() || '';
+    
+    // Return the exact path from our images object or a fallback
+    return teamImages[baseName] || '/insan.png';
   };
 
   // Get team members
@@ -449,31 +480,51 @@ const Team = () => {
                 {members.map((member, index) => (
                   <div key={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 w-72">
                     <div className="relative h-64 w-full bg-[#1a1a1a] flex items-center justify-center">
-                      <img
-                        key={`${member.name}-img`}
-                        src={member.image}
-                        alt={member.name}
-                        width={300}
-                        height={300}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        loading="eager"
-                        onLoad={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          console.log(`✅ Rendered: ${member.image}`);
-                          target.style.opacity = '1';
-                        }}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          console.error(`❌ Error rendering: ${member.image}`);
-                          target.style.opacity = '0';
-                        }}
-                        style={{
-                          opacity: 0,
-                          transition: 'opacity 0.3s ease-in-out',
-                          backgroundColor: '#1a1a1a',
-                          objectFit: 'cover'
-                        }}
-                      />
+                      <div className="relative w-full h-full">
+                        <img
+                          key={`${member.name}-img`}
+                          src={member.image}
+                          alt={member.name}
+                          width={300}
+                          height={300}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          loading="eager"
+                          onLoad={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            console.log('✅ Image loaded successfully:', {
+                              src: target.src,
+                              complete: target.complete,
+                              naturalWidth: target.naturalWidth,
+                              naturalHeight: target.naturalHeight,
+                              currentSrc: target.currentSrc
+                            });
+                            target.style.opacity = '1';
+                          }}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            console.error('❌ Image failed to load:', {
+                              src: target.src,
+                              error: 'Failed to load image',
+                              currentSrc: target.currentSrc || 'no currentSrc',
+                              complete: target.complete
+                            });
+                            target.style.opacity = '0';
+                            if (target.src !== '/insan.png') {
+                              console.log('🔄 Trying fallback image...');
+                              target.src = '/insan.png';
+                            }
+                          }}
+                          style={{
+                            opacity: 0,
+                            transition: 'opacity 0.3s ease-in-out',
+                            backgroundColor: '#1a1a1a',
+                            objectFit: 'cover'
+                          }}
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">
+                          {member.image}
+                        </div>
+                      </div>
                     </div>
                     <div className="p-4 text-center">
                       <h3 className="text-lg font-bold text-white">
