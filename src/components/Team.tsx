@@ -54,15 +54,15 @@ const Team = () => {
   const { t } = useTranslation();
   // Remove image preloading state since we're using direct paths
 
-  // Function to get image path from public directory
+  // Function to get image path with cache busting
   const getImagePath = (filename: string) => {
     // Remove leading slash if present and ensure .png extension
     let cleanPath = filename.startsWith('/') ? filename.substring(1) : filename;
     if (!cleanPath.endsWith('.png')) {
       cleanPath += '.png';
     }
-    // Return path relative to public directory with cache busting
-    return `/${cleanPath}`;
+    // Use relative path with cache busting
+    return `/${cleanPath}?v=1.0.0`;
   };
 
   // Get team members
@@ -396,124 +396,102 @@ const Team = () => {
     return categories;
   };
 
-  // Preload images when component mounts
+  // Log image loading status
   React.useEffect(() => {
-    const preloadImage = (src: string) => {
+    teamMembers.forEach(member => {
       const img = new Image();
-      img.src = src;
-      return new Promise((resolve, reject) => {
-        img.onload = resolve;
-        img.onerror = reject;
-      });
-    };
-
-    const preloadAllImages = async () => {
-      try {
-        await Promise.all(teamMembers.map(member => preloadImage(member.image)));
-      } catch (error) {
-        console.error('Error preloading images:', error);
-      }
-    };
-
-    preloadAllImages();
+      img.onload = () => console.log(`✅ Loaded: ${member.image}`);
+      img.onerror = () => console.error(`❌ Failed to load: ${member.image}`);
+      img.src = member.image;
+    });
   }, [teamMembers]);
 
   const groupedMembers = categorizeTeamMembers(teamMembers);
   const categories = Object.entries(groupedMembers);
 
   return (
-      <section id="team" className="py-20 bg-[#0f0f0f] relative">
-        <div className="container mx-auto px-4">
-          {/* Başlık */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {t('team.title')}
-            </h2>
-            <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
-              {t('team.description')}
-            </p>
-          </div>
-
-          {/* Kategorileri alt alta basma */}
-          <div className="flex flex-col gap-16">
-            {categories.map(([category, members]) => (
-                <div
-                    key={category}
-                    className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6"
-                >
-                  <h3 className="text-2xl font-semibold text-white mb-6 text-center">
-                    {category}
-                  </h3>
-                  <div className="flex flex-wrap justify-center gap-6">
-                    {members.map((member, index) => (
-                        <div key={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                          {/* Member Image */}
-                          <div className="relative h-64 overflow-hidden">
-                            <img
-                              key={`${member.name}-img`}
-                              src={member.image}
-                              alt={member.name}
-                              width={300}
-                              height={300}
-                              className="w-full h-full object-cover"
-                              loading="eager"
-                              onLoad={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                target.style.opacity = '1';
-                              }}
-                              onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                console.error(`Failed to load image: ${member.image}`);
-                                target.style.opacity = '1';
-                                // Set a fallback background color
-                                target.style.backgroundColor = '#1a1a1a';
-                                // Try to load a fallback image
-                                target.src = '/insan.png'; // Default image in public folder
-                              }}
-                              style={{
-                                opacity: 0,
-                                transition: 'opacity 0.3s ease-in-out',
-                                backgroundColor: '#1a1a1a',
-                                objectFit: 'cover'
-                              }}
-                            />
-                          </div>
-                          {/* Member Info */}
-                          <div className="p-4 text-center">
-                            <h3 className="text-lg font-bold text-white">
-                              {member.name}
-                            </h3>
-                            <p className="text-[#a02638] font-semibold">
-                              {t(`roles.${member.role.toLowerCase().replace(/\s+/g, '_')}`, { defaultValue: member.role })}
-                            </p>
-                            <p className="text-[#cccccc] text-sm">
-                              {t(`departments.${member.department.toLowerCase().replace(/\s+/g, '_').replace(/&/g, 'and')}`, { defaultValue: member.department })}
-                            </p>
-                            <div className="flex justify-center gap-3 mt-3">
-                              <a
-                                href={member.social.linkedin}
-                                className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
-                              </a>
-                              <a
-                                href={`mailto:${member.social.email}`}
-                                className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
-                              >
-                                <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                    ))}
-                  </div>
-                </div>
-            ))}
-          </div>
+    <section id="team" className="py-20 bg-[#0f0f0f] relative">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            {t('team.title')}
+          </h2>
+          <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
+            {t('team.description')}
+          </p>
         </div>
-      </section>
+
+        <div className="flex flex-col gap-16">
+          {categories.map(([category, members]) => (
+            <div key={category} className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6">
+              <h3 className="text-2xl font-semibold text-white mb-6 text-center">
+                {category}
+              </h3>
+              <div className="flex flex-wrap justify-center gap-6">
+                {members.map((member, index) => (
+                  <div key={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 w-72">
+                    <div className="relative h-64 w-full bg-[#1a1a1a] flex items-center justify-center">
+                      <img
+                        key={`${member.name}-img`}
+                        src={member.image}
+                        alt={member.name}
+                        width={300}
+                        height={300}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="eager"
+                        onLoad={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          console.log(`✅ Rendered: ${member.image}`);
+                          target.style.opacity = '1';
+                        }}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          console.error(`❌ Error rendering: ${member.image}`);
+                          target.style.opacity = '0';
+                        }}
+                        style={{
+                          opacity: 0,
+                          transition: 'opacity 0.3s ease-in-out',
+                          backgroundColor: '#1a1a1a',
+                          objectFit: 'cover'
+                        }}
+                      />
+                    </div>
+                    <div className="p-4 text-center">
+                      <h3 className="text-lg font-bold text-white">
+                        {member.name}
+                      </h3>
+                      <p className="text-[#a02638] font-semibold">
+                        {t(`roles.${member.role.toLowerCase().replace(/\s+/g, '_')}`, { defaultValue: member.role })}
+                      </p>
+                      <p className="text-[#cccccc] text-sm">
+                        {t(`departments.${member.department.toLowerCase().replace(/\s+/g, '_').replace(/&/g, 'and')}`, { defaultValue: member.department })}
+                      </p>
+                      <div className="flex justify-center gap-3 mt-3">
+                        <a
+                          href={member.social.linkedin}
+                          className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
+                        </a>
+                        <a
+                          href={`mailto:${member.social.email}`}
+                          className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                        >
+                          <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
