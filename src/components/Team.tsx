@@ -54,15 +54,18 @@ const Team = () => {
   const { t } = useTranslation();
   // Remove image preloading state since we're using direct paths
 
-  // Function to get image path with cache busting
+  // Function to get image path with exact filename matching
   const getImagePath = (filename: string) => {
-    // Remove leading slash if present and ensure .png extension
+    // Remove leading slash if present
     let cleanPath = filename.startsWith('/') ? filename.substring(1) : filename;
-    if (!cleanPath.endsWith('.png')) {
-      cleanPath += '.png';
-    }
-    // Use relative path with cache busting
-    return `/${cleanPath}?v=1.0.0`;
+    // Remove .png if present (we'll add it back)
+    cleanPath = cleanPath.replace(/\.png$/i, '');
+    // Convert to uppercase to match actual filenames
+    cleanPath = cleanPath.toUpperCase();
+    // Add .PNG extension
+    const fullPath = `/${cleanPath}.PNG`;
+    console.log(`Image path: ${fullPath}`);
+    return fullPath;
   };
 
   // Get team members
@@ -396,12 +399,27 @@ const Team = () => {
     return categories;
   };
 
-  // Log image loading status
+  // Log image loading status with more details
   React.useEffect(() => {
     teamMembers.forEach(member => {
       const img = new Image();
-      img.onload = () => console.log(`✅ Loaded: ${member.image}`);
-      img.onerror = () => console.error(`❌ Failed to load: ${member.image}`);
+      img.onload = () => {
+        console.log(`✅ Loaded: ${member.image}`, {
+          width: img.width,
+          height: img.height,
+          complete: img.complete,
+          naturalWidth: img.naturalWidth,
+          naturalHeight: img.naturalHeight
+        });
+      };
+      img.onerror = (e) => {
+        console.error(`❌ Failed to load: ${member.image}`, {
+          error: e,
+          currentSrc: img.currentSrc,
+          src: img.src
+        });
+      };
+      console.log(`Attempting to load: ${member.image}`);
       img.src = member.image;
     });
   }, [teamMembers]);
