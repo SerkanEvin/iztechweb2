@@ -10,19 +10,19 @@ const Magazines = () => {
         {
             title: t('magazines.may.title'),
             description: t('magazines.may.description'),
-            cover: "/insan.png",
+            cover: "/may.png",
             pdf: "/mayrecap.pdf",
         },
         {
             title: t('magazines.june.title'),
             description: t('magazines.june.description'),
-            cover: "/insan.png",
+            cover: "/june.png",
             pdf: "/junerecap.pdf",
         },
         {
             title: t('magazines.july.title'),
             description: t('magazines.july.description'),
-            cover: "/insan.png",
+            cover: "/july.png",
             pdf: "/julyrecap.pdf",
         },
     ];

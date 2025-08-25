@@ -55,7 +55,7 @@ const Team = () => {
 
   // Function to get image path with cache busting
   const getImagePath = (filename: string) => {
-    return `${filename}?v=1`;
+    return `${filename}?v=${new Date().getTime()}`;
   };
 
   const teamMembers: TeamMember[] = [
@@ -84,7 +84,7 @@ const Team = () => {
       name: "Emre Canbaz",
       role: t("Vehicle Dynamics Team Leader"),
       department: t("Mechanical Engineering"),
-      image: "/EMRE.png",
+      image: getImagePath("/EMRE.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/emre-canbaz-30b087335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -95,7 +95,7 @@ const Team = () => {
       name: "Onur Şen",
       role: t("Powertrain Team Leader"),
       department: t("Mechanical Engineering"),
-      image: "/ONUR.png",
+      image: getImagePath("/ONUR.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/onur-%C5%9Fen-b87b50239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -416,24 +416,18 @@ const Team = () => {
                   </h3>
                   <div className="flex flex-wrap justify-center gap-6">
                     {members.map((member, index) => (
-                        <div
-                            key={index}
-                            className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 transition-all duration-300 hover:scale-105 group"
-                        >
-                          {/* Resim */}
+                        <div key={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                          {/* Member Image */}
                           <div className="relative h-64 overflow-hidden">
                             <img
                               src={member.image}
-                              alt={`${member.name} - ${member.role}`}
+                              alt={member.name}
                               className="w-full h-full object-cover"
-                              onError={(e: React.SyntheticEvent<HTMLImageElement, Event> & { target: { src: string } }) => {
-                                e.target.src = '/insan.png';
-                              }}
+                              loading="eager"
+                              fetchPriority="high"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                           </div>
-
-                          {/* Bilgiler */}
+                          {/* Member Info */}
                           <div className="p-4 text-center">
                             <h3 className="text-lg font-bold text-white">
                               {member.name}
@@ -446,16 +440,16 @@ const Team = () => {
                             </p>
                             <div className="flex justify-center gap-3 mt-3">
                               <a
-                                  href={member.social.linkedin}
-                                  className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
+                                href={member.social.linkedin}
+                                className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                                target="_blank"
+                                rel="noopener noreferrer"
                               >
                                 <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
                               </a>
                               <a
-                                  href={`mailto:${member.social.email}`}
-                                  className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                                href={`mailto:${member.social.email}`}
+                                className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
                               >
                                 <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
                               </a>

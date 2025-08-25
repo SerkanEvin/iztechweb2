@@ -20,6 +20,7 @@ const Sponsors = () => {
         { name: "Hexagon", logo: "/hexagon_logo.png", url: "https://hexagon.com/" },
         { name: "Numesys", logo: "/numesys-logo-gri-min.png", url: "https://www.numesys.com.tr/" },
         { name: "Tekyaz", logo: "/TEKYAZ_LOGO_002.png", url: "https://www.tekyaz.com/" },
+        { name: "GT", logo: "/GT.png", url: "https://www.gtisoft.com/" },
         { name: "Prokom", logo: "/Logo_Prokom_W.png", url: "https://prokomcomposite.com/" }
       ]
     },
@@ -83,7 +84,6 @@ const Sponsors = () => {
         t('sponsors.packages.features.socialMedia', "Social media thank you"),
         t('sponsors.packages.features.newsletter', "Newsletter updates")
       ],
-      buttonText: t('sponsors.packages.buttons.join', "Join as Supporter"),
       popular: false
     },
     {
@@ -95,7 +95,6 @@ const Sponsors = () => {
         t('sponsors.packages.features.socialMediaMentions', "Social media mentions"),
         t('sponsors.packages.features.eventUpdates', "Event updates")
       ],
-      buttonText: t('sponsors.packages.buttons.getStarted', "Get Started"),
       popular: false
     },
     {
@@ -108,7 +107,6 @@ const Sponsors = () => {
         t('sponsors.packages.features.merchandise', "Team merchandise"),
         t('sponsors.packages.features.vipAccess', "VIP event access")
       ],
-      buttonText: t('sponsors.packages.buttons.choose', "Choose Silver"),
       popular: true
     },
     {
@@ -121,7 +119,6 @@ const Sponsors = () => {
         t('sponsors.packages.features.presentationOpportunity', "Presentation opportunity"),
         t('sponsors.packages.features.premiumMerchandise', "Premium team merchandise")
       ],
-      buttonText: t('sponsors.packages.buttons.goGold', "Go Gold"),
       popular: false
     },
     {
@@ -134,7 +131,6 @@ const Sponsors = () => {
         t('sponsors.packages.features.executiveAccess', "Executive team access"),
         t('sponsors.packages.features.premiumBranding', "Premium branding opportunities")
       ],
-      buttonText: t('sponsors.packages.buttons.contactUs', "Contact Us"),
       popular: false
     }
   ];
@@ -254,15 +250,6 @@ const Sponsors = () => {
                         ))}
                       </ul>
                     </div>
-                    <button 
-                      className={`mt-auto w-full py-2 px-4 rounded-lg font-medium transition-colors ${
-                        pkg.popular 
-                          ? 'bg-[#a02638] text-white hover:bg-[#8a1f32]' 
-                          : 'bg-[#3a3a3a] text-white hover:bg-[#4a4a4a]'
-                      }`}
-                    >
-                      {pkg.buttonText}
-                    </button>
                   </div>
               ))}
             </div>
