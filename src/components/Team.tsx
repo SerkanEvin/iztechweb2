@@ -54,10 +54,11 @@ const Team = () => {
   const { t } = useTranslation();
   // Remove image preloading state since we're using direct paths
 
-  // Function to get image path with cache busting
+  // Function to get image path from public directory
   const getImagePath = (filename: string) => {
-    // Always use a fixed version for now to allow caching
-    return `${filename}?v=1.0.0`;
+    // Remove leading slash if present and prepend public path
+    const cleanPath = filename.startsWith('/') ? filename.substring(1) : filename;
+    return `/${cleanPath}`;
   };
 
   // Get team members
@@ -396,15 +397,6 @@ const Team = () => {
     teamMembers.forEach(member => {
       const img = new Image();
       img.src = member.image;
-      img.onload = () => {
-        // Image is loaded, update all matching images
-        const elements = document.querySelectorAll<HTMLImageElement>(`img[src="${member.image}"]`);
-        elements.forEach(el => {
-          if (el) {
-            el.style.opacity = '1';
-          }
-        });
-      };
     });
   }, [teamMembers]);
 
@@ -446,12 +438,20 @@ const Team = () => {
                               height={300}
                               className="w-full h-full object-cover"
                               loading="eager"
-                              fetchPriority="high"
-                              decoding="async"
+                              onLoad={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.opacity = '1';
+                              }}
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                console.error(`Failed to load image: ${member.image}`);
+                                target.style.opacity = '1';
+                              }}
                               style={{
                                 opacity: 0,
                                 transition: 'opacity 0.3s ease-in-out',
-                                backgroundColor: '#1a1a1a'
+                                backgroundColor: '#1a1a1a',
+                                objectFit: 'cover'
                               }}
                             />
                           </div>
