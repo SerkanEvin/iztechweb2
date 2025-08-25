@@ -1,6 +1,5 @@
 import { Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { PlaceholderImage } from './PlaceholderImage';
 
 
 // Define the team member type
@@ -54,12 +53,17 @@ const Team = () => {
   const { t } = useTranslation();
   // Remove image preloading state since we're using direct paths
 
+  // Function to get image path with cache busting
+  const getImagePath = (filename: string) => {
+    return `${filename}?v=1`;
+  };
+
   const teamMembers: TeamMember[] = [
     {
       name: "Hüseyin Poyraz Kocamış",
       role: t("Team Captain"),
       department: t("Civil Engineering"),
-      image: "/POYRAZ.png",
+      image: getImagePath("/POYRAZ.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/poyrazkocamis?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -69,7 +73,7 @@ const Team = () => {
       name: "Serkan Doğan Evin",
       role: t("Electronics & Software Team Leader"),
       department: t("Mechanical Engineering"),
-      image: "/SERKAN.png",
+      image: getImagePath("/SERKAN.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/serkan-do%C4%9Fan-evin-7569a61b8/",
         email: "@iztechracing.com",
@@ -102,7 +106,7 @@ const Team = () => {
       name: "Efe Yıldırım",
       role: t("Aerodynamics Team Leader"),
       department: t("Mechanical Engineering"),
-      image: "/EFEYİLDİRİR.png",
+      image: getImagePath("/EFEYILDIRIR.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/efeyldrm/",
         email: "@iztechracing.com",
@@ -113,7 +117,7 @@ const Team = () => {
       name: "Ödül Yarkın Baran",
       role: t("Organization Team Leader"),
       department: t("Photonics Department"),
-      image: "/ÖdülYarkınBaran.png",
+      image: getImagePath("/ODULYARKINBARAN.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
         email: "@iztechracing.com",
@@ -124,7 +128,7 @@ const Team = () => {
       name: "Ahmet Duha Aydın",
       role: t("Chassis & Ergonomics Team Leader"),
       department: t("Mechanical Engineering"),
-      image: "/DUHA.png",
+      image: getImagePath("/DUHA.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/ahmet-duha-aydin-b81b98244",
         email: "@iztechracing.com",
@@ -135,7 +139,7 @@ const Team = () => {
       name: "Altay Alp",
       role: t("Electronics & Software Team Member"),
       department: t("Electronics & Communication Engineering"),
-      image: "/ALTAYALP.png",
+      image: getImagePath("/ALTAYALP.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/altay-alp-4225bb251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -146,7 +150,7 @@ const Team = () => {
       name: "Arda Onuk",
       role: t("Electronics & Software Team Member"),
       department: t("Mathematics Department"),
-      image: "/ARDAONUK.png",
+      image: getImagePath("/ARDAONUK.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/arda-onuk-8247b5352/",
         email: "ardaonuk9995@gmail.com",
@@ -157,7 +161,7 @@ const Team = () => {
       name: "Berkant Süren",
       role: t("Chassis & Ergonomics Team Member"),
       department: t("Materials  Engineering"),
-      image: "/BERKANT.png",
+      image: getImagePath("/BERKANT.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/berkant-suren?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -168,7 +172,7 @@ const Team = () => {
       name: "Arda Keskin",
       role: t("Vehicle Dynamics Team Member"),
       department: t("Energy Systems  Engineering"),
-      image: "/ARDAKESKİN.png",
+      image: getImagePath("/ARDAKESKIN.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/arda-keskin-ba7b36230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -179,7 +183,7 @@ const Team = () => {
       name: "Arda Akpolat",
       role: t("Vehicle Dynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/ARDAAKPOLAT.png",
+      image: getImagePath("/ARDAAKPOLAT.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/arda-akpolat-444a51315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -190,7 +194,7 @@ const Team = () => {
       name: "Senanur Günay",
       role: t("Electronics & Software Team Member"),
       department: t("Computer Engineering"),
-      image: "/SENANUR.png",
+      image: getImagePath("/SENANUR.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/senanur-g%C3%BCnay-94172431b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -201,7 +205,7 @@ const Team = () => {
       name: "Beren Alptekin",
       role: t("Organization Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/insan.png",
+      image: getImagePath("/insan.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/beren-alptekin-71b6a5343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -212,7 +216,7 @@ const Team = () => {
       name: "Tarık Alperen Öcal",
       role: t("Powertrain Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/TARIKALPERENOCAL.png",
+      image: getImagePath("/TARIKALPERENOCAL.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/tar%C4%B1k-alperen-%C3%B6cal-32b8722b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -223,7 +227,7 @@ const Team = () => {
       name: "Yağız Yalçın",
       role: t("Powertrain Team Member"),
       department: t("Energy Systems Engineering"),
-      image: "/YAĞIZYALÇIN.png",
+      image: getImagePath("/YAGIZYALCIN.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "alex@iztechracing.com",
@@ -234,7 +238,7 @@ const Team = () => {
       name: "Batuhan Elmaoğlu",
       role: t("Aerodynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/BATU.png",
+      image: getImagePath("/BATU.png"),
       social: {
         linkedin: "http://www.linkedin.com/in/batuhan-elmaoğlu-338185296",
         email: "@iztechracing.com",
@@ -245,7 +249,7 @@ const Team = () => {
       name: "Eren Uruş",
       role: t("Aerodynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/ERENURUŞ.png",
+      image: getImagePath("/ERENURUS.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/erenurus",
         email: "@iztechracing.com",
@@ -256,7 +260,7 @@ const Team = () => {
       name: "Eren Karasakal",
       role: t("Chassis & Ergonomics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/ERENKARASAKAL.png",
+      image: getImagePath("/ERENKARASAKAL.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/eren-karasakal-406769342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -267,7 +271,7 @@ const Team = () => {
       name: "Tuğçe Özcan",
       role: t("Chassis & Ergonomics Team Member"),
       department: t("Materials Engineering"),
-      image: "/TUĞÇE.png",
+      image: getImagePath("/TUGCE.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/tu%C4%9F%C3%A7e-%C3%B6zcan-19738133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -278,7 +282,7 @@ const Team = () => {
       name: "Nevzat Ediz Burçoğlu",
       role: t("Powertrain Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/EDİZ.png",
+      image: getImagePath("/EDIZ.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/nevzatedizburcoglu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -289,7 +293,7 @@ const Team = () => {
       name: "Kerem Katrancı",
       role: t("Powertrain Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/KEREM.png",
+      image: getImagePath("/KEREM.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/kerem-katranc%C4%B1-33294a247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -300,7 +304,7 @@ const Team = () => {
       name: "Emir Yaşa",
       role: t("Vehicle Dynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/EMİRYAŞA.png",
+      image: getImagePath("/EMIRYASA.png"),
       social: {
         linkedin: " https://www.linkedin.com/in/emir-ya%C5%9Fa-344460343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app,",
         email: "@iztechracing.com",
@@ -311,7 +315,7 @@ const Team = () => {
       name: "Tuna Kurban",
       role: "Vehicle Dynamics Team Member",
       department: t("Mechanical Engineering"),
-      image: "/TUNAKURBAN.png",
+      image: getImagePath("/TUNAKURBAN.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/tuna-kurban-147606286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -322,7 +326,7 @@ const Team = () => {
       name: "Hakan Şendaldal",
       role: t("Vehicle Dynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/HAKAN.png",
+      image: getImagePath("/HAKAN.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/hakan-%C5%9Fendaldal-9b9688251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -333,7 +337,7 @@ const Team = () => {
       name: "Khayal Musayev",
       role: t("Chassis & Ergonomics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/HAYAL.png",
+      image: getImagePath("/HAYAL.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/khayal-musayev-98b769343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -344,7 +348,7 @@ const Team = () => {
       name: "Sinan Efe Bayrak",
       role: t("Aerodynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/SİNANEFE.png",
+      image: getImagePath("/SiNANEFE.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/sinan-efe-bayrak-578419331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -419,12 +423,15 @@ const Team = () => {
                           {/* Görsel */}
                           <div className="relative overflow-hidden">
                             <div className="relative h-64 overflow-hidden">
-                              <PlaceholderImage
-                                  src={member.image.startsWith('http') ? member.image : member.image}
-                                  alt={member.name}
-                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-100"
-                                  width={250}
-                                  height={256}
+                              <img
+                                src={`${member.image}?v=1`}
+                                alt={member.name}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-100"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.onerror = null;
+                                  target.src = '/placeholder-avatar.png';
+                                }}
                               />
                             </div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

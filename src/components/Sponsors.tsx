@@ -14,39 +14,39 @@ const Sponsors = () => {
       tier: t('sponsors.tiers.gold.title', "Gold Sponsors"),
       description: t('sponsors.tiers.gold.description', "Major supporters of our racing endeavors"),
       sponsors: [
-        { name: "Altair", logo: "/ALTIN/altair.png", url: "https://altair.com/" },
-        { name: "ANSYS", logo: "/ALTIN/ANSYS_logo.png", url: "https://www.ansys.com/" },
-        { name: "Bias Mühendislik", logo: "/ALTIN/biasmuhendislik_logo.png", url: "https://bias.com.tr/" },
-        { name: "Hexagon", logo: "/ALTIN/hexagon_logo.png", url: "https://hexagon.com/" },
-        { name: "Numesys", logo: "/ALTIN/numesys-logo-gri-min.png", url: "https://www.numesys.com.tr/" },
-        { name: "Tekyaz", logo: "/ALTIN/TEKYAZ_LOGO_002.png", url: "https://www.tekyaz.com/" },
-        { name: "Prokom", logo: "/ALTIN/Logo_Prokom_W.png", url: "https://prokomcomposite.com/" }
+        { name: "Altair", logo: "/altair.png", url: "https://altair.com/" },
+        { name: "ANSYS", logo: "/ANSYS_logo.png", url: "https://www.ansys.com/" },
+        { name: "Bias Mühendislik", logo: "/biasmuhendislik_logo.png", url: "https://bias.com.tr/" },
+        { name: "Hexagon", logo: "/hexagon_logo.png", url: "https://hexagon.com/" },
+        { name: "Numesys", logo: "/numesys-logo-gri-min.png", url: "https://www.numesys.com.tr/" },
+        { name: "Tekyaz", logo: "/TEKYAZ_LOGO_002.png", url: "https://www.tekyaz.com/" },
+        { name: "Prokom", logo: "/Logo_Prokom_W.png", url: "https://prokomcomposite.com/" }
       ]
     },
     {
       tier: t('sponsors.tiers.silver.title', "Silver Sponsors"),
       description: t('sponsors.tiers.silver.description', "Valued partners in our journey"),
       sponsors: [
-        { name: "Avioni Technologies", logo: "/SILVER/5958e813d0893.png", url: "https://www.avionitech.com/tr/" },
-        { name: "IZELTAŞ", logo: "/SILVER/images.png", url: "https://izeltas.com.tr/" }
+        { name: "Avioni Technologies", logo: "/5958e813d0893.png", url: "https://www.avionitech.com/tr/" },
+        { name: "IZELTAŞ", logo: "/images.png", url: "https://izeltas.com.tr/" }
       ]
     },
     {
       tier: t('sponsors.tiers.bronze.title', "Bronze Sponsors"),
       description: t('sponsors.tiers.bronze.description', "Valued partners in our journey"),
       sponsors: [
-        { name: "İnci Akü", logo: "/BRONZ/incilogo-dosya.png", url: "https://www.inciaku.com/tr/" },
-        { name: "Yakup Yılmaz", logo: "/BRONZ/yakup.png", url: "https://www.yakupyilmazboru.com/" }
+        { name: "İnci Akü", logo: "/incilogo-dosya.png", url: "https://www.inciaku.com/tr/" },
+        { name: "Yakup Yılmaz", logo: "/yakup.png", url: "https://www.yakupyilmazboru.com/" }
       ]
     },
     {
       tier: t('sponsors.tiers.supporters.title', "Supporters"),
       description: t('sponsors.tiers.supporters.description', "Valued partners in our journey"),
       sponsors: [
-        { name: "Urla Solar", logo: "/SUPPORTER/UrlaSolar_Tam_Logo.png", url: "https://urlasolar.com/" },
-        { name: "Bilişim Vadisi", logo: "/SUPPORTER/BV_Logo_H.png", url: "https://bilisimvadisi.com.tr/" },
-        { name: "Teknopark İzmir", logo: "/SUPPORTER/20190828083905.png", url: "https://teknoparkizmir.com.tr/" },
-        { name: "URİKAD", logo: "/SUPPORTER/URiKADW.png", url: "#" }
+        { name: "Urla Solar", logo: "/UrlaSolar_Tam_Logo.png", url: "https://urlasolar.com/" },
+        { name: "Bilişim Vadisi", logo: "/BV_Logo_H.png", url: "https://bilisimvadisi.com.tr/" },
+        { name: "Teknopark İzmir", logo: "/20190828083905.png", url: "https://teknoparkizmir.com.tr/" },
+        { name: "URİKAD", logo: "/URiKADW.png", url: "#" }
       ]
     }
   ];
@@ -230,26 +230,39 @@ const Sponsors = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {packages.map((pkg, index) => (
                   <div
                       key={index}
-                      className={`flex flex-col items-center justify-between bg-[#2a2a2a]/50 border ${
+                      className={`flex flex-col h-full bg-[#2a2a2a]/50 border ${
                           pkg.popular ? 'border-[#a02638]/50' : 'border-[#2a2a2a]'
-                      } rounded-xl p-6 text-center relative`}
+                      } rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-lg hover:shadow-[#a02638]/10`}
                   >
                     {pkg.popular && (
-                        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#a02638] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#a02638] text-white px-4 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
                           {t('sponsors.packages.mostPopular', "Most Popular")}
                         </div>
                     )}
-                    <h4 className="text-xl font-bold text-white mb-4">{pkg.name}</h4>
-                    <div className="text-3xl font-bold text-[#a02638] mb-4">{pkg.price}</div>
-                    <ul className="text-[#cccccc] space-y-2 mb-6">
-                      {pkg.features.map((feature, i) => (
-                          <li key={i}>{feature}</li>
-                      ))}
-                    </ul>
+                    <div className="flex-grow">
+                      <h4 className="text-xl font-bold text-white mb-4">{pkg.name}</h4>
+                      <div className="text-2xl font-bold text-[#a02638] mb-6 min-h-[60px] flex items-center justify-center">
+                        {pkg.price}
+                      </div>
+                      <ul className="text-[#cccccc] space-y-3 mb-6">
+                        {pkg.features.map((feature, i) => (
+                            <li key={i} className="text-sm leading-tight">{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <button 
+                      className={`mt-auto w-full py-2 px-4 rounded-lg font-medium transition-colors ${
+                        pkg.popular 
+                          ? 'bg-[#a02638] text-white hover:bg-[#8a1f32]' 
+                          : 'bg-[#3a3a3a] text-white hover:bg-[#4a4a4a]'
+                      }`}
+                    >
+                      {pkg.buttonText}
+                    </button>
                   </div>
               ))}
             </div>
