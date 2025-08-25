@@ -337,7 +337,7 @@ const Team = () => {
       name: "Khayal Musayev",
       role: t("Chassis & Ergonomics Team Member"),
       department: t("Mechanical Engineering"),
-      image: getImagePath("/HAYAL.png"),
+      image: getImagePath("/KHAYAL.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/khayal-musayev-98b769343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -356,10 +356,10 @@ const Team = () => {
       }
     },
     {
-      name: "Kuzey",
+      name: "Kuzey Demirer",
       role: t("Business Development"),
       department: t("Industrial Design"),
-      image: "/insan.png",
+      image: getImagePath("/KUZEY.png"),
       social: {
         linkedin: "https://tr.linkedin.com/in/kuzey-demirer-76577a260",
         email: "@iztechracing.com",
@@ -420,20 +420,16 @@ const Team = () => {
                             key={index}
                             className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 transition-all duration-300 hover:scale-105 group"
                         >
-                          {/* Görsel */}
-                          <div className="relative overflow-hidden">
-                            <div className="relative h-64 overflow-hidden">
-                              <img
-                                src={`${member.image}?v=1`}
-                                alt={member.name}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-100"
-                                onError={(e) => {
-                                  const target = e.target as HTMLImageElement;
-                                  target.onerror = null;
-                                  target.src = '/placeholder-avatar.png';
-                                }}
-                              />
-                            </div>
+                          {/* Resim */}
+                          <div className="relative h-64 overflow-hidden">
+                            <img
+                              src={member.image}
+                              alt={`${member.name} - ${member.role}`}
+                              className="w-full h-full object-cover"
+                              onError={(e: React.SyntheticEvent<HTMLImageElement, Event> & { target: { src: string } }) => {
+                                e.target.src = '/insan.png';
+                              }}
+                            />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                           </div>
 

@@ -2,21 +2,25 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+const getImagePath = (filename: string) => {
+  return `${filename}?v=1`;
+};
+
 const photos = [
-    "/_MG_0416.JPG",
-    "/_MG_0426.JPG",
-    "/_MG_0495.JPG",
-    "/_MG_0651.JPG",
-    "/_MG_0803.JPG",
-    "/_MG_2223.JPG",
-    "/_MG_2409.JPG",
-    "/_MG_2847.JPG",
-    "/_MG_3107.JPG",
-    "/_MG_5113.JPG",
-    "/_MG_5236.JPG",
-    "/_MG_5275.JPG",
-    "/IMG-20250511-WA0031.jpg",
-    "/IMG_5353.JPG"
+    getImagePath("/_MG_0416.JPG"),
+    getImagePath("/_MG_0426.JPG"),
+    getImagePath("/_MG_0495.JPG"),
+    getImagePath("/_MG_0651.JPG"),
+    getImagePath("/_MG_0803.JPG"),
+    getImagePath("/_MG_2223.JPG"),
+    getImagePath("/_MG_2409.JPG"),
+    getImagePath("/_MG_2847.JPG"),
+    getImagePath("/_MG_3107.JPG"),
+    getImagePath("/_MG_5113.JPG"),
+    getImagePath("/_MG_5236.JPG"),
+    getImagePath("/_MG_5275.JPG"),
+    getImagePath("/IMG-20250511-WA0031.jpg"),
+    getImagePath("/IMG_5353.JPG")
 ];
 
 const Gallery = () => {
@@ -54,7 +58,7 @@ const Gallery = () => {
                             onError={(e) => {
                                 console.error('Failed to load image:', photos[currentIndex]);
                                 const target = e.target as HTMLImageElement;
-                                target.src = '/placeholder-gallery.jpg';
+                                target.src = '/insan.png';
                             }}
                             loading="eager"
                             decoding="async"
