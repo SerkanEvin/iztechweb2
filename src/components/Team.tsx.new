@@ -1,0 +1,141 @@
+import React from 'react';
+import { Linkedin, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+interface TeamMember {
+  name: string;
+  role: string;
+  department: string;
+  image: string;
+  social: {
+    linkedin: string;
+    email: string;
+    github?: string;
+    instagram?: string;
+  };
+}
+
+const Team = () => {
+  const { t } = useTranslation();
+
+  // Function to get image path with exact filename
+  const getImagePath = (filename: string) => {
+    const cleanName = filename.replace(/^\//, '').replace(/\.(png|jpg|jpeg)$/i, '').toUpperCase();
+    return `/${cleanName}.png`;
+  };
+
+  // Team members data
+  const teamMembers: TeamMember[] = [
+    {
+      name: "Hüseyin Poyraz Kocamış",
+      role: t("Team Captain"),
+      department: t("Civil Engineering"),
+      image: getImagePath("/poyraz.png"),
+      social: {
+        linkedin: "https://www.linkedin.com/in/poyrazkocamis",
+        email: "poyraz@iztechracing.com"
+      }
+    },
+    // Add other team members here
+  ];
+
+  // Categorize team members
+  const categories = {
+    "Team Captain": teamMembers.filter(member => member.role === t("Team Captain")),
+    "Electronics & Software": teamMembers.filter(member => member.department === t("Electronics & Software")),
+    "Vehicle Dynamics": teamMembers.filter(member => member.department === t("Vehicle Dynamics")),
+    "Chassis & Ergonomics": teamMembers.filter(member => member.department === t("Chassis & Ergonomics")),
+    "Powertrain": teamMembers.filter(member => member.department === t("Powertrain")),
+    "Aerodynamics": teamMembers.filter(member => member.department === t("Aerodynamics")),
+    "Organization": teamMembers.filter(member => member.department === t("Organization")),
+    "Business Development": teamMembers.filter(member => member.department === t("Business Development")),
+  };
+
+  return (
+    <section id="team" className="py-20 bg-[#0f0f0f] relative">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            {t('team.title')}
+          </h2>
+          <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
+            {t('team.description')}
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-16">
+          {Object.entries(categories).map(([category, members]) => 
+            members.length > 0 && (
+              <div key={category} className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6">
+                <h3 className="text-2xl font-semibold text-white mb-6 text-center">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap justify-center gap-6">
+                  {members.map((member, index) => (
+                    <div key={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 w-72">
+                      <div className="relative h-64 w-full bg-[#1a1a1a] flex items-center justify-center">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                          onLoad={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.opacity = '1';
+                          }}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            if (target.src !== '/insan.png') {
+                              target.src = '/insan.png';
+                            }
+                          }}
+                          style={{
+                            opacity: 0,
+                            transition: 'opacity 0.3s ease-in-out',
+                            backgroundColor: '#1a1a1a',
+                            objectFit: 'cover'
+                          }}
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 text-white text-sm p-2 opacity-0 hover:opacity-100 transition-opacity">
+                          {member.image}
+                        </div>
+                      </div>
+                      <div className="p-4 text-center">
+                        <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                        <p className="text-[#a02638] font-semibold">
+                          {t(`roles.${member.role.toLowerCase().replace(/\s+/g, '_')}`, { defaultValue: member.role })}
+                        </p>
+                        <p className="text-[#cccccc] text-sm">
+                          {t(`departments.${member.department.toLowerCase().replace(/\s+/g, '_').replace(/&/g, 'and')}`, { defaultValue: member.department })}
+                        </p>
+                        <div className="flex justify-center gap-3 mt-3">
+                          <a 
+                            href={member.social.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-gray-400 hover:text-white transition-colors"
+                            aria-label={`${member.name}'s LinkedIn`}
+                          >
+                            <Linkedin size={20} />
+                          </a>
+                          <a 
+                            href={`mailto:${member.social.email}`}
+                            className="text-gray-400 hover:text-white transition-colors"
+                            aria-label={`Email ${member.name}`}
+                          >
+                            <Mail size={20} />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Team;

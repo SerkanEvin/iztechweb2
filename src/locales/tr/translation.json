@@ -23,10 +23,6 @@
     "members": "Takım Üyeleri",
     "description": "Tutkulu mühendisler, tasarımcılar ve yenilikçilerden oluşan ekibimiz, öğrenci motor sporlarının ve mühendislik mükemmelliğinin sınırlarını zorlamak için birlikte çalışıyor."
   },
-  "vehicles": {
-    "title": "Araçlarımız",
-    "description": "Yüksek performanslı araçlarımıza göz atın"
-  },
   "sponsors": {
     "title": "Sponsorlarımız",
     "description": "Sponsorlarımızın desteği için minnettarız"
@@ -40,14 +36,14 @@
   },
   "roles": {
     "team_captain": "Takım Kaptanı",
-    "chassis_&_ergonomics_team_leader": "Şasi & Ergonomi Takım Lideri",
-    "business_development": "Statik Takım Kaptanı",
+    "chassis_ergonomics_team_leader": "Şasi ve Ergonomi Takım Lideri",
+    "business_team_leader": "İş Geliştirme Takım Lideri",
     "powertrain_team_leader": "Güç Aktarımı Takım Lideri",
-    "electronics_&_software_team_leader": "Elektronik & Yazılım Takım Lideri",
-    "electronics_&_software_team_member": "Elektronik & Yazılım Takım Üyesi",
+    "electronics_software_team_leader": "Elektronik ve Yazılım Takım Lideri",
+    "electronics_software_team_member": "Elektronik ve Yazılım Takım Üyesi",
     "vehicle_dynamics_team_member": "Araç Dinamiği Takım Üyesi",
     "powertrain_team_member": "Güç Aktarımı Takım Üyesi",
-    "chassis_&_ergonomics_team_member": "Şasi & Ergonomi Takım Üyesi",
+    "chassis_ergonomics_team_member": "Şasi ve Ergonomi Takım Üyesi",
     "aerodynamics_team_member": "Aerodinamik Takım Üyesi",
     "organization_team_member": "Organizasyon Takım Üyesi",
     "vehicle_dynamics_team_leader": "Araç Dinamiği Takım Lideri",
@@ -94,7 +90,7 @@
       "comingSoon": "Çok yakında..."
     },
     "descriptions": {
-      "freakmobile": "Dehşetsel",
+      "freakmobile": "Yüksek Performanslı Yarış Aracı",
       "comingSoon": "Çok Yakında..."
     }
   },
