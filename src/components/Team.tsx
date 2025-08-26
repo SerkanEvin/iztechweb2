@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, Github, Instagram } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+// Types
 type SocialLinks = {
   linkedin: string;
   email: string;
@@ -19,17 +20,101 @@ interface TeamMember {
 
 type TeamCategory = keyof typeof TEAM_CATEGORIES;
 
+// Constants
 const TEAM_CATEGORIES = {
   'roles.team_captain': 'Team Captain',
   'roles.electronics_software_team_leader': 'Electronics & Software Team',
+  'roles.electronics_software_team_member': 'Electronics & Software Team',
   'roles.vehicle_dynamics_team_leader': 'Vehicle Dynamics Team',
+  'roles.vehicle_dynamics_team_member': 'Vehicle Dynamics Team',
   'roles.chassis_ergonomics_team_leader': 'Chassis & Ergonomics Team',
+  'roles.chassis_ergonomics_team_member': 'Chassis & Ergonomics Team',
   'roles.powertrain_team_leader': 'Powertrain Team',
+  'roles.powertrain_team_member': 'Powertrain Team',
   'roles.aerodynamics_team_leader': 'Aerodynamics Team',
+  'roles.aerodynamics_team_member': 'Aerodynamics Team',
   'roles.organization_team_leader': 'Organization Team',
+  'roles.organization_team_member': 'Organization Team',
   'roles.business_team_leader': 'Business Development',
-  'others': 'Other Team Members'
+  'roles.business_team_member': 'Business Development'
 } as const;
+
+// Helper Components
+const SocialIcons: React.FC<{ social: SocialLinks }> = ({ social }) => (
+  <div className="flex justify-center space-x-4 mt-4">
+    <a 
+      href={social.linkedin} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="text-gray-400 hover:text-white transition-colors"
+      aria-label="LinkedIn"
+    >
+      <Linkedin size={20} />
+    </a>
+    <a 
+      href={`mailto:${social.email}`} 
+      className="text-gray-400 hover:text-white transition-colors"
+      aria-label="Email"
+    >
+      <Mail size={20} />
+    </a>
+    {social.github && (
+      <a 
+        href={social.github} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-white transition-colors"
+        aria-label="GitHub"
+      >
+        <Github size={20} />
+      </a>
+    )}
+    {social.instagram && (
+      <a 
+        href={social.instagram} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-white transition-colors"
+        aria-label="Instagram"
+      >
+        <Instagram size={20} />
+      </a>
+    )}
+  </div>
+);
+
+const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => (
+  <div className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div className="relative h-64 w-full bg-gray-800">
+      <img
+        src={member.image}
+        alt={member.name}
+        className="w-full h-full object-cover"
+        loading="lazy"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          if (target.src !== '/insan.png') {
+            target.src = '/insan.png';
+          }
+        }}
+      />
+      <div className="absolute inset-0 bg-black/10 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <span className="bg-black/80 text-white px-3 py-1 rounded-full text-sm">
+          {member.role}
+        </span>
+      </div>
+    </div>
+    <div className="p-4 text-center">
+      <h4 className="text-xl font-semibold text-white mb-1">
+        {member.name}
+      </h4>
+      <p className="text-gray-400 text-sm mb-3">
+        {member.department}
+      </p>
+      <SocialIcons social={member.social} />
+    </div>
+  </div>
+);
 
 const Team: React.FC = () => {
   const { t } = useTranslation();
@@ -43,7 +128,7 @@ const Team: React.FC = () => {
       return '/insan.png';
     }
   };
-  
+
   const teamMembers: TeamMember[] = [
     {
       name: "Hüseyin Poyraz Kocamış",
@@ -349,25 +434,76 @@ const Team: React.FC = () => {
       social: {
         linkedin: "https://tr.linkedin.com/in/kuzey-demirer-76577a260",
         email: "@iztechracing.com",
-        github: "#"
-      }
-    }
+      },
+    },
   ];
 
+  // Categorize team members by their roles
   const categorizedMembers = useMemo(() => {
-    return teamMembers.reduce((acc, member) => {
-      // Find the category key that matches the member's role
-      const categoryKey = Object.keys(TEAM_CATEGORIES).find(
-        key => member.role === t(key)
-      ) || 'others';
+    const categories = new Map<TeamCategory, TeamMember[]>();
+    
+    teamMembers.forEach(member => {
+      // Find the best matching category for the member's role
+      let categoryKey: TeamCategory | null = null;
       
-      if (!acc[categoryKey as TeamCategory]) {
-        acc[categoryKey as TeamCategory] = [];
+      // First try exact match
+      for (const [key] of Object.entries(TEAM_CATEGORIES)) {
+        if (member.role === t(key)) {
+          categoryKey = key as TeamCategory;
+          break;
+        }
       }
-      acc[categoryKey as TeamCategory].push(member);
-      return acc;
-    }, {} as Record<TeamCategory, TeamMember[]>);
+      
+      // If no exact match, try partial match
+      if (!categoryKey) {
+        for (const [key] of Object.entries(TEAM_CATEGORIES)) {
+          const teamName = t(key).split(' ')[0];
+          if (member.role.includes(teamName)) {
+            categoryKey = key as TeamCategory;
+            break;
+          }
+        }
+      }
+      
+      // Default to team_captain if no match found (shouldn't happen with our data)
+      if (!categoryKey) {
+        console.warn(`No category found for role: ${member.role}`);
+        categoryKey = 'roles.team_captain';
+      }
+      
+      // Add member to the category
+      if (!categories.has(categoryKey)) {
+        categories.set(categoryKey, []);
+      }
+      categories.get(categoryKey)?.push(member);
+    });
+    
+    return categories;
   }, [teamMembers, t]);
+
+  // Sort categories and team members
+  const sortedCategories = useMemo(() => {
+    return Array.from(categorizedMembers.entries())
+      .map(([category, members]) => {
+        // Sort members: leaders first, then by name
+        const sortedMembers = [...members].sort((a, b) => {
+          const aIsLeader = a.role.includes('Leader') || a.role.includes('Captain');
+          const bIsLeader = b.role.includes('Leader') || b.role.includes('Captain');
+          
+          if (aIsLeader && !bIsLeader) return -1;
+          if (!aIsLeader && bIsLeader) return 1;
+          return a.name.localeCompare(b.name);
+        });
+        
+        return { category, members: sortedMembers };
+      })
+      // Sort categories by the order in TEAM_CATEGORIES
+      .sort((a, b) => {
+        const orderA = Object.keys(TEAM_CATEGORIES).indexOf(a.category);
+        const orderB = Object.keys(TEAM_CATEGORIES).indexOf(b.category);
+        return orderA - orderB;
+      });
+  }, [categorizedMembers]);
 
   return (
     <section id="team" className="py-20 bg-[#0f0f0f] relative">
@@ -381,62 +517,18 @@ const Team: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-16">
-          {Object.entries(categorizedMembers).map(([category, members]) => (
-            <div key={category} className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6">
-              <h3 className="text-2xl font-semibold text-white mb-6 text-center">
-                {category}
+        <div className="space-y-16">
+          {sortedCategories.map(({ category, members }) => (
+            <div key={category} className="w-full max-w-6xl mx-auto">
+              <h3 className="text-2xl font-semibold text-white mb-8 text-center">
+                {t(TEAM_CATEGORIES[category as TeamCategory])}
               </h3>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {members.map((member, index) => (
-                  <div key={index} className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 w-72">
-                    <div className="relative h-64 w-full bg-[#1a1a1a] flex items-center justify-center">
-                      <div className="relative w-full h-full">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover transition-opacity duration-300"
-                          loading="lazy"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            if (target.src !== '/insan.png') {
-                              target.src = '/insan.png';
-                            }
-                          }}
-                          onLoad={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.classList.add('opacity-100');
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-black/10 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <div className="bg-black/70 text-white px-3 py-1 rounded-full text-sm">
-                            {member.role}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="p-4 text-center">
-                      <h3 className="text-lg font-bold text-white">{member.name}</h3>
-                      <p className="text-[#a02638] font-semibold">{member.role}</p>
-                      <p className="text-[#cccccc] text-sm">{member.department}</p>
-                      <div className="flex justify-center gap-3 mt-3">
-                        <a 
-                          href={member.social.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-white transition-colors"
-                        >
-                          <Linkedin className="w-5 h-5" />
-                        </a>
-                        <a 
-                          href={`mailto:${member.social.email}`}
-                          className="text-gray-400 hover:text-white transition-colors"
-                        >
-                          <Mail className="w-5 h-5" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                  <TeamMemberCard 
+                    key={`${member.name}-${index}`} 
+                    member={member} 
+                  />
                 ))}
               </div>
             </div>
