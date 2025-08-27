@@ -113,7 +113,7 @@ const Team = () => {
       name: "Ödül Yarkın Baran",
       role: t("Organization Team Leader"),
       department: t("Photonics Department"),
-      image: "/ODULYARKINBARAN.png",
+      image: "/YARKIN.png",
       social: {
         linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
         email: "@iztechracing.com",
@@ -223,7 +223,7 @@ const Team = () => {
       name: "Yağız Yalçın",
       role: t("Powertrain Team Member"),
       department: t("Energy Systems Engineering"),
-      image: "/YAGIZYALCIN.png",
+      image: "/YAGIZ.png",
       social: {
         linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "alex@iztechracing.com",
@@ -267,7 +267,7 @@ const Team = () => {
       name: "Tuğçe Özcan",
       role: t("Chassis & Ergonomics Team Member"),
       department: t("Materials Engineering"),
-      image: "/TUGCE.png",
+      image: "/TUĞÇE.png",
       social: {
         linkedin: "https://www.linkedin.com/in/tu%C4%9F%C3%A7e-%C3%B6zcan-19738133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
