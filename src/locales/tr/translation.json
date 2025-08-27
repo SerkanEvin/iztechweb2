@@ -17,7 +17,15 @@
   "team": {
     "title": "Ekibimiz",
     "members": "Takım Üyeleri",
-    "description": "Tutkulu mühendisler, tasarımcılar ve yenilikçilerden oluşan ekibimiz, öğrenci motor sporlarının ve mühendislik mükemmelliğinin sınırlarını zorlamak için birlikte çalışıyor."
+    "description": "Tutkulu mühendisler, tasarımcılar ve yenilikçilerden oluşan ekibimiz, öğrenci motor sporlarının ve mühendislik mükemmelliğinin sınırlarını zorlamak için birlikte çalışıyor.",
+    "captain": "Takım Kaptanı",
+    "electronics_software_team": "Elektronik ve Yazılım Ekibi",
+    "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
+    "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
+    "powertrain_team": "Güç Aktarım Ekibi",
+    "aerodynamics_team": "Aerodinamik Ekibi",
+    "organization_team": "Organizasyon Ekibi",
+    "business_development_team": "İş Geliştirme Ekibi"
   },
   "contact": {
     "title": "İletişim",

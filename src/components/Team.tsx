@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Linkedin, Mail, Github, Instagram } from 'lucide-react';
+import { Linkedin, Mail, Instagram } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 // Types
@@ -32,14 +32,14 @@ const TEAM_ROLES = {
 type TeamRole = (typeof TEAM_ROLES)[keyof typeof TEAM_ROLES];
 
 type TeamCategory = 
-  | 'team_categories.team_captain'
-  | 'team_categories.electronics_software_team'
-  | 'team_categories.vehicle_dynamics_team'
-  | 'team_categories.chassis_ergonomics_team'
-  | 'team_categories.powertrain_team'
-  | 'team_categories.aerodynamics_team'
-  | 'team_categories.organization_team'
-  | 'team_categories.business_development_team';
+  | 'team.captain'
+  | 'team.electronics_software_team'
+  | 'team.vehicle_dynamics_team'
+  | 'team.chassis_ergonomics_team'
+  | 'team.powertrain_team'
+  | 'team.aerodynamics_team'
+  | 'team.organization_team'
+  | 'team.business_development_team';
 
 interface TeamMember {
   name: string;
@@ -52,21 +52,21 @@ interface TeamMember {
 
 // Map team roles to their display categories
 const TEAM_CATEGORIES: Record<TeamRole, TeamCategory> = {
-  'team_caption': 'team_categories.team_captain',
-  'electronics_software_team_leader': 'team_categories.electronics_software_team',
-  'electronics_software_team_member': 'team_categories.electronics_software_team',
-  'vehicle_dynamics_team_leader': 'team_categories.vehicle_dynamics_team',
-  'vehicle_dynamics_team_member': 'team_categories.vehicle_dynamics_team',
-  'chassis_ergonomics_team_leader': 'team_categories.chassis_ergonomics_team',
-  'chassis_ergonomics_team_member': 'team_categories.chassis_ergonomics_team',
-  'powertrain_team_leader': 'team_categories.powertrain_team',
-  'powertrain_team_member': 'team_categories.powertrain_team',
-  'aerodynamics_team_leader': 'team_categories.aerodynamics_team',
-  'aerodynamics_team_member': 'team_categories.aerodynamics_team',
-  'organization_team_leader': 'team_categories.organization_team',
-  'organization_team_member': 'team_categories.organization_team',
-  'business_development_leader': 'team_categories.business_development_team',
-  'business_development_member': 'team_categories.business_development_team',
+  'team_caption': 'team.captain',
+  'electronics_software_team_leader': 'team.electronics_software_team',
+  'electronics_software_team_member': 'team.electronics_software_team',
+  'vehicle_dynamics_team_leader': 'team.vehicle_dynamics_team',
+  'vehicle_dynamics_team_member': 'team.vehicle_dynamics_team',
+  'chassis_ergonomics_team_leader': 'team.chassis_ergonomics_team',
+  'chassis_ergonomics_team_member': 'team.chassis_ergonomics_team',
+  'powertrain_team_leader': 'team.powertrain_team',
+  'powertrain_team_member': 'team.powertrain_team',
+  'aerodynamics_team_leader': 'team.aerodynamics_team',
+  'aerodynamics_team_member': 'team.aerodynamics_team',
+  'organization_team_leader': 'team.organization_team',
+  'organization_team_member': 'team.organization_team',
+  'business_development_leader': 'team.business_development_team',
+  'business_development_member': 'team.business_development_team',
 } as const;
 
 // Helper Components
@@ -88,17 +88,6 @@ const SocialIcons: React.FC<{ social: SocialLinks }> = ({ social }) => (
     >
       <Mail size={20} />
     </a>
-    {social.github && (
-      <a 
-        href={social.github} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:text-white transition-colors"
-        aria-label="GitHub"
-      >
-        <Github size={20} />
-      </a>
-    )}
     {social.instagram && (
       <a 
         href={social.instagram} 
@@ -180,10 +169,12 @@ const Team: React.FC = (): JSX.Element => {
 
   // Helper function to get image path with fallback
   const getImagePath = (filename: string): string => {
-    const basePath = '/photos';
-    const name = filename.replace(/^\//, '').replace(/\.\w+$/, '');
-    const ext = filename.split('.').pop() || 'png';
-    return `${basePath}/${name.toUpperCase()}.${ext}`;
+    // Remove leading slash and extension, convert to uppercase
+    const name = filename.replace(/^\//, '').replace(/\.\w+$/, '').toUpperCase();
+    // Check if the file has an extension, if not default to .png
+    const hasExtension = /\.\w+$/.test(filename);
+    const ext = hasExtension ? filename.split('.').pop() : 'png';
+    return `/${name}.${ext}`;
   };
 
   // Team member data with proper typing
@@ -192,7 +183,7 @@ const Team: React.FC = (): JSX.Element => {
       name: "Hüseyin Poyraz Kocamış",
       role: 'team_caption',
       department: t('departments.civil_engineering'),
-      image: getImagePath("/POYRAZ.png"),
+      image: getImagePath("POYRAZ"),
       social: {
         linkedin: "https://www.linkedin.com/in/poyrazkocamis?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "poyrazkocamis@iztechracing.com",
@@ -466,7 +457,7 @@ const Team: React.FC = (): JSX.Element => {
       name: "Khayal Musayev",
       role: 'chassis_ergonomics_team_member',
       department: t('departments.mechanical_engineering'),
-      image: getImagePath("/KHAYAL.png"),
+      image: getImagePath("KHAYAL"),
       social: {
         linkedin: "https://www.linkedin.com/in/khayal-musayev-98b769343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -477,7 +468,7 @@ const Team: React.FC = (): JSX.Element => {
       name: "Sinan Efe Bayrak",
       role: 'aerodynamics_team_member',
       department: t('departments.mechanical_engineering'),
-      image: getImagePath("/SINAN.png"),
+      image: getImagePath("SiNANEFE"),
       social: {
         linkedin: "#",
         email: "@iztechracing.com"
@@ -509,14 +500,14 @@ const Team: React.FC = (): JSX.Element => {
 
     // Sort categories and members within each category
     const categoryOrder: TeamCategory[] = [
-      'team_categories.team_captain',
-      'team_categories.electronics_software_team',
-      'team_categories.vehicle_dynamics_team',
-      'team_categories.chassis_ergonomics_team',
-      'team_categories.powertrain_team',
-      'team_categories.aerodynamics_team',
-      'team_categories.organization_team',
-      'team_categories.business_development_team'
+      'team.captain',
+      'team.electronics_software_team',
+      'team.vehicle_dynamics_team',
+      'team.chassis_ergonomics_team',
+      'team.powertrain_team',
+      'team.aerodynamics_team',
+      'team.organization_team',
+      'team.business_development_team'
     ];
 
     const sorted = Array.from(categories.entries())
@@ -537,7 +528,7 @@ const Team: React.FC = (): JSX.Element => {
   }, [teamMembers, t]);
 
   return (
-    <section className="py-16 bg-gray-900">
+    <section id="team" className="py-16 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">
@@ -552,7 +543,7 @@ const Team: React.FC = (): JSX.Element => {
           {sortedCategories.map(({ category, members }) => (
             <div key={category} className="w-full max-w-6xl mx-auto">
               <h3 className="text-2xl font-semibold text-white mb-8 text-center">
-                {t(category)}
+                {t(`team.${category.split('.')[1]}`)}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {members.map((member) => (
