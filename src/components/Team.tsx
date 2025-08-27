@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Linkedin, Mail, Instagram } from 'lucide-react';
+import { Linkedin, Mail, Github, Instagram } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 // Types
@@ -10,62 +10,33 @@ type SocialLinks = {
   instagram?: string;
 };
 
-// Team role constants
-const TEAM_ROLES = {
-  TEAM_CAPTAIN: 'team_caption',
-  ELECTRONICS_SOFTWARE_LEADER: 'electronics_software_team_leader',
-  ELECTRONICS_SOFTWARE_MEMBER: 'electronics_software_team_member',
-  VEHICLE_DYNAMICS_LEADER: 'vehicle_dynamics_team_leader',
-  VEHICLE_DYNAMICS_MEMBER: 'vehicle_dynamics_team_member',
-  CHASSIS_ERGONOMICS_LEADER: 'chassis_ergonomics_team_leader',
-  CHASSIS_ERGONOMICS_MEMBER: 'chassis_ergonomics_team_member',
-  POWERTRAIN_LEADER: 'powertrain_team_leader',
-  POWERTRAIN_MEMBER: 'powertrain_team_member',
-  AERODYNAMICS_LEADER: 'aerodynamics_team_leader',
-  AERODYNAMICS_MEMBER: 'aerodynamics_team_member',
-  ORGANIZATION_LEADER: 'organization_team_leader',
-  ORGANIZATION_MEMBER: 'organization_team_member',
-  BUSINESS_DEVELOPMENT_LEADER: 'business_development_leader',
-  BUSINESS_DEVELOPMENT_MEMBER: 'business_development_member',
-} as const;
-
-type TeamRole = (typeof TEAM_ROLES)[keyof typeof TEAM_ROLES];
-
-type TeamCategory = 
-  | 'team.captain'
-  | 'team.electronics_software_team'
-  | 'team.vehicle_dynamics_team'
-  | 'team.chassis_ergonomics_team'
-  | 'team.powertrain_team'
-  | 'team.aerodynamics_team'
-  | 'team.organization_team'
-  | 'team.business_development_team';
-
 interface TeamMember {
   name: string;
-  role: TeamRole;
+  role: string;
   department: string;
   image: string;
   social: SocialLinks;
 }
 
+type TeamCategory = keyof typeof TEAM_CATEGORIES;
 
-// Map team roles to their display categories
-const TEAM_CATEGORIES: Record<TeamRole, TeamCategory> = {
-  'team_caption': 'team.captain',
-  'electronics_software_team_leader': 'team.electronics_software_team',
-  'vehicle_dynamics_team_leader': 'team.vehicle_dynamics_team',
-  'vehicle_dynamics_team_member': 'team.vehicle_dynamics_team',
-  'chassis_ergonomics_team_leader': 'team.chassis_ergonomics_team',
-  'chassis_ergonomics_team_member': 'team.chassis_ergonomics_team',
-  'powertrain_team_leader': 'team.powertrain_team',
-  'powertrain_team_member': 'team.powertrain_team',
-  'aerodynamics_team_leader': 'team.aerodynamics_team',
-  'aerodynamics_team_member': 'team.aerodynamics_team',
-  'organization_team_leader': 'team.organization_team',
-  'organization_team_member': 'team.organization_team',
-  'business_development_leader': 'team.business_development_team',
-  'business_development_member': 'team.business_development_team',
+// Constants
+const TEAM_CATEGORIES = {
+  'roles.team_captain': 'team_categories.team_captain',
+  'roles.electronics_software_team_leader': 'team_categories.electronics_software_team',
+  'roles.electronics_software_team_member': 'team_categories.electronics_software_team',
+  'roles.vehicle_dynamics_team_leader': 'team_categories.vehicle_dynamics_team',
+  'roles.vehicle_dynamics_team_member': 'team_categories.vehicle_dynamics_team',
+  'roles.chassis_ergonomics_team_leader': 'team_categories.chassis_ergonomics_team',
+  'roles.chassis_ergonomics_team_member': 'team_categories.chassis_ergonomics_team',
+  'roles.powertrain_team_leader': 'team_categories.powertrain_team',
+  'roles.powertrain_team_member': 'team_categories.powertrain_team',
+  'roles.aerodynamics_team_leader': 'team_categories.aerodynamics_team',
+  'roles.aerodynamics_team_member': 'team_categories.aerodynamics_team',
+  'roles.organization_team_leader': 'team_categories.organization_team',
+  'roles.organization_team_member': 'team_categories.organization_team',
+  'roles.business_team_leader': 'team_categories.business_development',
+  'roles.business_team_member': 'team_categories.business_development'
 } as const;
 
 // Helper Components
@@ -87,6 +58,17 @@ const SocialIcons: React.FC<{ social: SocialLinks }> = ({ social }) => (
     >
       <Mail size={20} />
     </a>
+    {social.github && (
+      <a 
+        href={social.github} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-white transition-colors"
+        aria-label="GitHub"
+      >
+        <Github size={20} />
+      </a>
+    )}
     {social.instagram && (
       <a 
         href={social.instagram} 
@@ -101,14 +83,7 @@ const SocialIcons: React.FC<{ social: SocialLinks }> = ({ social }) => (
   </div>
 );
 
-// Helper function to safely get role from translation
-const getRole = (t: (key: string) => string, roleKey: TeamRole): string => {
-  const roleTranslationKey = `roles.${roleKey}`;
-  const translation = t(roleTranslationKey);
-  return translation === roleTranslationKey ? roleKey : translation;
-};
-
-const TeamMemberCard: React.FC<{ member: TeamMember; t: (key: string) => string }> = ({ member, t }) => (
+const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => (
   <div className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
     <div className="relative h-64 w-full bg-black">
       <img
@@ -116,16 +91,21 @@ const TeamMemberCard: React.FC<{ member: TeamMember; t: (key: string) => string 
         alt={member.name}
         className="w-full h-full object-cover"
         loading="lazy"
+        decoding="async"
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          imageRendering: 'auto' as const
+        }}
         onError={(e) => {
           const target = e.target as HTMLImageElement;
-          if (target.src !== '/insan.png') {
-            target.src = '/insan.png';
-          }
+          target.src = '/insan.png';
         }}
       />
       <div className="absolute inset-0 bg-black/10 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <span className="bg-black/80 text-white px-3 py-1 rounded-full text-sm">
-          {getRole(t, member.role)}
+          {member.role}
         </span>
       </div>
     </div>
@@ -141,79 +121,40 @@ const TeamMemberCard: React.FC<{ member: TeamMember; t: (key: string) => string 
   </div>
 );
 
-type TeamMemberInput = Omit<TeamMember, 'role'> & { 
-  role: string;
-};
-
-// Define the Team component
-const Team: React.FC = (): JSX.Element => {
+const Team: React.FC = () => {
   const { t } = useTranslation();
-  
-  // Process team members with type safety
-  const processTeamMember = (member: TeamMemberInput): TeamMember | null => {
-    // If role is a translated string, find the corresponding role key
-    let roleKey = member.role;
-    if (!Object.values(TEAM_ROLES).includes(member.role as TeamRole)) {
-      // Try to find the role key that matches the translated role
-      const foundRole = Object.entries({
-        team_caption: t('roles.team_captain'),
-        electronics_software_team_leader: t('roles.electronics_software_team_leader'),
-        electronics_software_team_member: t('roles.electronics_software_team_member'),
-        vehicle_dynamics_team_leader: t('roles.vehicle_dynamics_team_leader'),
-        vehicle_dynamics_team_member: t('roles.vehicle_dynamics_team_member'),
-        chassis_ergonomics_team_leader: t('roles.chassis_ergonomics_team_leader'),
-        chassis_ergonomics_team_member: t('roles.chassis_ergonomics_team_member'),
-        powertrain_team_leader: t('roles.powertrain_team_leader'),
-        powertrain_team_member: t('roles.powertrain_team_member'),
-        aerodynamics_team_leader: t('roles.aerodynamics_team_leader'),
-        aerodynamics_team_member: t('roles.aerodynamics_team_member'),
-        organization_team_leader: t('roles.organization_team_leader'),
-        organization_team_member: t('roles.organization_team_member'),
-        business_development_leader: t('roles.business_development_leader'),
-        business_development_member: t('roles.business_development_member')
-      }).find(([_, value]) => value === member.role);
-      
-      if (foundRole) {
-        roleKey = foundRole[0];
-      } else {
-        console.warn(`Invalid role: ${member.role}`);
-        return null;
+
+  const getImagePath = (filename: string, quality: 'high' | 'low' = 'high'): string => {
+    try {
+      const cleanName = filename.replace(/^[\/\\]|\.[^/.]+$/g, '').toUpperCase();
+      // For low quality, we can use a smaller version or apply quality reduction
+      if (quality === 'low') {
+        // If you have a separate low-quality version, you can use it like:
+        // return `/low-quality/${cleanName}.jpg`;
+        // For now, we'll just return the same image but you can optimize this later
+        return `/${cleanName}.png`;
       }
+      return `/${cleanName}.png`;
+    } catch (error) {
+      console.error('Error processing image path:', error);
+      return '/insan.png';
     }
-    
-    return {
-      ...member,
-      role: roleKey as TeamRole
-    };
   };
 
-  // Helper function to get image path with fallback
-  const getImagePath = (filename: string): string => {
-    // Remove leading slash
-    const cleanName = filename.replace(/^\//, '');
-    // If filename already has an extension, use it as is
-    if (cleanName.includes('.')) {
-      return `/${cleanName}`;
-    }
-    // Otherwise, default to .png
-    return `/${cleanName}.png`;
-  };
-
-  // Team member data with proper typing
-  const teamMembers: TeamMemberInput[] = [
+  const teamMembers: TeamMember[] = [
     {
       name: "Hüseyin Poyraz Kocamış",
-      role: 'team_caption',
+      role: t('roles.team_captain'),
       department: t('departments.civil_engineering'),
-      image: getImagePath("POYRAZ"),
+      image: getImagePath("/POYRAZ.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/poyrazkocamis?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "poyrazkocamis@iztechracing.com",
+        email: "@iztechracing.com",
       }
     },
     {
       name: "Serkan Doğan Evin",
-      role: 'electronics_software_team_leader',
+      role: t('roles.electronics_software_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/SERKAN.png"),
       social: {
@@ -224,7 +165,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Emre Canbaz",
-      role: 'vehicle_dynamics_team_leader',
+      role: t('roles.vehicle_dynamics_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/EMRE.png"),
       social: {
@@ -235,7 +176,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Onur Şen",
-      role: 'powertrain_team_leader',
+      role: t('roles.powertrain_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/ONUR.png"),
       social: {
@@ -246,7 +187,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Efe Yıldırım",
-      role: 'aerodynamics_team_leader',
+      role: t('roles.aerodynamics_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/EFE.png"),
       social: {
@@ -257,7 +198,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Ödül Yarkın Baran",
-      role: 'organization_team_leader',
+      role: t('roles.organization_team_leader'),
       department: t('departments.photonics_department'),
       image: getImagePath("/ODULYARKINBARAN.png"),
       social: {
@@ -279,7 +220,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Altay Alp",
-      role: 'electronics_software_team_member',
+      role: t('roles.electronics_software_team_member'),
       department: t('departments.electronics_&_communication_engineering'),
       image: getImagePath("/ALTAYALP.png"),
       social: {
@@ -290,7 +231,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Arda Onuk",
-      role: 'electronics_software_team_member',
+      role: t('roles.electronics_software_team_member'),
       department: t('departments.mathematics_department'),
       image: getImagePath("/ARDAONUK.png"),
       social: {
@@ -301,7 +242,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Berkant Süren",
-      role: 'chassis_ergonomics_team_member',
+      role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.materials_engineering'),
       image: getImagePath("/BERKANT.png"),
       social: {
@@ -312,7 +253,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Arda Keskin",
-      role: 'vehicle_dynamics_team_member',
+      role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.energy_systems_engineering'),
       image: getImagePath("/ARDAKESKIN.png"),
       social: {
@@ -323,7 +264,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Arda Akpolat",
-      role: 'vehicle_dynamics_team_member',
+      role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/ARDAAKPOLAT.png"),
       social: {
@@ -334,7 +275,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Senanur Günay",
-      role: 'electronics_software_team_member',
+      role: t('roles.electronics_software_team_member'),
       department: t('departments.computer_engineering'),
       image: getImagePath("/SENANUR.png"),
       social: {
@@ -345,7 +286,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Beren Alptekin",
-      role: 'organization_team_member',
+      role: t('roles.organization_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/insan.png"),
       social: {
@@ -356,7 +297,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Tarık Alperen Öcal",
-      role: 'powertrain_team_member',
+      role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/TARIKALPERENOCAL.png"),
       social: {
@@ -367,7 +308,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Yağız Yalçın",
-      role: 'powertrain_team_member',
+      role: t('roles.powertrain_team_member'),
       department: t('departments.energy_systems_engineering'),
       image: getImagePath("/YAGIZYALCIN.png"),
       social: {
@@ -378,7 +319,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Batuhan Elmaoğlu",
-      role: 'aerodynamics_team_member',
+      role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/BATU.png"),
       social: {
@@ -389,7 +330,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Eren Uruş",
-      role: 'aerodynamics_team_member',
+      role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/ERENURUS.png"),
       social: {
@@ -400,7 +341,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Eren Karasakal",
-      role: 'chassis_ergonomics_team_member',
+      role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/ERENKARASAKAL.png"),
       social: {
@@ -411,7 +352,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Tuğçe Özcan",
-      role: 'chassis_ergonomics_team_member',
+      role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.materials_engineering'),
       image: getImagePath("/TUGCE.png"),
       social: {
@@ -422,7 +363,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Nevzat Ediz Burçoğlu",
-      role: 'powertrain_team_member',
+      role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/EDIZ.png"),
       social: {
@@ -433,7 +374,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Kerem Katrancı",
-      role: 'powertrain_team_member',
+      role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/KEREM.png"),
       social: {
@@ -444,7 +385,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Emir Yaşa",
-      role: 'vehicle_dynamics_team_member',
+      role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/EMIRYASA.png"),
       social: {
@@ -455,7 +396,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Tuna Kurban",
-      role: 'vehicle_dynamics_team_member',
+      role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/TUNAKURBAN.png"),
       social: {
@@ -466,7 +407,7 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Hakan Şendaldal",
-      role: 'vehicle_dynamics_team_member',
+      role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: getImagePath("/HAKAN.png"),
       social: {
@@ -477,9 +418,9 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Khayal Musayev",
-      role: 'chassis_ergonomics_team_member',
+      role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: getImagePath("KHAYAL"),
+      image: getImagePath("/KHAYAL.png"),
       social: {
         linkedin: "https://www.linkedin.com/in/khayal-musayev-98b769343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -488,82 +429,99 @@ const Team: React.FC = (): JSX.Element => {
     },
     {
       name: "Sinan Efe Bayrak",
-      role: 'aerodynamics_team_member',
+      role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: getImagePath("SiNANEFE"),
+      image: getImagePath("/SiNANEFE.png"),
       social: {
-        linkedin: "#",
-        email: "@iztechracing.com"
+        linkedin: "https://www.linkedin.com/in/sinan-efe-bayrak-578419331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "@iztechracing.com",
+        github: "#"
       }
     },
     {
-      name: "Kuzyey Demirer",
-      role: 'business_development_member',
+      name: "Kuzey Demirer",
+      role: t('roles.business_team_member'),
       department: t('departments.industrial_design'),
-      image: getImagePath("KUZYEY"),
+      image: getImagePath("/KUZEY.png"),
       social: {
-        linkedin: "#",
-        email: "@iztechracing.com"
-      }
-    }
+        linkedin: "https://tr.linkedin.com/in/kuzey-demirer-76577a260",
+        email: "@iztechracing.com",
+      },
+    },
   ];
 
-  const { sortedCategories } = useMemo<{ sortedCategories: Array<{ category: TeamCategory; members: TeamMember[] }> }>(() => {
-    // Process and validate team members
-    const validMembers = teamMembers
-      .map(processTeamMember)
-      .filter((member): member is TeamMember => member !== null);
-
-    // Categorize members by role
-    const categories = validMembers.reduce((acc, member) => {
-      const categoryKey = TEAM_CATEGORIES[member.role as TeamRole];
+  // Categorize team members by their roles
+  const categorizedMembers = useMemo(() => {
+    const categories = new Map<TeamCategory, TeamMember[]>();
+    
+    teamMembers.forEach(member => {
+      // Find the best matching category for the member's role
+      let categoryKey: TeamCategory | null = null;
       
+      // First try exact match
+      for (const [key] of Object.entries(TEAM_CATEGORIES)) {
+        if (member.role === t(key)) {
+          categoryKey = key as TeamCategory;
+          break;
+        }
+      }
+      
+      // If no exact match, try partial match
+      if (!categoryKey) {
+        for (const [key] of Object.entries(TEAM_CATEGORIES)) {
+          const teamName = t(key).split(' ')[0];
+          if (member.role.includes(teamName)) {
+            categoryKey = key as TeamCategory;
+            break;
+          }
+        }
+      }
+      
+      // Default to team_captain if no match found (shouldn't happen with our data)
       if (!categoryKey) {
         console.warn(`No category found for role: ${member.role}`);
-        return acc;
+        categoryKey = 'roles.team_captain';
       }
       
-      if (!acc.has(categoryKey)) {
-        acc.set(categoryKey, []);
+      // Add member to the category
+      if (!categories.has(categoryKey)) {
+        categories.set(categoryKey, []);
       }
-      acc.get(categoryKey)?.push(member);
-      return acc;
-    }, new Map<TeamCategory, TeamMember[]>());
+      categories.get(categoryKey)?.push(member);
+    });
+    
+    return categories;
+  }, [teamMembers, t]);
 
-    // Sort categories and members within each category
-    const categoryOrder = [
-      'team.captain',
-      'team.electronics_software_team',
-      'team.vehicle_dynamics_team',
-      'team.chassis_ergonomics_team',
-      'team.powertrain_team',
-      'team.aerodynamics_team',
-      'team.organization_team',
-      'team.business_development_team'
-    ] as const satisfies readonly TeamCategory[];
-
-    const sorted = Array.from(categories.entries())
-      .map(([category, members]) => ({
-        category,
-        members: [...members].sort((a, b) => {
-          const aIsLeader = a.role.endsWith('_leader') || a.role === 'team_caption';
-          const bIsLeader = b.role.endsWith('_leader') || b.role === 'team_caption';
+  // Sort categories and team members
+  const sortedCategories = useMemo(() => {
+    return Array.from(categorizedMembers.entries())
+      .map(([category, members]) => {
+        // Sort members: leaders first, then by name
+        const sortedMembers = [...members].sort((a, b) => {
+          const aIsLeader = a.role.includes('Leader') || a.role.includes('Captain');
+          const bIsLeader = b.role.includes('Leader') || b.role.includes('Captain');
           
           if (aIsLeader && !bIsLeader) return -1;
           if (!aIsLeader && bIsLeader) return 1;
           return a.name.localeCompare(b.name);
-        })
-      }))
-      .sort((a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
-
-    return { sortedCategories: sorted } as const;
-  }, [teamMembers, t]);
+        });
+        
+        return { category, members: sortedMembers };
+      })
+      // Sort categories by the order in TEAM_CATEGORIES
+      .sort((a, b) => {
+        const orderA = Object.keys(TEAM_CATEGORIES).indexOf(a.category);
+        const orderB = Object.keys(TEAM_CATEGORIES).indexOf(b.category);
+        return orderA - orderB;
+      });
+  }, [categorizedMembers]);
 
   return (
-    <section id="team" className="py-16 bg-black">
+    <section id="team" className="py-20 bg-[#0f0f0f] relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t('team.title')}
           </h2>
           <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
@@ -575,11 +533,14 @@ const Team: React.FC = (): JSX.Element => {
           {sortedCategories.map(({ category, members }) => (
             <div key={category} className="w-full max-w-6xl mx-auto">
               <h3 className="text-2xl font-semibold text-white mb-8 text-center">
-                {t(category)}
+                {t(TEAM_CATEGORIES[category as TeamCategory])}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {members.map((member) => (
-                  <TeamMemberCard key={`${member.name}-${member.role}`} member={member} t={t} />
+                {members.map((member, index) => (
+                  <TeamMemberCard 
+                    key={`${member.name}-${index}`} 
+                    member={member} 
+                  />
                 ))}
               </div>
             </div>
