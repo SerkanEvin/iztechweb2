@@ -32,6 +32,7 @@ const Footer = () => {
     { name: t('footer.links.about'), href: "#home" },
     { name: t('footer.links.team'), href: "#team" },
     { name: t('footer.links.vehicles'), href: "#vehicles" },
+    { name: t('footer.links.magazine'), href: "#magazines" },
     { name: t('footer.links.gallery'), href: "#gallery" },
     { name: t('footer.links.sponsors'), href: "#sponsors" },
     { name: t('footer.links.contact'), href: "#contact" }
