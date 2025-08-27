@@ -67,7 +67,7 @@ const Team = () => {
       image: "/POYRAZ.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/poyrazkocamis?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "@iztechracing.com",
+        email: "huseyinkocamis@std.iyte.edu.tr",
       }
     },
     {
@@ -88,7 +88,7 @@ const Team = () => {
       image: "/EMRE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/emre-canbaz-30b087335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "canbazemre24@gmail.com",
         github: "#"
       }
     },
@@ -99,7 +99,7 @@ const Team = () => {
       image: "/ONUR.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/onur-%C5%9Fen-b87b50239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "onursen4405@gmail.com ",
         github: "#"
       }
     },
@@ -110,7 +110,7 @@ const Team = () => {
       image: "/EFE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/efeyldrm/",
-        email: "@iztechracing.com",
+        email: "efeyildirim04@gmail.com",
         github: "#"
       }
     },
@@ -121,7 +121,7 @@ const Team = () => {
       image: "/YARKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
-        email: "@iztechracing.com",
+        email: "yarknbaran35@gmail.com",
         github: "#"
       }
     },
@@ -132,7 +132,7 @@ const Team = () => {
       image: "/DUHA.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/ahmet-duha-aydin-b81b98244",
-        email: "@iztechracing.com",
+        email: "ahmetduha45@gmail.com",
         github: "#"
       }
     },
@@ -165,7 +165,7 @@ const Team = () => {
       image: "/BERKANT.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/berkant-suren?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "berkantsuren1@gmail.com",
         github: "#"
       }
     },
@@ -176,7 +176,7 @@ const Team = () => {
       image: "/ARDAKESKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-keskin-ba7b36230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "ardakeskin855@gmail.com",
         github: "#"
       }
     },
@@ -187,7 +187,7 @@ const Team = () => {
       image: "/ARDAAKPOLAT.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-akpolat-444a51315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: " ardaakpolat95@gmail.com",
         github: "#"
       }
     },
@@ -220,7 +220,7 @@ const Team = () => {
       image: "/TARIKALPERENOCAL.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/tar%C4%B1k-alperen-%C3%B6cal-32b8722b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "tarikalperenocal@gmail.com",
         github: "#"
       }
     },
@@ -231,7 +231,7 @@ const Team = () => {
       image: "/YAGIZ.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "alex@iztechracing.com",
+        email: "yagiz10yalcin@gmail.com",
         github: "#"
       }
     },
@@ -242,7 +242,7 @@ const Team = () => {
       image: "/BATU.webp",
       social: {
         linkedin: "http://www.linkedin.com/in/batuhan-elmaoğlu-338185296",
-        email: "@iztechracing.com",
+        email: "batuhanelmaoglu@gmail.com",
         github: "#"
       }
     },
@@ -253,7 +253,7 @@ const Team = () => {
       image: "/ERENURUS.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/erenurus",
-        email: "@iztechracing.com",
+        email: "uruseren07@gmail.com",
         github: "#"
       }
     },
@@ -264,7 +264,7 @@ const Team = () => {
       image: "/ERENKARASAKAL.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/eren-karasakal-406769342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "@iztechracing.com",
+        email: "erenkarasakal280@gmail.com",
         github: "#"
       }
     },
@@ -275,7 +275,7 @@ const Team = () => {
       image: "/TUĞÇE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/tu%C4%9F%C3%A7e-%C3%B6zcan-19738133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "@iztechracing.com",
+        email: "tugceozcn0409@gmail.com",
         github: "#"
       }
     },
@@ -286,7 +286,7 @@ const Team = () => {
       image: "/Ediz.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/nevzatedizburcoglu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "@iztechracing.com",
+        email: "n.edizburcoglu@hotmail.com",
         github: "#"
       }
     },
@@ -297,7 +297,7 @@ const Team = () => {
       image: "/KEREM.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/kerem-katranc%C4%B1-33294a247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "keremkatranci77@gmail.com",
         github: "#"
       }
     },
@@ -308,7 +308,7 @@ const Team = () => {
       image: "/Emir.webp",
       social: {
         linkedin: " https://www.linkedin.com/in/emir-ya%C5%9Fa-344460343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app,",
-        email: "@iztechracing.com",
+        email: "emhyr.emir@gmail.com",
         github: "#"
       }
     },
@@ -319,7 +319,7 @@ const Team = () => {
       image: "/TUNAKURBAN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/tuna-kurban-147606286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "tunakurban35@gmail.com",
         github: "#"
       }
     },
@@ -330,7 +330,7 @@ const Team = () => {
       image: "/HAKAN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/hakan-%C5%9Fendaldal-9b9688251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "hakan_sendaldal@hotmail.com",
         github: "#"
       }
     },
@@ -341,7 +341,7 @@ const Team = () => {
       image: "/KHAYAL.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/khayal-musayev-98b769343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
+        email: "rmsonaxe@mail.ru",
         github: "#"
       }
     },
@@ -352,7 +352,7 @@ const Team = () => {
       image: "/SİNANEFE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/sinan-efe-bayrak-578419331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "@iztechracing.com",
+        email: "s.efebayrak@yahoo.com.tr",
         github: "#"
       }
     },
