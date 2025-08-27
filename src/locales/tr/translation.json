@@ -36,6 +36,7 @@
   },
   "roles": {
     "team_captain": "Takım Kaptanı",
+    "business_development": "İş Geliştirme",
     
     "electronics_software_team_leader": "Elektronik ve Yazılım Ekibi Lideri",
     "electronics_software_team_member": "Elektronik ve Yazılım Ekibi Üyesi",
@@ -55,8 +56,8 @@
     "organization_team_leader": "Organizasyon Ekibi Lideri",
     "organization_team_member": "Organizasyon Ekibi Üyesi",
     
-    "business_development_leader": "İş Geliştirme Ekibi Lideri",
-    "business_development_member": "İş Geliştirme Ekibi Üyesi"
+    "business_team_leader": "İş Geliştirme Ekibi Lideri",
+    "business_team_member": "İş Geliştirme Ekibi Üyesi"
   },
   "departments": {
     "mechanical_engineering": "Makine Mühendisliği",

@@ -44,19 +44,28 @@
   },
   "roles": {
     "team_captain": "Team Captain",
-    "chassis_ergonomics_team_leader": "Chassis and Ergonomics Team Leader",
-    "business_team_leader": "Business Team Leader",
-    "powertrain_team_leader": "Powertrain Team Leader",
+    "business_development": "Business Development",
+    
     "electronics_software_team_leader": "Electronics and Software Team Leader",
     "electronics_software_team_member": "Electronics and Software Team Member",
-    "vehicle_dynamics_team_member": "Vehicle Dynamics Team Member",
-    "powertrain_team_member": "Powertrain Team Member",
-    "chassis_ergonomics_team_member": "Chassis and Ergonomics Team Member",
-    "aerodynamics_team_member": "Aerodynamics Team Member",
-    "organization_team_member": "Organization Team Member",
+    
     "vehicle_dynamics_team_leader": "Vehicle Dynamics Team Leader",
+    "vehicle_dynamics_team_member": "Vehicle Dynamics Team Member",
+    
+    "chassis_ergonomics_team_leader": "Chassis and Ergonomics Team Leader",
+    "chassis_ergonomics_team_member": "Chassis and Ergonomics Team Member",
+    
+    "powertrain_team_leader": "Powertrain Team Leader",
+    "powertrain_team_member": "Powertrain Team Member",
+    
     "aerodynamics_team_leader": "Aerodynamics Team Leader",
-    "organization_team_leader": "Organization Team Leader"
+    "aerodynamics_team_member": "Aerodynamics Team Member",
+    
+    "organization_team_leader": "Organization Team Leader",
+    "organization_team_member": "Organization Team Member",
+    
+    "business_team_leader": "Business Development Team Leader",
+    "business_team_member": "Business Development Team Member"
   },
   "departments": {
     "mechanical_engineering": "Mechanical Engineering",
