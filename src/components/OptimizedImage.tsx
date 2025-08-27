@@ -26,7 +26,6 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
       return;
     }
 
-    const img = new Image();
     let isMounted = true;
 
     const loadImage = () => {
@@ -82,10 +81,9 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   const getLowQualitySrc = (src: string): string => {
     try {
-      // If you have a specific low quality version, you can modify this function
-      // For now, we'll use the same image but with a query parameter
-      // In a real app, you might want to use a CDN that supports image transformations
-      return `${src}?q=30&w=200`;
+      // Increased quality from 30 to 50 and size to 300px for better initial quality
+      // This will make the initial load look better while still being fast
+      return `${src}?q=50&w=300`;
     } catch (err) {
       console.error('Error generating low quality src:', err);
       return src;
@@ -112,9 +110,9 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
       className={props.className}
       style={{
         ...props.style,
-        transition: 'opacity 0.3s ease-in-out',
-        opacity: isLoading ? 0.8 : 1,
-        filter: isLoading ? 'blur(5px)' : 'none',
+        transition: 'opacity 0.5s ease-in-out',
+        opacity: isLoading ? 0.9 : 1,
+        filter: isLoading ? 'blur(3px)' : 'none',
       }}
       loading="lazy"
       decoding="async"
