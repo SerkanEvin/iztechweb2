@@ -168,7 +168,7 @@ const Team = () => {
       name: "Arda Keskin",
       role: t("Vehicle Dynamics Team Member"),
       department: t("Energy Systems  Engineering"),
-      image: "/keskin.webp",
+      image: "/ARDAKESKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-keskin-ba7b36230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
