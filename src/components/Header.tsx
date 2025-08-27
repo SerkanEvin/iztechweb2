@@ -99,16 +99,23 @@ const Header = () => {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex space-x-8">
-                        {['home', 'team', 'vehicles', 'magazines', 'gallery', 'sponsors', 'contact'].map((item) => (
+                    <nav className="hidden md:flex items-center space-x-8">
+                        {['home', 'team', 'vehicles', 'gallery', 'sponsors', 'contact'].map((item) => (
                             <a 
                                 key={item}
                                 href={`#${item}`} 
-                                className="nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2"
+                                className="nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200"
                             >
                                 {t(`header.${item}`)}
                             </a>
                         ))}
+                        {/* Magazine Button with Red Accent */}
+                        <a 
+                            href="#magazines"
+                            className="ml-2 px-4 py-2 bg-[#9a0e20] hover:bg-[#7a0b1a] text-white font-medium rounded-md transition-all duration-200 transform hover:scale-105 hover:shadow-lg hover:shadow-[#9a0e20]/20"
+                        >
+                            {t('header.magazine')}
+                        </a>
                     </nav>
 
                     {/* Mobile menu button */}
@@ -156,59 +163,50 @@ const Header = () => {
             <style dangerouslySetInnerHTML={{
                 __html: `
                     @keyframes logoSlide {
-                        0% { 
-                            transform: translateX(0) scale(1);
-                            opacity: 1;
-                            filter: drop-shadow(0 0 8px rgba(154, 14, 32, 0.3));
-                        }
-                        20% { 
-                            transform: translateX(180px) scale(1.1) rotate(5deg);
-                            opacity: 0.9;
-                            filter: drop-shadow(0 0 15px rgba(154, 14, 32, 0.6));
-                        }
-                        40% {
-                            transform: translateX(180px) scale(1.1) rotate(-2deg);
-                            opacity: 0.95;
-                            filter: drop-shadow(0 0 15px rgba(154, 14, 32, 0.7));
-                        }
-                        60% {
-                            transform: translateX(180px) scale(1.08) rotate(0deg);
-                            opacity: 0.9;
-                            filter: drop-shadow(0 0 15px rgba(154, 14, 32, 0.5));
-                        }
-                        80% {
-                            transform: translateX(0) scale(1.05) rotate(-1deg);
-                            opacity: 0.98;
-                        }
-                        100% { 
+                        0% {
                             transform: translateX(0) scale(1) rotate(0);
                             opacity: 1;
-                            filter: drop-shadow(0 0 8px rgba(154, 14, 32, 0.3));
+                            filter: drop-shadow(0 0 6px rgba(154, 14, 32, 0.3));
+                        }
+                        25% {
+                            transform: translateX(150px) scale(1.05) rotate(2deg);
+                            opacity: 0.9;
+                            filter: drop-shadow(0 0 12px rgba(154, 14, 32, 0.5));
+                        }
+                        50% {
+                            transform: translateX(180px) scale(1.07) rotate(-1deg);
+                            opacity: 0.95;
+                            filter: drop-shadow(0 0 14px rgba(154, 14, 32, 0.6));
+                        }
+                        75% {
+                            transform: translateX(90px) scale(1.03) rotate(0deg);
+                            opacity: 0.97;
+                            filter: drop-shadow(0 0 10px rgba(154, 14, 32, 0.4));
+                        }
+                        100% {
+                            transform: translateX(0) scale(1) rotate(0);
+                            opacity: 1;
+                            filter: drop-shadow(0 0 6px rgba(154, 14, 32, 0.3));
                         }
                     }
 
                     @keyframes textFade {
-                        0% { 
+                        0% {
                             opacity: 1;
                             transform: translateX(0) scale(1);
                             filter: blur(0);
                         }
-                        25% { 
-                            opacity: 0.2;
-                            transform: translateX(15px) scale(0.97);
+                        40% {
+                            opacity: 0.5;
+                            transform: translateX(10px) scale(0.98);
                             filter: blur(1px);
                         }
-                        50% { 
-                            opacity: 0.2;
-                            transform: translateX(15px) scale(0.97);
-                            filter: blur(1px);
+                        60% {
+                            opacity: 0.7;
+                            transform: translateX(5px) scale(1.01);
+                            filter: blur(0.5px);
                         }
-                        75% {
-                            opacity: 0.8;
-                            transform: translateX(0) scale(1.01);
-                            filter: blur(0);
-                        }
-                        100% { 
+                        100% {
                             opacity: 1;
                             transform: translateX(0) scale(1);
                             filter: blur(0);
@@ -216,7 +214,7 @@ const Header = () => {
                     }
 
                     .animating-text {
-                        animation: textFade 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                        animation: textFade 1.6s ease-in-out forwards;
                         will-change: transform, opacity, filter;
                         transform-style: preserve-3d;
                         perspective: 1000px;

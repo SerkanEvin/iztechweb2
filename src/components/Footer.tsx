@@ -45,18 +45,17 @@ const Footer = () => {
             <div className="grid lg:grid-cols-4 gap-12">
               {/* Brand Section */}
               <div className="lg:col-span-1">
-                <div className="flex items-center mb-6">
+                <div className="flex flex-col items-start mb-6 space-y-4">
                   <img
                       src="/logos.png"
                       alt={t('footer.logoAlt')}
-                      className="w-20 h-20 mr-4 object-contain"
+                      className="w-24 h-24 object-contain"
                   />
-                  <span className="text-white font-bold text-2xl">IZTECH RACING</span>
-                </div>
-                <div className="flex items-start mb-6">
-                  <p className="text-[#cccccc] leading-relaxed">
-                    <span className="font-bold text-white">Mühendislik</span> {t('footer.description').split('Mühendislik')[1]}
-                  </p>
+                  <div className="pl-1">
+                    <p className="text-[#cccccc] leading-relaxed">
+                      <span className="font-bold text-white">Mühendislik</span> {t('footer.description').split('Mühendislik')[1]}
+                    </p>
+                  </div>
                 </div>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
