@@ -63,11 +63,13 @@ const Contact = () => {
               </h4>
               <div className="w-full h-80 border border-[#2a2a2a] rounded-xl overflow-hidden shadow-lg">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3130.4005407668305!2d26.639615299999996!3d38.31655450000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bb9058e2303cd9%3A0x703641007a4a291a!2zxLBZVEUgTWFraW5hIE3DvGhlbmRpc2xpxJ9pIELDtmzDvG3DvA!5e0!3m2!1str!2str!4v1755969003795!5m2!1str!2str"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3130.4069533683887!2d26.636548075719706!3d38.31640597185376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bb91003f866135%3A0x1ad04edcfce247d8!2sIZTECH%20RACING%20Laboratuvar%C4%B1!5e0!3m2!1str!2str!4v1756277692460!5m2!1str!2str"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
+                    allowFullScreen
                     loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
                     title={t('contact.map.iframeTitle')}
                 ></iframe>
               </div>
