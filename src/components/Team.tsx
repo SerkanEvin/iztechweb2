@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Linkedin, Mail, Github, Instagram } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { OptimizedImage } from './OptimizedImage';
 
 // Types
 type SocialLinks = {
@@ -86,23 +87,21 @@ const SocialIcons: React.FC<{ social: SocialLinks }> = ({ social }) => (
 const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => (
   <div className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
     <div className="relative h-64 w-full bg-black">
-      <img
-        src={member.image}
-        alt={member.name}
-        className="w-full h-full object-cover"
-        loading="lazy"
-        decoding="async"
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          imageRendering: 'auto' as const
-        }}
-        onError={(e) => {
-          const target = e.target as HTMLImageElement;
-          target.src = '/insan.png';
-        }}
-      />
+      <div className="w-full h-full">
+        <OptimizedImage
+          src={member.image}
+          alt={member.name}
+          quality="high"
+          fallbackSrc="/insan.png"
+          className="w-full h-full object-cover"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: '0.375rem' // md
+          }}
+        />
+      </div>
       <div className="absolute inset-0 bg-black/10 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <span className="bg-black/80 text-white px-3 py-1 rounded-full text-sm">
           {member.role}
@@ -124,16 +123,9 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => (
 const Team: React.FC = () => {
   const { t } = useTranslation();
 
-  const getImagePath = (filename: string, quality: 'high' | 'low' = 'high'): string => {
+  const getImagePath = (filename: string): string => {
     try {
       const cleanName = filename.replace(/^[\/\\]|\.[^/.]+$/g, '').toUpperCase();
-      // For low quality, we can use a smaller version or apply quality reduction
-      if (quality === 'low') {
-        // If you have a separate low-quality version, you can use it like:
-        // return `/low-quality/${cleanName}.jpg`;
-        // For now, we'll just return the same image but you can optimize this later
-        return `/${cleanName}.png`;
-      }
       return `/${cleanName}.png`;
     } catch (error) {
       console.error('Error processing image path:', error);
