@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { Linkedin, Mail, Github, Instagram } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { OptimizedImage } from './OptimizedImage';
 
 // Types
 type SocialLinks = {
@@ -87,21 +86,15 @@ const SocialIcons: React.FC<{ social: SocialLinks }> = ({ social }) => (
 const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => (
   <div className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
     <div className="relative h-64 w-full bg-black">
-      <div className="w-full h-full">
-        <OptimizedImage
-          src={member.image}
-          alt={member.name}
-          quality="high"
-          fallbackSrc="/insan.png"
-          className="w-full h-full object-cover"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            borderRadius: '0.375rem' // md
-          }}
-        />
-      </div>
+      <img
+        src={member.image}
+        alt={member.name}
+        className="w-full h-full object-cover"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.src = '/insan.png';
+        }}
+      />
       <div className="absolute inset-0 bg-black/10 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <span className="bg-black/80 text-white px-3 py-1 rounded-full text-sm">
           {member.role}
