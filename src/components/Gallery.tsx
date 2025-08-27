@@ -7,20 +7,20 @@ const getImagePath = (filename: string) => {
 };
 
 const photos = [
-    getImagePath("/_MG_0416.JPG"),
-    getImagePath("/_MG_0426.JPG"),
-    getImagePath("/_MG_0495.JPG"),
-    getImagePath("/_MG_0651.JPG"),
-    getImagePath("/_MG_0803.JPG"),
-    getImagePath("/_MG_2223.JPG"),
-    getImagePath("/_MG_2409.JPG"),
-    getImagePath("/_MG_2847.JPG"),
-    getImagePath("/_MG_3107.JPG"),
-    getImagePath("/_MG_5113.JPG"),
-    getImagePath("/_MG_5236.JPG"),
-    getImagePath("/_MG_5275.JPG"),
-    getImagePath("/IMG-20250511-WA0031.jpg"),
-    getImagePath("/IMG_5353.JPG")
+    getImagePath("/_MG_0416.webp"),
+    getImagePath("/_MG_0426.webp"),
+    getImagePath("/_MG_0495.webp"),
+    getImagePath("/_MG_0651.webp"),
+    getImagePath("/_MG_0803.webp"),
+    getImagePath("/_MG_2223.webp"),
+    getImagePath("/_MG_2409.webp"),
+    getImagePath("/_MG_2847.webp"),
+    getImagePath("/_MG_3107.webp"),
+    getImagePath("/_MG_5113.webp"),
+    getImagePath("/_MG_5236.webp"),
+    getImagePath("/_MG_5275.webp"),
+    getImagePath("/IMG-20250511-WA0031.webp"),
+    getImagePath("/IMG_5353.webp")
 ];
 
 const Gallery = () => {
