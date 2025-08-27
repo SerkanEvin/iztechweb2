@@ -140,8 +140,10 @@ const Vehicles = () => {
                         <div className="flex items-center mb-2">
                           <Settings className="w-5 h-5 text-[#a02638] mr-2" />
                           <span className="text-[#cccccc] text-sm">
-                        {t('vehicles.specs.acceleration', "0-100 km/s")}
-                      </span>
+                            {vehicle.name === "Doruk"
+                              ? "0-100 km/s"
+                              : "0-35 km/s"}
+                          </span>
                         </div>
                         <div className="text-white font-bold text-lg">{vehicle.specs.acceleration}</div>
                       </div>
