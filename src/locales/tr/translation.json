@@ -14,18 +14,10 @@
     "title": "Ekibimize Hoş Geldiniz",
     "subtitle": "Harekette Mühendislik Mükemmelliği"
   },
-  "about": {
-    "title": "Hakkımızda",
-    "content": "Otomotiv mühendisliğinde yeniliğe ve mükemmelliğe adanmış tutkulu bir mühendis ekibiyiz."
-  },
   "team": {
     "title": "Ekibimiz",
     "members": "Takım Üyeleri",
     "description": "Tutkulu mühendisler, tasarımcılar ve yenilikçilerden oluşan ekibimiz, öğrenci motor sporlarının ve mühendislik mükemmelliğinin sınırlarını zorlamak için birlikte çalışıyor."
-  },
-  "sponsors": {
-    "title": "Sponsorlarımız",
-    "description": "Sponsorlarımızın desteği için minnettarız"
   },
   "contact": {
     "title": "İletişim",
@@ -36,19 +28,28 @@
   },
   "roles": {
     "team_captain": "Takım Kaptanı",
-    "chassis_ergonomics_team_leader": "Şasi ve Ergonomi Takım Lideri",
-    "business_team_leader": "İş Geliştirme Takım Lideri",
-    "powertrain_team_leader": "Güç Aktarımı Takım Lideri",
-    "electronics_software_team_leader": "Elektronik ve Yazılım Takım Lideri",
-    "electronics_software_team_member": "Elektronik ve Yazılım Takım Üyesi",
-    "vehicle_dynamics_team_member": "Araç Dinamiği Takım Üyesi",
-    "powertrain_team_member": "Güç Aktarımı Takım Üyesi",
-    "chassis_ergonomics_team_member": "Şasi ve Ergonomi Takım Üyesi",
-    "aerodynamics_team_member": "Aerodinamik Takım Üyesi",
-    "organization_team_member": "Organizasyon Takım Üyesi",
-    "vehicle_dynamics_team_leader": "Araç Dinamiği Takım Lideri",
-    "aerodynamics_team_leader": "Aerodinamik Takım Lideri",
-    "organization_team_leader": "Organizasyon Takım Lideri"
+    
+    "electronics_software_team_leader": "Elektronik ve Yazılım Ekibi Lideri",
+    "electronics_software_team_member": "Elektronik ve Yazılım Ekibi Üyesi",
+    
+    "vehicle_dynamics_team_leader": "Araç Dinamiği Ekibi Lideri",
+    "vehicle_dynamics_team_member": "Araç Dinamiği Ekibi Üyesi",
+    
+    "chassis_ergonomics_team_leader": "Şasi ve Ergonomi Ekibi Lideri",
+    "chassis_ergonomics_team_member": "Şasi ve Ergonomi Ekibi Üyesi",
+    
+    "powertrain_team_leader": "Güç Aktarım Ekibi Lideri",
+    "powertrain_team_member": "Güç Aktarım Ekibi Üyesi",
+    
+    "aerodynamics_team_leader": "Aerodinamik Ekibi Lideri",
+    "aerodynamics_team_member": "Aerodinamik Ekibi Üyesi",
+    
+    "organization_team_leader": "Organizasyon Ekibi Lideri",
+    "organization_team_member": "Organizasyon Ekibi Üyesi",
+    
+    "business_development_leader": "İş Geliştirme Ekibi Lideri",
+    "business_development_member": "İş Geliştirme Ekibi Üyesi",
+    "organization_team_leader": "Organizasyon Ekibi Lideri"
   },
   "departments": {
     "mechanical_engineering": "Makine Mühendisliği",
@@ -353,7 +354,7 @@
       "powertrain_team": "Güç Aktarım Ekibi",
       "aerodynamics_team": "Aerodinamik Ekibi",
       "organization_team": "Organizasyon Ekibi",
-      "business_development": "İş Geliştirme"
+      "business_development_team": "İş Geliştirme Ekibi"
     }
   }
 }
