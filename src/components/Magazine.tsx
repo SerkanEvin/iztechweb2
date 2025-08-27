@@ -1,10 +1,14 @@
-import { useState } from "react";
-import { BookOpen } from "lucide-react";
+import { useState, useRef } from "react";
+import { BookOpen, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Magazines = () => {
     const { t } = useTranslation();
-    const [openPdf, setOpenPdf] = useState<string | null>(null);
+    const [currentSlide, setCurrentSlide] = useState<number | null>(null);
+    const sliderRef = useRef<Slider>(null);
 
     const magazines = [
         {
@@ -27,6 +31,17 @@ const Magazines = () => {
         },
     ];
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        arrows: false,
+        afterChange: (current: number) => setCurrentSlide(current)
+    };
+
     return (
         <>
             <section id="magazines" className="py-20 bg-black">
@@ -47,7 +62,7 @@ const Magazines = () => {
                             <div
                                 key={index}
                                 className="group bg-black/80 border border-[#0e669a]/50 rounded-xl overflow-hidden hover:bg-[#0e669a]/20 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
-                                onClick={() => setOpenPdf(mag.pdf)}
+                                onClick={() => setCurrentSlide(index)}
                             >
                                 <div className="h-60 overflow-hidden">
                                     <img
@@ -70,33 +85,56 @@ const Magazines = () => {
                 </div>
             </section>
 
-            {/* PDF Modal */}
-            {openPdf && (
-                <div
-                    className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
-                    onClick={() => setOpenPdf(null)}
+            {/* PDF Slider */}
+            <div className={`fixed inset-0 bg-black/95 z-50 transition-all duration-300 transform ${currentSlide !== null ? 'translate-x-0' : 'translate-x-full'}`}>
+                <button 
+                    onClick={() => setCurrentSlide(null)}
+                    className="absolute top-4 right-4 text-white hover:text-red-500 z-50 p-2"
+                    aria-label={t('magazines.close')}
                 >
-                    <div
-                        className="bg-black rounded-lg overflow-hidden shadow-2xl w-full max-w-6xl h-[90vh] relative"
-                        onClick={e => e.stopPropagation()}
+                    <X size={32} />
+                </button>
+                
+                <div className="relative h-full w-full max-w-6xl mx-auto">
+                    <Slider 
+                        ref={sliderRef}
+                        {...settings}
+                        initialSlide={currentSlide || 0}
+                        className="h-full"
                     >
-                        <button
-                            onClick={() => setOpenPdf(null)}
-                            className="absolute -top-10 right-0 text-white hover:text-red-500 transition-colors text-3xl z-10"
-                            title={t('magazines.close')}
-                            aria-label={t('magazines.close')}
-                        >
-                            &times;
-                        </button>
-                        <iframe
-                            src={openPdf}
-                            className="w-full h-full border-none"
-                            title={t('magazines.pdfTitle')}
-                            aria-label={t('magazines.pdfTitle')}
-                        />
-                    </div>
+                        {magazines.map((mag, index) => (
+                            <div key={index} className="h-[100vh] flex items-center justify-center p-4">
+                                <div className="w-full h-full flex flex-col">
+                                    <h3 className="text-2xl font-bold text-white text-center mb-4">{mag.title}</h3>
+                                    <div className="flex-1">
+                                        <iframe
+                                            src={mag.pdf}
+                                            className="w-full h-full min-h-[80vh] border-none"
+                                            title={mag.title}
+                                            aria-label={mag.title}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
+                    
+                    <button 
+                        onClick={() => sliderRef.current?.slickPrev()}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors z-10"
+                        aria-label={t('magazines.previous')}
+                    >
+                        <ChevronLeft size={32} />
+                    </button>
+                    <button 
+                        onClick={() => sliderRef.current?.slickNext()}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors z-10"
+                        aria-label={t('magazines.next')}
+                    >
+                        <ChevronRight size={32} />
+                    </button>
                 </div>
-            )}
+            </div>
         </>
     );
 };
