@@ -340,26 +340,28 @@
   },
   "hero": {
     "title": {
-      "firstLine": "IZTECH",
-      "secondLine": "RACING"
+      "firstLine": "IZTECH RACING",
+      "secondLine": " "
     },
     "subtitle": "Engineering Excellence, Racing Passion. Where innovation meets the track and dreams become reality.",
     "stats": {
       "championships": {
-        "value": "Coming Soon",
-        "label": "Championships"
+        "value": "2026!",
+        "label": "Soonest Race"
       },
       "members": {
         "value": "28",
         "label": "Team Members"
       },
       "horsepower": {
-        "value": "80",
-        "label": "HP"
+        "label": "Our Passion",
+        "value": "Limitless"
+       
       },
       "yearsActive": {
-        "value": "1",
-        "label": "Years Active"
+        "label": "Years Active",
+        "value": "1"
+        
       },
       "scrollDown": "Scroll down",
       "team_categories": {
