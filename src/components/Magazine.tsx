@@ -6,24 +6,27 @@ const Magazines = () => {
 
     const magazines = [
         {
-            title: t('magazines.may.title'),
-            description: t('magazines.may.description'),
-            cover: "/may.png",
-            pdf: "mayrecap.pdf",
+            title: t('magazines.july.title'),
+            description: t('magazines.july.description'),
+            cover: "/july.png",
+            pdf: "julyrecap.pdf",
+            date: new Date(2023, 6, 1) // July 1, 2023
         },
         {
             title: t('magazines.june.title'),
             description: t('magazines.june.description'),
             cover: "/june.png",
             pdf: "junerecap.pdf",
+            date: new Date(2023, 5, 1) // June 1, 2023
         },
         {
-            title: t('magazines.july.title'),
-            description: t('magazines.july.description'),
-            cover: "/july.png",
-            pdf: "julyrecap.pdf",
+            title: t('magazines.may.title'),
+            description: t('magazines.may.description'),
+            cover: "/may.png",
+            pdf: "mayrecap.pdf",
+            date: new Date(2023, 4, 1) // May 1, 2023
         },
-    ];
+    ].sort((a, b) => b.date.getTime() - a.date.getTime());
 
     return (
         <>
