@@ -152,18 +152,68 @@ const Team: React.FC = (): JSX.Element => {
   
   // Helper function to validate team role
   const isValidTeamRole = (role: string): role is TeamRole => {
-    return Object.values(TEAM_ROLES).includes(role as TeamRole);
+    // Check if it's a direct role key
+    if (Object.values(TEAM_ROLES).includes(role as TeamRole)) {
+      return true;
+    }
+    
+    // Check if it's a translated role (English or Turkish)
+    const translatedRoles = [
+      t('roles.team_captain'),
+      t('roles.electronics_software_team_leader'),
+      t('roles.electronics_software_team_member'),
+      t('roles.vehicle_dynamics_team_leader'),
+      t('roles.vehicle_dynamics_team_member'),
+      t('roles.chassis_ergonomics_team_leader'),
+      t('roles.chassis_ergonomics_team_member'),
+      t('roles.powertrain_team_leader'),
+      t('roles.powertrain_team_member'),
+      t('roles.aerodynamics_team_leader'),
+      t('roles.aerodynamics_team_member'),
+      t('roles.organization_team_leader'),
+      t('roles.organization_team_member'),
+      t('roles.business_development_leader'),
+      t('roles.business_development_member')
+    ];
+    
+    return translatedRoles.includes(role);
   };
   
   // Process team members with type safety
   const processTeamMember = (member: TeamMemberInput): TeamMember | null => {
-    if (!isValidTeamRole(member.role)) {
-      console.warn(`Invalid role: ${member.role}`);
-      return null;
+    // If role is a translated string, find the corresponding role key
+    let roleKey = member.role;
+    if (!Object.values(TEAM_ROLES).includes(member.role as TeamRole)) {
+      // Try to find the role key that matches the translated role
+      const foundRole = Object.entries({
+        team_caption: t('roles.team_captain'),
+        electronics_software_team_leader: t('roles.electronics_software_team_leader'),
+        electronics_software_team_member: t('roles.electronics_software_team_member'),
+        vehicle_dynamics_team_leader: t('roles.vehicle_dynamics_team_leader'),
+        vehicle_dynamics_team_member: t('roles.vehicle_dynamics_team_member'),
+        chassis_ergonomics_team_leader: t('roles.chassis_ergonomics_team_leader'),
+        chassis_ergonomics_team_member: t('roles.chassis_ergonomics_team_member'),
+        powertrain_team_leader: t('roles.powertrain_team_leader'),
+        powertrain_team_member: t('roles.powertrain_team_member'),
+        aerodynamics_team_leader: t('roles.aerodynamics_team_leader'),
+        aerodynamics_team_member: t('roles.aerodynamics_team_member'),
+        organization_team_leader: t('roles.organization_team_leader'),
+        organization_team_member: t('roles.organization_team_member'),
+        business_development_leader: t('roles.business_development_leader'),
+        business_development_member: t('roles.business_development_member')
+      }).find(([_, value]) => value === member.role);
+      
+      if (foundRole) {
+        roleKey = foundRole[0];
+      } else {
+        console.warn(`Invalid role: ${member.role}`);
+        return null;
+      }
     }
+    
     return {
       ...member,
-      role: member.role as TeamRole
+      role: roleKey as TeamRole
     };
   };
 
