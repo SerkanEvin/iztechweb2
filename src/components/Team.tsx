@@ -189,12 +189,14 @@ const Team: React.FC = (): JSX.Element => {
 
   // Helper function to get image path with fallback
   const getImagePath = (filename: string): string => {
-    // Remove leading slash and extension, convert to uppercase
-    const name = filename.replace(/^\//, '').replace(/\.\w+$/, '').toUpperCase();
-    // Check if the file has an extension, if not default to .png
-    const hasExtension = /\.\w+$/.test(filename);
-    const ext = hasExtension ? filename.split('.').pop() : 'png';
-    return `/${name}.${ext}`;
+    // Remove leading slash
+    const cleanName = filename.replace(/^\//, '');
+    // If filename already has an extension, use it as is
+    if (cleanName.includes('.')) {
+      return `/${cleanName}`;
+    }
+    // Otherwise, default to .png
+    return `/${cleanName}.png`;
   };
 
   // Team member data with proper typing
