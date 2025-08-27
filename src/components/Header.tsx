@@ -18,19 +18,22 @@ const Header = () => {
         setCurrentLanguage(newLang);
     };
 
-    // Start animation on component mount with smoother timing
+    // Start animation on component mount with optimized timing
     useEffect(() => {
         const startAnimation = () => {
+            // Enable the animation
             setAnimateLogo(true);
-            // Clear any existing timeouts to prevent memory leaks
+            
+            // Clear animation state after it completes
             const timer = setTimeout(() => {
                 setAnimateLogo(false);
-            }, 1600); // Slightly reduced duration for snappier feel
+            }, 1800); // Match this with the total animation duration
+            
             return () => clearTimeout(timer);
         };
         
-        // Small delay to ensure the component is mounted
-        const initTimer = setTimeout(startAnimation, 100);
+        // Small delay to ensure the component is mounted and prevent layout shifts
+        const initTimer = setTimeout(startAnimation, 300);
         return () => clearTimeout(initTimer);
     }, []);
 
@@ -52,32 +55,47 @@ const Header = () => {
                                 position: animateLogo ? 'absolute' : 'relative',
                                 top: 0,
                                 left: 0,
-                                animation: animateLogo ? 'logoSlide 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards' : 'none',
+                                animation: animateLogo ? 'logoSlide 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' : 'none',
                                 zIndex: 20,
                                 transformOrigin: 'center',
+                                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
                             }}
                         >
                             <img
                                 src="/amblemSTROKELIGHT.png"
                                 alt="Logo"
-                                className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
+                                className="w-full h-full object-contain transition-all duration-300 hover:scale-110 hover:rotate-1"
                                 draggable={false}
+                                style={{
+                                    transform: 'translateZ(0)', // Force hardware acceleration
+                                    backfaceVisibility: 'hidden'
+                                }}
                             />
                         </div>
 
                         {/* Main Logo */}
-                        <img
-                            onClick={handleRefresh}
-                            src="/logotype2.png"
-                            alt="IZTECH Racing Team"
-                            className={`ml-4 w-auto h-10 transition-all duration-300 hover:opacity-90 ${animateLogo ? 'animating-text' : ''}`}
-                            style={{ 
-                                position: 'relative', 
+                        <div 
+                            className={`relative overflow-hidden ${animateLogo ? 'animating-text' : ''}`}
+                            style={{
+                                height: '40px',
                                 zIndex: 10,
-                                filter: 'drop-shadow(0 0 8px rgba(154, 14, 32, 0.3))'
+                                transform: 'translateZ(0)' // Force hardware acceleration
                             }}
-                            draggable={false}
-                        />
+                        >
+                            <img
+                                onClick={handleRefresh}
+                                src="/logotype2.png"
+                                alt="IZTECH Racing Team"
+                                className="ml-4 w-auto h-10 transition-all duration-500 hover:opacity-90"
+                                style={{ 
+                                    position: 'relative', 
+                                    filter: 'drop-shadow(0 2px 8px rgba(154, 14, 32, 0.4))',
+                                    transform: 'translateZ(0)', // Force hardware acceleration
+                                    backfaceVisibility: 'hidden'
+                                }}
+                                draggable={false}
+                            />
+                        </div>
                     </div>
 
                     {/* Desktop Navigation */}
@@ -143,14 +161,24 @@ const Header = () => {
                             opacity: 1;
                             filter: drop-shadow(0 0 8px rgba(154, 14, 32, 0.3));
                         }
-                        30% { 
+                        20% { 
                             transform: translateX(180px) scale(1.1) rotate(5deg);
-                            opacity: 0.8;
-                            filter: drop-shadow(0 0 12px rgba(154, 14, 32, 0.5));
+                            opacity: 0.9;
+                            filter: drop-shadow(0 0 15px rgba(154, 14, 32, 0.6));
+                        }
+                        40% {
+                            transform: translateX(180px) scale(1.1) rotate(-2deg);
+                            opacity: 0.95;
+                            filter: drop-shadow(0 0 15px rgba(154, 14, 32, 0.7));
                         }
                         60% {
-                            transform: translateX(180px) scale(1.1) rotate(-2deg);
+                            transform: translateX(180px) scale(1.08) rotate(0deg);
                             opacity: 0.9;
+                            filter: drop-shadow(0 0 15px rgba(154, 14, 32, 0.5));
+                        }
+                        80% {
+                            transform: translateX(0) scale(1.05) rotate(-1deg);
+                            opacity: 0.98;
                         }
                         100% { 
                             transform: translateX(0) scale(1) rotate(0);
@@ -163,24 +191,35 @@ const Header = () => {
                         0% { 
                             opacity: 1;
                             transform: translateX(0) scale(1);
+                            filter: blur(0);
                         }
-                        30% { 
-                            opacity: 0.4;
-                            transform: translateX(15px) scale(0.95);
+                        25% { 
+                            opacity: 0.2;
+                            transform: translateX(15px) scale(0.97);
+                            filter: blur(1px);
                         }
-                        60% { 
-                            opacity: 0.4;
-                            transform: translateX(15px) scale(0.95);
+                        50% { 
+                            opacity: 0.2;
+                            transform: translateX(15px) scale(0.97);
+                            filter: blur(1px);
+                        }
+                        75% {
+                            opacity: 0.8;
+                            transform: translateX(0) scale(1.01);
+                            filter: blur(0);
                         }
                         100% { 
                             opacity: 1;
                             transform: translateX(0) scale(1);
+                            filter: blur(0);
                         }
                     }
 
                     .animating-text {
                         animation: textFade 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-                        will-change: transform, opacity;
+                        will-change: transform, opacity, filter;
+                        transform-style: preserve-3d;
+                        perspective: 1000px;
                     }
 
                     .nav-link {

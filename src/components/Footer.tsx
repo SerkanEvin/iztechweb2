@@ -49,13 +49,15 @@ const Footer = () => {
                   <img
                       src="/logos.png"
                       alt={t('footer.logoAlt')}
-                      className="w-12 h-12 mr-4 object-contain"
+                      className="w-20 h-20 mr-4 object-contain"
                   />
                   <span className="text-white font-bold text-2xl">IZTECH RACING</span>
                 </div>
-                <p className="text-[#cccccc] leading-relaxed mb-6">
-                  {t('footer.description')}
-                </p>
+                <div className="flex items-start mb-6">
+                  <p className="text-[#cccccc] leading-relaxed">
+                    <span className="font-bold text-white">Mühendislik</span> {t('footer.description').split('Mühendislik')[1]}
+                  </p>
+                </div>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
                       <a

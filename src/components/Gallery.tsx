@@ -26,26 +26,21 @@ const photos = [
 const Gallery = () => {
     const { t } = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     const prevPhoto = () => {
-        setIsLoading(true);
         setCurrentIndex(prev => (prev === 0 ? photos.length - 1 : prev - 1));
     };
 
     const nextPhoto = () => {
-        setIsLoading(true);
         setCurrentIndex(prev => (prev === photos.length - 1 ? 0 : prev + 1));
     };
 
     const goToPhoto = (index: number) => {
-        setIsLoading(true);
         setCurrentIndex(index);
     };
 
     const handleImageLoad = () => {
-        setIsLoading(false);
         setError(null);
     };
 
@@ -72,28 +67,33 @@ const Gallery = () => {
                 {/* Photo Display */}
                 <div className="relative w-full max-w-4xl mx-auto">
                     <div className="relative w-full aspect-video bg-black/20 rounded-xl overflow-hidden border border-[#a02638]/50 shadow-lg">
-                        {isLoading && (
-                            <div className="absolute inset-0 flex items-center justify-center bg-gray-900/50">
-                                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#a02638]"></div>
-                            </div>
-                        )}
-                        {error && (
+                        {error ? (
                             <div className="absolute inset-0 flex items-center justify-center bg-red-900/50 text-white p-4 text-center">
                                 {error}
                             </div>
+                        ) : (
+                            <>
+                                {/* Preload next and previous images for smoother transitions */}
+                                {[currentIndex - 1, currentIndex, currentIndex + 1].map((index) => {
+                                    const actualIndex = (index + photos.length) % photos.length;
+                                    const src = photos[actualIndex];
+                                    return (
+                                        <img
+                                            key={actualIndex}
+                                            src={src}
+                                            alt={t('gallery.alt', { number: actualIndex + 1 })}
+                                            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                                                actualIndex === currentIndex ? 'opacity-100' : 'opacity-0'
+                                            }`}
+                                            onLoad={handleImageLoad}
+                                            onError={handleImageError}
+                                            loading="eager"
+                                            decoding="async"
+                                        />
+                                    );
+                                })}
+                            </>
                         )}
-                        <img
-                            key={currentIndex}
-                            src={photos[currentIndex]}
-                            alt={t('gallery.alt', { number: currentIndex + 1 })}
-                            className={`w-full h-full object-contain transition-opacity duration-300 ${
-                                isLoading ? 'opacity-0' : 'opacity-100'
-                            }`}
-                            onLoad={handleImageLoad}
-                            onError={handleImageError}
-                            loading="eager"
-                            decoding="async"
-                        />
                     </div>
 
                     {/* Navigation Arrows */}
@@ -101,7 +101,6 @@ const Gallery = () => {
                         onClick={prevPhoto}
                         aria-label={t('gallery.previous')}
                         className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#a02638] hover:bg-[#8e1f31] text-white p-3 rounded-full shadow-lg transition-colors z-10"
-                        disabled={isLoading}
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </button>
@@ -110,7 +109,6 @@ const Gallery = () => {
                         onClick={nextPhoto}
                         aria-label={t('gallery.next')}
                         className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#a02638] hover:bg-[#8e1f31] text-white p-3 rounded-full shadow-lg transition-colors z-10"
-                        disabled={isLoading}
                     >
                         <ChevronRight className="w-6 h-6" />
                     </button>
@@ -128,8 +126,7 @@ const Gallery = () => {
                                     ? "bg-[#a02638] scale-125" 
                                     : "bg-gray-600 hover:bg-gray-400 hover:scale-110"
                             }`}
-                            disabled={isLoading}
-                        />
+                            />
                     ))}
                 </div>
             </div>
