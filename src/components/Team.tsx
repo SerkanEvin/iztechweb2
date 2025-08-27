@@ -85,7 +85,7 @@ const SocialIcons: React.FC<{ social: SocialLinks }> = ({ social }) => (
 
 const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => (
   <div className="bg-[#1a1a1a] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-    <div className="relative h-64 w-full bg-gray-800">
+    <div className="relative h-64 w-full bg-black">
       <img
         src={member.image}
         alt={member.name}
