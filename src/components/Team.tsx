@@ -102,7 +102,7 @@ const Team = () => {
       name: "Efe Yıldırım",
       role: t("Aerodynamics Team Leader"),
       department: t("Mechanical Engineering"),
-      image: "/EFEYİLDİRİR.png",
+      image: "/EFE.png",
       social: {
         linkedin: "https://www.linkedin.com/in/efeyldrm/",
         email: "@iztechracing.com",
@@ -113,7 +113,7 @@ const Team = () => {
       name: "Ödül Yarkın Baran",
       role: t("Organization Team Leader"),
       department: t("Photonics Department"),
-      image: "/ÖdülYarkınBaran.png",
+      image: "/ODULYARKINBARAN.png",
       social: {
         linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
         email: "@iztechracing.com",
@@ -223,7 +223,7 @@ const Team = () => {
       name: "Yağız Yalçın",
       role: t("Powertrain Team Member"),
       department: t("Energy Systems Engineering"),
-      image: "/YAĞIZYALÇIN.png",
+      image: "/YAGIZYALCIN.png",
       social: {
         linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "alex@iztechracing.com",
@@ -245,7 +245,7 @@ const Team = () => {
       name: "Eren Uruş",
       role: t("Aerodynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/ERENURUŞ.png",
+      image: "/ERENURUS.png",
       social: {
         linkedin: "https://www.linkedin.com/in/erenurus",
         email: "@iztechracing.com",
@@ -267,7 +267,7 @@ const Team = () => {
       name: "Tuğçe Özcan",
       role: t("Chassis & Ergonomics Team Member"),
       department: t("Materials Engineering"),
-      image: "/TUĞÇE.png",
+      image: "/TUGCE.png",
       social: {
         linkedin: "https://www.linkedin.com/in/tu%C4%9F%C3%A7e-%C3%B6zcan-19738133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -300,7 +300,7 @@ const Team = () => {
       name: "Emir Yaşa",
       role: t("Vehicle Dynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/EMİRYAŞA.png",
+      image: "/Emir.png",
       social: {
         linkedin: " https://www.linkedin.com/in/emir-ya%C5%9Fa-344460343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app,",
         email: "@iztechracing.com",
