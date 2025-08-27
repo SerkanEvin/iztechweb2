@@ -22,21 +22,21 @@ type TeamCategory = keyof typeof TEAM_CATEGORIES;
 
 // Constants
 const TEAM_CATEGORIES = {
-  'roles.team_captain': 'Team Captain',
-  'roles.electronics_software_team_leader': 'Electronics & Software Team',
-  'roles.electronics_software_team_member': 'Electronics & Software Team',
-  'roles.vehicle_dynamics_team_leader': 'Vehicle Dynamics Team',
-  'roles.vehicle_dynamics_team_member': 'Vehicle Dynamics Team',
-  'roles.chassis_ergonomics_team_leader': 'Chassis & Ergonomics Team',
-  'roles.chassis_ergonomics_team_member': 'Chassis & Ergonomics Team',
-  'roles.powertrain_team_leader': 'Powertrain Team',
-  'roles.powertrain_team_member': 'Powertrain Team',
-  'roles.aerodynamics_team_leader': 'Aerodynamics Team',
-  'roles.aerodynamics_team_member': 'Aerodynamics Team',
-  'roles.organization_team_leader': 'Organization Team',
-  'roles.organization_team_member': 'Organization Team',
-  'roles.business_team_leader': 'Business Development',
-  'roles.business_team_member': 'Business Development'
+  'roles.team_captain': 'team_categories.team_captain',
+  'roles.electronics_software_team_leader': 'team_categories.electronics_software_team',
+  'roles.electronics_software_team_member': 'team_categories.electronics_software_team',
+  'roles.vehicle_dynamics_team_leader': 'team_categories.vehicle_dynamics_team',
+  'roles.vehicle_dynamics_team_member': 'team_categories.vehicle_dynamics_team',
+  'roles.chassis_ergonomics_team_leader': 'team_categories.chassis_ergonomics_team',
+  'roles.chassis_ergonomics_team_member': 'team_categories.chassis_ergonomics_team',
+  'roles.powertrain_team_leader': 'team_categories.powertrain_team',
+  'roles.powertrain_team_member': 'team_categories.powertrain_team',
+  'roles.aerodynamics_team_leader': 'team_categories.aerodynamics_team',
+  'roles.aerodynamics_team_member': 'team_categories.aerodynamics_team',
+  'roles.organization_team_leader': 'team_categories.organization_team',
+  'roles.organization_team_member': 'team_categories.organization_team',
+  'roles.business_team_leader': 'team_categories.business_development',
+  'roles.business_team_member': 'team_categories.business_development'
 } as const;
 
 // Helper Components

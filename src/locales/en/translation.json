@@ -342,8 +342,18 @@
       "yearsActive": {
         "value": "1",
         "label": "Years Active"
+      },
+      "scrollDown": "Scroll down",
+      "team_categories": {
+        "team_captain": "Team Captain",
+        "electronics_software_team": "Electronics & Software Team",
+        "vehicle_dynamics_team": "Vehicle Dynamics Team",
+        "chassis_ergonomics_team": "Chassis & Ergonomics Team",
+        "powertrain_team": "Powertrain Team",
+        "aerodynamics_team": "Aerodynamics Team",
+        "organization_team": "Organization Team",
+        "business_development": "Business Development"
       }
-    },
-    "scrollDown": "Scroll down"
+    }
   }
 }
