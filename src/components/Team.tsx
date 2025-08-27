@@ -333,7 +333,7 @@ const Team = () => {
       name: "Khayal Musayev",
       role: t("Chassis & Ergonomics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/HAYAL.png",
+      image: "/KHAYAL.png",
       social: {
         linkedin: "https://www.linkedin.com/in/khayal-musayev-98b769343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -344,7 +344,7 @@ const Team = () => {
       name: "Sinan Efe Bayrak",
       role: t("Aerodynamics Team Member"),
       department: t("Mechanical Engineering"),
-      image: "/SİNANEFE.png",
+      image: "/SiNANEFE.png",
       social: {
         linkedin: "https://www.linkedin.com/in/sinan-efe-bayrak-578419331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -355,7 +355,7 @@ const Team = () => {
       name: "Kuzey Demirer",
       role: t("Business Development"),
       department: t("Industrial Design"),
-      image: "/insan.png",
+      image: "/KUZEY.png",
       social: {
         linkedin: "https://tr.linkedin.com/in/kuzey-demirer-76577a260",
         email: "@iztechracing.com",
