@@ -149,35 +149,6 @@ type TeamMemberInput = Omit<TeamMember, 'role'> & {
 const Team: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
   
-  // Helper function to validate team role
-  const isValidTeamRole = (role: string): role is TeamRole => {
-    // Check if it's a direct role key
-    if (Object.values(TEAM_ROLES).includes(role as TeamRole)) {
-      return true;
-    }
-    
-    // Check if it's a translated role (English or Turkish)
-    const translatedRoles = [
-      t('roles.team_captain'),
-      t('roles.electronics_software_team_leader'),
-      t('roles.electronics_software_team_member'),
-      t('roles.vehicle_dynamics_team_leader'),
-      t('roles.vehicle_dynamics_team_member'),
-      t('roles.chassis_ergonomics_team_leader'),
-      t('roles.chassis_ergonomics_team_member'),
-      t('roles.powertrain_team_leader'),
-      t('roles.powertrain_team_member'),
-      t('roles.aerodynamics_team_leader'),
-      t('roles.aerodynamics_team_member'),
-      t('roles.organization_team_leader'),
-      t('roles.organization_team_member'),
-      t('roles.business_development_leader'),
-      t('roles.business_development_member')
-    ];
-    
-    return translatedRoles.includes(role);
-  };
-  
   // Process team members with type safety
   const processTeamMember = (member: TeamMemberInput): TeamMember | null => {
     // If role is a translated string, find the corresponding role key
@@ -558,7 +529,7 @@ const Team: React.FC = (): JSX.Element => {
     }, new Map<TeamCategory, TeamMember[]>());
 
     // Sort categories and members within each category
-    const categoryOrder: TeamCategory[] = [
+    const categoryOrder = [
       'team.captain',
       'team.electronics_software_team',
       'team.vehicle_dynamics_team',
@@ -567,7 +538,7 @@ const Team: React.FC = (): JSX.Element => {
       'team.aerodynamics_team',
       'team.organization_team',
       'team.business_development_team'
-    ].filter(Boolean);
+    ] as const satisfies readonly TeamCategory[];
 
     const sorted = Array.from(categories.entries())
       .map(([category, members]) => ({
@@ -602,7 +573,7 @@ const Team: React.FC = (): JSX.Element => {
           {sortedCategories.map(({ category, members }) => (
             <div key={category} className="w-full max-w-6xl mx-auto">
               <h3 className="text-2xl font-semibold text-white mb-8 text-center">
-                {t(`team.${category.split('.')[1]}`)}
+                {t(category)}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {members.map((member) => (

@@ -56,8 +56,7 @@
     "organization_team_member": "Organizasyon Ekibi Üyesi",
     
     "business_development_leader": "İş Geliştirme Ekibi Lideri",
-    "business_development_member": "İş Geliştirme Ekibi Üyesi",
-    "organization_team_leader": "Organizasyon Ekibi Lideri"
+    "business_development_member": "İş Geliştirme Ekibi Üyesi"
   },
   "departments": {
     "mechanical_engineering": "Makine Mühendisliği",
