@@ -54,7 +54,6 @@ interface TeamMember {
 const TEAM_CATEGORIES: Record<TeamRole, TeamCategory> = {
   'team_caption': 'team.captain',
   'electronics_software_team_leader': 'team.electronics_software_team',
-  'electronics_software_team_member': 'team.electronics_software_team',
   'vehicle_dynamics_team_leader': 'team.vehicle_dynamics_team',
   'vehicle_dynamics_team_member': 'team.vehicle_dynamics_team',
   'chassis_ergonomics_team_leader': 'team.chassis_ergonomics_team',
@@ -523,6 +522,16 @@ const Team: React.FC = (): JSX.Element => {
         linkedin: "#",
         email: "@iztechracing.com"
       }
+    },
+    {
+      name: "Kuzyey Demirer",
+      role: 'business_development_member',
+      department: t('departments.industrial_design'),
+      image: getImagePath("KUZYEY"),
+      social: {
+        linkedin: "#",
+        email: "@iztechracing.com"
+      }
     }
   ];
 
@@ -558,7 +567,7 @@ const Team: React.FC = (): JSX.Element => {
       'team.aerodynamics_team',
       'team.organization_team',
       'team.business_development_team'
-    ];
+    ].filter(Boolean);
 
     const sorted = Array.from(categories.entries())
       .map(([category, members]) => ({
