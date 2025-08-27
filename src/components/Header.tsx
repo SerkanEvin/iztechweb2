@@ -100,22 +100,15 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-8">
-                        {['home', 'team', 'vehicles', 'gallery', 'sponsors', 'contact'].map((item) => (
+                        {['home', 'team', 'vehicles', 'magazines', 'gallery', 'sponsors', 'contact'].map((item) => (
                             <a 
                                 key={item}
                                 href={`#${item}`} 
                                 className="nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200"
                             >
-                                {t(`header.${item}`)}
+                                {t(`header.${item === 'magazines' ? 'magazine' : item}`)}
                             </a>
                         ))}
-                        {/* Magazine Button with Red Accent */}
-                        <a 
-                            href="#magazines"
-                            className="ml-2 px-4 py-2 bg-[#9a0e20] hover:bg-[#7a0b1a] text-white font-medium rounded-md transition-all duration-200 transform hover:scale-105 hover:shadow-lg hover:shadow-[#9a0e20]/20"
-                        >
-                            {t('header.magazine')}
-                        </a>
                     </nav>
 
                     {/* Mobile menu button */}
