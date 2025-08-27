@@ -18,15 +18,19 @@ interface TeamMember {
 }
 
 
-const teamCategories = {
-  "Team Captain": "Team Captain",
-  "Electronics & Software": "Electronics & Software Team",
-  "Vehicle Dynamics": "Vehicle Dynamics Team",
-  "Chassis & Ergonomics": "Chassis & Ergonomics Team",
-  "Powertrain": "Powertrain Team",
-  "Aerodynamics": "Aerodynamics Team",
-  "Organization": "Organization Team",
-  "Business Development": "Business Development",
+const TeamCategories = () => {
+  const { t } = useTranslation();
+  
+  return {
+    "Team Captain": t('team.captain'),
+    "Electronics & Software": t('team.electronics_software_team'),
+    "Vehicle Dynamics": t('team.vehicle_dynamics_team'),
+    "Chassis & Ergonomics": t('team.chassis_ergonomics_team'),
+    "Powertrain": t('team.powertrain_team'),
+    "Aerodynamics": t('team.aerodynamics_team'),
+    "Organization": t('team.organization_team'),
+    "Business Development": t('team.business_development_team'),
+  };
 };
 
 interface CategorizedTeamMembers {
@@ -35,6 +39,7 @@ interface CategorizedTeamMembers {
 
 const categorizeTeamMembers = (members: TeamMember[]): CategorizedTeamMembers => {
   const categorized: CategorizedTeamMembers = {};
+  const teamCategories = TeamCategories();
 
   members.forEach((member: TeamMember) => {
     const categoryKey = Object.keys(teamCategories).find((key) =>
@@ -100,8 +105,8 @@ const Team = () => {
     },
     {
       name: "Efe Yıldırım",
-      role: t("Aerodynamics Team Leader"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.aerodynamics_team_leader'),
+      department: t('departments.mechanical_engineering'),
       image: "/EFE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/efeyldrm/",
@@ -111,8 +116,8 @@ const Team = () => {
     },
     {
       name: "Ödül Yarkın Baran",
-      role: t("Organization Team Leader"),
-      department: t("Photonics Department"),
+      role: t('roles.organization_team_leader'),
+      department: t('departments.photonics_department'),
       image: "/YARKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
@@ -122,8 +127,8 @@ const Team = () => {
     },
     {
       name: "Ahmet Duha Aydın",
-      role: t("Chassis & Ergonomics Team Leader"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.chassis_ergonomics_team_leader'),
+      department: t('departments.mechanical_engineering'),
       image: "/DUHA.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/ahmet-duha-aydin-b81b98244",
@@ -133,8 +138,8 @@ const Team = () => {
     },
     {
       name: "Altay Alp",
-      role: t("Electronics & Software Team Member"),
-      department: t("Electronics & Communication Engineering"),
+      role: t('roles.electronics_software_team_member'),
+      department: t('departments.electronics_&_communication_engineering'),
       image: "/ALTAYALP.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/altay-alp-4225bb251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -144,8 +149,8 @@ const Team = () => {
     },
     {
       name: "Arda Onuk",
-      role: t("Electronics & Software Team Member"),
-      department: t("Mathematics Department"),
+      role: t('roles.electronics_software_team_member'),
+      department: t('departments.mathematics_department'),
       image: "/ARDAONUK.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-onuk-8247b5352/",
@@ -155,8 +160,8 @@ const Team = () => {
     },
     {
       name: "Berkant Süren",
-      role: t("Chassis & Ergonomics Team Member"),
-      department: t("Materials  Engineering"),
+      role: t('roles.chassis_ergonomics_team_member'),
+      department: t('departments.materials_engineering'),
       image: "/BERKANT.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/berkant-suren?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -166,8 +171,8 @@ const Team = () => {
     },
     {
       name: "Arda Keskin",
-      role: t("Vehicle Dynamics Team Member"),
-      department: t("Energy Systems  Engineering"),
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.energy_systems_engineering'),
       image: "/ARDAKESKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-keskin-ba7b36230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -177,8 +182,8 @@ const Team = () => {
     },
     {
       name: "Arda Akpolat",
-      role: t("Vehicle Dynamics Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/ARDAAKPOLAT.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-akpolat-444a51315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -188,8 +193,8 @@ const Team = () => {
     },
     {
       name: "Senanur Günay",
-      role: t("Electronics & Software Team Member"),
-      department: t("Computer Engineering"),
+      role: t('roles.electronics_software_team_member'),
+      department: t('departments.computer_engineering'),
       image: "/SENANUR.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/senanur-g%C3%BCnay-94172431b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -199,8 +204,8 @@ const Team = () => {
     },
     {
       name: "Beren Alptekin",
-      role: t("Organization Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.organization_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/insan.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/beren-alptekin-71b6a5343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -210,8 +215,8 @@ const Team = () => {
     },
     {
       name: "Tarık Alperen Öcal",
-      role: t("Powertrain Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/TARIKALPERENOCAL.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/tar%C4%B1k-alperen-%C3%B6cal-32b8722b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -221,8 +226,8 @@ const Team = () => {
     },
     {
       name: "Yağız Yalçın",
-      role: t("Powertrain Team Member"),
-      department: t("Energy Systems Engineering"),
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.energy_systems_engineering'),
       image: "/YAGIZ.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -232,8 +237,8 @@ const Team = () => {
     },
     {
       name: "Batuhan Elmaoğlu",
-      role: t("Aerodynamics Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.aerodynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/BATU.webp",
       social: {
         linkedin: "http://www.linkedin.com/in/batuhan-elmaoğlu-338185296",
@@ -243,8 +248,8 @@ const Team = () => {
     },
     {
       name: "Eren Uruş",
-      role: t("Aerodynamics Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.aerodynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/ERENURUS.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/erenurus",
@@ -254,8 +259,8 @@ const Team = () => {
     },
     {
       name: "Eren Karasakal",
-      role: t("Chassis & Ergonomics Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.chassis_ergonomics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/ERENKARASAKAL.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/eren-karasakal-406769342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -265,8 +270,8 @@ const Team = () => {
     },
     {
       name: "Tuğçe Özcan",
-      role: t("Chassis & Ergonomics Team Member"),
-      department: t("Materials Engineering"),
+      role: t('roles.chassis_ergonomics_team_member'),
+      department: t('departments.materials_engineering'),
       image: "/TUĞÇE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/tu%C4%9F%C3%A7e-%C3%B6zcan-19738133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -276,8 +281,8 @@ const Team = () => {
     },
     {
       name: "Nevzat Ediz Burçoğlu",
-      role: t("Powertrain Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/Ediz.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/nevzatedizburcoglu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -287,8 +292,8 @@ const Team = () => {
     },
     {
       name: "Kerem Katrancı",
-      role: t("Powertrain Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/KEREM.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/kerem-katranc%C4%B1-33294a247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -298,8 +303,8 @@ const Team = () => {
     },
     {
       name: "Emir Yaşa",
-      role: t("Vehicle Dynamics Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/Emir.webp",
       social: {
         linkedin: " https://www.linkedin.com/in/emir-ya%C5%9Fa-344460343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app,",
@@ -309,8 +314,8 @@ const Team = () => {
     },
     {
       name: "Tuna Kurban",
-      role: "Vehicle Dynamics Team Member",
-      department: t("Mechanical Engineering"),
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/TUNAKURBAN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/tuna-kurban-147606286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -320,8 +325,8 @@ const Team = () => {
     },
     {
       name: "Hakan Şendaldal",
-      role: t("Vehicle Dynamics Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/HAKAN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/hakan-%C5%9Fendaldal-9b9688251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -331,8 +336,8 @@ const Team = () => {
     },
     {
       name: "Khayal Musayev",
-      role: t("Chassis & Ergonomics Team Member"),
-      department: t("Mechanical Engineering"),
+      role: t('roles.chassis_ergonomics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/KHAYAL.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/khayal-musayev-98b769343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -342,9 +347,9 @@ const Team = () => {
     },
     {
       name: "Sinan Efe Bayrak",
-      role: t("Aerodynamics Team Member"),
-      department: t("Mechanical Engineering"),
-      image: "/SiNANEFE.webp",
+      role: t('roles.electronics_software_team_member'),
+      department: t('departments.computer_engineering'),
+      image: "/SİNANEFE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/sinan-efe-bayrak-578419331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -353,8 +358,8 @@ const Team = () => {
     },
     {
       name: "Kuzey Demirer",
-      role: t("Business Development"),
-      department: t("Industrial Design"),
+      role: t('roles.business_team_member'),
+      department: t('departments.industrial_design'),
       image: "/KUZEY.webp",
       social: {
         linkedin: "https://tr.linkedin.com/in/kuzey-demirer-76577a260",
