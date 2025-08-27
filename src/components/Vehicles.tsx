@@ -49,9 +49,9 @@ const Vehicles = () => {
       year: "2025-2026",
       image: "/doruk.jpg",
       specs: {
-        power: "80HP",
+        power: "80+ HP",
         weight: "220kg",
-        topSpeed: "100km/h",
+        topSpeed: "100+ km/h",
         acceleration: "3.0s"
       },
       features: [
@@ -140,7 +140,7 @@ const Vehicles = () => {
                         <div className="flex items-center mb-2">
                           <Settings className="w-5 h-5 text-[#a02638] mr-2" />
                           <span className="text-[#cccccc] text-sm">
-                        {t('vehicles.specs.acceleration', "0-35 km/h")}
+                        {t('vehicles.specs.acceleration', "0-100 km/h")}
                       </span>
                         </div>
                         <div className="text-white font-bold text-lg">{vehicle.specs.acceleration}</div>
