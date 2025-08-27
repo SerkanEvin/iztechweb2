@@ -347,8 +347,8 @@ const Team = () => {
     },
     {
       name: "Sinan Efe Bayrak",
-      role: t('roles.electronics_software_team_member'),
-      department: t('departments.computer_engineering'),
+      role: t('roles.aerodynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
       image: "/SİNANEFE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/sinan-efe-bayrak-578419331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
