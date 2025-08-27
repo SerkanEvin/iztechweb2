@@ -163,61 +163,20 @@ const Header = () => {
             <style dangerouslySetInnerHTML={{
                 __html: `
                     @keyframes logoSlide {
-                        0% {
-                            transform: translateX(0) scale(1) rotate(0);
-                            opacity: 1;
-                            filter: drop-shadow(0 0 6px rgba(154, 14, 32, 0.3));
-                        }
-                        25% {
-                            transform: translateX(150px) scale(1.05) rotate(2deg);
-                            opacity: 0.9;
-                            filter: drop-shadow(0 0 12px rgba(154, 14, 32, 0.5));
-                        }
-                        50% {
-                            transform: translateX(180px) scale(1.07) rotate(-1deg);
-                            opacity: 0.95;
-                            filter: drop-shadow(0 0 14px rgba(154, 14, 32, 0.6));
-                        }
-                        75% {
-                            transform: translateX(90px) scale(1.03) rotate(0deg);
-                            opacity: 0.97;
-                            filter: drop-shadow(0 0 10px rgba(154, 14, 32, 0.4));
-                        }
-                        100% {
-                            transform: translateX(0) scale(1) rotate(0);
-                            opacity: 1;
-                            filter: drop-shadow(0 0 6px rgba(154, 14, 32, 0.3));
-                        }
+                        0% { transform: translateX(0); }
+                        50% { transform: translateX(180px); }
+                        100% { transform: translateX(0); }
                     }
 
                     @keyframes textFade {
-                        0% {
-                            opacity: 1;
-                            transform: translateX(0) scale(1);
-                            filter: blur(0);
-                        }
-                        40% {
-                            opacity: 0.5;
-                            transform: translateX(10px) scale(0.98);
-                            filter: blur(1px);
-                        }
-                        60% {
-                            opacity: 0.7;
-                            transform: translateX(5px) scale(1.01);
-                            filter: blur(0.5px);
-                        }
-                        100% {
-                            opacity: 1;
-                            transform: translateX(0) scale(1);
-                            filter: blur(0);
-                        }
+                        0% { opacity: 1; }
+                        40% { opacity: 0; }
+                        60% { opacity: 0; }
+                        100% { opacity: 1; }
                     }
 
                     .animating-text {
-                        animation: textFade 1.6s ease-in-out forwards;
-                        will-change: transform, opacity, filter;
-                        transform-style: preserve-3d;
-                        perspective: 1000px;
+                        animation: textFade 2.2s ease forwards;
                     }
 
                     .nav-link {
@@ -241,8 +200,7 @@ const Header = () => {
                     .nav-link:hover::after {
                         transform: scaleX(1);
                         transform-origin: left;
-                    }
-                `
+                    }`
             }} />
         </header>
     );
