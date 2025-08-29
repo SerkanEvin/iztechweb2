@@ -9,7 +9,7 @@ const Sponsors = () => {
       tier: t('sponsors.tiers.platinum.title', "Platinum Sponsors"),
       description: t('sponsors.tiers.platinum.description', "Our primary partners who make everything possible"),
       sponsors: [
-        { name: "Prokom", logo: "/Logo_Prokom_W.png", url: "https://prokomcomposite.com/" }
+        { name: "Prokom", logo: "/Logo_Prokom_W.png", url: "https://prokomtech.com/" }
       ]
     },
     {
@@ -138,126 +138,122 @@ const Sponsors = () => {
   ];
 
   return (
-      <section id="sponsors" className="py-20 bg-[#0f0f0f]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {t('sponsors.title', "Our Sponsors")}
-            </h2>
-            <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
-              {t('sponsors.description', "We're proud to partner with industry leaders who share our passion for innovation, excellence, and the future of automotive engineering.")}
+    <section id="sponsors" className="py-20 bg-[#0f0f0f]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            {t('sponsors.title', "Our Sponsors")}
+          </h2>
+          <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
+            {t('sponsors.description', "We're proud to partner with industry leaders who share our passion for innovation, excellence, and the future of automotive engineering.")}
+          </p>
+        </div>
+
+        {/* Sponsor Tiers */}
+        <div className="space-y-16 mb-20">
+          {sponsorTiers.map((tier, tierIndex) => (
+            <div key={tierIndex}>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">{tier.tier}</h3>
+                <p className="text-[#cccccc]">{tier.description}</p>
+              </div>
+
+              <div className={`grid gap-8 ${
+                tier.sponsors.length <= 2 ? 'md:grid-cols-2' :
+                tier.sponsors.length === 3 ? 'md:grid-cols-3' :
+                'md:grid-cols-2 lg:grid-cols-4'
+              }`}>
+                {tier.sponsors.map((sponsor, sponsorIndex) => (
+                  <a
+                    key={sponsorIndex}
+                    href={sponsor.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#2a2a2a]/50 backdrop-blur-sm border border-[#2a2a2a] rounded-xl p-8 text-center hover:bg-[#2a2a2a]/70 transition-all duration-300 hover:scale-105 group h-40 flex items-center justify-center"
+                  >
+                    <div className="flex items-center justify-center h-full">
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className={`${sponsor.name === 'Prokom' ? 'h-32' : 'h-24'} w-auto object-contain mx-auto`}
+                      />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Partnership Benefits */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-white mb-4">
+              {t('sponsors.benefits.title', "Partnership Benefits")}
+            </h3>
+            <p className="text-xl text-[#cccccc] max-w-2xl mx-auto">
+              {t('sponsors.benefits.subtitle', "Join our mission and discover the advantages of partnering with IZTECH Racing")}
             </p>
           </div>
 
-          {/* Sponsor Tiers */}
-          <div className="space-y-16 mb-20">
-            {sponsorTiers.map((tier, tierIndex) => (
-                <div key={tierIndex}>
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-white mb-2">{tier.tier}</h3>
-                    <p className="text-[#cccccc]">{tier.description}</p>
-                  </div>
-
-                  <div className={`grid gap-8 ${
-                      tier.sponsors.length <= 2 ? 'md:grid-cols-2' :
-                          tier.sponsors.length === 3 ? 'md:grid-cols-3' :
-                              'md:grid-cols-2 lg:grid-cols-4'
-                  }`}>
-                    {tier.sponsors.map((sponsor, sponsorIndex) => (
-                        <a
-                            key={sponsorIndex}
-                            href={sponsor.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-[#2a2a2a]/50 backdrop-blur-sm border border-[#2a2a2a] rounded-xl p-8 text-center hover:bg-[#2a2a2a]/70 transition-all duration-300 hover:scale-105 group"
-                        >
-                          {sponsor.logo.endsWith(".png") || sponsor.logo.endsWith(".jpg") ? (
-                              <img
-                                  src={sponsor.logo}
-                                  alt={sponsor.name}
-                                  className="h-20 object-contain mx-auto"
-                              />
-                          ) : (
-                              <div className="h-20 flex items-center justify-center">
-                                <span className="text-white font-bold text-2xl">{sponsor.logo}</span>
-                              </div>
-                          )}
-                        </a>
-                    ))}
-                  </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {partnershipBenefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-[#2a2a2a]/50 backdrop-blur-sm border border-[#2a2a2a] rounded-xl p-6 text-center hover:bg-[#2a2a2a]/70 transition-all duration-300 hover:scale-105"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#a02638]/20 rounded-full mb-6">
+                  <benefit.icon className="w-8 h-8 text-[#a02638]" />
                 </div>
+                <h4 className="text-xl font-bold text-white mb-4">{benefit.title}</h4>
+                <p className="text-[#cccccc] leading-relaxed">{benefit.description}</p>
+              </div>
             ))}
           </div>
+        </div>
 
-          {/* Partnership Benefits */}
-          <div className="mb-16">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-white mb-4">
-                {t('sponsors.benefits.title', "Partnership Benefits")}
-              </h3>
-              <p className="text-xl text-[#cccccc] max-w-2xl mx-auto">
-                {t('sponsors.benefits.subtitle', "Join our mission and discover the advantages of partnering with IZTECH Racing")}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {partnershipBenefits.map((benefit, index) => (
-                  <div
-                      key={index}
-                      className="bg-[#2a2a2a]/50 backdrop-blur-sm border border-[#2a2a2a] rounded-xl p-6 text-center hover:bg-[#2a2a2a]/70 transition-all duration-300 hover:scale-105"
-                  >
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[#a02638]/20 rounded-full mb-6">
-                      <benefit.icon className="w-8 h-8 text-[#a02638]" />
-                    </div>
-                    <h4 className="text-xl font-bold text-white mb-4">{benefit.title}</h4>
-                    <p className="text-[#cccccc] leading-relaxed">{benefit.description}</p>
-                  </div>
-              ))}
-            </div>
+        {/* Sponsorship Packages */}
+        <div className="bg-gradient-to-r from-[#a02638]/10 to-[#7e1c2b]/10 border border-[#a02638]/20 rounded-2xl p-8 md:p-12">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-white mb-4">
+              {t('sponsors.packages.title', "Become a Sponsor")}
+            </h3>
+            <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
+              {t('sponsors.packages.description', "Ready to join our racing family? We offer flexible sponsorship packages tailored to your business goals and budget. Let's build the future together.")}
+            </p>
           </div>
 
-          {/* Sponsorship Packages */}
-          <div className="bg-gradient-to-r from-[#a02638]/10 to-[#7e1c2b]/10 border border-[#a02638]/20 rounded-2xl p-8 md:p-12">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-white mb-4">
-                {t('sponsors.packages.title', "Become a Sponsor")}
-              </h3>
-              <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
-                {t('sponsors.packages.description', "Ready to join our racing family? We offer flexible sponsorship packages tailored to your business goals and budget. Let's build the future together.")}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-              {packages.map((pkg, index) => (
-                  <div
-                      key={index}
-                      className={`flex flex-col h-full bg-[#2a2a2a]/50 border ${
-                          pkg.popular ? 'border-[#a02638]/50' : 'border-[#2a2a2a]'
-                      } rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-lg hover:shadow-[#a02638]/10`}
-                  >
-                    {pkg.popular && (
-                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#a02638] text-white px-4 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
-                          {t('sponsors.packages.mostPopular', "Most Popular")}
-                        </div>
-                    )}
-                    <div className="flex-grow">
-                      <h4 className="text-xl font-bold text-white mb-4">{pkg.name}</h4>
-                      <div className="text-2xl font-bold text-[#a02638] mb-6 min-h-[60px] flex items-center justify-center">
-                        {pkg.price}
-                      </div>
-                      <ul className="text-[#cccccc] space-y-3 mb-6">
-                        {pkg.features.map((feature, i) => (
-                            <li key={i} className="text-sm leading-tight">{feature}</li>
-                        ))}
-                      </ul>
-                    </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {packages.map((pkg, index) => (
+              <div
+                key={index}
+                className={`flex flex-col h-full bg-[#2a2a2a]/50 border ${
+                  pkg.popular ? 'border-[#a02638]/50' : 'border-[#2a2a2a]'
+                } rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-lg hover:shadow-[#a02638]/10`}
+              >
+                {pkg.popular && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#a02638] text-white px-4 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
+                    {t('sponsors.packages.mostPopular', "Most Popular")}
                   </div>
-              ))}
-            </div>
+                )}
+                <div className="flex-grow">
+                  <h4 className="text-xl font-bold text-white mb-4">{pkg.name}</h4>
+                  <div className="text-2xl font-bold text-[#a02638] mb-6 min-h-[60px] flex items-center justify-center">
+                    {pkg.price}
+                  </div>
+                  <ul className="text-[#cccccc] space-y-3 mb-6">
+                    {pkg.features.map((feature, i) => (
+                      <li key={i} className="text-sm leading-tight">{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 };
 
