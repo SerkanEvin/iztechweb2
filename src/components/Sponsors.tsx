@@ -41,7 +41,7 @@ export default function Sponsors() {
         { name: "Bilişim Vadisi", logo: "/BV_Logo_H.png", url: "https://bilisimvadisi.com.tr/" },
         { name: "Teknopark İzmir", logo: "/20190828083905.png", url: "https://teknoparkizmir.com.tr/" },
         { name: "URİKAD", logo: "/URiKADW.png", url: "#" },
-        { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013.jpg", url: "https://www.schrothracing.com/" }
+        { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013.eps", url: "https://www.schrothracing.com/" }
       ]
     }
   ];
