@@ -65,7 +65,9 @@ const Header = () => {
                                 className="w-auto h-10 transition-all duration-500 hover:opacity-90"
                                 style={{ 
                                     filter: 'drop-shadow(0 2px 8px rgba(154, 14, 32, 0.4))',
-                                    backfaceVisibility: 'hidden'
+                                    backfaceVisibility: 'hidden',
+                                    animation: animateLogo ? 'fadeInOut 1.8s ease-in-out forwards' : 'none',
+                                    opacity: 0
                                 }}
                                 draggable={false}
                             />
@@ -78,12 +80,12 @@ const Header = () => {
                                 position: 'absolute',
                                 top: 0,
                                 left: 0,
-                                animation: animateLogo ? 'logoSlide 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' : 'none',
                                 zIndex: 20,
                                 transformOrigin: 'center',
                                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
-                                opacity: animateLogo ? 1 : 0,
-                                transition: 'opacity 0.3s ease-out'
+                                opacity: 1, // Always keep the pig visible
+                                transition: 'opacity 0.3s ease-out',
+                                animation: animateLogo ? 'pigBounce 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' : 'none'
                             }}
                         >
                             <img
@@ -155,24 +157,23 @@ const Header = () => {
                 )}
             </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                    @keyframes logoSlide {
-                        0% { transform: translateX(0); }
-                        50% { transform: translateX(180px); }
-                        100% { transform: translateX(0); }
-                    }
-
-                    @keyframes textFade {
-                        0% { opacity: 1; }
-                        40% { opacity: 0; }
-                        60% { opacity: 0; }
-                        100% { opacity: 1; }
-                    }
-
-                    .animating-text {
-                        animation: textFade 2.2s ease forwards;
-                    }
+            <style jsx global>{`
+                @keyframes pigBounce {
+                    0% { transform: translateX(0) scale(1); }
+                    40% { transform: translateX(150px) scale(1.2); }
+                    60% { transform: translateX(150px) scale(1.2) rotate(0); }
+                    80% { transform: translateX(150px) scale(1) rotate(0); }
+                    100% { transform: translateX(150px) scale(1) rotate(0); }
+                }
+                @keyframes fadeInOut {
+                    0% { opacity: 0; }
+                    20% { opacity: 1; }
+                    30% { opacity: 1; }
+                    50% { opacity: 0; }
+                    70% { opacity: 1; }
+                    100% { opacity: 1; }
+                }
+            `}</style>
 
                     .nav-link {
                         position: relative;
