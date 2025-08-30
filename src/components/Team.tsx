@@ -4,6 +4,7 @@ import { PlaceholderImage } from './PlaceholderImage';
 
 interface TeamMember {
   name: string;
+  roleKey: string;
   role: string;
   department: string;
   image: string;
@@ -21,6 +22,7 @@ const Team = () => {
   const teamMembers: TeamMember[] = [
     {
       name: "Hüseyin Poyraz Kocamış",
+      roleKey: "team_captain",
       role: t("roles.team_captain"),
       department: t('departments.civil_engineering'),
       image: "/POYRAZ.webp",
@@ -31,6 +33,7 @@ const Team = () => {
     },
     {
       name: "Serkan Doğan Evin",
+      roleKey: "electronics_software_team_leader",
       role: t('roles.electronics_software_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: "/SERKAN.webp",
@@ -42,6 +45,7 @@ const Team = () => {
     },
     {
       name: "Emre Canbaz",
+      roleKey: "vehicle_dynamics_team_leader",
       role: t("roles.vehicle_dynamics_team_leader"),
       department: t('departments.mechanical_engineering'),
       image: "/EMRE.webp",
@@ -53,6 +57,7 @@ const Team = () => {
     },
     {
       name: "Onur Şen",
+      roleKey: "powertrain_team_leader",
       role: t("roles.powertrain_team_leader"),
       department: t('departments.mechanical_engineering'),
       image: "/ONUR.webp",
@@ -64,6 +69,7 @@ const Team = () => {
     },
     {
       name: "Efe Yıldırım",
+      roleKey: "aerodynamics_team_leader",
       role: t('roles.aerodynamics_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: "/EFE.webp",
@@ -75,6 +81,7 @@ const Team = () => {
     },
     {
       name: "Ödül Yarkın Baran",
+      roleKey: "organization_team_leader",
       role: t('roles.organization_team_leader'),
       department: t('departments.photonics'),
       image: "/YARKIN.webp",
@@ -86,6 +93,7 @@ const Team = () => {
     },
     {
       name: "Ahmet Duha Aydın",
+      roleKey: "chassis_ergonomics_team_leader",
       role: t('roles.chassis_ergonomics_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: "/DUHA.webp",
@@ -97,6 +105,7 @@ const Team = () => {
     },
     {
       name: "Altay Alp",
+      roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
       department: t('departments.electronics_engineering'),
       image: "/ALTAYALP.webp",
@@ -108,6 +117,7 @@ const Team = () => {
     },
     {
       name: "Arda Onuk",
+      roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
       department: t('departments.mathematics'),
       image: "/ARDAONUK.webp",
@@ -119,6 +129,7 @@ const Team = () => {
     },
     {
       name: "Berkant Süren",
+      roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.materials_engineering'),
       image: "/BERKANT.webp",
@@ -130,6 +141,7 @@ const Team = () => {
     },
     {
       name: "Arda Keskin",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.energy_engineering'),
       image: "/ARDAKESKIN.webp",
@@ -141,6 +153,7 @@ const Team = () => {
     },
     {
       name: "Arda Akpolat",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/ARDAAKPOLAT.webp",
@@ -152,6 +165,7 @@ const Team = () => {
     },
     {
       name: "Senanur Günay",
+      roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
       department: t('departments.computer_engineering'),
       image: "/SENANUR.webp",
@@ -163,6 +177,7 @@ const Team = () => {
     },
     {
       name: "Beren Alptekin",
+      roleKey: "organization_team_member",
       role: t('roles.organization_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/insan.webp",
@@ -174,6 +189,7 @@ const Team = () => {
     },
     {
       name: "Tarık Alperen Öcal",
+      roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/TARIKALPERENOCAL.webp",
@@ -185,6 +201,7 @@ const Team = () => {
     },
     {
       name: "Yağız Yalçın",
+      roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.energy_engineering'),
       image: "/YAGIZ.webp",
@@ -196,6 +213,7 @@ const Team = () => {
     },
     {
       name: "Batuhan Elmaoğlu",
+      roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/BATU.webp",
@@ -207,6 +225,7 @@ const Team = () => {
     },
     {
       name: "Eren Uruş",
+      roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/ERENURUS.webp",
@@ -218,6 +237,7 @@ const Team = () => {
     },
     {
       name: "Eren Karasakal",
+      roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/ERENKARASAKAL.webp",
@@ -229,6 +249,7 @@ const Team = () => {
     },
     {
       name: "Tuğçe Özcan",
+      roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.materials_engineering'),
       image: "/TUĞÇE.webp",
@@ -240,6 +261,7 @@ const Team = () => {
     },
     {
       name: "Nevzat Ediz Burçoğlu",
+      roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/Ediz.webp",
@@ -251,6 +273,7 @@ const Team = () => {
     },
     {
       name: "Kerem Katrancı",
+      roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/KEREM.webp",
@@ -262,6 +285,7 @@ const Team = () => {
     },
     {
       name: "Emir Yaşa",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/Emir.webp",
@@ -273,6 +297,7 @@ const Team = () => {
     },
     {
       name: "Tuna Kurban",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/TUNAKURBAN.webp",
@@ -284,6 +309,7 @@ const Team = () => {
     },
     {
       name: "Hakan Şendaldal",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/HAKAN.webp",
@@ -295,6 +321,7 @@ const Team = () => {
     },
     {
       name: "Khayal Musayev",
+      roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/KHAYAL.webp",
@@ -306,6 +333,7 @@ const Team = () => {
     },
     {
       name: "Sinan Efe Bayrak",
+      roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/SİNANEFE.webp",
@@ -317,7 +345,8 @@ const Team = () => {
     },
     {
       name: "Kuzey Demirer",
-      role: t('roles.business_team_member'),
+      roleKey: "business_team_leader",
+      role: t('roles.business_team_leader'),
       department: t('departments.industrial_design'),
       image: "/KUZEY.webp",
       social: {
@@ -326,6 +355,7 @@ const Team = () => {
         github: "#"
       }
     }
+
   ];
 
   const categorizeTeamMembers = (members: TeamMember[]) => {
@@ -335,17 +365,13 @@ const Team = () => {
     const categories: CategoriesType = {};
 
     members.forEach(member => {
-      // "Team Leader" ve "Team Member" kısımlarını kaldır
-      let baseRole = member.role
-        .replace(/Team Leader/i, 'Team')
-        .replace(/Team Member/i, 'Team')
-        .trim();
+      // roleKey’den ekip ismini bul
+      const baseKey = member.roleKey
+          .replace(/_team_leader$/i, '_team')
+          .replace(/_team_member$/i, '_team');
 
-      // Çeviri varsa onu kullan, yoksa baseRole'ü kullan
-      const translatedRole = t(
-        `team.${baseRole.toLowerCase().replace(/\s+/g, '_')}`,
-        { defaultValue: baseRole }
-      );
+      // kategorinin dil bağımsız anahtarı var → çeviriyi burada yap
+      const translatedRole = t(`team.${baseKey}`, { defaultValue: baseKey });
 
       if (!categories[translatedRole]) {
         categories[translatedRole] = [];
