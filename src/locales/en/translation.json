@@ -19,18 +19,15 @@
     "content": "We are a team of passionate engineers dedicated to innovation and excellence in automotive engineering."
   },
   "departments": {
-    "mechanical_engineering": "Mechanical Engineering",
     "civil_engineering": "Civil Engineering",
-    "computer_engineering": "Computer Engineering",
-    "electrical_engineering": "Electrical Engineering",
+    "mechanical_engineering": "Mechanical Engineering",
+    "photonics": "Photonics",
     "electronics_engineering": "Electronics Engineering",
-    "energy_engineering": "Energy Systems Engineering",
-    "industrial_engineering": "Industrial Engineering",
-    "industrial_design": "Industrial Design",
-    "materials_engineering": "Materials Engineering",
-    "chemical_engineering": "Chemical Engineering",
     "mathematics": "Mathematics",
-    "photonics": "Photonics"
+    "materials_engineering": "Materials Engineering",
+    "energy_engineering": "Energy Engineering",
+    "computer_engineering": "Computer Engineering",
+    "industrial_design": "Industrial Design"
   },
   "team": {
     "title": "Our Team",
@@ -74,17 +71,6 @@
     "organization_team_member": "Organization Team Member",
     "business_team_leader": "Business Development Team Leader",
     "business_team_member": "Business Development Team Member"
-  },
-  "departments": {
-    "mechanical_engineering": "Mechanical Engineering",
-    "industrial_design": "Industrial Design",
-    "energy_systems_engineering": "Energy Systems Engineering",
-    "civil_engineering": "Civil Engineering",
-    "photonics_department": "Photonics Department",
-    "electronics_&_communication_engineering": "Electronics & Communication Engineering",
-    "mathematics_department": "Mathematics Department",
-    "materials_engineering": "Materials Engineering",
-    "computer_engineering": "Computer Engineering"
   },
   "vehicles": {
     "title": "Our Vehicles",
