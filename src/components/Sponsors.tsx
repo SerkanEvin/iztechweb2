@@ -62,20 +62,24 @@ export default function Sponsors() {
               <h3 className="text-2xl font-bold mb-2">{tier.tier}</h3>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6">
+            <div className={`grid gap-8 ${
+              ['Gold', 'Silver', 'Bronze'].includes(tier.tier) ? 'md:grid-cols-3 lg:grid-cols-4' :
+              tier.members.length <= 2 ? 'md:grid-cols-2' :
+              'md:grid-cols-2 lg:grid-cols-4'
+            }`}>
               {tier.members.map((sponsor, sponsorIndex) => (
                 <a
                   key={sponsorIndex}
                   href={sponsor.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#2a2a2a]/50 backdrop-blur-sm border border-[#2a2a2a] rounded-xl p-10 text-center hover:bg-[#2a2a2a]/70 transition-all duration-300 hover:scale-105 group h-52 w-full flex items-center justify-center"
+                  className="bg-[#2a2a2a]/50 backdrop-blur-sm border border-[#2a2a2a] rounded-xl p-8 text-center hover:bg-[#2a2a2a]/70 transition-all duration-300 hover:scale-105 group h-40 flex items-center justify-center"
                 >
                   <div className="flex items-center justify-center h-full">
                     <img
                       src={sponsor.logo}
                       alt={sponsor.name}
-                      className={`${sponsor.name === 'Prokom' ? 'h-36' : 'h-28'} w-auto object-contain mx-auto`}
+                      className={`${sponsor.name === 'Prokom' ? 'h-32' : 'h-24'} w-auto object-contain mx-auto`}
                     />
                   </div>
                 </a>
