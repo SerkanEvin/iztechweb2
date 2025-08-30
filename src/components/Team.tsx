@@ -1,5 +1,6 @@
 import { Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { PlaceholderImage } from './PlaceholderImage';
 
 interface TeamMember {
   name: string;
@@ -14,15 +15,9 @@ interface TeamMember {
   };
 }
 
-interface TeamCategory {
-  name: string;
-  members: TeamMember[];
-}
-
 const Team = () => {
   const { t } = useTranslation();
 
-  // Team members data
   const teamMembers: TeamMember[] = [
     {
       name: "Hüseyin Poyraz Kocamış",
@@ -30,25 +25,300 @@ const Team = () => {
       department: t("Civil Engineering"),
       image: "/POYRAZ.webp",
       social: {
-        linkedin: "https://www.linkedin.com/in/poyrazkocamis",
-        email: "huseyinkocamis@std.iyte.edu.tr"
+        linkedin: "https://www.linkedin.com/in/poyrazkocamis?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "huseyinkocamis@std.iyte.edu.tr",
       }
     },
     {
       name: "Serkan Doğan Evin",
-      role: t("Electronics & Software"),
+      role: t("Electronics & Software Team Leader"),
       department: t("Mechanical Engineering"),
       image: "/SERKAN.webp",
       social: {
-        linkedin: "https://www.linkedin.com/in/serkan-doğan-evin-7569a61b8/",
+        linkedin: "https://www.linkedin.com/in/serkan-do%C4%9Fan-evin-7569a61b8/",
         email: "@iztechracing.com",
         instagram: "#"
       }
     },
     {
+      name: "Emre Canbaz",
+      role: t("Vehicle Dynamics Team Leader"),
+      department: t("Mechanical Engineering"),
+      image: "/EMRE.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/emre-canbaz-30b087335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "canbazemre24@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Onur Şen",
+      role: t("Powertrain Team Leader"),
+      department: t("Mechanical Engineering"),
+      image: "/ONUR.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/onur-%C5%9Fen-b87b50239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "onursen4405@gmail.com ",
+        github: "#"
+      }
+    },
+    {
+      name: "Efe Yıldırım",
+      role: t('roles.aerodynamics_team_leader'),
+      department: t('departments.mechanical_engineering'),
+      image: "/EFE.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/efeyldrm/",
+        email: "efeyildirim04@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Ödül Yarkın Baran",
+      role: t('roles.organization_team_leader'),
+      department: t('departments.photonics_department'),
+      image: "/YARKIN.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
+        email: "yarknbaran35@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Ahmet Duha Aydın",
+      role: t('roles.chassis_ergonomics_team_leader'),
+      department: t('departments.mechanical_engineering'),
+      image: "/DUHA.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/ahmet-duha-aydin-b81b98244",
+        email: "ahmetduha45@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Altay Alp",
+      role: t('roles.electronics_software_team_member'),
+      department: t('departments.electronics_&_communication_engineering'),
+      image: "/ALTAYALP.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/altay-alp-4225bb251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "@iztechracing.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Arda Onuk",
+      role: t('roles.electronics_software_team_member'),
+      department: t('departments.mathematics_department'),
+      image: "/ARDAONUK.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/arda-onuk-8247b5352/",
+        email: "ardaonuk9995@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Berkant Süren",
+      role: t('roles.chassis_ergonomics_team_member'),
+      department: t('departments.materials_engineering'),
+      image: "/BERKANT.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/berkant-suren?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "berkantsuren1@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Arda Keskin",
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.energy_systems_engineering'),
+      image: "/ARDAKESKIN.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/arda-keskin-ba7b36230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "ardakeskin855@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Arda Akpolat",
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/ARDAAKPOLAT.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/arda-akpolat-444a51315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: " ardaakpolat95@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Senanur Günay",
+      role: t('roles.electronics_software_team_member'),
+      department: t('departments.computer_engineering'),
+      image: "/SENANUR.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/senanur-g%C3%BCnay-94172431b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "@iztechracing.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Beren Alptekin",
+      role: t('roles.organization_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/insan.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/beren-alptekin-71b6a5343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "@iztechracing.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Tarık Alperen Öcal",
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/TARIKALPERENOCAL.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/tar%C4%B1k-alperen-%C3%B6cal-32b8722b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "tarikalperenocal@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Yağız Yalçın",
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.energy_systems_engineering'),
+      image: "/YAGIZ.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "yagiz10yalcin@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Batuhan Elmaoğlu",
+      role: t('roles.aerodynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/BATU.webp",
+      social: {
+        linkedin: "http://www.linkedin.com/in/batuhan-elmaoğlu-338185296",
+        email: "batuhanelmaoglu@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Eren Uruş",
+      role: t('roles.aerodynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/ERENURUS.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/erenurus",
+        email: "uruseren07@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Eren Karasakal",
+      role: t('roles.chassis_ergonomics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/ERENKARASAKAL.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/eren-karasakal-406769342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "erenkarasakal280@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Tuğçe Özcan",
+      role: t('roles.chassis_ergonomics_team_member'),
+      department: t('departments.materials_engineering'),
+      image: "/TUĞÇE.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/tu%C4%9F%C3%A7e-%C3%B6zcan-19738133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "tugceozcn0409@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Nevzat Ediz Burçoğlu",
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/Ediz.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/nevzatedizburcoglu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "n.edizburcoglu@hotmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Kerem Katrancı",
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/KEREM.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/kerem-katranc%C4%B1-33294a247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "keremkatranci77@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Emir Yaşa",
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/Emir.webp",
+      social: {
+        linkedin: " https://www.linkedin.com/in/emir-ya%C5%9Fa-344460343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app,",
+        email: "emhyr.emir@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Tuna Kurban",
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/TUNAKURBAN.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/tuna-kurban-147606286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "tunakurban35@gmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Hakan Şendaldal",
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/HAKAN.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/hakan-%C5%9Fendaldal-9b9688251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "hakan_sendaldal@hotmail.com",
+        github: "#"
+      }
+    },
+    {
+      name: "Khayal Musayev",
+      role: t('roles.chassis_ergonomics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/KHAYAL.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/khayal-musayev-98b769343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "rmsonaxe@mail.ru",
+        github: "#"
+      }
+    },
+    {
+      name: "Sinan Efe Bayrak",
+      role: t('roles.aerodynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/SİNANEFE.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/sinan-efe-bayrak-578419331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "s.efebayrak@yahoo.com.tr",
+        github: "#"
+      }
+    },
+    {
       name: "Kuzey Demirer",
-      role: t('Business Development'),
-      department: t('Industrial Design'),
+      role: t('roles.business_team_member'),
+      department: t('departments.industrial_design'),
       image: "/KUZEY.webp",
       social: {
         linkedin: "https://tr.linkedin.com/in/kuzey-demirer-76577a260",
@@ -58,46 +328,40 @@ const Team = () => {
     }
   ];
 
-  // Categorize team members
-  const teamCategories: TeamCategory[] = [
-    {
-      name: t('team.captain'),
-      members: teamMembers.filter((member) => member.role === t("Team Captain"))
-    },
-    {
-      name: t('team.electronics_software_team'),
-      members: teamMembers.filter((member) => member.role === t("Electronics & Software"))
-    },
-    {
-      name: t('team.vehicle_dynamics_team'),
-      members: teamMembers.filter((member) => member.role === t("Vehicle Dynamics"))
-    },
-    {
-      name: t('team.chassis_ergonomics_team'),
-      members: teamMembers.filter((member) => member.role === t("Chassis & Ergonomics"))
-    },
-    {
-      name: t('team.powertrain_team'),
-      members: teamMembers.filter((member) => member.role === t("Powertrain"))
-    },
-    {
-      name: t('team.aerodynamics_team'),
-      members: teamMembers.filter((member) => member.role === t("Aerodynamics"))
-    },
-    {
-      name: t('team.organization_team'),
-      members: teamMembers.filter((member) => member.role === t("Organization"))
-    },
-    {
-      name: t('team.business_development_team'),
-      members: teamMembers.filter((member) => member.role === t("Business Development"))
+  const categorizeTeamMembers = (members: TeamMember[]) => {
+    interface CategoriesType {
+      [key: string]: TeamMember[];
     }
-  ].filter((category) => category.members.length > 0);
+    const categories: CategoriesType = {};
+
+    members.forEach(member => {
+      // "Team Leader" ve "Team Member" kısımlarını kaldır
+      let baseRole = member.role
+        .replace(/Team Leader/i, 'Team')
+        .replace(/Team Member/i, 'Team')
+        .trim();
+
+      // Çeviri varsa onu kullan, yoksa baseRole'ü kullan
+      const translatedRole = t(
+        `team.${baseRole.toLowerCase().replace(/\s+/g, '_')}`,
+        { defaultValue: baseRole }
+      );
+
+      if (!categories[translatedRole]) {
+        categories[translatedRole] = [];
+      }
+      categories[translatedRole].push(member);
+    });
+
+    return categories;
+  };
+
+  const groupedMembers = categorizeTeamMembers(teamMembers);
+  const categories = Object.entries(groupedMembers);
 
   return (
     <section id="team" className="py-20 bg-[#0f0f0f] relative">
       <div className="container mx-auto px-4">
-        {/* Title */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t('team.title')}
@@ -107,61 +371,59 @@ const Team = () => {
           </p>
         </div>
 
-        {/* Team Categories */}
-        <div className="space-y-20">
-          {teamCategories.map((category) => (
-            <div key={category.name} className="mb-16">
-              <h3 className="text-2xl font-bold text-white mb-8">{category.name}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {category.members.map((member) => (
-                  <div 
-                    key={member.name}
-                    className="bg-[#1a1a1a] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+        <div className="flex flex-col gap-16">
+          {categories.map(([category, members]) => (
+            <div
+              key={category}
+              className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6"
+            >
+              <h3 className="text-2xl font-semibold text-white mb-6 text-center">
+                {category}
+              </h3>
+              <div className="flex flex-wrap justify-center gap-6">
+                {members.map((member, index) => (
+                  <div
+                    key={index}
+                    className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 transition-all duration-300 hover:scale-105 group"
                   >
-                    <div className="relative h-64 overflow-hidden">
-                      {member.image ? (
-                        <img
-                          src={member.image}
+                    <div className="relative overflow-hidden">
+                      <div className="relative h-64 overflow-hidden">
+                        <PlaceholderImage
+                          src={member.image.startsWith('http') ? member.image : member.image}
                           alt={member.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = "/placeholder-user.jpg";
-                          }}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-100"
+                          width={250}
+                          height={256}
                         />
-                      ) : (
-                        <img
-                          src="/insan.png"
-                          alt="Team member placeholder"
-                          className="w-full h-full object-cover"
-                        />
-                      )}
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
-                    
-                    <div className="p-6">
-                      <h4 className="text-xl font-bold text-white mb-1">{member.name}</h4>
-                      <p className="text-[#a0a0a0] text-sm mb-3">{member.role}</p>
-                      <p className="text-[#888] text-sm mb-4">{member.department}</p>
-                      
-                      <div className="flex space-x-3">
-                        {member.social.linkedin && (
-                          <a
-                            href={member.social.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#0077b5] transition-colors duration-200"
-                          >
-                            <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
-                          </a>
-                        )}
-                        {member.social.email && (
-                          <a
-                            href={`mailto:${member.social.email}`}
-                            className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
-                          >
-                            <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
-                          </a>
-                        )}
+
+                    <div className="p-4 text-center">
+                      <h3 className="text-lg font-bold text-white">
+                        {member.name}
+                      </h3>
+                      <p className="text-[#a02638] font-semibold">
+                        {member.role}
+                      </p>
+                      <p className="text-[#cccccc] text-sm">
+                        {member.department}
+                      </p>
+                      <div className="flex justify-center gap-3 mt-3">
+                        <a
+                          href={member.social.linkedin}
+                          className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
+                        </a>
+                        <a
+                          href={`mailto:${member.social.email}`}
+                          className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                        >
+                          <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
+                        </a>
                       </div>
                     </div>
                   </div>
