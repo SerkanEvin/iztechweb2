@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import './Header.css';
 
 const Header = () => {
     const { t, i18n } = useTranslation();
     const [currentLanguage, setCurrentLanguage] = useState(i18n.language || 'en');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [animateLogo, setAnimateLogo] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -19,24 +17,6 @@ const Header = () => {
         setCurrentLanguage(newLang);
     };
 
-    // Start animation on component mount with optimized timing
-    useEffect(() => {
-        const startAnimation = () => {
-            // Enable the animation
-            setAnimateLogo(true);
-            
-            // Clear animation state after it completes
-            const timer = setTimeout(() => {
-                setAnimateLogo(false);
-            }, 1800); // Match this with the total animation duration
-            
-            return () => clearTimeout(timer);
-        };
-        
-        // Small delay to ensure the component is mounted and prevent layout shifts
-        const initTimer = setTimeout(startAnimation, 300);
-        return () => clearTimeout(initTimer);
-    }, []);
 
     const handleRefresh = () => {
         window.location.reload();
@@ -66,9 +46,7 @@ const Header = () => {
                                 className="w-auto h-10 transition-all duration-500 hover:opacity-90"
                                 style={{ 
                                     filter: 'drop-shadow(0 2px 8px rgba(154, 14, 32, 0.4))',
-                                    backfaceVisibility: 'hidden',
-                                    animation: animateLogo ? 'fadeInOut 1.8s ease-in-out forwards' : 'none',
-                                    opacity: 0
+                                    backfaceVisibility: 'hidden'
                                 }}
                                 draggable={false}
                             />
@@ -84,9 +62,7 @@ const Header = () => {
                                 zIndex: 20,
                                 transformOrigin: 'center',
                                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
-                                opacity: 1, // Always keep the pig visible
-                                transition: 'opacity 0.3s ease-out',
-                                animation: animateLogo ? 'pigBounce 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' : 'none'
+                                opacity: 1
                             }}
                         >
                             <img
