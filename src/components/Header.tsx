@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import './Header.css';
 
 const Header = () => {
     const { t, i18n } = useTranslation();
@@ -157,47 +158,6 @@ const Header = () => {
                 )}
             </div>
 
-            <style jsx global>{`
-                @keyframes pigBounce {
-                    0% { transform: translateX(0) scale(1); }
-                    40% { transform: translateX(150px) scale(1.2); }
-                    60% { transform: translateX(150px) scale(1.2) rotate(0); }
-                    80% { transform: translateX(150px) scale(1) rotate(0); }
-                    100% { transform: translateX(150px) scale(1) rotate(0); }
-                }
-                @keyframes fadeInOut {
-                    0% { opacity: 0; }
-                    20% { opacity: 1; }
-                    30% { opacity: 1; }
-                    50% { opacity: 0; }
-                    70% { opacity: 1; }
-                    100% { opacity: 1; }
-                }
-            `}</style>
-
-                    .nav-link {
-                        position: relative;
-                        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-                    }
-                    
-                    .nav-link::after {
-                        content: '';
-                        position: absolute;
-                        bottom: -4px;
-                        left: 0;
-                        width: 100%;
-                        height: 2px;
-                        background: #9a0e20;
-                        transform: scaleX(0);
-                        transform-origin: right;
-                        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-                    }
-                    
-                    .nav-link:hover::after {
-                        transform: scaleX(1);
-                        transform-origin: left;
-                    }`
-            }} />
         </header>
     );
 };
