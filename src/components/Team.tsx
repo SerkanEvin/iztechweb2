@@ -335,16 +335,16 @@ const Team = () => {
     const categories: CategoriesType = {};
 
     members.forEach(member => {
-      // "Team Leader" ve "Team Member" kısımlarını kaldır
-      let baseRole = member.role
-        .replace(/Team Leader/i, 'Team')
-        .replace(/Team Member/i, 'Team')
-        .trim();
+      // Keep the original role for categorization
+      const roleKey = member.role
+        .toLowerCase()
+        .replace(/\s+/g, '_')
+        .replace(/[^a-z0-9_]/g, '');
 
-      // Çeviri varsa onu kullan, yoksa baseRole'ü kullan
+      // Translate the role for display
       const translatedRole = t(
-        `team.${baseRole.toLowerCase().replace(/\s+/g, '_')}`,
-        { defaultValue: baseRole }
+        `roles.${roleKey}`,
+        { defaultValue: member.role }
       );
 
       if (!categories[translatedRole]) {
