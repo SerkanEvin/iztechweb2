@@ -7,6 +7,42 @@ export default function Sponsors() {
       members: [
         { name: "Prokom", logo: "/Logo_Prokom_W.png", url: "https://prokomtech.com/" }
       ]
+    },
+    {
+      tier: "Gold",
+      members: [
+        { name: "Altair", logo: "/altair.png", url: "https://altair.com/" },
+        { name: "ANSYS", logo: "/ANSYS_logo.png", url: "https://www.ansys.com/" },
+        { name: "Bias Mühendislik", logo: "/biasmuhendislik_logo.png", url: "https://bias.com.tr/" },
+        { name: "Hexagon", logo: "/hexagon_logo.png", url: "https://hexagon.com/" },
+        { name: "Numesys", logo: "/numesys-logo-gri-min.png", url: "https://www.numesys.com.tr/" },
+        { name: "Tekyaz", logo: "/TEKYAZ_LOGO_002.png", url: "https://www.tekyaz.com/" },
+        { name: "GT", logo: "/GT.png", url: "https://www.gtisoft.com/" }
+      ]
+    },
+    {
+      tier: "Silver",
+      members: [
+        { name: "Avioni Technologies", logo: "/5958e813d0893.png", url: "https://www.avionitech.com/tr/" },
+        { name: "IZELTAŞ", logo: "/images.png", url: "https://izeltas.com.tr/" }
+      ]
+    },
+    {
+      tier: "Bronze",
+      members: [
+        { name: "İnci Akü", logo: "/incilogo-dosya.png", url: "https://www.inciaku.com/tr/" },
+        { name: "Yakup Yılmaz", logo: "/yakup.png", url: "https://www.yakupyilmazboru.com/" }
+      ]
+    },
+    {
+      tier: "Supporters",
+      members: [
+        { name: "Urla Solar", logo: "/UrlaSolar_Tam_Logo.png", url: "https://urlasolar.com/" },
+        { name: "Bilişim Vadisi", logo: "/BV_Logo_H.png", url: "https://bilisimvadisi.com.tr/" },
+        { name: "Teknopark İzmir", logo: "/20190828083905.png", url: "https://teknoparkizmir.com.tr/" },
+        { name: "URİKAD", logo: "/URiKADW.png", url: "#" },
+        { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013.jpg", url: "https://www.schrothracing.com/" }
+      ]
     }
   ];
 
