@@ -48,7 +48,30 @@ const Header = () => {
 
                     {/* Logo Area */}
                     <div className="flex items-center relative" style={{ width: 260, height: 40, position: 'relative' }}>
-                        {/* Animated Logo */}
+                        {/* Main Logo - Always visible */}
+                        <div 
+                            className="relative overflow-hidden"
+                            style={{
+                                height: '40px',
+                                zIndex: 10,
+                                transform: 'translateZ(0)',
+                                marginLeft: '56px' // Space for the animated logo
+                            }}
+                        >
+                            <img
+                                onClick={handleRefresh}
+                                src="/logotype2.png"
+                                alt="IZTECH Racing Team"
+                                className="w-auto h-10 transition-all duration-500 hover:opacity-90"
+                                style={{ 
+                                    filter: 'drop-shadow(0 2px 8px rgba(154, 14, 32, 0.4))',
+                                    backfaceVisibility: 'hidden'
+                                }}
+                                draggable={false}
+                            />
+                        </div>
+
+                        {/* Animated Logo - Slides over the main logo */}
                         <div
                             className="w-10 h-10 rounded-lg overflow-hidden flex items-center will-change-transform"
                             style={{
@@ -75,29 +98,6 @@ const Header = () => {
                             />
                         </div>
 
-                        {/* Main Logo */}
-                        <div 
-                            className={`relative overflow-hidden ${animateLogo ? 'animating-text' : ''}`}
-                            style={{
-                                height: '40px',
-                                zIndex: 10,
-                                transform: 'translateZ(0)' // Force hardware acceleration
-                            }}
-                        >
-                            <img
-                                onClick={handleRefresh}
-                                src="/logotype2.png"
-                                alt="IZTECH Racing Team"
-                                className="ml-4 w-auto h-10 transition-all duration-500 hover:opacity-90"
-                                style={{ 
-                                    position: 'relative', 
-                                    filter: 'drop-shadow(0 2px 8px rgba(154, 14, 32, 0.4))',
-                                    transform: 'translateZ(0)', // Force hardware acceleration
-                                    backfaceVisibility: 'hidden'
-                                }}
-                                draggable={false}
-                            />
-                        </div>
                     </div>
 
                     {/* Desktop Navigation */}
