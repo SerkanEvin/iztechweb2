@@ -355,75 +355,99 @@ const Team = () => {
     const categories: CategorizedTeamMembers = {};
     const teamCategories = TeamCategories();
 
-    // First, find all team leaders and create their categories
-    members.forEach(member => {
-      if (member.role.includes('Team Leader')) {
-        const teamName = member.role.replace(' Team Leader', '').trim();
-        const categoryKey = Object.keys(teamCategories).find(key => 
-          teamName.includes(key)
-        );
-        
-        if (categoryKey) {
-          const category = teamCategories[categoryKey as keyof typeof teamCategories];
-          if (!categories[category]) {
-            categories[category] = [];
-          }
-          // Add team leader as first member of their team
-          categories[category].push(member);
-        }
-      }
+    // Helper function to normalize team names for matching
+    const normalize = (str: string) => str.toLowerCase().replace(/[&\s-]/g, '');
+
+    // First, handle the Team Captain
+    const captain = members.find(m => m.role === 'Team Captain');
+    if (captain) {
+      const captainCategory = teamCategories['Team Captain'];
+      categories[captainCategory] = [captain];
+    }
+
+    // Create a map of normalized team names to their display names
+    const teamMap = new Map<string, string>();
+    Object.entries(teamCategories).forEach(([key, value]) => {
+      teamMap.set(normalize(key), value);
     });
 
-    // Then, add other team members to their respective categories
+    // First pass: Identify and categorize team leaders
     members.forEach(member => {
-      if (!member.role.includes('Team Leader') && member.role !== 'Team Captain') {
-        // Try to find a matching category based on role or department
-        const teamMatch = Object.keys(teamCategories).find(key => 
-          member.department.includes(key) || 
-          member.role.includes(key) ||
-          (member.role.includes('Team Member') && 
-           member.role.toLowerCase().includes(key.toLowerCase().replace(/\s+/g, '')))
-        );
+      if (member.role.includes('Team Leader')) {
+        // Extract the team name from the role
+        const teamName = member.role
+          .replace('Team Leader', '')
+          .replace('&', 'and')
+          .trim();
         
-        if (teamMatch) {
-          const category = teamCategories[teamMatch as keyof typeof teamCategories];
-          if (category) {
-            if (!categories[category]) {
-              categories[category] = [];
-            }
-            categories[category].push(member);
-          } else if (!categories['Others']) {
-            categories['Others'] = [member];
-          } else {
-            categories['Others'].push(member);
+        // Try to find a matching category
+        const normalizedTeamName = normalize(teamName);
+        let matchedCategory: string | undefined;
+
+        // Look for exact or partial match in team names
+        for (const [key, value] of teamMap.entries()) {
+          if (normalizedTeamName.includes(key) || key.includes(normalizedTeamName)) {
+            matchedCategory = value;
+            break;
           }
-        } else if (member.role === 'Team Captain') {
-          const captainCategory = teamCategories['Team Captain'];
-          if (!categories[captainCategory]) {
-            categories[captainCategory] = [];
+        }
+
+        // Special case for Electronics & Software
+        if (!matchedCategory && normalizedTeamName.includes('electronics') && normalizedTeamName.includes('software')) {
+          matchedCategory = teamCategories['Electronics & Software'];
+        }
+
+        if (matchedCategory) {
+          if (!categories[matchedCategory]) {
+            categories[matchedCategory] = [];
           }
-          categories[captainCategory].push(member);
-        } else if (!Object.values(teamCategories).some(cat => 
-          categories[cat]?.includes(member))) {
-          if (!categories['Others']) {
-            categories['Others'] = [];
-          }
+          // Add team leader as first member of their team
+          categories[matchedCategory].push(member);
+        } else if (!categories['Others']) {
+          categories['Others'] = [member];
+        } else {
           categories['Others'].push(member);
         }
       }
     });
 
-    // Add team captain if not already added
-    const captain = members.find(m => m.role === 'Team Captain');
-    if (captain) {
-      const captainCategory = teamCategories['Team Captain'];
-      if (!categories[captainCategory]) {
-        categories[captainCategory] = [];
+    // Second pass: Categorize other team members
+    members.forEach(member => {
+      if (member.role === 'Team Captain') return; // Skip captain as already handled
+      if (member.role.includes('Team Leader')) return; // Skip leaders as already handled
+
+      // Try to determine the team from role or department
+      const memberTeam = member.role.includes('Team Member') 
+        ? member.role.replace('Team Member', '').trim()
+        : member.department;
+
+      const normalizedMemberTeam = normalize(memberTeam);
+      let matchedCategory: string | undefined;
+
+      // Look for matching category
+      for (const [key, value] of teamMap.entries()) {
+        if (normalizedMemberTeam.includes(key) || key.includes(normalizedMemberTeam)) {
+          matchedCategory = value;
+          break;
+        }
       }
-      if (!categories[captainCategory].some(m => m.name === captain.name)) {
-        categories[captainCategory].unshift(captain);
+
+      // Special case for Chassis & Ergonomics
+      if (!matchedCategory && (normalizedMemberTeam.includes('chassis') || normalizedMemberTeam.includes('ergonomics'))) {
+        matchedCategory = teamCategories['Chassis & Ergonomics'];
       }
-    }
+
+      // Add to the appropriate category
+      const targetCategory = matchedCategory || 'Others';
+      if (!categories[targetCategory]) {
+        categories[targetCategory] = [];
+      }
+      
+      // Don't add duplicates
+      if (!categories[targetCategory].some(m => m.name === member.name)) {
+        categories[targetCategory].push(member);
+      }
+    });
 
     return categories;
   };
