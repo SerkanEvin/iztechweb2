@@ -53,7 +53,7 @@ const Footer = () => {
                   />
                   <div className="pl-1">
                     <p className="text-[#cccccc] leading-relaxed">
-                      <span className="font-bold text-white">Mühendislik</span> {t('footer.description').split('Mühendislik')[1]}
+                      {t('footer.description')}
                     </p>
                   </div>
                 </div>
