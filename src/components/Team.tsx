@@ -31,7 +31,7 @@ const Team = () => {
     },
     {
       name: "Serkan Doğan Evin",
-      role: t("Electronics & Software Team Leader"),
+      role:t('roles.electronics_software_team_member'),
       department: t("Mechanical Engineering"),
       image: "/SERKAN.webp",
       social: {
