@@ -62,11 +62,7 @@ export default function Sponsors() {
               <h3 className="text-2xl font-bold mb-2">{tier.tier}</h3>
             </div>
 
-            <div className={`grid gap-8 ${
-              tier.members.length <= 2 ? 'md:grid-cols-2' :
-              tier.members.length === 3 ? 'md:grid-cols-3' :
-              'md:grid-cols-2 lg:grid-cols-4'
-            }`}>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6">
               {tier.members.map((sponsor, sponsorIndex) => (
                 <a
                   key={sponsorIndex}
