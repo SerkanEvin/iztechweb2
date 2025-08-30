@@ -31,7 +31,7 @@ const Team = () => {
     },
     {
       name: "Serkan Doğan Evin",
-      role:t('roles.electronics_software_team_learder'),
+      role: t('roles.electronics_software_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: "/SERKAN.webp",
       social: {
@@ -42,7 +42,7 @@ const Team = () => {
     },
     {
       name: "Emre Canbaz",
-      role: t("vehicle_dynamics_team_leader"),
+      role: t("roles.vehicle_dynamics_team_leader"),
       department: t('departments.mechanical_engineering'),
       image: "/EMRE.webp",
       social: {
