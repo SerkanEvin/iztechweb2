@@ -378,20 +378,6 @@
       "aerodynamics_team": "Aerodinamik Ekibi",
       "organization_team": "Organizasyon Ekibi",
       "business_development_team": "İş Geliştirme Ekibi"
-    },
-    "departments": {
-  "mechanical_engineering": "Makine Mühendisliği",
-  "civil_engineering": "İnşaat Mühendisliği",
-  "computer_engineering": "Bilgisayar Mühendisliği",
-  "electrical_engineering": "Elektrik Mühendisliği",
-  "electronics_engineering": "Elektronik Mühendisliği",
-  "energy_engineering": "Enerji Sistemleri Mühendisliği",
-  "industrial_engineering": "Endüstri Mühendisliği",
-  "industrial_design": "Endüstriyel Tasarım",
-  "materials_engineering": "Malzeme Bilimi ve Mühendisliği",
-  "chemical_engineering": "Kimya Mühendisliği",
-  "mathematics": "Matematik",
-  "photonics": "Fotonik"
-}
+    }
   }
 }
