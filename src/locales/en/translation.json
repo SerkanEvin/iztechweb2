@@ -18,6 +18,20 @@
     "title": "About Us",
     "content": "We are a team of passionate engineers dedicated to innovation and excellence in automotive engineering."
   },
+  "departments": {
+    "mechanical_engineering": "Mechanical Engineering",
+    "civil_engineering": "Civil Engineering",
+    "computer_engineering": "Computer Engineering",
+    "electrical_engineering": "Electrical Engineering",
+    "electronics_engineering": "Electronics Engineering",
+    "energy_engineering": "Energy Systems Engineering",
+    "industrial_engineering": "Industrial Engineering",
+    "industrial_design": "Industrial Design",
+    "materials_engineering": "Materials Engineering",
+    "chemical_engineering": "Chemical Engineering",
+    "mathematics": "Mathematics",
+    "photonics": "Photonics"
+  },
   "team": {
     "title": "Our Team",
     "members": "Team Members",
@@ -371,6 +385,20 @@
         "aerodynamics_team": "Aerodynamics Team",
         "organization_team": "Organization Team",
         "business_development": "Business Development"
+      },
+      "departments": {
+  "mechanical_engineering": "Mechanical Engineering",
+  "civil_engineering": "Civil Engineering",
+  "computer_engineering": "Computer Engineering",
+  "electrical_engineering": "Electrical Engineering",
+  "electronics_engineering": "Electronics Engineering",
+  "energy_engineering": "Energy Systems Engineering",
+  "industrial_engineering": "Industrial Engineering",
+  "industrial_design": "Industrial Design",
+  "materials_engineering": "Materials Engineering",
+  "chemical_engineering": "Chemical Engineering",
+  "mathematics": "Mathematics",
+  "photonics": "Photonics"
       }
     }
   }

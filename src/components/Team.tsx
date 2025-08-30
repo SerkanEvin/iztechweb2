@@ -22,7 +22,7 @@ const Team = () => {
     {
       name: "Hüseyin Poyraz Kocamış",
       role: t("Team Captain"),
-      department: t("Civil Engineering"),
+      department: t('departments.civil_engineering'),
       image: "/POYRAZ.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/poyrazkocamis?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -32,7 +32,7 @@ const Team = () => {
     {
       name: "Serkan Doğan Evin",
       role:t('roles.electronics_software_team_member'),
-      department: t("Mechanical Engineering"),
+      department: t('departments.mechanical_engineering'),
       image: "/SERKAN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/serkan-do%C4%9Fan-evin-7569a61b8/",
@@ -43,7 +43,7 @@ const Team = () => {
     {
       name: "Emre Canbaz",
       role: t("Vehicle Dynamics Team Leader"),
-      department: t("Mechanical Engineering"),
+      department: t('departments.mechanical_engineering'),
       image: "/EMRE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/emre-canbaz-30b087335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -54,7 +54,7 @@ const Team = () => {
     {
       name: "Onur Şen",
       role: t("Powertrain Team Leader"),
-      department: t("Mechanical Engineering"),
+      department: t('departments.mechanical_engineering'),
       image: "/ONUR.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/onur-%C5%9Fen-b87b50239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -76,7 +76,7 @@ const Team = () => {
     {
       name: "Ödül Yarkın Baran",
       role: t('roles.organization_team_leader'),
-      department: t('departments.photonics_department'),
+      department: t('departments.photonics'),
       image: "/YARKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
@@ -98,7 +98,7 @@ const Team = () => {
     {
       name: "Altay Alp",
       role: t('roles.electronics_software_team_member'),
-      department: t('departments.electronics_&_communication_engineering'),
+      department: t('departments.electronics_engineering'),
       image: "/ALTAYALP.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/altay-alp-4225bb251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -109,7 +109,7 @@ const Team = () => {
     {
       name: "Arda Onuk",
       role: t('roles.electronics_software_team_member'),
-      department: t('departments.mathematics_department'),
+      department: t('departments.mathematics'),
       image: "/ARDAONUK.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-onuk-8247b5352/",
@@ -131,7 +131,7 @@ const Team = () => {
     {
       name: "Arda Keskin",
       role: t('roles.vehicle_dynamics_team_member'),
-      department: t('departments.energy_systems_engineering'),
+      department: t('departments.energy_engineering'),
       image: "/ARDAKESKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-keskin-ba7b36230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -186,7 +186,7 @@ const Team = () => {
     {
       name: "Yağız Yalçın",
       role: t('roles.powertrain_team_member'),
-      department: t('departments.energy_systems_engineering'),
+      department: t('departments.energy_engineering'),
       image: "/YAGIZ.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
