@@ -21,7 +21,7 @@ const Team = () => {
   const teamMembers: TeamMember[] = [
     {
       name: "Hüseyin Poyraz Kocamış",
-      role: t("Team Captain"),
+      role: t("roles.team_captain"),
       department: t('departments.civil_engineering'),
       image: "/POYRAZ.webp",
       social: {
@@ -31,7 +31,7 @@ const Team = () => {
     },
     {
       name: "Serkan Doğan Evin",
-      role:t('roles.electronics_software_team_member'),
+      role:t('roles.electronics_software_team_learder'),
       department: t('departments.mechanical_engineering'),
       image: "/SERKAN.webp",
       social: {
@@ -42,7 +42,7 @@ const Team = () => {
     },
     {
       name: "Emre Canbaz",
-      role: t("Vehicle Dynamics Team Leader"),
+      role: t("vehicle_dynamics_team_leader"),
       department: t('departments.mechanical_engineering'),
       image: "/EMRE.webp",
       social: {
@@ -53,7 +53,7 @@ const Team = () => {
     },
     {
       name: "Onur Şen",
-      role: t("Powertrain Team Leader"),
+      role: t("roles.powertrain_team_leader"),
       department: t('departments.mechanical_engineering'),
       image: "/ONUR.webp",
       social: {
