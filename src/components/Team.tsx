@@ -37,71 +37,6 @@ interface CategorizedTeamMembers {
   [category: string]: TeamMember[];
 }
 
-const categorizeTeamMembers = (members: TeamMember[]): CategorizedTeamMembers => {
-  const categorized: CategorizedTeamMembers = {};
-  const teamCategories = TeamCategories();
-
-  // First, find all team leaders and create their categories
-  members.forEach((member) => {
-    if (member.role.includes('Team Leader')) {
-      const teamName = member.role.replace(' Team Leader', '').trim();
-      const categoryKey = Object.keys(teamCategories).find((key) => 
-        teamName.includes(key)
-      );
-      
-      if (categoryKey) {
-        const category = teamCategories[categoryKey as keyof typeof teamCategories];
-        if (!categorized[category]) {
-          categorized[category] = [];
-        }
-        // Add team leader as first member of their team
-        categorized[category].push(member);
-      }
-    }
-  });
-
-  // Then, add other team members to their respective categories
-  members.forEach((member) => {
-    if (!member.role.includes('Team Leader') && member.role !== 'Team Captain') {
-      const teamMatch = Object.keys(teamCategories).find((key) => 
-        member.department.includes(key) || member.role.includes(key)
-      );
-      
-      if (teamMatch) {
-        const category = teamCategories[teamMatch as keyof typeof teamCategories];
-        if (category && categorized[category]) {
-          categorized[category].push(member);
-        } else if (category) {
-          // If category exists but not created yet (no team leader)
-          categorized[category] = [member];
-        } else {
-          // Fallback for uncategorized members
-          if (!categorized['Others']) {
-            categorized['Others'] = [];
-          }
-          categorized['Others'].push(member);
-        }
-      } else {
-        // Handle team captain and others
-        if (member.role === 'Team Captain') {
-          const captainCategory = teamCategories['Team Captain'];
-          if (!categorized[captainCategory]) {
-            categorized[captainCategory] = [];
-          }
-          categorized[captainCategory].push(member);
-        } else if (!Object.values(teamCategories).some(cat => categorized[cat]?.includes(member))) {
-          if (!categorized['Others']) {
-            categorized['Others'] = [];
-          }
-          categorized['Others'].push(member);
-        }
-      }
-    }
-  });
-
-  return categorized;
-};
-
 const Team = () => {
   const { t } = useTranslation();
   // Remove image preloading state since we're using direct paths
@@ -416,17 +351,13 @@ const Team = () => {
     }
   ];
 
-  const categorizeTeamMembers = (members: TeamMember[]) => {
-    interface CategoriesType {
-      [key: string]: TeamMember[];
-    }
-    const categories: CategoriesType = {};
+  const categorizeTeamMembers = (members: TeamMember[]): CategorizedTeamMembers => {
+    const categories: CategorizedTeamMembers = {};
     const teamCategories = TeamCategories();
 
     // First, find all team leaders and create their categories
     members.forEach(member => {
       if (member.role.includes('Team Leader')) {
-        // Find the matching category for this team leader
         const teamName = member.role.replace(' Team Leader', '').trim();
         const categoryKey = Object.keys(teamCategories).find(key => 
           teamName.includes(key)
@@ -481,6 +412,18 @@ const Team = () => {
         }
       }
     });
+
+    // Add team captain if not already added
+    const captain = members.find(m => m.role === 'Team Captain');
+    if (captain) {
+      const captainCategory = teamCategories['Team Captain'];
+      if (!categories[captainCategory]) {
+        categories[captainCategory] = [];
+      }
+      if (!categories[captainCategory].some(m => m.name === captain.name)) {
+        categories[captainCategory].unshift(captain);
+      }
+    }
 
     return categories;
   };
