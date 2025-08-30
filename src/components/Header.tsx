@@ -47,18 +47,20 @@ const Header = () => {
                 <div className="flex justify-between items-center h-16 relative">
 
                     {/* Logo Area */}
-                    <div className="flex items-center relative" style={{ width: 260, height: 40 }}>
+                    <div className="flex items-center relative" style={{ width: 260, height: 40, position: 'relative' }}>
                         {/* Animated Logo */}
                         <div
                             className="w-10 h-10 rounded-lg overflow-hidden flex items-center will-change-transform"
                             style={{
-                                position: animateLogo ? 'absolute' : 'relative',
+                                position: 'absolute',
                                 top: 0,
                                 left: 0,
                                 animation: animateLogo ? 'logoSlide 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' : 'none',
                                 zIndex: 20,
                                 transformOrigin: 'center',
                                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                                opacity: animateLogo ? 1 : 0,
+                                transition: 'opacity 0.3s ease-out'
                             }}
                         >
                             <img
