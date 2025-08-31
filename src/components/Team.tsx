@@ -360,7 +360,7 @@ const Team = () => {
 
   const TEAM_CATEGORY_MAP: Record<string, string> = {
     team_captain: t('team.teamCaptain'),
-    electronics_software_team: t('team.electronics'),
+    electronics_software_team: t('team.electronics_software_team'),
     vehicle_dynamics_team: t('team.vehicleDynamics'),
     chassis_ergonomics_team: t('team.chassis'),
     powertrain_team: t('team.powertrain'),
