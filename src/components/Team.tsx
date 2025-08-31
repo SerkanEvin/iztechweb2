@@ -373,14 +373,16 @@ const Team = () => {
     const categories: Record<string, TeamMember[]> = {};
 
     members.forEach(member => {
-      // "_leader" veya "_member" kısmını çıkar
-      const baseKey = member.roleKey.replace(/_team_leader$/i, '').replace(/_team_member$/i, '');
-      const categoryLabel = TEAM_CATEGORY_MAP[baseKey] || baseKey;
+      const baseKey = member.roleKey
+          .replace(/_team_leader$/i, '_team')
+          .replace(/_team_member$/i, '_team');
 
-      if (!categories[categoryLabel]) {
-        categories[categoryLabel] = [];
+      const translatedRole = TEAM_CATEGORY_MAP[baseKey] || baseKey;
+
+      if (!categories[translatedRole]) {
+        categories[translatedRole] = [];
       }
-      categories[categoryLabel].push(member);
+      categories[translatedRole].push(member);
     });
 
     return categories;
