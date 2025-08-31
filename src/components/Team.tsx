@@ -359,14 +359,14 @@ const Team = () => {
   ];
 
   const TEAM_CATEGORY_MAP: Record<string, string> = {
-    team_captain: t('team.teamCaptain'),
-    electronics_software_team: t('electronics_software_team'),
-    vehicle_dynamics_team: t('team.vehicleDynamics'),
-    chassis_ergonomics_team: t('team.chassis'),
-    powertrain_team: t('team.powertrain'),
-    aerodynamics_team: t('team.aerodynamics'),
-    organization_team: t('team.organization'),
-    business_development: t('team.businessDev'),
+    team_captain: t('roles.team_captain'),
+    electronics_software_team: t('roles.electronics_software_team'),
+    vehicle_dynamics_team: t('roles.vehicle_dynamics_team'),
+    chassis_ergonomics_team: t('roles.chassis_ergonomics_team'),
+    powertrain_team: t('roles.powertrain_team'),
+    aerodynamics_team: t('roles.aerodynamics_team'),
+    organization_team: t('roles.organization_team'),
+    business_development: t('roles.business_development'),
   };
 
   const categorizeTeamMembers = (members: TeamMember[]) => {

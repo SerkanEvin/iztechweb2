@@ -61,7 +61,14 @@
     "organization_team_leader": "Organizasyon Ekibi Lideri",
     "organization_team_member": "Organizasyon Ekibi Üyesi",
     "business_team_leader": "İş Geliştirme Ekibi Lideri",
-    "business_team_member": "İş Geliştirme Ekibi Üyesi"
+    "business_team_member": "İş Geliştirme Ekibi Üyesi",
+    "electronics_software_team": "Elektronik ve Yazılım Ekibi",
+    "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
+    "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
+    "powertrain_team": "Güç Aktarım Ekibi",
+    "aerodynamics_team": "Aerodinamik Ekibi",
+    "organization_team": "Organizasyon Ekibi",
+    "business_development_team": "İş Geliştirme Ekibi"
   },
   "vehicles": {
     "title": "Araçlarımız",
