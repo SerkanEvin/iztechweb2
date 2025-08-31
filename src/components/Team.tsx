@@ -357,36 +357,24 @@ const Team = () => {
     }
 
   ];
-
-  // roleKey → kategori eşlemesi
-  const roleToCategoryMap: Record<string, string> = {
-    team_captain: t('team.teamCaptain'),
-    electronics_software_team_leader: t('team.electronics'),
-    electronics_software_team_member: t('team.electronics'),
-    vehicle_dynamics_team_leader: t('team.vehicleDynamics'),
-    vehicle_dynamics_team_member: t('team.vehicleDynamics'),
-    chassis_ergonomics_team_leader: t('team.chassis'),
-    chassis_ergonomics_team_member: t('team.chassis'),
-    powertrain_team_leader: t('team.powertrain'),
-    powertrain_team_member: t('team.powertrain'),
-    aerodynamics_team_leader: t('team.aerodynamics'),
-    aerodynamics_team_member: t('team.aerodynamics'),
-    organization_team_leader: t('team.organization'),
-    organization_team_member: t('team.organization'),
-    business_team_leader: t('team.businessDev'),
-    business_team_member: t('team.businessDev'),
-  };
-
   const categorizeTeamMembers = (members: TeamMember[]) => {
-    const categories: Record<string, TeamMember[]> = {};
+    interface CategoriesType {
+      [key: string]: TeamMember[];
+    }
+    const categories: CategoriesType = {};
 
     members.forEach(member => {
-      const category = roleToCategoryMap[member.roleKey] || t('team.others', 'Others');
+      // roleKey’den kategori çıkar
+      const baseKey = member.roleKey
+          .replace(/_team_leader$/i, '_team')
+          .replace(/_team_member$/i, '_team');
 
-      if (!categories[category]) {
-        categories[category] = [];
+      const translatedCategory = t(`team.${baseKey}`, { defaultValue: baseKey });
+
+      if (!categories[translatedCategory]) {
+        categories[translatedCategory] = [];
       }
-      categories[category].push(member);
+      categories[translatedCategory].push(member);
     });
 
     return categories;
@@ -416,6 +404,7 @@ const Team = () => {
                   <h3 className="text-2xl font-semibold text-white mb-6 text-center">
                     {category}
                   </h3>
+
                   <div className="flex flex-wrap justify-center gap-6">
                     {members.map((member, index) => (
                         <div
@@ -436,15 +425,9 @@ const Team = () => {
                           </div>
 
                           <div className="p-4 text-center">
-                            <h3 className="text-lg font-bold text-white">
-                              {member.name}
-                            </h3>
-                            <p className="text-[#a02638] font-semibold">
-                              {member.role}
-                            </p>
-                            <p className="text-[#cccccc] text-sm">
-                              {member.department}
-                            </p>
+                            <h3 className="text-lg font-bold text-white">{member.name}</h3>
+                            <p className="text-[#a02638] font-semibold">{member.role}</p>
+                            <p className="text-[#cccccc] text-sm">{member.department}</p>
                             <div className="flex justify-center gap-3 mt-3">
                               <a
                                   href={member.social.linkedin}
