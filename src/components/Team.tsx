@@ -345,8 +345,8 @@ const Team = () => {
     },
     {
       name: "Kuzey Demirer",
-      roleKey: "business_team_leader",
-      role: t('roles.business_team_leader'),
+      roleKey: "business_development_team_leader",
+      role: t('roles.business_development_team_leader'),
       department: t('departments.industrial_design'),
       image: "/KUZEY.webp",
       social: {
