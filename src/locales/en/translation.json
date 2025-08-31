@@ -71,8 +71,8 @@
     "aerodynamics_team_member": "Aerodynamics Team Member",
     "organization_team_leader": "Organization Team Leader",
     "organization_team_member": "Organization Team Member",
-    "business_team_leader": "Business Development Team Leader",
-    "business_team_member": "Business Development Team Member"
+    "business_development_team_leader": "Business Development Team Leader",
+    "business_development_team_member": "Business Development Team Member"
   },
   "vehicles": {
     "title": "Our Vehicles",
@@ -253,7 +253,7 @@
       "powertrain": "Powertrain Team",
       "aerodynamics": "Aerodynamics Team",
       "organization": "Organization Team",
-      "businessDev": "Business Development",
+      "business_development_team": "Business Development",
       "others": "Others"
     },
     "roles": {

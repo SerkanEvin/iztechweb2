@@ -60,8 +60,8 @@
     "aerodynamics_team_member": "Aerodinamik Ekibi Üyesi",
     "organization_team_leader": "Organizasyon Ekibi Lideri",
     "organization_team_member": "Organizasyon Ekibi Üyesi",
-    "business_team_leader": "İş Geliştirme Ekibi Lideri",
-    "business_team_member": "İş Geliştirme Ekibi Üyesi",
+    "business_development_team_leader": "İş Geliştirme Ekibi Lideri",
+    "business_development_team_member": "İş Geliştirme Ekibi Üyesi",
     "electronics_software_team": "Elektronik ve Yazılım Ekibi",
     "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
     "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
@@ -249,7 +249,7 @@
       "powertrain": "Güç Aktarma Organları Ekibi",
       "aerodynamics": "Aerodinamik Ekibi",
       "organization": "Organizasyon Ekibi",
-      "businessDev": "Statik Takım Kaptanı",
+      "business_development_team": "Statik Takım Kaptanı",
       "others": "Diğer"
     },
     "roles": {
