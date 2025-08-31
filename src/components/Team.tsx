@@ -358,14 +358,24 @@ const Team = () => {
 
   ];
 
+  const TEAM_CATEGORY_MAP: Record<string, string> = {
+    team_captain: t('team.teamCaptain'),
+    electronics_software_team: t('team.electronics'),
+    vehicle_dynamics_team: t('team.vehicleDynamics'),
+    chassis_ergonomics_team: t('team.chassis'),
+    powertrain_team: t('team.powertrain'),
+    aerodynamics_team: t('team.aerodynamics'),
+    organization_team: t('team.organization'),
+    business_development: t('team.businessDev'),
+  };
+
   const categorizeTeamMembers = (members: TeamMember[]) => {
     const categories: Record<string, TeamMember[]> = {};
 
     members.forEach(member => {
-      // roleKey içindeki "_team_leader" veya "_team_member" kısmını çıkar
+      // "_leader" veya "_member" kısmını çıkar
       const baseKey = member.roleKey.replace(/_team_leader$/i, '').replace(/_team_member$/i, '');
-      // JSON çevirisine göre kategori etiketi
-      const categoryLabel = t(`team.${baseKey}`, { defaultValue: baseKey });
+      const categoryLabel = TEAM_CATEGORY_MAP[baseKey] || baseKey;
 
       if (!categories[categoryLabel]) {
         categories[categoryLabel] = [];
