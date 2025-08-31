@@ -354,16 +354,7 @@
         "label": "Yıllık Deneyim"
       }
     },
-    "scrollDown": "Aşağı Kaydır",
-    "team_categories": {
-      "team_captain": "Takım Kaptanı",
-      "electronics_software_team": "Elektronik ve Yazılım Ekibi",
-      "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
-      "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
-      "powertrain_team": "Güç Aktarım Ekibi",
-      "aerodynamics_team": "Aerodinamik Ekibi",
-      "organization_team": "Organizasyon Ekibi",
-      "business_development_team": "İş Geliştirme Ekibi"
+    "scrollDown": "Aşağı Kaydır"
     }
   }
-}
+

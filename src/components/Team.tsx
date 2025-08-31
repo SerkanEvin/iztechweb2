@@ -359,7 +359,7 @@ const Team = () => {
   ];
 
   const TEAM_CATEGORY_MAP: Record<string, string> = {
-    team_captain: t('roles.team_captain'),
+    team_captain: t('team.team_captain'),
     electronics_software_team: t('roles.electronics_software_team'),
     vehicle_dynamics_team: t('roles.vehicle_dynamics_team'),
     chassis_ergonomics_team: t('roles.chassis_ergonomics_team'),

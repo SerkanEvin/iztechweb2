@@ -33,7 +33,7 @@
     "title": "Our Team",
     "members": "Team Members",
     "description": "Our diverse team of passionate engineers, designers, and innovators work together to push the boundaries of student motorsport and engineering excellence.",
-    "captain": "Team Captain",
+    "captain": "Team Captain"
 
   },
   "sponsors": {
@@ -358,16 +358,6 @@
         "label": "Years Active"
       },
       "scrollDown": "Scroll down",
-      "team_categories": {
-        "team_captain": "Team Captain",
-        "electronics_software_team": "Electronics & Software Team",
-        "vehicle_dynamics_team": "Vehicle Dynamics Team",
-        "chassis_ergonomics_team": "Chassis & Ergonomics Team",
-        "powertrain_team": "Powertrain Team",
-        "aerodynamics_team": "Aerodynamics Team",
-        "organization_team": "Organization Team",
-        "business_development": "Business Development"
-      },
       "departments": {
   "mechanical_engineering": "Mechanical Engineering",
   "civil_engineering": "Civil Engineering",
