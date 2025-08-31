@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -6,7 +6,6 @@ const Header = () => {
     const { t, i18n } = useTranslation();
     const [currentLanguage, setCurrentLanguage] = useState(i18n.language || 'en');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [animateLogo, setAnimateLogo] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -18,24 +17,6 @@ const Header = () => {
         setCurrentLanguage(newLang);
     };
 
-    // Start animation on component mount with optimized timing
-    useEffect(() => {
-        const startAnimation = () => {
-            // Enable the animation
-            setAnimateLogo(true);
-            
-            // Clear animation state after it completes
-            const timer = setTimeout(() => {
-                setAnimateLogo(false);
-            }, 1800); // Match this with the total animation duration
-            
-            return () => clearTimeout(timer);
-        };
-        
-        // Small delay to ensure the component is mounted and prevent layout shifts
-        const initTimer = setTimeout(startAnimation, 300);
-        return () => clearTimeout(initTimer);
-    }, []);
 
     const handleRefresh = () => {
         window.location.reload();
@@ -47,18 +28,41 @@ const Header = () => {
                 <div className="flex justify-between items-center h-16 relative">
 
                     {/* Logo Area */}
-                    <div className="flex items-center relative" style={{ width: 260, height: 40 }}>
-                        {/* Animated Logo */}
+                    <div className="flex items-center relative" style={{ width: 260, height: 40, position: 'relative' }}>
+                        {/* Main Logo - Always visible */}
+                        <div 
+                            className="relative overflow-hidden"
+                            style={{
+                                height: '40px',
+                                zIndex: 10,
+                                transform: 'translateZ(0)',
+                                marginLeft: '56px' // Space for the animated logo
+                            }}
+                        >
+                            <img
+                                onClick={handleRefresh}
+                                src="/logotype2.png"
+                                alt="IZTECH Racing Team"
+                                className="w-auto h-10 transition-all duration-500 hover:opacity-90"
+                                style={{ 
+                                    filter: 'drop-shadow(0 2px 8px rgba(154, 14, 32, 0.4))',
+                                    backfaceVisibility: 'hidden'
+                                }}
+                                draggable={false}
+                            />
+                        </div>
+
+                        {/* Animated Logo - Slides over the main logo */}
                         <div
                             className="w-10 h-10 rounded-lg overflow-hidden flex items-center will-change-transform"
                             style={{
-                                position: animateLogo ? 'absolute' : 'relative',
+                                position: 'absolute',
                                 top: 0,
                                 left: 0,
-                                animation: animateLogo ? 'logoSlide 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' : 'none',
                                 zIndex: 20,
                                 transformOrigin: 'center',
                                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                                opacity: 1
                             }}
                         >
                             <img
@@ -73,29 +77,6 @@ const Header = () => {
                             />
                         </div>
 
-                        {/* Main Logo */}
-                        <div 
-                            className={`relative overflow-hidden ${animateLogo ? 'animating-text' : ''}`}
-                            style={{
-                                height: '40px',
-                                zIndex: 10,
-                                transform: 'translateZ(0)' // Force hardware acceleration
-                            }}
-                        >
-                            <img
-                                onClick={handleRefresh}
-                                src="/logotype2.png"
-                                alt="IZTECH Racing Team"
-                                className="ml-4 w-auto h-10 transition-all duration-500 hover:opacity-90"
-                                style={{ 
-                                    position: 'relative', 
-                                    filter: 'drop-shadow(0 2px 8px rgba(154, 14, 32, 0.4))',
-                                    transform: 'translateZ(0)', // Force hardware acceleration
-                                    backfaceVisibility: 'hidden'
-                                }}
-                                draggable={false}
-                            />
-                        </div>
                     </div>
 
                     {/* Desktop Navigation */}
@@ -153,48 +134,6 @@ const Header = () => {
                 )}
             </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                    @keyframes logoSlide {
-                        0% { transform: translateX(0); }
-                        50% { transform: translateX(180px); }
-                        100% { transform: translateX(0); }
-                    }
-
-                    @keyframes textFade {
-                        0% { opacity: 1; }
-                        40% { opacity: 0; }
-                        60% { opacity: 0; }
-                        100% { opacity: 1; }
-                    }
-
-                    .animating-text {
-                        animation: textFade 2.2s ease forwards;
-                    }
-
-                    .nav-link {
-                        position: relative;
-                        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-                    }
-                    
-                    .nav-link::after {
-                        content: '';
-                        position: absolute;
-                        bottom: -4px;
-                        left: 0;
-                        width: 100%;
-                        height: 2px;
-                        background: #9a0e20;
-                        transform: scaleX(0);
-                        transform-origin: right;
-                        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-                    }
-                    
-                    .nav-link:hover::after {
-                        transform: scaleX(1);
-                        transform-origin: left;
-                    }`
-            }} />
         </header>
     );
 };

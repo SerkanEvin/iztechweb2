@@ -18,18 +18,23 @@
     "title": "About Us",
     "content": "We are a team of passionate engineers dedicated to innovation and excellence in automotive engineering."
   },
+  "departments": {
+    "civil_engineering": "Civil Engineering",
+    "mechanical_engineering": "Mechanical Engineering",
+    "photonics": "Photonics",
+    "electronics_engineering": "Electronics Engineering",
+    "mathematics": "Mathematics",
+    "materials_engineering": "Materials Engineering",
+    "energy_engineering": "Energy Engineering",
+    "computer_engineering": "Computer Engineering",
+    "industrial_design": "Industrial Design"
+  },
   "team": {
     "title": "Our Team",
     "members": "Team Members",
     "description": "Our diverse team of passionate engineers, designers, and innovators work together to push the boundaries of student motorsport and engineering excellence.",
-    "captain": "Team Captain",
-    "electronics_software_team": "Electronics & Software Team",
-    "vehicle_dynamics_team": "Vehicle Dynamics Team",
-    "chassis_ergonomics_team": "Chassis and Ergonomics Team",
-    "powertrain_team": "Powertrain Team",
-    "aerodynamics_team": "Aerodynamics Team",
-    "organization_team": "Organization Team",
-    "business_development_team": "Business Development Team"
+    "captain": "Team Captain"
+
   },
   "sponsors": {
     "title": "Our Sponsors",
@@ -43,40 +48,31 @@
     "send": "Send Message"
   },
   "roles": {
+    "electronics_software_team": "Electronics & Software Team",
+    "vehicle_dynamics_team": "Vehicle Dynamics Team",
+    "chassis_ergonomics_team": "Chassis and Ergonomics Team",
+    "powertrain_team": "Powertrain Team",
+    "aerodynamics_team": "Aerodynamics Team",
+    "organization_team": "Organization Team",
+    "business_development_team": "Business Development Team",
+
     "team_captain": "Team Captain",
     "business_development": "Business Development",
     
     "electronics_software_team_leader": "Electronics and Software Team Leader",
     "electronics_software_team_member": "Electronics and Software Team Member",
-    
     "vehicle_dynamics_team_leader": "Vehicle Dynamics Team Leader",
     "vehicle_dynamics_team_member": "Vehicle Dynamics Team Member",
-    
     "chassis_ergonomics_team_leader": "Chassis and Ergonomics Team Leader",
     "chassis_ergonomics_team_member": "Chassis and Ergonomics Team Member",
-    
     "powertrain_team_leader": "Powertrain Team Leader",
     "powertrain_team_member": "Powertrain Team Member",
-    
     "aerodynamics_team_leader": "Aerodynamics Team Leader",
     "aerodynamics_team_member": "Aerodynamics Team Member",
-    
     "organization_team_leader": "Organization Team Leader",
     "organization_team_member": "Organization Team Member",
-    
-    "business_team_leader": "Business Development Team Leader",
-    "business_team_member": "Business Development Team Member"
-  },
-  "departments": {
-    "mechanical_engineering": "Mechanical Engineering",
-    "industrial_design": "Industrial Design",
-    "energy_systems_engineering": "Energy Systems Engineering",
-    "civil_engineering": "Civil Engineering",
-    "photonics_department": "Photonics Department",
-    "electronics_&_communication_engineering": "Electronics & Communication Engineering",
-    "mathematics_department": "Mathematics Department",
-    "materials_engineering": "Materials Engineering",
-    "computer_engineering": "Computer Engineering"
+    "business_development_team_leader": "Business Development Team Leader",
+    "business_development_team_member": "Business Development Team Member"
   },
   "vehicles": {
     "title": "Our Vehicles",
@@ -251,13 +247,13 @@
     "description": "Passionate students from various disciplines working together to build the future of motorsports.",
     "categories": {
       "teamCaptain": "Team Captain",
-      "electronics": "Electronics & Software Team",
+      "electronics": "Electronics and Software Team",
       "vehicleDynamics": "Vehicle Dynamics Team",
-      "chassis": "Chassis & Ergonomics Team",
+      "chassis": "Chassis and Ergonomics Team",
       "powertrain": "Powertrain Team",
       "aerodynamics": "Aerodynamics Team",
       "organization": "Organization Team",
-      "businessDev": "Business Development",
+      "business_development_team": "Business Development",
       "others": "Others"
     },
     "roles": {
@@ -327,15 +323,15 @@
     "pdfTitle": "Magazine PDF Viewer",
     "may": {
       "title": "IZTECH RACING May Recap",
-      "description": "An in-depth look at IZTECH Racing's journey into Formula Student competitions."
+      "description": ""
     },
     "june": {
       "title": "IZTECH RACING June Recap",
-      "description": "Showcasing our technical advancements and student-driven innovations."
+      "description": ""
     },
     "july": {
       "title": "IZTECH RACING July Recap",
-      "description": "How IZTECH Racing is preparing the next generation of engineers."
+      "description": ""
     }
   },
   "hero": {
@@ -364,15 +360,19 @@
         
       },
       "scrollDown": "Scroll down",
-      "team_categories": {
-        "team_captain": "Team Captain",
-        "electronics_software_team": "Electronics & Software Team",
-        "vehicle_dynamics_team": "Vehicle Dynamics Team",
-        "chassis_ergonomics_team": "Chassis & Ergonomics Team",
-        "powertrain_team": "Powertrain Team",
-        "aerodynamics_team": "Aerodynamics Team",
-        "organization_team": "Organization Team",
-        "business_development": "Business Development"
+      "departments": {
+  "mechanical_engineering": "Mechanical Engineering",
+  "civil_engineering": "Civil Engineering",
+  "computer_engineering": "Computer Engineering",
+  "electrical_engineering": "Electrical Engineering",
+  "electronics_engineering": "Electronics Engineering",
+  "energy_engineering": "Energy Systems Engineering",
+  "industrial_engineering": "Industrial Engineering",
+  "industrial_design": "Industrial Design",
+  "materials_engineering": "Materials Engineering",
+  "chemical_engineering": "Chemical Engineering",
+  "mathematics": "Mathematics",
+  "photonics": "Photonics"
       }
     }
   }

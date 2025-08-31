@@ -2,10 +2,9 @@ import { Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { PlaceholderImage } from './PlaceholderImage';
 
-
-// Define the team member type
 interface TeamMember {
   name: string;
+  roleKey: string;
   role: string;
   department: string;
   image: string;
@@ -17,53 +16,15 @@ interface TeamMember {
   };
 }
 
-
-const TeamCategories = () => {
-  const { t } = useTranslation();
-  
-  return {
-    "Team Captain": t('team.captain'),
-    "Electronics & Software": t('team.electronics_software_team'),
-    "Vehicle Dynamics": t('team.vehicle_dynamics_team'),
-    "Chassis & Ergonomics": t('team.chassis_ergonomics_team'),
-    "Powertrain": t('team.powertrain_team'),
-    "Aerodynamics": t('team.aerodynamics_team'),
-    "Organization": t('team.organization_team'),
-    "Business Development": t('team.business_development_team'),
-  };
-};
-
-interface CategorizedTeamMembers {
-  [category: string]: TeamMember[];
-}
-
-const categorizeTeamMembers = (members: TeamMember[]): CategorizedTeamMembers => {
-  const categorized: CategorizedTeamMembers = {};
-  const teamCategories = TeamCategories();
-
-  members.forEach((member: TeamMember) => {
-    const categoryKey = Object.keys(teamCategories).find((key) =>
-        member.role.includes(key)
-    );
-    const category = teamCategories[categoryKey as keyof typeof teamCategories] || "Others";
-    if (!categorized[category]) {
-      categorized[category] = [];
-    }
-    categorized[category].push(member);
-  });
-
-  return categorized;
-};
-
 const Team = () => {
   const { t } = useTranslation();
-  // Remove image preloading state since we're using direct paths
 
   const teamMembers: TeamMember[] = [
     {
       name: "Hüseyin Poyraz Kocamış",
-      role: t("Team Captain"),
-      department: t("Civil Engineering"),
+      roleKey: "team_captain",
+      role: t("roles.team_captain"),
+      department: t('departments.civil_engineering'),
       image: "/POYRAZ.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/poyrazkocamis?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -72,8 +33,9 @@ const Team = () => {
     },
     {
       name: "Serkan Doğan Evin",
-      role: t("Electronics & Software Team Leader"),
-      department: t("Mechanical Engineering"),
+      roleKey: "electronics_software_team_leader",
+      role: t('roles.electronics_software_team_leader'),
+      department: t('departments.mechanical_engineering'),
       image: "/SERKAN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/serkan-do%C4%9Fan-evin-7569a61b8/",
@@ -83,8 +45,9 @@ const Team = () => {
     },
     {
       name: "Emre Canbaz",
-      role: t("Vehicle Dynamics Team Leader"),
-      department: t("Mechanical Engineering"),
+      roleKey: "vehicle_dynamics_team_leader",
+      role: t("roles.vehicle_dynamics_team_leader"),
+      department: t('departments.mechanical_engineering'),
       image: "/EMRE.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/emre-canbaz-30b087335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -94,8 +57,9 @@ const Team = () => {
     },
     {
       name: "Onur Şen",
-      role: t("Powertrain Team Leader"),
-      department: t("Mechanical Engineering"),
+      roleKey: "powertrain_team_leader",
+      role: t("roles.powertrain_team_leader"),
+      department: t('departments.mechanical_engineering'),
       image: "/ONUR.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/onur-%C5%9Fen-b87b50239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -105,6 +69,7 @@ const Team = () => {
     },
     {
       name: "Efe Yıldırım",
+      roleKey: "aerodynamics_team_leader",
       role: t('roles.aerodynamics_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: "/EFE.webp",
@@ -116,8 +81,9 @@ const Team = () => {
     },
     {
       name: "Ödül Yarkın Baran",
+      roleKey: "organization_team_leader",
       role: t('roles.organization_team_leader'),
-      department: t('departments.photonics_department'),
+      department: t('departments.photonics'),
       image: "/YARKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
@@ -127,6 +93,7 @@ const Team = () => {
     },
     {
       name: "Ahmet Duha Aydın",
+      roleKey: "chassis_ergonomics_team_leader",
       role: t('roles.chassis_ergonomics_team_leader'),
       department: t('departments.mechanical_engineering'),
       image: "/DUHA.webp",
@@ -138,8 +105,9 @@ const Team = () => {
     },
     {
       name: "Altay Alp",
+      roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
-      department: t('departments.electronics_&_communication_engineering'),
+      department: t('departments.electronics_engineering'),
       image: "/ALTAYALP.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/altay-alp-4225bb251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -149,8 +117,9 @@ const Team = () => {
     },
     {
       name: "Arda Onuk",
+      roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
-      department: t('departments.mathematics_department'),
+      department: t('departments.mathematics'),
       image: "/ARDAONUK.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-onuk-8247b5352/",
@@ -160,6 +129,7 @@ const Team = () => {
     },
     {
       name: "Berkant Süren",
+      roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.materials_engineering'),
       image: "/BERKANT.webp",
@@ -171,8 +141,9 @@ const Team = () => {
     },
     {
       name: "Arda Keskin",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
-      department: t('departments.energy_systems_engineering'),
+      department: t('departments.energy_engineering'),
       image: "/ARDAKESKIN.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-keskin-ba7b36230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -182,6 +153,7 @@ const Team = () => {
     },
     {
       name: "Arda Akpolat",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/ARDAAKPOLAT.webp",
@@ -193,6 +165,7 @@ const Team = () => {
     },
     {
       name: "Senanur Günay",
+      roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
       department: t('departments.computer_engineering'),
       image: "/SENANUR.webp",
@@ -204,6 +177,7 @@ const Team = () => {
     },
     {
       name: "Beren Alptekin",
+      roleKey: "organization_team_member",
       role: t('roles.organization_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/insan.webp",
@@ -215,6 +189,7 @@ const Team = () => {
     },
     {
       name: "Tarık Alperen Öcal",
+      roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/TARIKALPERENOCAL.webp",
@@ -226,8 +201,9 @@ const Team = () => {
     },
     {
       name: "Yağız Yalçın",
+      roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
-      department: t('departments.energy_systems_engineering'),
+      department: t('departments.energy_engineering'),
       image: "/YAGIZ.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
@@ -237,6 +213,7 @@ const Team = () => {
     },
     {
       name: "Batuhan Elmaoğlu",
+      roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/BATU.webp",
@@ -248,6 +225,7 @@ const Team = () => {
     },
     {
       name: "Eren Uruş",
+      roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/ERENURUS.webp",
@@ -259,6 +237,7 @@ const Team = () => {
     },
     {
       name: "Eren Karasakal",
+      roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/ERENKARASAKAL.webp",
@@ -270,6 +249,7 @@ const Team = () => {
     },
     {
       name: "Tuğçe Özcan",
+      roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.materials_engineering'),
       image: "/TUĞÇE.webp",
@@ -281,6 +261,7 @@ const Team = () => {
     },
     {
       name: "Nevzat Ediz Burçoğlu",
+      roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/Ediz.webp",
@@ -292,6 +273,7 @@ const Team = () => {
     },
     {
       name: "Kerem Katrancı",
+      roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/KEREM.webp",
@@ -303,6 +285,7 @@ const Team = () => {
     },
     {
       name: "Emir Yaşa",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/Emir.webp",
@@ -314,6 +297,7 @@ const Team = () => {
     },
     {
       name: "Tuna Kurban",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/TUNAKURBAN.webp",
@@ -325,6 +309,7 @@ const Team = () => {
     },
     {
       name: "Hakan Şendaldal",
+      roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/HAKAN.webp",
@@ -336,6 +321,7 @@ const Team = () => {
     },
     {
       name: "Khayal Musayev",
+      roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/KHAYAL.webp",
@@ -347,6 +333,7 @@ const Team = () => {
     },
     {
       name: "Sinan Efe Bayrak",
+      roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
       image: "/SİNANEFE.webp",
@@ -358,7 +345,8 @@ const Team = () => {
     },
     {
       name: "Kuzey Demirer",
-      role: t('roles.business_team_member'),
+      roleKey: "business_development_team_leader",
+      role: t('roles.business_development_team_leader'),
       department: t('departments.industrial_design'),
       image: "/KUZEY.webp",
       social: {
@@ -367,25 +355,36 @@ const Team = () => {
         github: "#"
       }
     }
+
   ];
 
-  const categorizeTeamMembers = (members: TeamMember[]) => {
-    interface CategoriesType {
-      [key: string]: TeamMember[];
-    }
-    const categories: CategoriesType = {};
-    members.forEach(member => {
-      // Use the role as-is if it's already a key, otherwise use the first word
-      const roleKey = member.role.includes('_') ?
-          member.role :
-          member.role.split(' ')[0].toLowerCase();
+  const TEAM_CATEGORY_MAP: Record<string, string> = {
+    team_captain: t('roles.team_captain'),
+    electronics_software_team: t('roles.electronics_software_team'),
+    vehicle_dynamics_team: t('roles.vehicle_dynamics_team'),
+    chassis_ergonomics_team: t('roles.chassis_ergonomics_team'),
+    powertrain_team: t('roles.powertrain_team'),
+    aerodynamics_team: t('roles.aerodynamics_team'),
+    organization_team: t('roles.organization_team'),
+    business_development_team: t('roles.business_development_team'),
+  };
 
-      const translatedRole = t(`roles.${roleKey}`, { defaultValue: member.role });
+  const categorizeTeamMembers = (members: TeamMember[]) => {
+    const categories: Record<string, TeamMember[]> = {};
+
+    members.forEach(member => {
+      const baseKey = member.roleKey
+          .replace(/_team_leader$/i, '_team')
+          .replace(/_team_member$/i, '_team');
+
+      const translatedRole = TEAM_CATEGORY_MAP[baseKey] || baseKey;
+
       if (!categories[translatedRole]) {
         categories[translatedRole] = [];
       }
       categories[translatedRole].push(member);
     });
+
     return categories;
   };
 
@@ -395,7 +394,6 @@ const Team = () => {
   return (
       <section id="team" className="py-20 bg-[#0f0f0f] relative">
         <div className="container mx-auto px-4">
-          {/* Başlık */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {t('team.title')}
@@ -405,7 +403,6 @@ const Team = () => {
             </p>
           </div>
 
-          {/* Kategorileri alt alta basma */}
           <div className="flex flex-col gap-16">
             {categories.map(([category, members]) => (
                 <div
@@ -421,7 +418,6 @@ const Team = () => {
                             key={index}
                             className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 transition-all duration-300 hover:scale-105 group"
                         >
-                          {/* Görsel */}
                           <div className="relative overflow-hidden">
                             <div className="relative h-64 overflow-hidden">
                               <PlaceholderImage
@@ -435,16 +431,15 @@ const Team = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                           </div>
 
-                          {/* Bilgiler */}
                           <div className="p-4 text-center">
                             <h3 className="text-lg font-bold text-white">
                               {member.name}
                             </h3>
                             <p className="text-[#a02638] font-semibold">
-                              {t(`roles.${member.role.toLowerCase().replace(/\s+/g, '_')}`, { defaultValue: member.role })}
+                              {member.role}
                             </p>
                             <p className="text-[#cccccc] text-sm">
-                              {t(`departments.${member.department.toLowerCase().replace(/\s+/g, '_').replace(/&/g, 'and')}`, { defaultValue: member.department })}
+                              {member.department}
                             </p>
                             <div className="flex justify-center gap-3 mt-3">
                               <a

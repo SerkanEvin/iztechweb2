@@ -14,6 +14,17 @@
     "title": "Ekibimize Hoş Geldiniz",
     "subtitle": "Harekette Mühendislik Mükemmelliği"
   },
+  "departments": {
+    "civil_engineering": "İnşaat Mühendisliği",
+    "mechanical_engineering": "Makine Mühendisliği",
+    "photonics": "Fotonik",
+    "electronics_engineering": "Elektronik Mühendisliği",
+    "mathematics": "Matematik",
+    "materials_engineering": "Malzeme Bilimi ve Mühendisliği",
+    "energy_engineering": "Enerji Mühendisliği",
+    "computer_engineering": "Bilgisayar Mühendisliği",
+    "industrial_design": "Endüstriyel Tasarım"
+  },
   "team": {
     "title": "Ekibimiz",
     "members": "Takım Üyeleri",
@@ -25,7 +36,7 @@
     "powertrain_team": "Güç Aktarım Ekibi",
     "aerodynamics_team": "Aerodinamik Ekibi",
     "organization_team": "Organizasyon Ekibi",
-    "business_development_team": "İş Geliştirme Ekibi"
+    "business_development_team": "Statik Ekibi"
   },
   "contact": {
     "title": "İletişim",
@@ -36,39 +47,28 @@
   },
   "roles": {
     "team_captain": "Takım Kaptanı",
-    "business_development": "İş Geliştirme",
-    
+    "business_development": "Statik",
     "electronics_software_team_leader": "Elektronik ve Yazılım Ekibi Lideri",
     "electronics_software_team_member": "Elektronik ve Yazılım Ekibi Üyesi",
-    
     "vehicle_dynamics_team_leader": "Araç Dinamiği Ekibi Lideri",
     "vehicle_dynamics_team_member": "Araç Dinamiği Ekibi Üyesi",
-    
     "chassis_ergonomics_team_leader": "Şasi ve Ergonomi Ekibi Lideri",
     "chassis_ergonomics_team_member": "Şasi ve Ergonomi Ekibi Üyesi",
-    
     "powertrain_team_leader": "Güç Aktarım Ekibi Lideri",
     "powertrain_team_member": "Güç Aktarım Ekibi Üyesi",
-    
     "aerodynamics_team_leader": "Aerodinamik Ekibi Lideri",
     "aerodynamics_team_member": "Aerodinamik Ekibi Üyesi",
-    
     "organization_team_leader": "Organizasyon Ekibi Lideri",
     "organization_team_member": "Organizasyon Ekibi Üyesi",
-    
-    "business_team_leader": "İş Geliştirme Ekibi Lideri",
-    "business_team_member": "İş Geliştirme Ekibi Üyesi"
-  },
-  "departments": {
-    "mechanical_engineering": "Makine Mühendisliği",
-    "industrial_design": "Endüstriyel Tasarım",
-    "energy_systems_engineering": "Enerji Sistemleri Mühendisliği",
-    "civil_engineering": "İnşaat Mühendisliği",
-    "photonics_department": "Fotonik Departmanı",
-    "electronics_&_communication_engineering": "Elektronik & Haberleşme Mühendisliği",
-    "mathematics_department": "Matematik Departmanı",
-    "materials_engineering": "Malzeme Mühendisliği",
-    "computer_engineering": "Bilgisayar Mühendisliği"
+    "business_development_team_leader": "Statik Ekibi Lideri",
+    "business_development_team_member": "Statik Ekibi Üyesi",
+    "electronics_software_team": "Elektronik ve Yazılım Ekibi",
+    "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
+    "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
+    "powertrain_team": "Güç Aktarım Ekibi",
+    "aerodynamics_team": "Aerodinamik Ekibi",
+    "organization_team": "Organizasyon Ekibi",
+    "business_development_team": "Statik Ekibi"
   },
   "vehicles": {
     "title": "Araçlarımız",
@@ -249,7 +249,7 @@
       "powertrain": "Güç Aktarma Organları Ekibi",
       "aerodynamics": "Aerodinamik Ekibi",
       "organization": "Organizasyon Ekibi",
-      "businessDev": "Statik Takım Kaptanı",
+      "business_development_team": "Statik Takım Kaptanı",
       "others": "Diğer"
     },
     "roles": {
@@ -272,7 +272,7 @@
   },
   "footer": {
     "logoAlt": "IZTECH Racing Logosu",
-    "description": "Mühendislik mükemmelliği yarış tutkusuyla buluşuyor. Öğrenci motor sporlarının geleceğiyiz, sınırları zorluyor ve yeniliğe ilham veriyoruz.",
+    "description": " Mühendislik mükemmelliği yarış tutkusuyla buluşuyor. Öğrenci motor sporlarının geleceğiyiz, sınırları zorluyor ve yeniliğe ilham veriyoruz.",
     "quickLinks": "Hızlı Bağlantılar",
     "links": {
       "about": "Hakkımızda",
@@ -319,15 +319,15 @@
     "pdfTitle": "Dergi PDF Görüntüleyici",
     "may": {
       "title": "IZTECH RACING Mayıs Özeti",
-      "description": "IZTECH Racing'in Formula Student yarışmalarına yolculuğuna derinlemesine bir bakış."
+      "description": " "
     },
     "june": {
       "title": "IZTECH RACING Haziran Özeti",
-      "description": "Teknik ilerlemelerimizi ve öğrenci odaklı yeniliklerimizi sergiliyoruz."
+      "description": " "
     },
     "july": {
       "title": "IZTECH RACING Temmuz Özeti",
-      "description": "IZTECH Racing, geleceğin mühendislerini nasıl yetiştiriyor?"
+      "description": " "
     }
   },
   "hero": {
@@ -354,16 +354,7 @@
         "label": "Yıllık Deneyim"
       }
     },
-    "scrollDown": "Aşağı Kaydır",
-    "team_categories": {
-      "team_captain": "Takım Kaptanı",
-      "electronics_software_team": "Elektronik ve Yazılım Ekibi",
-      "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
-      "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
-      "powertrain_team": "Güç Aktarım Ekibi",
-      "aerodynamics_team": "Aerodinamik Ekibi",
-      "organization_team": "Organizasyon Ekibi",
-      "business_development_team": "İş Geliştirme Ekibi"
+    "scrollDown": "Aşağı Kaydır"
     }
   }
-}
+
