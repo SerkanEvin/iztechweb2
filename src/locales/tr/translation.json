@@ -36,7 +36,7 @@
     "powertrain_team": "Güç Aktarım Ekibi",
     "aerodynamics_team": "Aerodinamik Ekibi",
     "organization_team": "Organizasyon Ekibi",
-    "business_development_team": "İş Geliştirme Ekibi"
+    "business_development_team": "Statik Ekibi"
   },
   "contact": {
     "title": "İletişim",
@@ -47,7 +47,7 @@
   },
   "roles": {
     "team_captain": "Takım Kaptanı",
-    "business_development": "İş Geliştirme",
+    "business_development": "Statik",
     "electronics_software_team_leader": "Elektronik ve Yazılım Ekibi Lideri",
     "electronics_software_team_member": "Elektronik ve Yazılım Ekibi Üyesi",
     "vehicle_dynamics_team_leader": "Araç Dinamiği Ekibi Lideri",
@@ -60,15 +60,15 @@
     "aerodynamics_team_member": "Aerodinamik Ekibi Üyesi",
     "organization_team_leader": "Organizasyon Ekibi Lideri",
     "organization_team_member": "Organizasyon Ekibi Üyesi",
-    "business_development_team_leader": "İş Geliştirme Ekibi Lideri",
-    "business_development_team_member": "İş Geliştirme Ekibi Üyesi",
+    "business_development_team_leader": "Statik Ekibi Lideri",
+    "business_development_team_member": "Statik Ekibi Üyesi",
     "electronics_software_team": "Elektronik ve Yazılım Ekibi",
     "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
     "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
     "powertrain_team": "Güç Aktarım Ekibi",
     "aerodynamics_team": "Aerodinamik Ekibi",
     "organization_team": "Organizasyon Ekibi",
-    "business_development_team": "İş Geliştirme Ekibi"
+    "business_development_team": "Statik Ekibi"
   },
   "vehicles": {
     "title": "Araçlarımız",
