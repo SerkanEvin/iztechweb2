@@ -357,29 +357,35 @@ const Team = () => {
     }
 
   ];
+  const TEAM_CATEGORY_MAP: Record<string, string> = {
+    team_captain: t('t.team_captain.team_captain'),
+    electronics_software_team: t('t.team.electronics_software_team'), // leader kullan
+    vehicle_dynamics_team: t('t.team.vehicle_dynamics'),
+    chassis_ergonomics_team: t('t.tea.chassis_ergonomics_team'),
+    powertrain_team: t('t.team.powertrain_team'),
+    aerodynamics_team: t('t.team.aerodynamics_team'),
+    organization_team: t('t.team.organization_team'),
+    business_development: t('t.team.business_team'),
+  };
+
   const categorizeTeamMembers = (members: TeamMember[]) => {
-    interface CategoriesType {
-      [key: string]: TeamMember[];
-    }
-    const categories: CategoriesType = {};
+    const categories: Record<string, TeamMember[]> = {};
 
     members.forEach(member => {
-      // roleKey’den kategori çıkar
       const baseKey = member.roleKey
           .replace(/_team_leader$/i, '_team')
           .replace(/_team_member$/i, '_team');
 
-      const translatedCategory = t(`team.${baseKey}`, { defaultValue: baseKey });
+      const categoryName = TEAM_CATEGORY_MAP[baseKey] || baseKey;
 
-      if (!categories[translatedCategory]) {
-        categories[translatedCategory] = [];
+      if (!categories[categoryName]) {
+        categories[categoryName] = [];
       }
-      categories[translatedCategory].push(member);
+      categories[categoryName].push(member);
     });
 
     return categories;
   };
-
   const groupedMembers = categorizeTeamMembers(teamMembers);
   const categories = Object.entries(groupedMembers);
 
