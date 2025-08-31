@@ -366,7 +366,7 @@ const Team = () => {
     powertrain_team: t('roles.powertrain_team'),
     aerodynamics_team: t('roles.aerodynamics_team'),
     organization_team: t('roles.organization_team'),
-    business_development_team: t('roles.business_development'),
+    business_development_team: t('roles.business_development_team'),
   };
 
   const categorizeTeamMembers = (members: TeamMember[]) => {
