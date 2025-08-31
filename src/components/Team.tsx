@@ -358,25 +358,35 @@ const Team = () => {
 
   ];
 
+  // roleKey → kategori eşlemesi
+  const roleToCategoryMap: Record<string, string> = {
+    team_captain: t('team.teamCaptain'),
+    electronics_software_team_leader: t('team.electronics'),
+    electronics_software_team_member: t('team.electronics'),
+    vehicle_dynamics_team_leader: t('team.vehicleDynamics'),
+    vehicle_dynamics_team_member: t('team.vehicleDynamics'),
+    chassis_ergonomics_team_leader: t('team.chassis'),
+    chassis_ergonomics_team_member: t('team.chassis'),
+    powertrain_team_leader: t('team.powertrain'),
+    powertrain_team_member: t('team.powertrain'),
+    aerodynamics_team_leader: t('team.aerodynamics'),
+    aerodynamics_team_member: t('team.aerodynamics'),
+    organization_team_leader: t('team.organization'),
+    organization_team_member: t('team.organization'),
+    business_team_leader: t('team.businessDev'),
+    business_team_member: t('team.businessDev'),
+  };
+
   const categorizeTeamMembers = (members: TeamMember[]) => {
-    interface CategoriesType {
-      [key: string]: TeamMember[];
-    }
-    const categories: CategoriesType = {};
+    const categories: Record<string, TeamMember[]> = {};
 
     members.forEach(member => {
-      // roleKey’den ekip ismini bul
-      const baseKey = member.roleKey
-          .replace(/_team_leader$/i, '_team')
-          .replace(/_team_member$/i, '_team');
+      const category = roleToCategoryMap[member.roleKey] || t('team.others', 'Others');
 
-      // kategorinin dil bağımsız anahtarı var → çeviriyi burada yap
-      const translatedRole = t(`team.${baseKey}`, { defaultValue: baseKey });
-
-      if (!categories[translatedRole]) {
-        categories[translatedRole] = [];
+      if (!categories[category]) {
+        categories[category] = [];
       }
-      categories[translatedRole].push(member);
+      categories[category].push(member);
     });
 
     return categories;
@@ -386,80 +396,80 @@ const Team = () => {
   const categories = Object.entries(groupedMembers);
 
   return (
-    <section id="team" className="py-20 bg-[#0f0f0f] relative">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {t('team.title')}
-          </h2>
-          <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
-            {t('team.description')}
-          </p>
-        </div>
+      <section id="team" className="py-20 bg-[#0f0f0f] relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {t('team.title')}
+            </h2>
+            <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
+              {t('team.description')}
+            </p>
+          </div>
 
-        <div className="flex flex-col gap-16">
-          {categories.map(([category, members]) => (
-            <div
-              key={category}
-              className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6"
-            >
-              <h3 className="text-2xl font-semibold text-white mb-6 text-center">
-                {category}
-              </h3>
-              <div className="flex flex-wrap justify-center gap-6">
-                {members.map((member, index) => (
-                  <div
-                    key={index}
-                    className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 transition-all duration-300 hover:scale-105 group"
-                  >
-                    <div className="relative overflow-hidden">
-                      <div className="relative h-64 overflow-hidden">
-                        <PlaceholderImage
-                          src={member.image.startsWith('http') ? member.image : member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-100"
-                          width={250}
-                          height={256}
-                        />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    </div>
+          <div className="flex flex-col gap-16">
+            {categories.map(([category, members]) => (
+                <div
+                    key={category}
+                    className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6"
+                >
+                  <h3 className="text-2xl font-semibold text-white mb-6 text-center">
+                    {category}
+                  </h3>
+                  <div className="flex flex-wrap justify-center gap-6">
+                    {members.map((member, index) => (
+                        <div
+                            key={index}
+                            className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 transition-all duration-300 hover:scale-105 group"
+                        >
+                          <div className="relative overflow-hidden">
+                            <div className="relative h-64 overflow-hidden">
+                              <PlaceholderImage
+                                  src={member.image.startsWith('http') ? member.image : member.image}
+                                  alt={member.name}
+                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-100"
+                                  width={250}
+                                  height={256}
+                              />
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                          </div>
 
-                    <div className="p-4 text-center">
-                      <h3 className="text-lg font-bold text-white">
-                        {member.name}
-                      </h3>
-                      <p className="text-[#a02638] font-semibold">
-                        {member.role}
-                      </p>
-                      <p className="text-[#cccccc] text-sm">
-                        {member.department}
-                      </p>
-                      <div className="flex justify-center gap-3 mt-3">
-                        <a
-                          href={member.social.linkedin}
-                          className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
-                        </a>
-                        <a
-                          href={`mailto:${member.social.email}`}
-                          className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
-                        >
-                          <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
-                        </a>
-                      </div>
-                    </div>
+                          <div className="p-4 text-center">
+                            <h3 className="text-lg font-bold text-white">
+                              {member.name}
+                            </h3>
+                            <p className="text-[#a02638] font-semibold">
+                              {member.role}
+                            </p>
+                            <p className="text-[#cccccc] text-sm">
+                              {member.department}
+                            </p>
+                            <div className="flex justify-center gap-3 mt-3">
+                              <a
+                                  href={member.social.linkedin}
+                                  className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                              >
+                                <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
+                              </a>
+                              <a
+                                  href={`mailto:${member.social.email}`}
+                                  className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                              >
+                                <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-          ))}
+                </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 };
 
