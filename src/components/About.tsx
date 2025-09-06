@@ -81,9 +81,6 @@ const About = () => {
               </p>
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-1" style={{ backgroundColor: '#9a0e20' }}></div>
-                <span className="font-semibold text-[#9a0e20]">
-                {t('about.journey.tagline', "Engineering the Future")}
-              </span>
               </div>
             </div>
             <div className="relative">
