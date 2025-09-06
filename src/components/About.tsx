@@ -80,7 +80,6 @@ const About = () => {
                     "vehicle, Freakmobile, to life in less than 3 months. Work on the race car continues.")}
               </p>
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-1" style={{ backgroundColor: '#9a0e20' }}></div>
               </div>
             </div>
             <div className="relative">

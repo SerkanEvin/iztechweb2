@@ -35,12 +35,12 @@ const Header = () => {
                                 height: '40px',
                                 zIndex: 10,
                                 transform: 'translateZ(0)',
-                                marginLeft: '56px'
+                                marginLeft: 0 // ← burayı 0 yaptık
                             }}
                         >
                             <img
                                 onClick={handleRefresh}
-                                src="/logotype2.png"
+                                src="/logo2RR.png"
                                 alt="IZTECH Racing Team"
                                 className="w-auto h-10 transition-all duration-500 hover:opacity-90 cursor-pointer"
                                 style={{
@@ -48,30 +48,6 @@ const Header = () => {
                                     backfaceVisibility: 'hidden'
                                 }}
                                 draggable={false}
-                            />
-                        </div>
-
-                        <div
-                            className="w-10 h-10 rounded-lg overflow-hidden flex items-center will-change-transform"
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                zIndex: 20,
-                                transformOrigin: 'center',
-                                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
-                                opacity: 1
-                            }}
-                        >
-                            <img
-                                src="/amblemSTROKELIGHT.png"
-                                alt="Logo"
-                                className="w-full h-full object-contain transition-all duration-300 hover:scale-110 hover:rotate-1"
-                                draggable={false}
-                                style={{
-                                    transform: 'translateZ(0)',
-                                    backfaceVisibility: 'hidden'
-                                }}
                             />
                         </div>
                     </div>
