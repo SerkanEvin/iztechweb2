@@ -416,16 +416,31 @@ const Team = () => {
                             className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 transition-all duration-300 hover:scale-105 group"
                         >
                           <div className="relative overflow-hidden">
-                            <div className="relative h-64 overflow-hidden">
+                            <div className="relative group overflow-hidden rounded-t-xl">
                               <PlaceholderImage
-                                  src={member.image.startsWith('http') ? member.image : member.image}
-                                  alt={member.name}
-                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-100"
-                                  width={250}
-                                  height={256}
+                                src={member.image}
+                                alt={member.name}
+                                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-75"
+                                width={250}
+                                height={256}
                               />
+                              <div className="absolute inset-0 flex justify-center items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <a
+                                  href={member.social.linkedin}
+                                  className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
+                                </a>
+                                <a
+                                  href={`mailto:${member.social.email}`}
+                                  className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
+                                >
+                                  <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
+                                </a>
+                              </div>
                             </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                           </div>
 
                           <div className="p-4 text-center">
@@ -438,22 +453,6 @@ const Team = () => {
                             <p className="text-[#cccccc] text-sm">
                               {member.department}
                             </p>
-                            <div className="flex justify-center gap-3 mt-3">
-                              <a
-                                  href={member.social.linkedin}
-                                  className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                              >
-                                <Linkedin className="w-5 h-5 text-gray-300 hover:text-white" />
-                              </a>
-                              <a
-                                  href={`mailto:${member.social.email}`}
-                                  className="w-9 h-9 bg-[#2a2a2a] rounded-lg flex items-center justify-center hover:bg-[#a02638] transition-colors duration-200"
-                              >
-                                <Mail className="w-5 h-5 text-gray-300 hover:text-white" />
-                              </a>
-                            </div>
                           </div>
                         </div>
                     ))}
