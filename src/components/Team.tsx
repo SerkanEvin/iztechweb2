@@ -403,7 +403,7 @@ const Team = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-3">
             {categories.map(([category, members]) => (
                 <div key={category}>
                   <h3 className="text-2xl font-semibold text-white mb-6 text-center">

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-// Ana sayfada gösterilecek bileşenler
 import Hero from './components/Hero';
 import About from './components/About';
 import Gallery from './components/Gallery';
@@ -12,10 +11,8 @@ import Vehicles from './components/Vehicles';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 
-// Diğer sayfalar
 import Team from './components/Team';
 
-// Ana sayfa layout
 function HomePage() {
     return (
         <>
