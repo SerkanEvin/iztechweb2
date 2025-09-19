@@ -1,15 +1,17 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 export default function Sponsors() {
+  const { t } = useTranslation();
   const sponsors = [
     {
-      tier: "Platinum",
+      tier: "platinum",
       members: [
         { name: "Prokom", logo: "/Logo_Prokom_W.png", url: "https://prokomtech.com/" }
       ]
     },
     {
-      tier: "Gold",
+      tier: "gold",
       members: [
         { name: "Altair", logo: "/altair.png", url: "https://altair.com/" },
         { name: "ANSYS", logo: "/ANSYS_logo.png", url: "https://www.ansys.com/" },
@@ -21,21 +23,21 @@ export default function Sponsors() {
       ]
     },
     {
-      tier: "Silver",
+      tier: "silver",
       members: [
         { name: "Avioni Technologies", logo: "/5958e813d0893.png", url: "https://www.avionitech.com/tr/" },
         { name: "IZELTAŞ", logo: "/images.png", url: "https://izeltas.com.tr/" }
       ]
     },
     {
-      tier: "Bronze",
+      tier: "bronze",
       members: [
         { name: "İnci Akü", logo: "/incilogo-dosya.png", url: "https://www.inciaku.com/tr/" },
         { name: "Yakup Yılmaz", logo: "/yakup.png", url: "https://www.yakupyilmazboru.com/" }
       ]
     },
     {
-      tier: "Supporters",
+      tier: "supporters",
       members: [
         { name: "Urla Solar", logo: "/UrlaSolar_Tam_Logo.png", url: "https://urlasolar.com/" },
         { name: "Bilişim Vadisi", logo: "/BV_Logo_H.png", url: "https://bilisimvadisi.com.tr/" },
@@ -50,16 +52,16 @@ export default function Sponsors() {
     <section id="sponsors" className="py-20 bg-[#0f0f0f] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Sponsors</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('sponsors.title')}</h2>
           <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
-            We're proud to partner with industry leaders who share our passion for innovation, excellence, and the future of automotive engineering.
+            {t('sponsors.description')}
           </p>
         </div>
 
         {sponsors.map((tier, tierIndex) => (
           <div key={tierIndex} className="mb-16">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-2">{tier.tier}</h3>
+              <h3 className="text-2xl font-bold mb-2">{t(`sponsors.tiers.${tier.tier}.title`)}</h3>
             </div>
 
             <div className={`grid gap-8 ${
