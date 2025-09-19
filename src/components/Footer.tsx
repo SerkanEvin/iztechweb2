@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Instagram, Linkedin, Mail, MapPin, Music2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -29,13 +30,13 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: t('footer.links.about'), href: "#home" },
-    { name: t('footer.links.team'), href: "#team" },
-    { name: t('footer.links.vehicles'), href: "#vehicles" },
-    { name: t('footer.links.magazine'), href: "#magazines" },
-    { name: t('footer.links.gallery'), href: "#gallery" },
-    { name: t('footer.links.sponsors'), href: "#sponsors" },
-    { name: t('footer.links.contact'), href: "#contact" }
+    { name: t('footer.links.about'), path: "/" },
+    { name: t('footer.links.team'), path: "/team" },
+    { name: t('footer.links.vehicles'), path: "/vehicles" },
+    { name: t('footer.links.magazine'), path: "/magazine" },
+    { name: t('footer.links.gallery'), path: "/gallery" },
+    { name: t('footer.links.sponsors'), path: "/sponsors" },
+    { name: t('footer.links.contact'), path: "/contact" }
   ];
 
   return (
@@ -81,12 +82,12 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {quickLinks.map((link, index) => (
                       <li key={index}>
-                        <a
-                            href={link.href}
+                        <Link
+                            to={link.path}
                             className="text-[#cccccc] hover:text-[#a02638] transition-colors duration-200"
                         >
                           {link.name}
-                        </a>
+                        </Link>
                       </li>
                   ))}
                 </ul>
