@@ -53,11 +53,11 @@ const Hero = () => {
                     {/* Main heading */}
                     <div className="space-y-4">
                         <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-                            <span className="bg-gradient-to-r from-white via-[#b0485e] to-[#9a0e20] bg-clip-text text-transparent">
-                                {t('hero.title.firstLine')}
-                            </span>
-                            <br />
-                            <span className="text-[#9a0e20]">{t('hero.title.secondLine')}</span>
+                            <div className="inline-flex flex-col md:flex-row md:items-baseline gap-2">
+                                <span className="bg-gradient-to-r from-white via-[#b0485e] to-[#9a0e20] bg-clip-text text-transparent">
+                                    {t('hero.title')}
+                                </span>
+                            </div>
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                             {t('hero.subtitle')}
