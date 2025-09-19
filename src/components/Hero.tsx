@@ -55,7 +55,7 @@ const Hero = () => {
                         <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
                             <div className="inline-flex flex-col md:flex-row md:items-baseline gap-2">
                                 <span className="bg-gradient-to-r from-white via-[#b0485e] to-[#9a0e20] bg-clip-text text-transparent">
-                                    {t('hero.title')}
+                                   IZTECH RACING
                                 </span>
                             </div>
                         </h1>
