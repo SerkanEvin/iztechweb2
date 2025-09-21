@@ -2,6 +2,7 @@ import './i18n';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 import Hero from './components/Hero';
 import About from './components/About';
@@ -26,6 +27,7 @@ function App() {
     return (
         <Router>
             <div className="min-h-screen bg-black">
+                <ScrollToTop />
                 <Header />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
@@ -35,7 +37,6 @@ function App() {
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/sponsors" element={<Sponsors />} />
                     <Route path="/contact" element={<Contact />} />
-                    {/* ileride ayrı sayfa istersek buraya ekleriz örn: /vehicles, /gallery */}
                 </Routes>
                 <Footer />
             </div>

@@ -54,7 +54,6 @@ const Gallery = () => {
     return (
         <section id="gallery" className="py-20 bg-black relative">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                {/* Header */}
                 <div className="mb-12">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         {t('gallery.title')} <span className="text-[#a02638]">{t('gallery.titleHighlight')}</span>
@@ -64,7 +63,6 @@ const Gallery = () => {
                     </p>
                 </div>
 
-                {/* Photo Display */}
                 <div className="relative w-full max-w-4xl mx-auto">
                     <div className="relative w-full aspect-video bg-black/20 rounded-xl overflow-hidden border border-[#a02638]/50 shadow-lg">
                         {error ? (
@@ -73,7 +71,6 @@ const Gallery = () => {
                             </div>
                         ) : (
                             <>
-                                {/* Preload next and previous images for smoother transitions */}
                                 {[currentIndex - 1, currentIndex, currentIndex + 1].map((index) => {
                                     const actualIndex = (index + photos.length) % photos.length;
                                     const src = photos[actualIndex];
@@ -96,7 +93,6 @@ const Gallery = () => {
                         )}
                     </div>
 
-                    {/* Navigation Arrows */}
                     <button
                         onClick={prevPhoto}
                         aria-label={t('gallery.previous')}
