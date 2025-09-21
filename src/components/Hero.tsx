@@ -29,7 +29,6 @@ const Hero = () => {
 
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-[#4b0017]">
                 <div
                     className="absolute inset-0 bg-[url('/freakmobile.jpg')] bg-cover bg-center opacity-20"
@@ -41,13 +40,11 @@ const Hero = () => {
                 ></div>
             </div>
 
-            {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#9a0e20]/10 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#9a0e20]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
             </div>
 
-            {/* Content */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div className="space-y-8">
                     {/* Main heading */}
@@ -64,7 +61,6 @@ const Hero = () => {
                         </p>
                     </div>
 
-                    {/* Stats */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center p-4 rounded-xl hover:bg-gray-900/30 transition-colors">
@@ -77,20 +73,6 @@ const Hero = () => {
                         ))}
                     </div>
                 </div>
-            </div>
-
-            {/* Scroll indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                <a
-                    href="#about"
-                    className="flex flex-col items-center group"
-                    aria-label={t('hero.scrollDown')}
-                >
-                    <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center group-hover:border-[#9a0e20] transition-colors">
-                        <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce group-hover:bg-[#9a0e20] transition-colors"></div>
-                    </div>
-                    <span className="sr-only">{t('hero.scrollDown')}</span>
-                </a>
             </div>
         </section>
     );
