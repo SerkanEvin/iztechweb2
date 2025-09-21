@@ -24,7 +24,7 @@ const Team = () => {
       name: "Hüseyin Poyraz Kocamış",
       roleKey: "team_captain",
       role: t("roles.team_captain"),
-      department: t('departments.civil_engineering'),
+      department: t('departments.mechanical_engineering'),
       image: "/POYRAZ.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/poyrazkocamis?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
