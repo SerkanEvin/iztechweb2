@@ -33,7 +33,8 @@ export default function Sponsors() {
       tier: "bronze",
       members: [
         { name: "İnci Akü", logo: "/incilogo-dosya.png", url: "https://www.inciaku.com/tr/" },
-        { name: "Yakup Yılmaz", logo: "/yakup.png", url: "https://www.yakupyilmazboru.com/" }
+        { name: "Yakup Yılmaz", logo: "/yakup.png", url: "https://www.yakupyilmazboru.com/" },
+        { name: "KP", logo:"/kp-vertical-logo.png", url: "https://kompozitpazari.com/" }
       ]
     },
     {
@@ -43,7 +44,8 @@ export default function Sponsors() {
         { name: "Bilişim Vadisi", logo: "/BV_Logo_H.png", url: "https://bilisimvadisi.com.tr/" },
         { name: "Teknopark İzmir", logo: "/20190828083905.png", url: "https://teknoparkizmir.com.tr/" },
         { name: "URİKAD", logo: "/URiKADW.png", url: "#" },
-        { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013W.png", url: "https://www.schrothracing.com/" }
+        { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013W.png", url: "https://www.schrothracing.com/" },
+        { name: "kartesis", logo: "/kartesis.png", url: "https://www.kartesis.com/" },
       ]
     }
   ];
@@ -64,8 +66,8 @@ export default function Sponsors() {
               <h3 className="text-2xl font-bold mb-2">{t(`sponsors.tiers.${tier.tier}.title`)}</h3>
             </div>
 
-            <div className={`grid gap-8 ${
-              ['Gold', 'Silver', 'Bronze'].includes(tier.tier) ? 'md:grid-cols-3 lg:grid-cols-4' :
+            <div className={`grid gap-6 ${
+              ['gold', 'silver', 'bronze'].includes(tier.tier) ? 'md:grid-cols-3 lg:grid-cols-4' :
               tier.members.length <= 2 ? 'md:grid-cols-2' :
               'md:grid-cols-2 lg:grid-cols-4'
             }`}>
@@ -75,13 +77,18 @@ export default function Sponsors() {
                   href={sponsor.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#2a2a2a]/50 backdrop-blur-sm border border-[#2a2a2a] rounded-xl p-8 text-center hover:bg-[#2a2a2a]/70 transition-all duration-300 hover:scale-105 group h-40 flex items-center justify-center"
+                  className="bg-[#2a2a2a]/50 backdrop-blur-sm border border-[#2a2a2a] rounded-xl p-6 text-center hover:bg-[#2a2a2a]/70 transition-all duration-300 hover:scale-105 group h-48 flex items-center justify-center"
                 >
-                  <div className="flex items-center justify-center h-full">
+                  <div className="w-full h-full flex items-center justify-center p-2">
                     <img
                       src={sponsor.logo}
                       alt={sponsor.name}
-                      className={`${sponsor.name === 'Prokom' ? 'h-32' : 'h-24'} w-auto object-contain mx-auto`}
+                      className={`${sponsor.name === 'Prokom' ? 'h-32' : 'h-20 max-w-full'} w-auto object-contain mx-auto`}
+                      style={{
+                        maxHeight: sponsor.name === 'Prokom' ? '8rem' : '5rem',
+                        width: 'auto',
+                        objectFit: 'contain'
+                      }}
                     />
                   </div>
                 </a>
