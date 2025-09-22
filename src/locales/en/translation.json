@@ -211,7 +211,7 @@
   },
   "about": {
     "title": "About",
-    "description": "Established on October 15, 2024, IZTECH RACING is the Formula Student team of İzmir Institute of Technology, Turkey. Our mission is to design and manufacture a Formula SAE vehicle, funded by sponsors, to represent our university and country in international engineering competitions, starting with Formula Student Spain 2026. Formula Student competitions are considered to be the most prestigious engineering competitions in the world. Our faculty advisors are Dr. Büşra Karaş and Dr. Özgür Günelsu.",
+    "description": "Founded on October 15, 2024, the IZTECH RACING Formula Student Team continues its work within İzmir Institute of Technology as a multidisciplinary group of students from 3 faculties and 7 departments. As of September 2025, our team consists of 7 sub-teams and 28 members.",
     "journey": {
       "title": "Our Journey",
       "paragraph1": "Formula SAE (Society of Automotive Engineers) is a competition held among universities for over 40 years. This competition is an engineering competition where students from many countries around the world participate by designing and producing Formula-type single-seater small racing vehicles. Formula SAE pushes students to apply what they learn in the classroom to a real-world project. There are four competition categories: internal combustion, hybrid, electric, and driverless.",
@@ -237,8 +237,8 @@
       }
     },
     "mission": {
-      "title": "Our Mission",
-      "statement": "\"To inspire the next generation of engineers through competitive motorsport, fostering innovation, teamwork, and excellence while representing IZTECH with pride and determination on racing circuits worldwide.\""
+      "title": "Our Purpose",
+      "statement": "Our goal is not only to build a car for participating in Formula Student competitions, but also to establish a solid engineering team culture at IZTECH that has never existed before. In short, the car is not our ultimate goal, but rather a means to achieve it."
     },
     "imageAlt": "IZTECH Racing team"
   },
