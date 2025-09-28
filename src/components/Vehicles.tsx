@@ -49,10 +49,10 @@ const Vehicles = () => {
       year: "2025-2026",
       image: "/doruk.jpg",
       specs: {
-        power: "80+ HP",
-        weight: "220kg",
-        topSpeed: "100+ km/h",
-        acceleration: "3.0s"
+        power: "80 HP",
+        weight: "230kg",
+        topSpeed: "100 km/h",
+        acceleration: "4.0s"
       },
       features: [
         t('vehicles.features.spaceFrame', "4130 steel space frame chassis"),
@@ -141,7 +141,7 @@ const Vehicles = () => {
                           <Settings className="w-5 h-5 text-[#a02638] mr-2" />
                           <span className="text-[#cccccc] text-sm">
                             {vehicle.name === "Doruk"
-                              ? "0-100 km/s"
+                              ? "0-100 km/s in"
                               : "0-35 km/s"}
                           </span>
                         </div>

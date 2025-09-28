@@ -45,7 +45,8 @@ export default function Sponsors() {
         { name: "Teknopark İzmir", logo: "/20190828083905.png", url: "https://teknoparkizmir.com.tr/" },
         { name: "URİKAD", logo: "/URiKADW.png", url: "#" },
         { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013W.png", url: "https://www.schrothracing.com/" },
-        { name: "kartesis", logo: "/kartesis.png", url: "https://www.kartesis.com/" }
+        { name: "kartesis", logo: "/kartesis.png", url: "https://www.kartesis.com/" },
+        { name: "bosch", logo: "/bosch.png", url: "https://www.bosch.com.tr/"}
       ]
     }
   ];

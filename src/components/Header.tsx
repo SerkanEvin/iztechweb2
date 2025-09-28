@@ -61,12 +61,13 @@ const Header = () => {
                             { path: '/magazine', key: 'magazine' },
                             { path: '/gallery', key: 'gallery' },
                             { path: '/sponsors', key: 'sponsors' },
-                            { path: '/contact', key: 'contact' }
+                            { path: '/contact', key: 'contact' },
+                            { path: '/join', key: 'joinUs' },
                         ].map((item) => (
                             <Link
                                 key={item.key}
                                 to={item.path}
-                                className="nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200"
+                                className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}
                             >
                                 {t(`header.${item.key}`)}
                             </Link>
@@ -110,6 +111,7 @@ const Header = () => {
                             <Link to="/gallery" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.gallery')}</Link>
                             <Link to="/sponsors" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.sponsors')}</Link>
                             <Link to="/contact" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.contact')}</Link>
+                            <Link to="/join" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.joinUs')}</Link>
                         </div>
                     </div>
                 )}

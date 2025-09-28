@@ -7,7 +7,8 @@
     "gallery": "Galeri",
     "magazine": "Dergi",
     "sponsors": "Sponsorlar",
-    "contact": "İletişim"
+    "contact": "İletişim",
+    "joinUs": "Bize Katılın"
   },
   "language": "English",
   "hero": {
@@ -245,10 +246,11 @@
       "electronics": "Elektronik ve Yazılım Ekibi",
       "vehicleDynamics": "Araç Dinamiği Ekibi",
       "chassis": "Şasi ve Ergonomi Ekibi",
-      "powertrain": "Güç Aktarma Organları Ekibi",
+      "powertrain": "Güç Aktarım Ekibi",
       "aerodynamics": "Aerodinamik Ekibi",
       "organization": "Organizasyon Ekibi",
       "business_development_team": "Statik Takım Kaptanı",
+      "static": "Statik Ekibi",
       "others": "Diğer"
     },
     "roles": {
@@ -268,6 +270,88 @@
     "previous": "Önceki fotoğraf",
     "next": "Sonraki fotoğraf",
     "goTo": "{{number}}. fotoğrafa git"
+  },
+  "joinUs": {
+    "title": "Takımımıza Katılın",
+    "subtitle": "Mühendislik mükemmelliği yolculuğumuzun bir parçası olun. Çeşitli ekiplerimize katılmak isteyen tutkulu öğrenciler arıyoruz.",
+    "applyButton": "Bize Katıl",
+    "responsibilities": "Temel Sorumluluklar",
+    "teams": {
+      "electronics_software_team": {
+        "title": "Elektronik ve Yazılım ",
+        "description": " Araç üzerindeki tüm elektronik donanımı (ECU, sensörler, kontrol sistemleri) kurar ve gerekli gömülü yazılımları geliştirir.",
+        "responsibilities": {
+          "design": "Mekanik bileşenlerin 3B modellemesi ve simülasyonu",
+          "analysis": "Sonlu elemanlar analizi ve yapısal optimizasyon",
+          "prototyping": "Prototip geliştirme ve test etme",
+          "manufacturing": "CNC işleme ve kompozit üretim"
+        }
+      },
+      "organization_team": {
+        "title": "Organizasyon Ekibi",
+        "description": "Sponsorluk süreçlerini yürütür, etkinlikleri planlar, sosyal medya ve tanıtım faaliyetlerini koordine eder."
+      },
+      "business_development_team": {
+        "title": "Statik (Business Development)",
+        "description": "Formula Student etaplarından Iş Plani Sunumu ve Maliyet & Üretim Raporunu yürütür."
+      },
+      "vehicle_dynamics_team": {
+        "title": "Araç Dinamiği",
+        "description": "Süspansiyon geometrisi, direksiyon ve fren sistemlerini tasarlayarak aracın yol tutuşunu ve sürüş dengesini sağlar."
+      },
+      "powertrain_team": {
+        "title": "Güç Aktarım (Powertrain)",
+        "description": "İçten yanmalı motor, aktarma organları ve soğutma sistemleri üzerinde çalışarak araca güç aktarımını optimize eder."
+      },
+      "aerodynamics_team": {
+        "title": "Aerodinamik",
+        "description": "Downforce ve hava direncini optimize etmek için kanat, difüzör ve sidepod gibi aero bileşenleri tasarlar ve analiz eder."
+      },
+      "chassis_ergonomics_team": {
+        "title": "Şasi ve Ergonomi",
+        "description": "Aracın taşıyıcı yapısını oluşturarak güvenli, rijit ve hafif bir şasi tasarlar; üretim sürecini yönetir. Sürücü konforunu gözetir."
+      },
+      "electrical": {
+        "title": "Elektrik Ekibi",
+        "description": "Kablolama şemaları, sensörler ve güç dağıtımı dahil olmak üzere elektrik sistemlerini geliştirin ve uygulayın.",
+        "responsibilities": {
+          "circuit": "Elektronik devreleri tasarlama ve test etme",
+          "wiring": "Kablolama şemaları oluşturma ve bakımını yapma",
+          "controls": "Kontrol sistemleri ve yazılım geliştirme",
+          "power": "Güç dağıtımı ve pil sistemlerini yönetme"
+        }
+      },
+      "software": {
+        "title": "Yazılım Ekibi",
+        "description": "Araçlarımızı güçlendiren yazılımları, düşük seviyeli gömülü sistemlerden yüksek seviyeli veri analizine kadar oluşturun.",
+        "responsibilities": {
+          "embedded": "Araç kontrolü için gömülü yazılım geliştirme",
+          "telemetry": "Gerçek zamanlı telemetri sistemleri uygulama",
+          "simulation": "Test için simülasyon ortamları oluşturma",
+          "ai": "Yapay zeka ve makine öğrenimi çözümleri geliştirme"
+        }
+      },
+      "marketing": {
+        "title": "Pazarlama Ekibi",
+        "description": "Takımımızı tanıtın, sosyal medyayı yönetin ve sponsorlarla toplulukla ilişkiler kurun.",
+        "responsibilities": {
+          "social": "Sosyal medya varlığını yönetme",
+          "sponsorship": "Sponsorluk teklifleri geliştirme",
+          "content": "İlgi çekici içerik ve medya oluşturma",
+          "events": "Takım etkinlikleri ve tanıtım faaliyetleri düzenleme"
+        }
+      },
+      "management": {
+        "title": "Yönetim Ekibi",
+        "description": "Takım operasyonlarını, finansını yönetin ve farklı alt ekipler arasında koordinasyon sağlayın.",
+        "responsibilities": {
+          "planning": "Proje planlama ve yönetimi",
+          "coordination": "Ekipler arası koordinasyon",
+          "budget": "Bütçe planlama ve finansal yönetim",
+          "leadership": "Takım liderliği ve organizasyon"
+        }
+      }
+    }
   },
   "footer": {
     "logoAlt": "IZTECH Racing Logosu",
