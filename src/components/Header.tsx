@@ -23,7 +23,24 @@ const Header = () => {
     };
 
     return (
-        <header className="bg-black/95 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-[#9a0e20]/20" style={{ height: 64 }}>
+        <header className="bg-black/95 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-[#9a0e20]/20" style={{ height: 88 }}>
+            {/* Top Ticker */}
+            <div className="w-full overflow-hidden border-b border-[#9a0e20]/20 bg-[#9a0e20]">
+                <div className="relative whitespace-nowrap">
+                    <style>{`
+                        @keyframes marquee-ltr { 
+                            0% { transform: translateX(-100%); }
+                            100% { transform: translateX(calc(100vw + 100%)); }
+                        }
+                    `}</style>
+                    <span
+                        className="inline-block text-[13px] leading-6 text-white/80 py-1 px-2"
+                        style={{ animation: 'marquee-ltr 10s linear infinite' }}
+                    >
+                        {t('header.ticker')}
+                    </span>
+                </div>
+            </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 relative">
 
@@ -35,7 +52,7 @@ const Header = () => {
                                 height: '40px',
                                 zIndex: 10,
                                 transform: 'translateZ(0)',
-                                marginLeft: 0 // ← burayı 0 yaptık
+                                marginLeft: 0 
                             }}
                         >
                             <img

@@ -8,7 +8,8 @@
     "magazine": "Dergi",
     "sponsors": "Sponsorlar",
     "contact": "İletişim",
-    "joinUs": "Bize Katılın"
+    "joinUs": "Bize Katılın",
+    "ticker": "1-10 Ekim tarihleri arasında başvurularımız açıktır. • Bize Katılın!"
   },
   "language": "English",
   "hero": {
@@ -273,7 +274,7 @@
   },
   "joinUs": {
     "title": "Takımımıza Katılın",
-    "subtitle": "Mühendislik mükemmelliği yolculuğumuzun bir parçası olun. Çeşitli ekiplerimize katılmak isteyen tutkulu öğrenciler arıyoruz.",
+    "subtitle": "Takımımızın bir parçası olun! #fastanddisciplined",
     "applyButton": "Bize Katıl",
     "responsibilities": "Temel Sorumluluklar",
     "teams": {
