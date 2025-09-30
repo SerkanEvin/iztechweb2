@@ -6,7 +6,7 @@ const VehicleDynamics: React.FC = () => {
   return (
     <section
       className="relative py-24 min-h-[70vh] flex items-center bg-center bg-cover"
-      style={{ backgroundImage: "url('/dinamik.webp')" }}
+      style={{ backgroundImage: "url('/canbaz.webp')" }}
     >
       <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
