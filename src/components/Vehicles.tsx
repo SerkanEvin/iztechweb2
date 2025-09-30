@@ -7,7 +7,7 @@ const Vehicles = () => {
   const vehicles = [
     {
       name: "Freakmobile",
-      category: t('vehicles.categories.formulaStudent', "Formula Student"),
+      category: t('vehicles.categories.prototypeDevelopment'),
       year: "2024-2025",
       image: "/freakmobile.jpg",
       specs: {
@@ -26,7 +26,7 @@ const Vehicles = () => {
     },
     {
       name: "Corsa",
-      category: t('vehicles.categories.prototypeDevelopment', "Prototype Development"),
+      category: t("vehicles.categories.prototypeDevelopment", "Prototype Development"),
       year: "2025-2026",
       image: "/doruk.jpg",
       specs: {
@@ -41,7 +41,7 @@ const Vehicles = () => {
         t('vehicles.features.coolingSystem', "Custom made cooling system"),
         t('vehicles.features.comingSoon', "Coming soon...")
       ],
-      description: t('vehicles.descriptions.comingSoon', "Coming Soon...")
+      description: t('vehicles.categories.prototypeDevelopment', "Prototype Development")
     },
     {
       name: "Doruk",

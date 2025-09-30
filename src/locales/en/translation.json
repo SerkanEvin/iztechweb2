@@ -89,7 +89,7 @@
     "categories": {
       "formulaStudent": "Formula Student",
       "prototypeDevelopment": "Prototype Development",
-      "mainCarDevelopment": "Formula Student Main Car Development"
+      "mainCarDevelopment": " Main Racing Vehicle"
     },
     "features": {
       "openDifferential": "Open Differential",
@@ -102,10 +102,11 @@
       "aeroPackage": "Aerodynamic package",
       "lsdDifferential": "LSD Differential",
       "suspension": "Double wishbone suspension",
-      "comingSoon": "Coming soon..."
+      "comingSoon": "Coming soon...",
+      "chair": "Fiberglass seat"
     },
     "descriptions": {
-      "freakmobile": "High-performance Racing Vehicle",
+      "freakmobile": "Prototype Devolopment",
       "comingSoon": "Coming Soon..."
     }
   },
