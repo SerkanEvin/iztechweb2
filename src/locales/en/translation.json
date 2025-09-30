@@ -56,10 +56,10 @@
     "powertrain_team": "Powertrain Team",
     "aerodynamics_team": "Aerodynamics Team",
     "organization_team": "Organization Team",
-    "business_development_team": "Business Development Team",
+    "business_development_team": "Static Development Team",
 
     "team_captain": "Team Captain",
-    "business_development": "Business Development",
+    "business_development": "Static Development",
     
     "electronics_software_team_leader": "Electronics and Software Team Leader",
     "electronics_software_team_member": "Electronics and Software Team Member",
@@ -73,8 +73,8 @@
     "aerodynamics_team_member": "Aerodynamics Team Member",
     "organization_team_leader": "Organization Team Leader",
     "organization_team_member": "Organization Team Member",
-    "business_development_team_leader": "Business Development Team Leader",
-    "business_development_team_member": "Business Development Team Member"
+    "business_development_team_leader": "Static Development Team Leader",
+    "business_development_team_member": "Static Development Team Member"
   },
   "vehicles": {
     "title": "Our Vehicles",
@@ -255,8 +255,8 @@
       "powertrain": "Powertrain Team",
       "aerodynamics": "Aerodynamics Team",
       "organization": "Organization Team",
-      "business_development_team": "Business Development",
-      "static": "Business Development Team",
+      "business_development_team": "Static Development",
+      "static": "Static Development Team",
       "others": "Others"
     },
     "roles": {
@@ -321,7 +321,7 @@
         "description": "Manages sponsorship processes, plans events, and coordinates social media and promotional activities."
       },
       "business_development_team": {
-        "title": "Business Development",
+        "title": "Static Development",
         "description": "Leads the Formula Student Business Plan Presentation and the Cost & Manufacturing Report."
       },
       "vehicle_dynamics_team": {
