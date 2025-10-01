@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global layout stabilizers */
+@layer base {
+  /* Prevent horizontal scrolling site-wide */
+  html, body, #root {
+    @apply overflow-x-hidden;
+  }
+  /* Reserve space for the vertical scrollbar to avoid layout shift */
+  :root {
+    scrollbar-gutter: stable both-edges;
+  }
+}

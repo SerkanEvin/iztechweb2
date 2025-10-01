@@ -27,9 +27,11 @@ function HomePage() {
 function App() {
     return (
         <Router>
-            <div className="min-h-screen bg-black">
+            <div className="min-h-screen bg-black overflow-x-hidden">
                 <ScrollToTop />
                 <Header />
+                {/* Spacer to offset the fixed header height (88px) */}
+                <div className="h-[88px]" />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/team" element={<Team />} />
@@ -47,4 +49,5 @@ function App() {
 }
 
 export default App;
+
 
