@@ -19,6 +19,7 @@ export default function Sponsors() {
         { name: "Hexagon", logo: "/hexagon_logo.png", url: "https://hexagon.com/" },
         { name: "Numesys", logo: "/numesys-logo-gri-min.png", url: "https://www.numesys.com.tr/" },
         { name: "Tekyaz", logo: "/TEKYAZ_LOGO_002.png", url: "https://www.tekyaz.com/" },
+        { name: "Sibe", logo: "/sib2.png", url: "https://www.sibe.io/" },
         { name: "GT", logo: "/GT.png", url: "https://www.gtisoft.com/" }
       ]
     },
