@@ -6,6 +6,13 @@ const Magazines = () => {
 
     const magazines = [
         {
+            title: t('magazines.september.title'),
+            description: t('magazines.september.description'),
+            cover: "/august.png",
+            pdf: "september.pdf",
+            date: new Date(2025, 8, 1) // August 1, 2023
+        },
+        {
             title: t('magazines.august.title'),
             description: t('magazines.august.description'),
             cover: "/august.png",
