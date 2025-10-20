@@ -8,7 +8,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Gallery from './components/Gallery';
 import Magazine from './components/Magazine';
-import Vehicles from './components/Vehicles';
+import Vehicles from './components/Vehicles.tsx';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 
