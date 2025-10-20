@@ -28,7 +28,7 @@ const Vehicles = () => {
       name: "Corsa",
       category: t("vehicles.categories.prototypeDevelopment", "Prototype Development"),
       year: "2025-2026",
-      image: "/doruk.jpg",
+      image: "/corsa.webp",
       specs: {
         power: "6 HP",
         weight: "250kg",
