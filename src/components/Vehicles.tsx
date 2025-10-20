@@ -39,7 +39,7 @@ const Vehicles = () => {
         t('vehicles.features.spaceFrame', "Space type cage chassis, S235JR steel pipe"),
         t('vehicles.features.decoupledSuspension', "Decoupled suspension"),
         t('vehicles.features.coolingSystem', "Custom made cooling system"),
-        t('vehicles.features.comingSoon', "Coming soon...")
+        t('vehicles.features.chair', "Fiberglass seat")
       ],
       description: t('vehicles.categories.prototypeDevelopment', "Prototype Development")
     },
