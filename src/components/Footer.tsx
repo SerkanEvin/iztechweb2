@@ -36,8 +36,7 @@ const Footer = () => {
     { name: t('footer.links.magazine'), path: "/magazine" },
     { name: t('footer.links.gallery'), path: "/gallery" },
     { name: t('footer.links.sponsors'), path: "/sponsors" },
-    { name: t('footer.links.contact'), path: "/contact" },
-    { name: t('header.joinUs'), path: "/join" }
+    { name: t('footer.links.contact'), path: "/contact" }
   ];
 
   return (

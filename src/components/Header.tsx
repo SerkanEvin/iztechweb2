@@ -24,7 +24,7 @@ const Header = () => {
 
     return (
         <header className="bg-black/95 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-[#9a0e20]/20" style={{ height: 88 }}>
-            {/* Top Ticker */}
+            {/* Top Ticker
             <div className="w-full overflow-hidden border-b border-[#9a0e20]/20 bg-[#9a0e20]">
                 <div className="relative whitespace-nowrap">
                     <style>{`
@@ -40,7 +40,7 @@ const Header = () => {
                         {t('header.ticker')}
                     </span>
                 </div>
-            </div>
+            </div> */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 relative">
 
@@ -79,7 +79,6 @@ const Header = () => {
                             { path: '/gallery', key: 'gallery' },
                             { path: '/sponsors', key: 'sponsors' },
                             { path: '/contact', key: 'contact' },
-                            { path: '/join', key: 'joinUs' },
                         ].map((item) => (
                             <Link
                                 key={item.key}

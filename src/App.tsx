@@ -13,8 +13,6 @@ import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 
 import Team from './components/Team';
-import JoinUs from './components/JoinUs';
-
 function HomePage() {
     return (
         <>
@@ -35,7 +33,6 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/team" element={<Team />} />
-                    <Route path="/join" element={<JoinUs />} />
                     <Route path="/vehicles" element={<Vehicles />} />
                     <Route path="/magazine" element={<Magazine />} />
                     <Route path="/gallery" element={<Gallery />} />
