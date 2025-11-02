@@ -27,7 +27,8 @@ export default function Sponsors() {
       tier: "silver",
       members: [
         { name: "Avioni Technologies", logo: "/5958e813d0893.png", url: "https://www.avionitech.com/tr/" },
-        { name: "IZELTAŞ", logo: "/images.png", url: "https://izeltas.com.tr/" }
+        { name: "IZELTAŞ", logo: "/images.png", url: "https://izeltas.com.tr/" },
+        { name: "silvs", logo:"/sivs.webp", url: "https://iztechracing.com.tr/" },
       ]
     },
     {
@@ -35,7 +36,8 @@ export default function Sponsors() {
       members: [
         { name: "İnci Akü", logo: "/incilogo-dosya.png", url: "https://www.inciaku.com/tr/" },
         { name: "Yakup Yılmaz", logo: "/yakup.png", url: "https://www.yakupyilmazboru.com/" },
-        { name: "KP", logo:"/kp-vertical-logo.png", url: "https://kompozitpazari.com/" }
+        { name: "KP", logo:"/kp-vertical-logo.png", url: "https://kompozitpazari.com/" },
+        { name: "dekomod", logo:"/dekomod_logo_buyuk_1.webp", url:"https://dekomodmimarlik.com/"  }
       ]
     },
     {
@@ -47,7 +49,9 @@ export default function Sponsors() {
         { name: "URİKAD", logo: "/URiKADW.png", url: "#" },
         { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013W.png", url: "https://www.schrothracing.com/" },
         { name: "kartesis", logo: "/kartesis.png", url: "https://www.kartesis.com/" },
-        { name: "bosch", logo: "/bosch.png", url: "https://www.bosch.com.tr/"}
+        { name: "bosch", logo: "/bosch.png", url: "https://www.bosch.com.tr/"},
+        { name: "yuksek", logo:"/yuksek.webp", url: "https://www.teknoparkizmir.com.tr/tr/firma-cron/izmir-teknoloji-sanayi-ve-ticaret-a-s/"},
+        { name: "slogan", logo:"/logoSlogan.webp", url: "https://artibeton.com.tr/"}
       ]
     }
   ];
