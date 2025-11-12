@@ -7,6 +7,7 @@ const Header = () => {
     const { t, i18n } = useTranslation();
     const [currentLanguage, setCurrentLanguage] = useState(i18n.language || 'en');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // Team menu state - keeping these in case we need them later
     const [isTeamOpen, setIsTeamOpen] = useState(false);
     const closeTimer = useRef<number | null>(null);
 
@@ -95,24 +96,17 @@ const Header = () => {
                             {t('header.home')}
                         </Link>
 
-                        {/* Team with controlled hover dropdown */}
-                        <div
-                            className="relative"
-                            onMouseEnter={openTeam}
-                            onMouseLeave={scheduleTeamClose}
-                        >
-                            <button type="button" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                        {/* Team link - direct to /team, season options hidden */}
+                        <div className="relative">
+                            <Link to="/team" className="nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200">
                                 {t('header.team')}
-                            </button>
-                            <div
-                                className={`absolute left-0 mt-2 w-44 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md shadow-lg transition-opacity duration-150 ${isTeamOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
-                                onMouseEnter={openTeam}
-                                onMouseLeave={scheduleTeamClose}
-                            >
-                                <Link to="/team/2024-2025" onClick={() => setIsTeamOpen(false)} className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
+                            </Link>
+                            {/* Hidden season options - kept in code but not visible */}
+                            <div className="hidden">
+                                <Link to="/team/2024-2025" className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
                                     2024 - 2025
                                 </Link>
-                                <Link to="/team/2025-2026" onClick={() => setIsTeamOpen(false)} className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
+                                <Link to="/team/2025-2026" className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
                                     2025 - 2026
                                 </Link>
                             </div>
@@ -166,9 +160,12 @@ const Header = () => {
                     <div className="md:hidden">
                         <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-sm border-t border-[#9a0e20]/20">
                             <Link to="/" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.home')}</Link>
-                            <div className="px-3 py-2 text-white/80">{t('header.team')}</div>
-                            <Link to="/team/2024-2025" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2024 - 2025</Link>
-                            <Link to="/team/2025-2026" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2025 - 2026</Link>
+                            <Link to="/team" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.team')}</Link>
+                            {/* Hidden season options - kept in code but not visible */}
+                            <div className="hidden">
+                                <Link to="/team/2024-2025" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2024 - 2025</Link>
+                                <Link to="/team/2025-2026" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2025 - 2026</Link>
+                            </div>
                             <Link to="/vehicles" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.vehicles')}</Link>
                             <Link to="/magazine" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.magazine')}</Link>
                             <Link to="/gallery" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.gallery')}</Link>
