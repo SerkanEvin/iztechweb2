@@ -426,6 +426,10 @@
     "september": {
       "title": "IZTECH RACING September Recap",
       "description": ""
+    },
+    "october": {
+      "title": "IZTECH RACING October Recap",
+      "description": ""
     }
   },
   "hero": {
@@ -457,7 +461,7 @@
   "civil_engineering": "Civil Engineering",
   "computer_engineering": "Computer Engineering",
   "electrical_engineering": "Electrical Engineering",
-  "electronics_engineering": "Electronics Engineering",
+  "electronics_engineering": "Electronics and Communication Engineering",
   "energy_engineering": "Energy Systems Engineering",
   "industrial_engineering": "Industrial Engineering",
   "industrial_design": "Industrial Design",

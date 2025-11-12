@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,26 @@ const Header = () => {
     const { t, i18n } = useTranslation();
     const [currentLanguage, setCurrentLanguage] = useState(i18n.language || 'en');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isTeamOpen, setIsTeamOpen] = useState(false);
+    const closeTimer = useRef<number | null>(null);
+
+    const openTeam = () => {
+        if (closeTimer.current) {
+            clearTimeout(closeTimer.current);
+            closeTimer.current = null;
+        }
+        setIsTeamOpen(true);
+    };
+
+    const scheduleTeamClose = () => {
+        if (closeTimer.current) {
+            clearTimeout(closeTimer.current);
+        }
+        closeTimer.current = window.setTimeout(() => {
+            setIsTeamOpen(false);
+            closeTimer.current = null;
+        }, 150);
+    };
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -71,23 +91,48 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-8">
-                        {[
-                            { path: '/', key: 'home' },
-                            { path: '/team', key: 'team' },
-                            { path: '/vehicles', key: 'vehicles' },
-                            { path: '/magazine', key: 'magazine' },
-                            { path: '/gallery', key: 'gallery' },
-                            { path: '/sponsors', key: 'sponsors' },
-                            { path: '/contact', key: 'contact' },
-                        ].map((item) => (
-                            <Link
-                                key={item.key}
-                                to={item.path}
-                                className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}
+                        <Link to="/" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                            {t('header.home')}
+                        </Link>
+
+                        {/* Team with controlled hover dropdown */}
+                        <div
+                            className="relative"
+                            onMouseEnter={openTeam}
+                            onMouseLeave={scheduleTeamClose}
+                        >
+                            <button type="button" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                                {t('header.team')}
+                            </button>
+                            <div
+                                className={`absolute left-0 mt-2 w-44 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md shadow-lg transition-opacity duration-150 ${isTeamOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+                                onMouseEnter={openTeam}
+                                onMouseLeave={scheduleTeamClose}
                             >
-                                {t(`header.${item.key}`)}
-                            </Link>
-                        ))}
+                                <Link to="/team/2024-2025" onClick={() => setIsTeamOpen(false)} className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
+                                    2024 - 2025
+                                </Link>
+                                <Link to="/team/2025-2026" onClick={() => setIsTeamOpen(false)} className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
+                                    2025 - 2026
+                                </Link>
+                            </div>
+                        </div>
+
+                        <Link to="/vehicles" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                            {t('header.vehicles')}
+                        </Link>
+                        <Link to="/magazine" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                            {t('header.magazine')}
+                        </Link>
+                        <Link to="/gallery" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                            {t('header.gallery')}
+                        </Link>
+                        <Link to="/sponsors" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                            {t('header.sponsors')}
+                        </Link>
+                        <Link to="/contact" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                            {t('header.contact')}
+                        </Link>
                     </nav>
 
                     {/* Mobile menu button */}
@@ -121,7 +166,9 @@ const Header = () => {
                     <div className="md:hidden">
                         <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-sm border-t border-[#9a0e20]/20">
                             <Link to="/" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.home')}</Link>
-                            <Link to="/team" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.team')}</Link>
+                            <div className="px-3 py-2 text-white/80">{t('header.team')}</div>
+                            <Link to="/team/2024-2025" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2024 - 2025</Link>
+                            <Link to="/team/2025-2026" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2025 - 2026</Link>
                             <Link to="/vehicles" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.vehicles')}</Link>
                             <Link to="/magazine" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.magazine')}</Link>
                             <Link to="/gallery" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.gallery')}</Link>

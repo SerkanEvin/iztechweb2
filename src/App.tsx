@@ -11,8 +11,8 @@ import Magazine from './components/Magazine';
 import Vehicles from './components/Vehicles.tsx';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
-
-import Team from './components/Team';
+ import Team2024 from './components/Team2024';
+ import Team2025 from './components/Team2025';
 function HomePage() {
     return (
         <>
@@ -32,7 +32,8 @@ function App() {
                 <div className="h-[88px]" />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/team" element={<Team />} />
+                    <Route path="/team/2024-2025" element={<Team2024 />} />
+                    <Route path="/team/2025-2026" element={<Team2025 />} />
                     <Route path="/vehicles" element={<Vehicles />} />
                     <Route path="/magazine" element={<Magazine />} />
                     <Route path="/gallery" element={<Gallery />} />

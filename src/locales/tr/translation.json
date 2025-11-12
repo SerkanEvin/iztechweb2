@@ -20,7 +20,7 @@
     "civil_engineering": "İnşaat Mühendisliği",
     "mechanical_engineering": "Makine Mühendisliği",
     "photonics": "Fotonik",
-    "electronics_engineering": "Elektronik Mühendisliği",
+    "electronics_engineering": "Elektronik Ve Haberleşme Mühendisliği",
     "mathematics": "Matematik",
     "materials_engineering": "Malzeme Bilimi ve Mühendisliği",
     "energy_engineering": "Enerji Mühendisliği",
@@ -421,7 +421,13 @@
     "september": {
       "title": "IZTECH RACING Eylül Özeti",
       "description": ""
+    },
+    "october": {
+      "title": "IZTECH RACING Ekim Özeti",
+      "descripton": ""
+
     }
+
   },
   "hero": {
     "title": {

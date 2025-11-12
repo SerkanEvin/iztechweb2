@@ -31,7 +31,7 @@ const Footer = () => {
 
   const quickLinks = [
     { name: t('footer.links.about'), path: "/" },
-    { name: t('footer.links.team'), path: "/team" },
+    { name: t('footer.links.team'), path: "/team/2025-2026" },
     { name: t('footer.links.vehicles'), path: "/vehicles" },
     { name: t('footer.links.magazine'), path: "/magazine" },
     { name: t('footer.links.gallery'), path: "/gallery" },
