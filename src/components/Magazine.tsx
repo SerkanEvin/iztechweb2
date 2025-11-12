@@ -8,14 +8,14 @@ const Magazines = () => {
         {
             title: t('magazines.october.title'),
             description: t('magazines.october.description'),
-            cover: "/october.png",
+            cover: "/october.webp",
             pdf: "october.pdf",
             date: new Date(2025, 8, 1) // August 1, 2023
         },
         {
             title: t('magazines.september.title'),
             description: t('magazines.september.description'),
-            cover: "/september.png",
+            cover: "/september.webp",
             pdf: "september.pdf",
             date: new Date(2025, 8, 1) // August 1, 2023
         },
