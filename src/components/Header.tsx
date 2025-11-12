@@ -8,18 +8,18 @@ const Header = () => {
     const [currentLanguage, setCurrentLanguage] = useState(i18n.language || 'en');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // Team menu state - keeping these in case we need them later
-    const [isTeamOpen, setIsTeamOpen] = useState(false);
-    const closeTimer = useRef<number | null>(null);
+    //const [isTeamOpen, setIsTeamOpen] = useState(false);
+   // const closeTimer = useRef<number | null>(null);
 
-    const openTeam = () => {
+    {/*const openTeam = () => {
         if (closeTimer.current) {
             clearTimeout(closeTimer.current);
             closeTimer.current = null;
         }
         setIsTeamOpen(true);
-    };
+    }; */}
 
-    const scheduleTeamClose = () => {
+    {/*const scheduleTeamClose = () => {
         if (closeTimer.current) {
             clearTimeout(closeTimer.current);
         }
@@ -27,7 +27,7 @@ const Header = () => {
             setIsTeamOpen(false);
             closeTimer.current = null;
         }, 150);
-    };
+    }; */}
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
