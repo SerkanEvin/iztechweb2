@@ -71,6 +71,7 @@
     "powertrain_team_member": "Powertrain Team Member",
     "aerodynamics_team_leader": "Aerodynamics Team Leader",
     "aerodynamics_team_member": "Aerodynamics Team Member",
+    "aerodynamics_advisor": "Aerodynamics Team Advisor",
     "organization_team_leader": "Organization Team Leader",
     "organization_team_member": "Organization Team Member",
     "business_development_team_leader": "Static  Team Leader",
@@ -468,7 +469,8 @@
   "materials_engineering": "Materials Engineering",
   "chemical_engineering": "Chemical Engineering",
   "mathematics": "Mathematics",
-  "photonics": "Photonics"
+  "photonics": "Photonics",
+  "physics ": "Physics"
       }
     }
   }
