@@ -40,6 +40,7 @@
     "members": "Takım Üyeleri",
     "description": "Tutkulu mühendisler, tasarımcılar ve yenilikçilerden oluşan ekibimiz, öğrenci motor sporlarının ve mühendislik mükemmelliğinin sınırlarını zorlamak için birlikte çalışıyor.",
     "captain": "Takım Kaptanı",
+    "loading": "Takım yükleniyor...",
     "electronics_software_team": "Elektronik ve Yazılım Ekibi",
     "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
     "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
