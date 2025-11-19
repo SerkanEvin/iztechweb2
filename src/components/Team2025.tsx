@@ -1296,6 +1296,7 @@ const Team2025 = () => {
         documents: []
       }
     },
+
     {
       name: "Mustafa Mert Demirbağ",
       roleKey: "business_development_team_member",
@@ -1304,6 +1305,23 @@ const Team2025 = () => {
       image: "/KUZEY.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/mustafa-mert-demirbağ-08933a224?trk=contact-info ",
+        email: "@iztechracing.com",
+        github: "#"
+      },
+      profile: {
+        bio: "olmuşmusasl",
+        works: ["/KUZEY.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Kuzey Demirer",
+      roleKey: "business_development_team_leader",
+      role: t('roles.business_development_team_leader'),
+      department: t('departments.industrial_design'),
+      image: "/KUZEY.webp",
+      social: {
+        linkedin: "https://tr.linkedin.com/in/kuzey-demirer-76577a260",
         email: "@iztechracing.com",
         github: "#"
       },
