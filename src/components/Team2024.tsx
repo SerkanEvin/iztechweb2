@@ -469,18 +469,6 @@ const Team2024 = () => {
                                 width={250}
                                 height={256}
                               />
-                              <div className="absolute inset-0 flex justify-center items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    openProfileModal(member);
-                                  }}
-                                  className="w-12 h-12 bg-[#a02638] rounded-lg flex items-center justify-center hover:bg-[#c03048] transition-colors duration-200 shadow-lg"
-                                  title="View Profile"
-                                >
-                                  <span className="text-sm text-white font-bold">Profile</span>
-                                </button>
-                              </div>
                             </div>
                           </div>
 

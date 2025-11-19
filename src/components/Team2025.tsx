@@ -1,4 +1,4 @@
-import { Linkedin, Mail, User } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import { PlaceholderImage } from './PlaceholderImage';
@@ -1440,9 +1440,10 @@ const Team2025 = () => {
                     </h3>
                     <div className="flex flex-wrap justify-center gap-6">
                       {members.map((member, index) => (
-                          <div
+                          <button
                               key={index}
-                              className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 transition-all duration-300 hover:scale-105 group"
+                              onClick={() => openProfileModal(member)}
+                              className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 hover:border-[#a02638]/50 transition-all duration-300 hover:scale-105 group text-left cursor-pointer shadow-lg hover:shadow-xl"
                           >
                             <div className="relative overflow-hidden">
                               <div className="relative group overflow-hidden rounded-t-xl">
@@ -1482,17 +1483,8 @@ const Team2025 = () => {
                               <p className="text-[#cccccc] text-sm">
                                 {member.department}
                               </p>
-                              {member.profile && (
-                                <button
-                                  onClick={() => openProfileModal(member)}
-                                  className="mt-2 flex items-center gap-2 px-3 py-1 bg-[#a02638] text-white text-sm rounded-lg hover:bg-[#c03048] transition-colors duration-200"
-                                >
-                                  <User className="w-4 h-4" />
-                                  Profile
-                                </button>
-                              )}
                             </div>
-                          </div>
+                          </button>
                       ))}
                     </div>
                   </div>
