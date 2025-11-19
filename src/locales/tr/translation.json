@@ -26,7 +26,14 @@
     "materials_engineering": "Malzeme Bilimi ve Mühendisliği",
     "energy_engineering": "Enerji Mühendisliği",
     "computer_engineering": "Bilgisayar Mühendisliği",
-    "industrial_design": "Endüstriyel Tasarım"
+    "industrial_design": "Endüstriyel Tasarım",
+    "food_engineering": "Gıda Mühendisliği",
+    "env_engineering": "Çevre Mühendisliği",
+    "architecture": "Mimarlık",
+    "crp": "Şehir Ve Bölge Planlama",
+    "mbg": "Moleküler Biyoloji Ve Genetik"
+
+
   },
   "team": {
     "title": "Ekibimiz",
@@ -100,12 +107,10 @@
       "aeroPackage": "Aerodinamik paket",
       "lsdDifferential": "Kilitli Diferansiyel",
       "suspension": "Çift salıncaklı süspansiyon",
-      "chair": "Fiberglass koltuk",
-      "comingSoon": "Çok yakında..."
+      "chair": "Fiberglass koltuk"
     },
     "descriptions": {
-      "freakmobile": "Yüksek Performanslı Yarış Aracı",
-      "comingSoon": "Çok Yakında..."
+      "freakmobile": "Yüksek Performanslı Yarış Aracı"
     }
   },
   "sponsors": {
@@ -443,7 +448,7 @@
         "label": "En Yakın Yarış"
       },
       "members": {
-        "value": "28",
+        "value": "77",
         "label": "Takım Üyesi"
       },
       "horsepower": {
@@ -456,6 +461,14 @@
       }
     },
     "scrollDown": "Aşağı Kaydır"
-    }
+  },
+  "profile": {
+    "about": "Hakkında",
+    "works": "Çalışmalar",
+    "documents": "Belgeler",
+    "email": "E-posta",
+    "work": "Çalışma",
+    "viewImage": "Görüntüle",
+    "document": "Belge"
   }
-
+}

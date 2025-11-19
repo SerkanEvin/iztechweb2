@@ -29,7 +29,13 @@
     "materials_engineering": "Materials Engineering",
     "energy_engineering": "Energy Engineering",
     "computer_engineering": "Computer Engineering",
-    "industrial_design": "Industrial Design"
+    "industrial_design": "Industrial Design",
+    "physics": "Physics",
+    "food_engineering": "Food Engineering",
+    "env_engineering": "Environmental Engineering",
+    "architecture": "Architecture",
+    "crp": "City And Regional Planning",
+    "mbg": "Molecular Biology And Genetics"
   },
   "team": {
     "title": "Our Team",
@@ -445,7 +451,7 @@
         "label": "Soonest Race"
       },
       "members": {
-        "value": "28",
+        "value": "77",
         "label": "Team Members"
       },
       "horsepower": {
@@ -456,22 +462,16 @@
         "value": "1",
         "label": "Years Active"
       },
-      "scrollDown": "Scroll down",
-      "departments": {
-  "mechanical_engineering": "Mechanical Engineering",
-  "civil_engineering": "Civil Engineering",
-  "computer_engineering": "Computer Engineering",
-  "electrical_engineering": "Electrical Engineering",
-  "electronics_engineering": "Electronics and Communication Engineering",
-  "energy_engineering": "Energy Systems Engineering",
-  "industrial_engineering": "Industrial Engineering",
-  "industrial_design": "Industrial Design",
-  "materials_engineering": "Materials Engineering",
-  "chemical_engineering": "Chemical Engineering",
-  "mathematics": "Mathematics",
-  "photonics": "Photonics",
-  "physics ": "Physics"
-      }
+      "scrollDown": "Scroll down"
     }
+  },
+  "profile": {
+    "about": "About",
+    "works": "Works",
+    "documents": "Documents",
+    "email": "Email",
+    "work": "Work",
+    "viewImage": "View Image",
+    "document": "Document"
   }
 }
