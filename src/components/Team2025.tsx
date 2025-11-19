@@ -9,6 +9,7 @@ const Team2025 = () => {
   const { t } = useTranslation();
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const openProfileModal = (member: TeamMember) => {
     setSelectedMember(member);
@@ -1351,11 +1352,27 @@ const Team2025 = () => {
     ];
 
   useEffect(() => {
-    const imageUrls = teamMembers.map(p => p.image);
-    imageUrls.forEach(url => {
-      const img = new Image();
-      img.src = url;
-    });
+    const preloadImages = async () => {
+      const imageUrls = teamMembers.map(p => p.image);
+      const imagePromises = imageUrls.map(url => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = reject;
+          img.src = url;
+        });
+      });
+      
+      try {
+        await Promise.all(imagePromises);
+        setImagesLoaded(true);
+      } catch (error) {
+        console.error('Error preloading images:', error);
+        setImagesLoaded(true); // Still show content even if some images fail
+      }
+    };
+
+    preloadImages();
   }, []);
 
   const TEAM_CATEGORY_MAP: Record<string, string> = {
@@ -1393,7 +1410,15 @@ const Team2025 = () => {
 
   return (
     <>
-      <section id="team" className="py-20 bg-[#0f0f0f] relative">
+      {!imagesLoaded ? (
+        <section id="team" className="py-20 bg-[#0f0f0f] relative min-h-[400px] flex items-center justify-center">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#a02638]"></div>
+            <p className="text-white mt-4 text-lg">{t('team.loading') || 'Loading team...'}</p>
+          </div>
+        </section>
+      ) : (
+        <section id="team" className="py-20 bg-[#0f0f0f] relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -1476,6 +1501,7 @@ const Team2025 = () => {
           )}
         </div>
       </section>
+      )}
       
       {selectedMember && isModalOpen && (
         <ProfileModal
