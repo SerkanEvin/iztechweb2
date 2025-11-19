@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
+import { PlaceholderImage } from './PlaceholderImage';
 import ProfileModal from './ProfileModal';
 import type { TeamMember } from '../types/team';
 
@@ -410,12 +411,7 @@ const Team2024 = () => {
 
   return (
     <>
-      <style>{`
-        .preload-team-images {
-          background-image: url(${teamMembers.map(m => m.image).join('), url(')});
-        }
-      `}</style>
-      <section id="team" className="preload-team-images py-20 bg-[#0f0f0f] relative">
+      <section id="team" className="py-20 bg-[#0f0f0f] relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -441,10 +437,12 @@ const Team2024 = () => {
                         >
                           <div className="relative overflow-hidden">
                             <div className="relative group overflow-hidden rounded-t-xl">
-                              <div
-                                className="w-full h-64 bg-cover bg-center transition-transform duration-300 group-hover:scale-105 group-hover:brightness-75"
-                                style={{ backgroundImage: `url(${member.image})` }}
-                                title={member.name}
+                              <PlaceholderImage
+                                src={member.image}
+                                alt={member.name}
+                                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-75"
+                                width={250}
+                                height={256}
                               />
                               <div className="absolute inset-0 flex justify-center items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <button
