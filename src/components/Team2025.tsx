@@ -1414,7 +1414,6 @@ const Team2025 = () => {
         <section id="team" className="py-20 bg-[#0f0f0f] relative min-h-[400px] flex items-center justify-center">
           <div className="text-center">
             <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#a02638]"></div>
-            <p className="text-white mt-4 text-lg">{t('team.loading') || 'Loading team...'}</p>
           </div>
         </section>
       ) : (
