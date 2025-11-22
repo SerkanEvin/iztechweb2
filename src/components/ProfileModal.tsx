@@ -1,6 +1,7 @@
 import { X, Mail, Linkedin, Instagram, FileText, Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { TeamMember } from '../types/team';
+import { useEffect } from 'react';
 
 interface ProfileModalProps {
   member: TeamMember;
@@ -10,6 +11,19 @@ interface ProfileModalProps {
 
 const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
   const { t } = useTranslation();
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -27,22 +41,26 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
     scrollbarWidth: 'none',  // Firefox
     msOverflowStyle: 'none',  // IE and Edge
     '&::-webkit-scrollbar': {
-      display: 'none',  // Chrome, Safari, Opera
-    },
+      display: 'none'  // Chrome, Safari, Opera
+    }
   };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-hidden">
       <div 
-        className="min-h-screen w-full bg-[#1a1a1a] overflow-y-auto"
-        style={hideScrollbar as React.CSSProperties}
+        className="min-h-screen w-full bg-[#1a1a1a] overflow-y-auto hide-scrollbar"
+        style={{
+          scrollbarWidth: 'none',  // Firefox
+          msOverflowStyle: 'none',  // IE and Edge
+          WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
+        }}
       >
         {/* Header */}
         <div className="sticky top-0 z-10 bg-[#1a1a1a] border-b border-[#2a2a2a] p-6 flex justify-between items-center">
           <h2 className="text-3xl font-bold text-white">{member.name}</h2>
           <button
             onClick={onClose}
-            className="p-3 hover:bg-[#2a2a2a] rounded-lg transition-colors fixed right-6 top-6"
+            className="p-3 hover:bg-[#2a2a2a] rounded-lg transition-colors fixed right-6 top-6 z-20"
             aria-label="Close modal"
           >
             <X className="w-6 h-6 text-gray-400 hover:text-white" />
@@ -50,7 +68,7 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-6 py-8 max-w-6xl">
+        <div className="container mx-auto px-6 py-8 max-w-6xl pb-32">
           {/* Profile Header */}
           <div className="flex flex-col lg:flex-row gap-8 mb-12">
             <div className="flex-shrink-0 space-y-6">
