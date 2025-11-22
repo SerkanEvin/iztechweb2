@@ -23,8 +23,8 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
   const profile = member.profile || defaultProfile;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-y-auto">
-      <div className="min-h-screen w-full bg-[#1a1a1a]">
+    <div className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-hidden">
+      <div className="min-h-screen w-full bg-[#1a1a1a] overflow-y-auto scrollbar-hide">
         {/* Header */}
         <div className="sticky top-0 z-10 bg-[#1a1a1a] border-b border-[#2a2a2a] p-6 flex justify-between items-center">
           <h2 className="text-3xl font-bold text-white">{member.name}</h2>
@@ -38,7 +38,7 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-6 py-8 max-w-6xl">
+        <div className="container mx-auto px-6 py-8 max-w-6xl scrollbar-hide">
           {/* Profile Header */}
           <div className="flex flex-col lg:flex-row gap-8 mb-12">
             <div className="flex-shrink-0 space-y-6">
