@@ -47,6 +47,11 @@ const Team2024 = () => {
   };
 
   const openProfileModal = useCallback((member: TeamMember) => {
+    // Skip opening profile for Hakan, Beren, and Tarık Alperen Öcal
+    if (["Hakan Şendaldal", "Beren Alptekin", "Tarık Alperen Öcal"].includes(member.name)) {
+      return;
+    }
+    
     try {
       const slug = createSlug(member.name);
       console.log('Opening profile for:', member.name, '->', slug);
