@@ -1,7 +1,7 @@
-import { X, Mail, Linkedin, Instagram, FileText, Download } from 'lucide-react';
+import { X, Mail, Linkedin, Instagram, FileText, Download, ChevronUp, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { TeamMember } from '../types/team';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface ProfileModalProps {
   member: TeamMember;
@@ -10,25 +10,84 @@ interface ProfileModalProps {
 }
 
 const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
+  console.log('ProfileModal render - isOpen:', isOpen, 'member:', member?.name);
   const { t } = useTranslation();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showScrollBottom, setShowScrollBottom] = useState(true);
 
-  // Prevent background scrolling when modal is open
+  // Handle scroll events
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+      setShowScrollTop(scrollTop > 100);
+      setShowScrollBottom(scrollTop < scrollHeight - clientHeight - 100);
+    }
+  };
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Scroll to bottom function
+  const scrollToBottom = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handle click outside to close
+  const handleClickOutside = useCallback((e: React.MouseEvent) => {
+    // Only close if clicking directly on the overlay (not on modal content)
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  }, [onClose]);
+
+  // Handle close button click
+  const handleCloseClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent event from bubbling up to the overlay
+    onClose();
+  }, [onClose]);
+
+  // Handle Escape key to close
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        console.log('Escape key pressed, closing modal');
+        onClose();
+      }
+    };
+
+    // Add event listeners
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+    
+    // Reset scroll position when opening
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
     }
     
+    // Cleanup function
     return () => {
       document.body.style.overflow = 'auto';
+      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
+  }, [isOpen, onClose]);
 
   const defaultProfile = {
-    bio: "olmuşmusasl",
+    bio: "No bio available",
     works: [member.image],
     documents: [],
     teamPhoto: undefined
@@ -37,29 +96,91 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
   const profile = member.profile || defaultProfile;
 
   // Add this style to hide scrollbar but keep functionality
-  const hideScrollbar = {
-    scrollbarWidth: 'none',  // Firefox
-    msOverflowStyle: 'none',  // IE and Edge
-    '&::-webkit-scrollbar': {
-      display: 'none'  // Chrome, Safari, Opera
-    }
-  };
+
+  // Don't render anything if not open
+  if (!isOpen) {
+    console.log('ProfileModal not rendering - isOpen is false');
+    return null;
+  }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-hidden">
+    <div 
+      className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-hidden"
+      onClick={handleClickOutside}
+      style={{ backdropFilter: 'blur(5px)' }}
+    >
+      <style>{
+        `
+          .profile-scroll-container::-webkit-scrollbar {
+            display: none;
+          }
+          .scroll-button {
+            position: fixed;
+            right: 2rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(42, 42, 42, 0.8);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 30;
+          }
+          .scroll-button:hover {
+            background-color: #a02638;
+            transform: scale(1.1);
+          }
+        `
+      }</style>
+      
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button 
+          onClick={scrollToTop}
+          className="scroll-button"
+          style={{ bottom: '5rem' }}
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="w-6 h-6 text-white" />
+        </button>
+      )}
+      
+      {/* Scroll to Bottom Button */}
+      {showScrollBottom && (
+        <button 
+          onClick={scrollToBottom}
+          className="scroll-button"
+          style={{ bottom: '1.5rem' }}
+          aria-label="Scroll to bottom"
+        >
+          <ChevronDown className="w-6 h-6 text-white" />
+        </button>
+      )}
+      
       <div 
-        className="min-h-screen w-full bg-[#1a1a1a] overflow-y-auto hide-scrollbar"
+        ref={scrollContainerRef}
+        className="h-screen w-full bg-[#1a1a1a] overflow-y-auto profile-scroll-container"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
         style={{
           scrollbarWidth: 'none',  // Firefox
           msOverflowStyle: 'none',  // IE and Edge
           WebkitOverflowScrolling: 'touch', // Smooth scrolling on iOS
+          scrollBehavior: 'smooth',
+        }}
+        onScroll={(e) => {
+          e.stopPropagation();
+          handleScroll();
         }}
       >
         {/* Header */}
         <div className="sticky top-0 z-10 bg-[#1a1a1a] border-b border-[#2a2a2a] p-6 flex justify-between items-center">
           <h2 className="text-3xl font-bold text-white">{member.name}</h2>
           <button
-            onClick={onClose}
+            onClick={handleCloseClick}
             className="p-3 hover:bg-[#2a2a2a] rounded-lg transition-colors fixed right-6 top-6 z-20"
             aria-label="Close modal"
           >

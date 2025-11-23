@@ -33,8 +33,12 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/team" element={<Navigate to="/team/2025-2026" replace />} />
-                    <Route path="/team/2024-2025" element={<Team2024 />} />
-                    <Route path="/team/2025-2026" element={<Team2025 />} />
+                    <Route path="/team/2024-2025" element={<Team2024 />}>
+                      <Route path=":memberName" element={null} />
+                    </Route>
+                    <Route path="/team/2025-2026" element={<Team2025 />}>
+                      <Route path=":memberName" element={null} />
+                    </Route>
                     <Route path="/vehicles" element={<Vehicles />} />
                     <Route path="/magazine" element={<Magazine />} />
                     <Route path="/gallery" element={<Gallery />} />
