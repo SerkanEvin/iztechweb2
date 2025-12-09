@@ -1,18 +1,22 @@
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+// Profile feature imports (temporarily disabled)
+// import { useCallback } from 'react';
+// import { useParams, useNavigate } from 'react-router-dom';
 import { PlaceholderImage } from './PlaceholderImage';
-import ProfileModal from './ProfileModal';
+// import ProfileModal from './ProfileModal';
 import type { TeamMember } from '../types/team';
 
 const Team2025 = () => {
   const { t } = useTranslation();
-  const { memberName } = useParams<{ memberName?: string }>();
-  const navigate = useNavigate();
-  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Profile feature state (temporarily disabled)
+  // const { memberName } = useParams<{ memberName?: string }>();
+  // const navigate = useNavigate();
+  // const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
+  /* Profile feature code (temporarily disabled)
   // Find member by slug when URL changes
   useEffect(() => {
     if (!memberName) {
@@ -55,8 +59,6 @@ const Team2025 = () => {
       navigate(`/team/2025-2026/${slug}`, {
         replace: false
       });
-
-      // The modal will be opened by the effect that watches memberName
     } catch (error) {
       console.error('Error opening profile:', error);
       // Fallback to just setting the state if navigation fails
@@ -71,6 +73,7 @@ const Team2025 = () => {
     navigate('/team/2025-2026', { replace: true });
     // The effect will handle updating the modal state
   }, [navigate]);
+  */
 
   const teamMembers: TeamMember[] = [
     {
@@ -1454,7 +1457,7 @@ const Team2025 = () => {
                           {members.map((member, index) => (
                               <button
                                   key={index}
-                                  onClick={() => openProfileModal(member)}
+                                  // onClick={() => openProfileModal(member)}  // Temporarily disabled
                                   className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 hover:border-[#a02638]/50 transition-all duration-300 hover:scale-105 group text-left cursor-pointer shadow-lg hover:shadow-xl"
                               >
                                 <div className="relative overflow-hidden">
@@ -1479,9 +1482,11 @@ const Team2025 = () => {
                                   <p className="text-[#cccccc] text-sm">
                                     {member.department}
                                   </p>
+                                  {/* Temporarily disabled profile link
                                   <p className="text-xs text-[#a02638]/60 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     Click to view profile →
                                   </p>
+                                  */}
                                 </div>
                               </button>
                           ))}
@@ -1493,13 +1498,15 @@ const Team2025 = () => {
             </section>
         )}
 
-        {selectedMember && isModalOpen && (
-            <ProfileModal
-                member={selectedMember}
-                isOpen={isModalOpen}
-                onClose={closeProfileModal}
-            />
-        )}
+        {/* Profile modal temporarily disabled
+      {selectedMember && (
+          <ProfileModal
+              isOpen={isModalOpen}
+              onClose={closeProfileModal}
+              member={selectedMember}
+          />
+      )}
+      */}
       </>
   );
 };

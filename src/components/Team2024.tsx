@@ -1,18 +1,22 @@
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+// Profile feature imports (temporarily disabled)
+// import { useCallback } from 'react';
+// import { useParams, useNavigate } from 'react-router-dom';
 import { PlaceholderImage } from './PlaceholderImage';
-import ProfileModal from './ProfileModal';
+// import ProfileModal from './ProfileModal';
 import type { TeamMember } from '../types/team';
 
 const Team2024 = () => {
   const { t } = useTranslation();
-  const { memberName } = useParams<{ memberName?: string }>();
-  const navigate = useNavigate();
-  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Profile feature state (temporarily disabled)
+  // const { memberName } = useParams<{ memberName?: string }>();
+  // const navigate = useNavigate();
+  // const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
+  /* Profile feature code (temporarily disabled)
   // Find member by slug when URL changes
   useEffect(() => {
     if (!memberName) {
@@ -60,8 +64,6 @@ const Team2024 = () => {
       navigate(`/team/2024-2025/${slug}`, {
         replace: false
       });
-
-      // The modal will be opened by the effect that watches memberName
     } catch (error) {
       console.error('Error opening profile:', error);
       // Fallback to just setting the state if navigation fails
@@ -76,6 +78,7 @@ const Team2024 = () => {
     navigate('/team/2024-2025', { replace: true });
     // The effect will handle updating the modal state
   }, [navigate]);
+  */
 
   const teamMembers: TeamMember[] = [
     {
@@ -511,10 +514,10 @@ const Team2024 = () => {
                         </h3>
                         <div className="flex flex-wrap justify-center gap-6">
                           {members.map((member, index) => (
-                              <button
+                              <div
                                   key={index}
-                                  onClick={() => openProfileModal(member)}
-                                  className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 hover:border-[#a02638]/50 transition-all duration-300 hover:scale-105 group text-left cursor-pointer shadow-lg hover:shadow-xl"
+                                  // onClick={() => openProfileModal(member)}  // Temporarily disabled
+                                  className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 hover:border-[#a02638]/50 transition-all duration-300 hover:scale-105 group text-left shadow-lg hover:shadow-xl"
                               >
                                 <div className="relative overflow-hidden">
                                   <div className="relative group overflow-hidden rounded-t-xl">
@@ -542,7 +545,7 @@ const Team2024 = () => {
                                     Click to view profile →
                                   </p>
                                 </div>
-                              </button>
+                              </div>
                           ))}
                         </div>
                       </div>
@@ -552,13 +555,15 @@ const Team2024 = () => {
             </section>
         )}
 
-        {selectedMember && isModalOpen && (
-            <ProfileModal
-                member={selectedMember}
-                isOpen={isModalOpen}
-                onClose={closeProfileModal}
-            />
-        )}
+        {/* Profile modal temporarily disabled
+      {selectedMember && (
+          <ProfileModal
+              isOpen={isModalOpen}
+              onClose={closeProfileModal}
+              member={selectedMember}
+          />
+      )}
+      */}
       </>
   );
 };
