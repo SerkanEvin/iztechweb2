@@ -1011,23 +1011,6 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Mert Vadar",
-      roleKey: "vehicle_dynamics_team_member",
-      role: t('roles.vehicle_dynamics_team_member'),
-      department: t('departments.mechanical_engineering'),
-      image: "/KUZEY.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/mert-vardar-134464396 ",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Rüzgar Doruk Sökmen",
       roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
