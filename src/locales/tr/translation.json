@@ -433,9 +433,11 @@
     "october": {
       "title": "IZTECH RACING Ekim Özeti",
       "descripton": ""
-
+    },
+    "november": {
+      "title": "IZTECH RACING Kasım Özeti",
+      "description": ""
     }
-
   },
   "hero": {
     "title": {
