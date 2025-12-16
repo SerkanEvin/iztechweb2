@@ -1201,7 +1201,7 @@ const Team2025 = () => {
       name: "Aybars Gülerer",
       roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_team_member'),
-      department: t('departments.env_engineering'),
+      department: t('departments.civil_engineering'),
       image: "/aybars.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/aybars-g%C3%BClerer-326843315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
