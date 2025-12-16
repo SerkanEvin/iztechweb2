@@ -6,7 +6,7 @@ const Magazines = () => {
 
     const magazines = [
         {
-            title: t('magazines.noveber.title'),
+            title: t('magazines.november.title'),
             description: t('magazines.november.description'),
             cover: "/november.jpeg",
             pdf: "november.pdf",
