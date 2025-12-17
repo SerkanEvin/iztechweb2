@@ -590,7 +590,7 @@ const Team2025 = () => {
       roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
       department: t('departments.computer_engineering'),
-      image: "/SENANUR.webp",
+      image: "/SENANUR2.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/senanur-g%C3%BCnay-94172431b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
