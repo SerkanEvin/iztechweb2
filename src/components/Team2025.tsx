@@ -165,7 +165,7 @@ const Team2025 = () => {
       roleKey: "organization_team_leader",
       role: t('roles.organization_team_leader'),
       department: t('departments.photonics'),
-      image: "/yarkın2.webp",
+      image: "/odul.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/odulyarkinbaran/",
         email: "yarknbaran35@gmail.com",
