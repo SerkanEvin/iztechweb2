@@ -403,7 +403,7 @@ const Team2025 = () => {
       roleKey: "organization_team_member",
       role: t('roles.organization_team_member'),
       department: t('departments.env_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/nehir-undefined-11960a264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "@iztechracing.com",
@@ -411,7 +411,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -505,7 +505,7 @@ const Team2025 = () => {
       roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.materials_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "www.linkedin.com/in/sena-özer-022707297",
         email: "",
@@ -513,7 +513,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -522,7 +522,7 @@ const Team2025 = () => {
       roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.materials_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/g%C3%BCne%C5%9F-i%C5%9F%C4%B1ldako%C4%9Flu-b7b7a2388/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "",
@@ -615,7 +615,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -675,7 +675,7 @@ const Team2025 = () => {
       roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.energy_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/hasan-can-17210b399?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app ",
         email: "",
@@ -683,7 +683,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -709,7 +709,7 @@ const Team2025 = () => {
       roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.civil_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/ali-kaan-kocabiyiko%C4%9Flu-a1b5bb316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "",
@@ -717,7 +717,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -743,7 +743,7 @@ const Team2025 = () => {
       roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.energy_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/burak-%C5%9Fuay%C4%B1p-d%C3%B6nmez-998730235?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ",
         email: "",
@@ -751,7 +751,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -896,7 +896,7 @@ const Team2025 = () => {
       roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: " https://www.linkedin.com/in/mustafa-g%C3%BCng%C3%B6r-865b79398?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "",
@@ -904,7 +904,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -1083,7 +1083,7 @@ const Team2025 = () => {
       roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/an%C4%B1l-hasan-pa%C5%9Fao%C4%9Flu-273255353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "",
@@ -1091,7 +1091,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -1322,7 +1322,7 @@ const Team2025 = () => {
       roleKey: "business_development_team_member",
       role: t('roles.business_development_team_member'),
       department: t('departments.env_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/mustafa-mert-demirbağ-08933a224?trk=contact-info ",
         email: "@iztechracing.com",
@@ -1330,7 +1330,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
