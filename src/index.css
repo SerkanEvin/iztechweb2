@@ -36,10 +36,10 @@ html, body {
 body > * {
   background-color: #000000 !important;
 }
-  /* Reserve space for the vertical scrollbar to avoid layout shift */
-  :root {
-    scrollbar-gutter: stable both-edges;
-  }
+
+/* Reserve space for the vertical scrollbar to avoid layout shift */
+:root {
+  scrollbar-gutter: stable both-edges;
 }
 
 /* Scrollbar hide utility */
