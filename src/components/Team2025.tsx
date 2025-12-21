@@ -127,9 +127,26 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Onur Şen",
+      name: "Yağız Yalçın",
       roleKey: "powertrain_team_leader",
       role: t("roles.powertrain_team_leader"),
+      department: t('departments.energy_engineering'),
+      image: "/YAGIZ2.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "yagiz10yalcin@gmail.com",
+        github: "#"
+      },
+      profile: {
+        bio: "olmuşmusasl",
+        works: ["/YAGIZ2.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Onur Şen",
+      roleKey: "powertrain_team_member",
+      role: t("roles.powertrain_team_member"),
       department: t('departments.mechanical_engineering'),
       image: "/onursen.webp",
       social: {
@@ -650,23 +667,6 @@ const Team2025 = () => {
       profile: {
         bio: "olmuşmusasl",
         works: ["/pelin.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Yağız Yalçın",
-      roleKey: "powertrain_team_member",
-      role: t('roles.powertrain_team_member'),
-      department: t('departments.energy_engineering'),
-      image: "/YAGIZ2.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/yagizyalcin00?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "yagiz10yalcin@gmail.com",
-        github: "#"
-      },
-      profile: {
-        bio: "olmuşmusasl",
-        works: ["/YAGIZ2.webp"],
         documents: []
       }
     },
