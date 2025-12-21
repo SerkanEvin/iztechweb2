@@ -31,7 +31,7 @@ const Hero = () => {
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-[#4b0017]">
                 <div
-                    className="absolute inset-0 bg-[url('/freakmobile.jpg')] bg-cover bg-center opacity-20"
+                    className="absolute inset-0 bg-[url('/corsa2.webp')] bg-cover bg-center opacity-20"
                     aria-hidden="true"
                 ></div>
                 <div
