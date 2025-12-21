@@ -2,14 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global layout stabilizers */
-@layer base {
-  /* Prevent horizontal scrolling site-wide and remove default margins */
-  html, body, #root {
-    @apply overflow-x-hidden;
-    margin: 0;
-    padding: 0;
-  }
+/* Global Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base HTML and Body */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  background-color: #000000 !important;
+}
+
+/* Root Element */
+#root {
+  width: 100% !important;
+  min-height: 100% !important;
+  background-color: #000000 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* Force black background on all elements */
+body > * {
+  background-color: #000000 !important;
+}
   /* Reserve space for the vertical scrollbar to avoid layout shift */
   :root {
     scrollbar-gutter: stable both-edges;
