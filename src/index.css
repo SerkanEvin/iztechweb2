@@ -4,9 +4,11 @@
 
 /* Global layout stabilizers */
 @layer base {
-  /* Prevent horizontal scrolling site-wide */
+  /* Prevent horizontal scrolling site-wide and remove default margins */
   html, body, #root {
     @apply overflow-x-hidden;
+    margin: 0;
+    padding: 0;
   }
   /* Reserve space for the vertical scrollbar to avoid layout shift */
   :root {
