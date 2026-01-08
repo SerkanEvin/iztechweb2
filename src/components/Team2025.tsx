@@ -348,23 +348,6 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Selim Gürbüz",
-      roleKey: "organization_team_member",
-      role: t('roles.organization_team_member'),
-      department: t('departments.electronics_engineering'),
-      image: "/selim.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/selim-g%C3%BCrb%C3%BCz-818220300/",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "olmuşmusasl",
-        works: ["/selim.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Rıfat Gürer Solak",
       roleKey: "organization_team_member",
       role: t('roles.organization_team_member'),
