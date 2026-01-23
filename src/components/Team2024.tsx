@@ -1,22 +1,18 @@
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
-// Profile feature imports (temporarily disabled)
-// import { useCallback } from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { PlaceholderImage } from './PlaceholderImage';
-// import ProfileModal from './ProfileModal';
+import ProfileModal from './ProfileModal';
 import type { TeamMember } from '../types/team';
 
 const Team2024 = () => {
   const { t } = useTranslation();
-  // Profile feature state (temporarily disabled)
-  // const { memberName } = useParams<{ memberName?: string }>();
-  // const navigate = useNavigate();
-  // const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const { memberName } = useParams<{ memberName?: string }>();
+  const navigate = useNavigate();
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  /* Profile feature code (temporarily disabled)
   // Find member by slug when URL changes
   useEffect(() => {
     if (!memberName) {
@@ -26,7 +22,7 @@ const Team2024 = () => {
     }
 
     const member = teamMembers.find(m =>
-        createSlug(m.name) === memberName
+      createSlug(m.name) === memberName
     );
 
     if (member) {
@@ -40,14 +36,14 @@ const Team2024 = () => {
 
   const createSlug = (name: string): string => {
     return name
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9\s-]/g, '')
-        .trim()
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-+|-+$/g, '');
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
   };
 
   const openProfileModal = useCallback((member: TeamMember) => {
@@ -55,7 +51,7 @@ const Team2024 = () => {
     if (["Hakan Şendaldal", "Beren Alptekin", "Tarık Alperen Öcal"].includes(member.name)) {
       return;
     }
-    
+
     try {
       const slug = createSlug(member.name);
       console.log('Opening profile for:', member.name, '->', slug);
@@ -78,7 +74,6 @@ const Team2024 = () => {
     navigate('/team/2024-2025', { replace: true });
     // The effect will handle updating the modal state
   }, [navigate]);
-  */
 
   const teamMembers: TeamMember[] = [
     {
@@ -208,6 +203,15 @@ const Team2024 = () => {
         linkedin: "https://www.linkedin.com/in/berkant-suren?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "berkantsuren1@gmail.com",
         github: "#"
+      },
+      profile: {
+        bio: "Chassis & Ergonomics Team Member",
+        works: ["/BERKANT.webp"],
+        documents: [
+          "/Doruk_Guide.pdf",
+          "/FreakMobile_Analiz.pdf",
+          "/Chassis&Ergonomics_Chassis_CorsaChassisReport_05.10.2025_V10.pdf"
+        ]
       }
     },
     {
@@ -469,8 +473,8 @@ const Team2024 = () => {
 
     members.forEach(member => {
       const baseKey = member.roleKey
-          .replace(/_team_leader$/i, '_team')
-          .replace(/_team_member$/i, '_team');
+        .replace(/_team_leader$/i, '_team')
+        .replace(/_team_member$/i, '_team');
 
       const translatedRole = TEAM_CATEGORY_MAP[baseKey] || baseKey;
 
@@ -487,84 +491,82 @@ const Team2024 = () => {
   const categories = Object.entries(groupedMembers);
 
   return (
-      <>
-        {!imagesLoaded ? (
-            <section id="team" className="py-20 bg-[#0f0f0f] relative min-h-[400px] flex items-center justify-center">
-              <div className="text-center">
-                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#a02638]"></div>
-              </div>
-            </section>
-        ) : (
-            <section id="team" className="py-20 bg-[#0f0f0f] relative">
-              <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                    {t('team.title')} 2024-2025
-                  </h2>
-                  <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
-                    {t('team.description')}
-                  </p>
-                </div>
+    <>
+      {!imagesLoaded ? (
+        <section id="team" className="py-20 bg-[#0f0f0f] relative min-h-[400px] flex items-center justify-center">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#a02638]"></div>
+          </div>
+        </section>
+      ) : (
+        <section id="team" className="py-20 bg-[#0f0f0f] relative">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                {t('team.title')} 2024-2025
+              </h2>
+              <p className="text-xl text-[#cccccc] max-w-3xl mx-auto leading-relaxed">
+                {t('team.description')}
+              </p>
+            </div>
 
-                <div className="flex flex-col gap-5">
-                  {categories.map(([category, members]) => (
-                      <div key={category}>
-                        <h3 className="text-2xl font-semibold text-white mb-3 text-center">
-                          {category}
-                        </h3>
-                        <div className="flex flex-wrap justify-center gap-6">
-                          {members.map((member, index) => (
-                              <div
-                                  key={index}
-                                  // onClick={() => openProfileModal(member)}  // Temporarily disabled
-                                  className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 hover:border-[#a02638]/50 transition-all duration-300 hover:scale-105 group text-left shadow-lg hover:shadow-xl"
-                              >
-                                <div className="relative overflow-hidden">
-                                  <div className="relative group overflow-hidden rounded-t-xl">
-                                    <PlaceholderImage
-                                        src={member.image}
-                                        alt={member.name}
-                                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-75"
-                                        width={250}
-                                        height={256}
-                                    />
-                                  </div>
-                                </div>
+            <div className="flex flex-col gap-5">
+              {categories.map(([category, members]) => (
+                <div key={category}>
+                  <h3 className="text-2xl font-semibold text-white mb-3 text-center">
+                    {category}
+                  </h3>
+                  <div className="flex flex-wrap justify-center gap-6">
+                    {members.map((member, index) => (
+                      <div
+                        key={index}
+                        onClick={() => openProfileModal(member)}
+                        className="w-[250px] sm:w-[220px] bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden hover:bg-[#1a1a1a]/90 hover:border-[#a02638]/50 transition-all duration-300 hover:scale-105 group text-left shadow-lg hover:shadow-xl cursor-pointer"
+                      >
+                        <div className="relative overflow-hidden">
+                          <div className="relative group overflow-hidden rounded-t-xl">
+                            <PlaceholderImage
+                              src={member.image}
+                              alt={member.name}
+                              className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-75"
+                              width={250}
+                              height={256}
+                            />
+                          </div>
+                        </div>
 
-                                <div className="p-4 text-center">
-                                  <h3 className="text-lg font-bold text-white">
-                                    {member.name}
-                                  </h3>
-                                  <p className="text-[#a02638] font-semibold">
-                                    {member.role}
-                                  </p>
-                                  <p className="text-[#cccccc] text-sm">
-                                    {member.department}
-                                  </p>
-                                  <p className="text-xs text-[#a02638]/60 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    Click to view profile →
-                                  </p>
-                                </div>
-                              </div>
-                          ))}
+                        <div className="p-4 text-center">
+                          <h3 className="text-lg font-bold text-white">
+                            {member.name}
+                          </h3>
+                          <p className="text-[#a02638] font-semibold">
+                            {member.role}
+                          </p>
+                          <p className="text-[#cccccc] text-sm">
+                            {member.department}
+                          </p>
+                          <p className="text-xs text-[#a02638]/60 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            Click to view profile →
+                          </p>
                         </div>
                       </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </section>
-        )}
-
-        {/* Profile modal temporarily disabled
-      {selectedMember && (
-          <ProfileModal
-              isOpen={isModalOpen}
-              onClose={closeProfileModal}
-              member={selectedMember}
-          />
+              ))}
+            </div>
+          </div>
+        </section>
       )}
-      */}
-      </>
+
+      {selectedMember && (
+        <ProfileModal
+          isOpen={isModalOpen}
+          onClose={closeProfileModal}
+          member={selectedMember}
+        />
+      )}
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { X, Mail, Linkedin, Instagram, FileText, Download, ChevronUp, ChevronDown } from 'lucide-react';
+import { X, Mail, Linkedin, Instagram, FileText, ExternalLink, ChevronUp, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { TeamMember } from '../types/team';
 import { useEffect, useRef, useState, useCallback } from 'react';
@@ -73,12 +73,12 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
     // Add event listeners
     document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', handleKeyDown);
-    
+
     // Reset scroll position when opening
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = 0;
     }
-    
+
     // Cleanup function
     return () => {
       document.body.style.overflow = 'auto';
@@ -104,7 +104,7 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
   }
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black bg-opacity-90 z-50 overflow-hidden"
       onClick={handleClickOutside}
       style={{ backdropFilter: 'blur(5px)' }}
@@ -134,10 +134,10 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
           }
         `
       }</style>
-      
+
       {/* Scroll to Top Button */}
       {showScrollTop && (
-        <button 
+        <button
           onClick={scrollToTop}
           className="scroll-button"
           style={{ bottom: '5rem' }}
@@ -146,10 +146,10 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
           <ChevronUp className="w-6 h-6 text-white" />
         </button>
       )}
-      
+
       {/* Scroll to Bottom Button */}
       {showScrollBottom && (
-        <button 
+        <button
           onClick={scrollToBottom}
           className="scroll-button"
           style={{ bottom: '1.5rem' }}
@@ -158,8 +158,8 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
           <ChevronDown className="w-6 h-6 text-white" />
         </button>
       )}
-      
-      <div 
+
+      <div
         ref={scrollContainerRef}
         className="h-screen w-full bg-[#1a1a1a] overflow-y-auto profile-scroll-container"
         onClick={(e) => e.stopPropagation()}
@@ -210,13 +210,13 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
                 </div>
               )}
             </div>
-            
+
             <div className="flex-grow">
               <div className="mb-6">
                 <h3 className="text-2xl font-semibold text-white mb-1">{member.role}</h3>
                 <p className="text-[#a02638] text-lg">{member.department}</p>
               </div>
-              
+
               {/* Bio */}
               <div className="mb-8 max-w-3xl">
                 <h4 className="text-xl font-semibold text-white mb-3">{t('profile.about')}</h4>
@@ -283,21 +283,31 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
           {/* Documents */}
           {profile.documents && profile.documents.length > 0 && (
             <div>
-              <h4 className="font-semibold text-white mb-4">{t('profile.documents')}</h4>
+              <h4 className="text-2xl font-semibold text-white mb-6">{t('profile.documents')}</h4>
               <div className="space-y-3">
-                {profile.documents.map((doc: string, index: number) => (
-                  <a
-                    key={index}
-                    href={doc}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 border-2 border-[#2a2a2a] rounded-xl hover:bg-[#2a2a2a] transition-colors hover:border-[#a02638]"
-                  >
-                    <FileText className="w-6 h-6 text-[#a02638] flex-shrink-0" />
-                    <span className="text-[#cccccc] text-lg">{t('profile.document')} {index + 1}</span>
-                    <Download className="w-5 h-5 text-gray-400 ml-auto flex-shrink-0" />
-                  </a>
-                ))}
+                {profile.documents.map((doc: string, index: number) => {
+                  // Extract filename from path
+                  const filename = doc.split('/').pop() || `Document ${index + 1}`;
+                  // Remove file extension for display
+                  const displayName = filename.replace(/\.[^/.]+$/, '').replace(/_/g, ' ');
+
+                  return (
+                    <a
+                      key={index}
+                      href={doc}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-4 border-2 border-[#2a2a2a] rounded-xl hover:bg-[#2a2a2a] transition-colors hover:border-[#a02638]"
+                    >
+                      <FileText className="w-6 h-6 text-[#a02638] flex-shrink-0" />
+                      <div className="flex-grow">
+                        <span className="text-[#cccccc] text-lg block">{displayName}</span>
+                        <span className="text-gray-500 text-sm">{filename}</span>
+                      </div>
+                      <ExternalLink className="w-5 h-5 text-gray-400 ml-auto flex-shrink-0" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           )}
