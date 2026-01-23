@@ -861,7 +861,7 @@ const Team2025 = () => {
       roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: "/keremkatranci2.webp",
+      image: "/keremkatranci3.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/kerem-katranc%C4%B1-33294a247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "keremkatranci77@gmail.com",
@@ -869,7 +869,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/keremkatranci2.webp"],
+        works: ["/keremkatranci3.webp"],
         documents: []
       }
     },
