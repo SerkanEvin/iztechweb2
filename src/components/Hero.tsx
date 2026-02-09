@@ -1,4 +1,4 @@
-import { Play, Award, Users, Zap } from 'lucide-react';
+import { Play, Award, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
@@ -14,11 +14,6 @@ const Hero = () => {
             icon: Users,
             value: t('hero.stats.members.value'),
             label: t('hero.stats.members.label')
-        },
-        {
-            icon: Zap,
-            value: t('hero.stats.horsepower.value'),
-            label: t('hero.stats.horsepower.label')
         },
         {
             icon: Play,
@@ -50,18 +45,14 @@ const Hero = () => {
                     {/* Main heading */}
                     <div className="space-y-4">
                         <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-                            <div className="inline-flex flex-col md:flex-row md:items-baseline gap-2">
-                                <span className="bg-gradient-to-r from-white via-[#b0485e] to-[#9a0e20] bg-clip-text text-transparent">
-                                   IZTECH RACING
-                                </span>
-                            </div>
+                            IZTECH RACING
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                             {t('hero.subtitle')}
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center p-4 rounded-xl hover:bg-gray-900/30 transition-colors">
                                 <div className="inline-flex items-center justify-center w-16 h-16 bg-[#9a0e20]/20 rounded-full mb-3">

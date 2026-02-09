@@ -7,7 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Hero from './components/Hero';
 import About from './components/About';
 import Gallery from './components/Gallery';
-import Magazine from './components/Magazine';
+import Documents from './components/Documents';
 import Vehicles from './components/Vehicles.tsx';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
@@ -34,13 +34,13 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/team" element={<Navigate to="/team/2025-2026" replace />} />
                     <Route path="/team/2024-2025" element={<Team2024 />}>
-                      <Route path=":memberName" element={null} />
+                        <Route path=":memberName" element={null} />
                     </Route>
                     <Route path="/team/2025-2026" element={<Team2025 />}>
-                      <Route path=":memberName" element={null} />
+                        <Route path=":memberName" element={null} />
                     </Route>
                     <Route path="/vehicles" element={<Vehicles />} />
-                    <Route path="/magazine" element={<Magazine />} />
+                    <Route path="/documents" element={<Documents />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/sponsors" element={<Sponsors />} />
                     <Route path="/contact" element={<Contact />} />

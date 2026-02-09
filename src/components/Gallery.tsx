@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const getImagePath = (filename: string) => {
-  return `${filename}?v=1`;
+    return `${filename}?v=1`;
 };
 
 const photos = [
@@ -62,7 +62,7 @@ const Gallery = () => {
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div className="mb-12">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        {t('gallery.title')} <span className="text-[#a02638]">{t('gallery.titleHighlight')}</span>
+                        {t('gallery.title')} {t('gallery.titleHighlight')}
                     </h2>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                         {t('gallery.subtitle')}
@@ -79,9 +79,8 @@ const Gallery = () => {
                                     key={actualIndex}
                                     src={src}
                                     alt={t('gallery.alt', { number: actualIndex + 1 })}
-                                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
-                                        actualIndex === currentIndex ? 'opacity-100' : 'opacity-0'
-                                    }`}
+                                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${actualIndex === currentIndex ? 'opacity-100' : 'opacity-0'
+                                        }`}
                                     onError={handleImageError}
                                     loading="eager"
                                     decoding="async"
@@ -114,12 +113,11 @@ const Gallery = () => {
                             key={index}
                             onClick={() => goToPhoto(index)}
                             aria-label={t('gallery.goTo', { number: index + 1 })}
-                            className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                                currentIndex === index 
-                                    ? "bg-[#9a0e20] scale-125" 
+                            className={`w-3 h-3 rounded-full transition-all duration-200 ${currentIndex === index
+                                    ? "bg-[#9a0e20] scale-125"
                                     : "bg-gray-600 hover:bg-gray-400 hover:scale-110"
-                            }`}
-                            />
+                                }`}
+                        />
                     ))}
                 </div>
             </div>

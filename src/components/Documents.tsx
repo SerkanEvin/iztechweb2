@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { BookOpen } from "lucide-react";
 
-const Magazines = () => {
+const Documents = () => {
     const { t } = useTranslation();
 
     const magazines = [
@@ -63,7 +63,7 @@ const Magazines = () => {
                     {/* Header */}
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                            <span className="text-[#a02638]">{t('magazines.title')}</span> {t('magazines.and')} {t('magazines.recap')}
+                            {t('magazines.title')} {t('magazines.and')} {t('magazines.recap')}
                         </h2>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                             {t('magazines.subtitle')}
@@ -105,4 +105,4 @@ const Magazines = () => {
     );
 };
 
-export default Magazines;
+export default Documents;

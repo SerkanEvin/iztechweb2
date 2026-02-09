@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from 'react-i18next';
 
 export default function Sponsors() {
@@ -28,7 +27,7 @@ export default function Sponsors() {
       members: [
         { name: "Avioni Technologies", logo: "/5958e813d0893.png", url: "https://www.avionitech.com/tr/" },
         { name: "IZELTAŞ", logo: "/images.png", url: "https://izeltas.com.tr/" },
-        { name: "silvs", logo:"/sivs.webp", url: "https://iztechracing.com.tr/" },
+        { name: "silvs", logo: "/sivs.webp", url: "https://iztechracing.com.tr/" },
       ]
     },
     {
@@ -36,8 +35,9 @@ export default function Sponsors() {
       members: [
         { name: "İnci Akü", logo: "/incilogo-dosya.png", url: "https://www.inciaku.com/tr/" },
         { name: "Yakup Yılmaz", logo: "/yakup.png", url: "https://www.yakupyilmazboru.com/" },
-        { name: "KP", logo:"/kp-vertical-logo.png", url: "https://kompozitpazari.com/" },
-        { name: "dekomod", logo:"/dekomod_logo_buyuk_1.webp", url:"https://dekomodmimarlik.com/"  }
+        { name: "KP", logo: "/kp-vertical-logo.png", url: "https://kompozitpazari.com/" },
+        { name: "dekomod", logo: "/dekomod_logo_buyuk_1.webp", url: "https://dekomodmimarlik.com/" },
+        { name: "UTRONIX", logo: "/UTRONIX_logo.webp", url: "https://www.u-tronix.com/" }
       ]
     },
     {
@@ -49,9 +49,9 @@ export default function Sponsors() {
         { name: "URİKAD", logo: "/URiKADW.png", url: "#" },
         { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013W.png", url: "https://www.schrothracing.com/" },
         { name: "kartesis", logo: "/kartesis.png", url: "https://www.kartesis.com/" },
-        { name: "bosch", logo: "/bosch.png", url: "https://www.bosch.com.tr/"},
-        { name: "yuksek", logo:"/yuksek.webp", url: "https://www.teknoparkizmir.com.tr/tr/firma-cron/izmir-teknoloji-sanayi-ve-ticaret-a-s/"},
-        { name: "slogan", logo:"/logoSlogan.webp", url: "https://artibeton.com.tr/"}
+        { name: "bosch", logo: "/bosch.png", url: "https://www.bosch.com.tr/" },
+        { name: "yuksek", logo: "/yuksek.webp", url: "https://www.teknoparkizmir.com.tr/tr/firma-cron/izmir-teknoloji-sanayi-ve-ticaret-a-s/" },
+        { name: "slogan", logo: "/logoSlogan.webp", url: "https://artibeton.com.tr/" }
       ]
     }
   ];
@@ -72,11 +72,10 @@ export default function Sponsors() {
               <h3 className="text-2xl font-bold mb-2">{t(`sponsors.tiers.${tier.tier}.title`)}</h3>
             </div>
 
-            <div className={`grid gap-6 ${
-              ['gold', 'silver', 'bronze'].includes(tier.tier) ? 'md:grid-cols-3 lg:grid-cols-4' :
+            <div className={`grid gap-6 ${['gold', 'silver', 'bronze'].includes(tier.tier) ? 'md:grid-cols-3 lg:grid-cols-4' :
               tier.members.length <= 2 ? 'md:grid-cols-2' :
-              'md:grid-cols-2 lg:grid-cols-4'
-            }`}>
+                'md:grid-cols-2 lg:grid-cols-4'
+              }`}>
               {tier.members.map((sponsor, sponsorIndex) => (
                 <a
                   key={sponsorIndex}

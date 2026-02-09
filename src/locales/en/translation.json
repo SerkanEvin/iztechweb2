@@ -5,7 +5,7 @@
     "team": "Team",
     "vehicles": "Vehicles",
     "gallery": "Gallery",
-    "magazine": "Magazine",
+    "magazine": "Documents",
     "sponsors": "Sponsors",
     "contact": "Contact",
     "joinUs": "Join Us",
@@ -43,7 +43,6 @@
     "description": "Our diverse team of passionate engineers, designers, and innovators work together to push the boundaries of student motorsport and engineering excellence.",
     "captain": "Team Captain",
     "loading": "Loading team..."
-
   },
   "sponsors": {
     "title": "Our Sponsors",
@@ -64,10 +63,8 @@
     "aerodynamics_team": "Aerodynamics Team",
     "organization_team": "Organization Team",
     "business_development_team": "Static  Team",
-
     "team_captain": "Team Captain",
     "business_development": "Static ",
-    
     "electronics_software_team_leader": "Electronics and Software Team Leader",
     "electronics_software_team_member": "Electronics and Software Team Member",
     "vehicle_dynamics_team_leader": "Vehicle Dynamics Team Leader",
@@ -222,7 +219,7 @@
   },
   "about": {
     "title": "About",
-    "description": "Founded on October 15, 2024, the IZTECH RACING Formula Student Team continues its work within İzmir Institute of Technology as a multidisciplinary group of students from 3 faculties and 7 departments. As of November 2025, our team consists of 7 sub-teams and 74 members.",
+    "description": "Founded on October 15, 2024, the IZTECH RACING Formula Student Team continues its work within İzmir Institute of Technology as a multidisciplinary group of students from 3 faculties and 7 departments. As of November 2025, our team consists of 7 sub-teams and 67 members.",
     "journey": {
       "title": "Our Journey",
       "paragraph1": "Formula SAE (Society of Automotive Engineers) is a competition held among universities for over 40 years. This competition is an engineering competition where students from many countries around the world participate by designing and producing Formula-type single-seater small racing vehicles. Formula SAE pushes students to apply what they learn in the classroom to a real-world project. There are four competition categories: internal combustion, hybrid, electric, and driverless.",
@@ -294,7 +291,7 @@
       "about": "About Us",
       "team": "Our Team",
       "vehicles": "Vehicles",
-      "magazine": "Magazine",
+      "magazine": "Documents",
       "gallery": "Gallery",
       "sponsors": "Sponsors",
       "contact": "Contact"
@@ -408,13 +405,13 @@
     }
   },
   "magazines": {
-    "title": "Magazines",
+    "title": "Documents",
     "and": "&",
     "recap": "Recap",
-    "subtitle": "Explore the magazines and articles featuring IZTECH Racing, our journey, and achievements.",
+    "subtitle": "Explore the documents and articles featuring IZTECH Racing, our journey, and achievements.",
     "viewPdf": "View PDF",
     "close": "Close",
-    "pdfTitle": "Magazine PDF Viewer",
+    "pdfTitle": "Document PDF Viewer",
     "may": {
       "title": "IZTECH RACING May Recap",
       "description": ""
@@ -456,7 +453,7 @@
         "label": "Soonest Race"
       },
       "members": {
-        "value": "74",
+        "value": "67",
         "label": "Team Members"
       },
       "horsepower": {

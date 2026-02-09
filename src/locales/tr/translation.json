@@ -5,7 +5,7 @@
     "team": "Ekip",
     "vehicles": "Araçlar",
     "gallery": "Galeri",
-    "magazine": "Dergi",
+    "magazine": "Belgeler",
     "sponsors": "Sponsorlar",
     "contact": "İletişim",
     "joinUs": "Bize Katılın",
@@ -32,8 +32,6 @@
     "architecture": "Mimarlık",
     "crp": "Şehir Ve Bölge Planlama",
     "mbg": "Moleküler Biyoloji Ve Genetik"
-
-
   },
   "team": {
     "title": "Ekibimiz",
@@ -218,7 +216,7 @@
   },
   "about": {
     "title": "Hakkımızda",
-    "description": "15 Ekim 2024 tarihinde kurulan IZTECH RACING Formula\nStudent Takımı İzmir Yüksek Teknoloji Enstitüsü bünyesinde\nçalışmalarını 3 farklı fakülteden ve 7 bölümden öğrencilerle\nmultidisipliner bir ekip olarak sürdürmektedir.\nTakımımız Kasım 2025 itibariyle 7 alt ekipten ve 74 üyeden\noluşmaktadır.\n",
+    "description": "15 Ekim 2024 tarihinde kurulan IZTECH RACING Formula\nStudent Takımı İzmir Yüksek Teknoloji Enstitüsü bünyesinde\nçalışmalarını 3 farklı fakülteden ve 7 bölümden öğrencilerle\nmultidisipliner bir ekip olarak sürdürmektedir.\nTakımımız Kasım 2025 itibariyle 7 alt ekipten ve 67 üyeden\noluşmaktadır.\n",
     "journey": {
       "title": "Yolculuğumuz",
       "paragraph1": "Formula SAE (Society of Automotive Engineers), 40 yılı aşkın süredir üniversiteler arasında düzenlenen bir yarışmadır. Bu yarışma, dünyanın birçok ülkesinden öğrencilerin Formula tarzı tek kişilik küçük yarış araçları tasarlayıp üreterek katıldıkları bir mühendislik yarışmasıdır. Formula SAE, öğrencilerin sınıfta öğrendiklerini gerçek dünya projelerine uygulamalarını sağlar. Dört yarışma kategorisi vardır: içten yanmalı motorlu, hibrit, elektrikli ve sürücüsüz araçlar.",
@@ -371,7 +369,7 @@
       "about": "Hakkımızda",
       "team": "Ekibimiz",
       "vehicles": "Araçlar",
-      "magazine": "Dergi",
+      "magazine": "Belgeler",
       "gallery": "Galeri",
       "sponsors": "Sponsorlar",
       "contact": "İletişim"
@@ -403,13 +401,13 @@
     }
   },
   "magazines": {
-    "title": "Dergiler",
+    "title": "Belgeler",
     "and": "ve",
     "recap": "Özetler",
-    "subtitle": "IZTECH Racing'in dergilerini, yolculuğunu ve başarılarını keşfedin.",
+    "subtitle": "IZTECH Racing'in belgelerini, yolculuğunu ve başarılarını keşfedin.",
     "viewPdf": "PDF'yi Görüntüle",
     "close": "Kapat",
-    "pdfTitle": "Dergi PDF Görüntüleyici",
+    "pdfTitle": "Belge PDF Görüntüleyici",
     "may": {
       "title": "IZTECH RACING Mayıs Özeti",
       "description": " "
@@ -451,7 +449,7 @@
         "label": "En Yakın Yarış"
       },
       "members": {
-        "value": "77",
+        "value": "67",
         "label": "Takım Üyesi"
       },
       "horsepower": {

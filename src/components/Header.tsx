@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // Team menu state - keeping these in case we need them later
     //const [isTeamOpen, setIsTeamOpen] = useState(false);
-   // const closeTimer = useRef<number | null>(null);
+    // const closeTimer = useRef<number | null>(null);
 
     {/*const openTeam = () => {
         if (closeTimer.current) {
@@ -73,7 +73,7 @@ const Header = () => {
                                 height: '40px',
                                 zIndex: 10,
                                 transform: 'translateZ(0)',
-                                marginLeft: 0 
+                                marginLeft: 0
                             }}
                         >
                             <img
@@ -102,11 +102,11 @@ const Header = () => {
                                 {t('header.team')}
                             </Link>
                             <div className="absolute left-0 mt-2 hidden group-hover:block bg-black/95 backdrop-blur-sm border border-[#9a0e20]/20 rounded-md shadow-lg min-w-[180px]">
-                                <Link to="/team/2024-2025" className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
-                                    2024 - 2025
-                                </Link>
                                 <Link to="/team/2025-2026" className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
                                     2025 - 2026
+                                </Link>
+                                <Link to="/team/2024-2025" className="block px-4 py-2 text-sm text-white hover:bg-[#2a2a2a]">
+                                    2024 - 2025
                                 </Link>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ const Header = () => {
                         <Link to="/vehicles" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
                             {t('header.vehicles')}
                         </Link>
-                        <Link to="/magazine" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                        <Link to="/documents" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
                             {t('header.magazine')}
                         </Link>
                         <Link to="/gallery" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
@@ -161,11 +161,11 @@ const Header = () => {
                             <Link to="/" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.home')}</Link>
                             <Link to="/team" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.team')}</Link>
                             <div>
-                                <Link to="/team/2024-2025" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2024 - 2025</Link>
                                 <Link to="/team/2025-2026" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2025 - 2026</Link>
+                                <Link to="/team/2024-2025" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2024 - 2025</Link>
                             </div>
                             <Link to="/vehicles" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.vehicles')}</Link>
-                            <Link to="/magazine" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.magazine')}</Link>
+                            <Link to="/documents" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.magazine')}</Link>
                             <Link to="/gallery" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.gallery')}</Link>
                             <Link to="/sponsors" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.sponsors')}</Link>
                             <Link to="/contact" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.contact')}</Link>

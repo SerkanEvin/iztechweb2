@@ -568,23 +568,6 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Senanur Günay",
-      roleKey: "electronics_software_team_member",
-      role: t('roles.electronics_software_team_member'),
-      department: t('departments.computer_engineering'),
-      image: "/SENANURGUNAY3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/senanur-g%C3%BCnay-94172431b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "olmuşmusasl",
-        works: ["/SENANURGUNAY3.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Enis Günenç",
       roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
@@ -687,23 +670,6 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Burak Ş. Dönmez",
-      roleKey: "powertrain_team_member",
-      role: t('roles.powertrain_team_member'),
-      department: t('departments.energy_engineering'),
-      image: "/o.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/burak-%C5%9Fuay%C4%B1p-d%C3%B6nmez-998730235?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "olmuşmusasl",
-        works: ["/o.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Mustafa Kağan Pehlivan",
       roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
@@ -717,23 +683,6 @@ const Team2025 = () => {
       profile: {
         bio: "olmuşmusasl",
         works: ["/kaganpehlivan3.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Ozan Yılmaz",
-      roleKey: "electronics_software_team_member",
-      role: t('roles.electronics_software_team_member'),
-      department: t('departments.physics'),
-      image: "/OZANYILMAZ3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/ozan-yılmaz-663931348?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "olmuşmusasl",
-        works: ["/OZANYILMAZ3.webp"],
         documents: []
       }
     },
@@ -768,23 +717,6 @@ const Team2025 = () => {
       profile: {
         bio: "olmuşmusasl",
         works: ["/ecemsavas3.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Melih Çağan Çetiner ",
-      roleKey: "aerodynamics_team_member",
-      role: t('roles.aerodynamics_team_member'),
-      department: t('departments.mechanical_engineering'),
-      image: "/melihcancetiner3.webp",
-      social: {
-        linkedin: "",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "olmuşmusasl",
-        works: ["/melihcancetiner3.webp"],
         documents: []
       }
     },
