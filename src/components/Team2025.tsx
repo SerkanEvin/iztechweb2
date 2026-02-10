@@ -827,7 +827,7 @@ const Team2025 = () => {
       roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: "/MUHAMMETEMiN3.webp.webp",
+      image: "/emin15.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/muhammed-emin-g%C3%BCn%C3%BCmdo%C4%9Fdu-5754b4384?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "",
@@ -835,7 +835,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "olmuşmusasl",
-        works: ["/MUHAMMETEMiN3.webp.webp"],
+        works: ["/emin15.webp"],
         documents: []
       }
     },
