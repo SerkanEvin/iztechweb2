@@ -8,14 +8,11 @@
     "magazine": "Belgeler",
     "sponsors": "Sponsorlar",
     "contact": "İletişim",
+    "supportUs": "Bize Destek Olun",
     "joinUs": "Bize Katılın",
     "ticker": "20 Ekim tanışma toplantımız vardır maillerinizi kontrol ediniz."
   },
   "language": "English",
-  "hero": {
-    "title": "Ekibimize Hoş Geldiniz",
-    "subtitle": "Harekette Mühendislik Mükemmelliği"
-  },
   "departments": {
     "civil_engineering": "İnşaat Mühendisliği",
     "mechanical_engineering": "Makine Mühendisliği",
@@ -32,27 +29,6 @@
     "architecture": "Mimarlık",
     "crp": "Şehir Ve Bölge Planlama",
     "mbg": "Moleküler Biyoloji Ve Genetik"
-  },
-  "team": {
-    "title": "Ekibimiz",
-    "members": "Takım Üyeleri",
-    "description": "Tutkulu mühendisler, tasarımcılar ve yenilikçilerden oluşan ekibimiz, öğrenci motor sporlarının ve mühendislik mükemmelliğinin sınırlarını zorlamak için birlikte çalışıyor.",
-    "captain": "Takım Kaptanı",
-    "loading": "Takım yükleniyor...",
-    "electronics_software_team": "Elektronik ve Yazılım Ekibi",
-    "vehicle_dynamics_team": "Araç Dinamiği Ekibi",
-    "chassis_ergonomics_team": "Şasi ve Ergonomi Ekibi",
-    "powertrain_team": "Güç Aktarım Ekibi",
-    "aerodynamics_team": "Aerodinamik Ekibi",
-    "organization_team": "Organizasyon Ekibi",
-    "business_development_team": "Statik Ekibi"
-  },
-  "contact": {
-    "title": "İletişim",
-    "name": "İsim",
-    "email": "E-posta",
-    "message": "Mesaj",
-    "send": "Mesaj Gönder"
   },
   "roles": {
     "team_captain": "Takım Kaptanı",
@@ -430,7 +406,7 @@
     },
     "october": {
       "title": "IZTECH RACING Ekim Özeti",
-      "descripton": ""
+      "description": ""
     },
     "november": {
       "title": "IZTECH RACING Kasım Özeti",
@@ -471,5 +447,9 @@
     "work": "Çalışma",
     "viewImage": "Görüntüle",
     "document": "Belge"
+  },
+  "supportUs": {
+    "title": "Bize Destek Olun",
+    "text": "bize destek olun"
   }
 }

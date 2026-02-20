@@ -13,6 +13,7 @@ import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 import Team2024 from './components/Team2024';
 import Team2025 from './components/Team2025';
+import SupportUs from './components/SupportUs';
 function HomePage() {
     return (
         <>
@@ -44,6 +45,7 @@ function App() {
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/sponsors" element={<Sponsors />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/support-us" element={<SupportUs />} />
                 </Routes>
                 <Footer />
             </div>

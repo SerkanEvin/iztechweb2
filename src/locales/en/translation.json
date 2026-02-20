@@ -8,18 +8,11 @@
     "magazine": "Documents",
     "sponsors": "Sponsors",
     "contact": "Contact",
+    "supportUs": "Support Us",
     "joinUs": "Join Us",
     "ticker": "We have an introductory meeting on October 20th, please check your emails."
   },
   "language": "Türkçe",
-  "hero": {
-    "title": "Welcome to Our Team",
-    "subtitle": "Engineering Excellence in Motion"
-  },
-  "about": {
-    "title": "About Us",
-    "content": "We are a team of passionate engineers dedicated to innovation and excellence in automotive engineering."
-  },
   "departments": {
     "civil_engineering": "Civil Engineering",
     "mechanical_engineering": "Mechanical Engineering",
@@ -36,24 +29,6 @@
     "architecture": "Architecture",
     "crp": "City And Regional Planning",
     "mbg": "Molecular Biology And Genetics"
-  },
-  "team": {
-    "title": "Our Team",
-    "members": "Team Members",
-    "description": "Our diverse team of passionate engineers, designers, and innovators work together to push the boundaries of student motorsport and engineering excellence.",
-    "captain": "Team Captain",
-    "loading": "Loading team..."
-  },
-  "sponsors": {
-    "title": "Our Sponsors",
-    "description": "We're grateful for the support of our sponsors"
-  },
-  "contact": {
-    "title": "Contact Us",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "send": "Send Message"
   },
   "roles": {
     "electronics_software_team": "Electronics & Software Team",
@@ -475,5 +450,9 @@
     "work": "Work",
     "viewImage": "View Image",
     "document": "Document"
+  },
+  "supportUs": {
+    "title": "Support Us",
+    "text": "support us"
   }
 }
