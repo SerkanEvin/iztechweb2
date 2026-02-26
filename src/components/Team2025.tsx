@@ -619,40 +619,6 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Asilkan Erken",
-      roleKey: "powertrain_team_member",
-      role: t('roles.powertrain_team_member'),
-      department: t('departments.energy_engineering'),
-      image: "/asilkan.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/asilkan-erken-042451348?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/asilkan.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Ali Kaan Kocabıyıkoğlu",
-      roleKey: "powertrain_team_member",
-      role: t('roles.powertrain_team_member'),
-      department: t('departments.civil_engineering'),
-      image: "/o.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/ali-kaan-kocabiyiko%C4%9Flu-a1b5bb316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/o.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Arda Yalçın",
       roleKey: "powertrain_team_member",
       role: t('roles.powertrain_team_member'),
@@ -1176,23 +1142,6 @@ const Team2025 = () => {
       profile: {
         bio: "olmuşmusasl",
         works: ["/betuluysal3.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Ada Toker",
-      roleKey: "business_development_team_member",
-      role: t('roles.business_development_team_member'),
-      department: t('departments.mbg'),
-      image: "/adatoker3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/adatoker?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app ",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "olmuşmusasl",
-        works: ["/adatoker3.webp"],
         documents: []
       }
     },
