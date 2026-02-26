@@ -174,7 +174,7 @@ const Team2024 = () => {
       roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
       department: t('departments.electronics_engineering'),
-      image: "/ALTAYALP.webp",
+      image: "/ALTAYALP(1).webp",
       social: {
         linkedin: "https://www.linkedin.com/in/altay-alp-4225bb251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "@iztechracing.com",
@@ -186,7 +186,7 @@ const Team2024 = () => {
       roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
       department: t('departments.mathematics'),
-      image: "/ARDAONUK.webp",
+      image: "/ARDAONUK2.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-onuk-8247b5352/",
         email: "ardaonuk9995@gmail.com",
@@ -219,7 +219,7 @@ const Team2024 = () => {
       roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.energy_engineering'),
-      image: "/ARDAKESKIN.webp",
+      image: "/ARDAKESKIN(1).webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-keskin-ba7b36230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "ardakeskin855@gmail.com",
@@ -303,7 +303,7 @@ const Team2024 = () => {
       roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: "/ERENURUS.webp",
+      image: "/ERENURUS(1).webp",
       social: {
         linkedin: "https://www.linkedin.com/in/erenurus",
         email: "uruseren07@gmail.com",
@@ -315,7 +315,7 @@ const Team2024 = () => {
       roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: "/ERENKARASAKAL.webp",
+      image: "/ERENKARASAKAL(1).webp",
       social: {
         linkedin: "https://www.linkedin.com/in/eren-karasakal-406769342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         email: "erenkarasakal280@gmail.com",
@@ -375,7 +375,7 @@ const Team2024 = () => {
       roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.mechanical_engineering'),
-      image: "/TUNAKURBAN.webp",
+      image: "/tunakurban3.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/tuna-kurban-147606286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         email: "tunakurban35@gmail.com",

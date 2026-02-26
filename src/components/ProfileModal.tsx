@@ -218,10 +218,12 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
               </div>
 
               {/* Bio */}
-              <div className="mb-8 max-w-3xl">
-                <h4 className="text-xl font-semibold text-white mb-3">{t('profile.about')}</h4>
-                <p className="text-[#cccccc] leading-relaxed text-lg">{profile.bio}</p>
-              </div>
+              {profile.bio && (
+                <div className="mb-8 max-w-3xl">
+                  <h4 className="text-xl font-semibold text-white mb-3">{t('profile.about')}</h4>
+                  <p className="text-[#cccccc] leading-relaxed text-lg">{profile.bio}</p>
+                </div>
+              )}
 
               {/* Social Links */}
               <div className="flex flex-wrap gap-4 mb-8">

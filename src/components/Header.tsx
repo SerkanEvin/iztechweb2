@@ -126,9 +126,9 @@ const Header = () => {
                         <Link to="/contact" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
                             {t('header.contact')}
                         </Link>
-                        <Link to="/support-us" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
+                        {/* <Link to="/support-us" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
                             {t('header.supportUs')}
-                        </Link>
+                        </Link> */}
                     </nav>
 
                     {/* Mobile menu button */}
@@ -172,7 +172,7 @@ const Header = () => {
                             <Link to="/gallery" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.gallery')}</Link>
                             <Link to="/sponsors" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.sponsors')}</Link>
                             <Link to="/contact" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.contact')}</Link>
-                            <Link to="/support-us" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.supportUs')}</Link>
+                            {/* <Link to="/support-us" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.supportUs')}</Link> */}
                         </div>
                     </div>
                 )}
