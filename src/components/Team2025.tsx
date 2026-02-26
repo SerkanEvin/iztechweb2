@@ -380,7 +380,7 @@ const Team2025 = () => {
       name: "Arda Aksoy",
       roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
-      department: t('departments.electronics_engineering'),
+      department: t('departments.computer_engineering'),
       image: "/ARDAAKSOY3.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-aksoy-245186230",
@@ -581,23 +581,6 @@ const Team2025 = () => {
       profile: {
         bio: "",
         works: ["/enis3.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Sarper Kahvecioğlu",
-      roleKey: "electronics_software_team_member",
-      role: t('roles.electronics_software_team_member'),
-      department: t('departments.computer_engineering'),
-      image: "/sarper3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/sarper-kahvecio%C4%9Flu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/sarper3.webp"],
         documents: []
       }
     },
