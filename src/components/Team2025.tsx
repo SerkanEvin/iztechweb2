@@ -133,7 +133,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/yagizyalcin3.webp"],
         documents: []
       }
@@ -167,7 +167,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/odul3.webp"],
         documents: []
       }
@@ -184,7 +184,7 @@ const Team2025 = () => {
         instagram: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ZEYNEPKONU3.webp"],
         documents: []
       }
@@ -201,7 +201,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/elifkanat3.webp"],
         documents: []
       }
@@ -218,7 +218,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/edacolak3.webp"],
         documents: []
       }
@@ -235,7 +235,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/aysuuyanik3.webp"],
         documents: []
       }
@@ -252,7 +252,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/duha3.webp"],
         documents: []
       }
@@ -269,7 +269,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/erenurus3.webp"],
         documents: []
       }
@@ -286,7 +286,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ARDAONUK2.webp"],
         documents: []
       }
@@ -303,7 +303,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/altayalp3.webp"],
         documents: []
       }
@@ -320,7 +320,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/sevval3.webp"],
         documents: []
       }
@@ -337,25 +337,8 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/bakir3.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Rıfat Gürer Solak",
-      roleKey: "organization_team_member",
-      role: t('roles.organization_team_member'),
-      department: t('departments.computer_engineering'),
-      image: "/rifatgurersolak3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/rifat-gürer-solak-246b35398?utm_source=share_via&utm_content=profile&utm_medium=member_android ",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/rifatgurersolak3.webp"],
         documents: []
       }
     },
@@ -371,7 +354,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ipekturan3.webp"],
         documents: []
       }
@@ -380,7 +363,7 @@ const Team2025 = () => {
       name: "Arda Aksoy",
       roleKey: "electronics_software_team_member",
       role: t('roles.electronics_software_team_member'),
-      department: t('departments.computer_engineering'),
+      department: t('departments.electronics_engineering'),
       image: "/ARDAAKSOY3.webp",
       social: {
         linkedin: "https://www.linkedin.com/in/arda-aksoy-245186230",
@@ -388,7 +371,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ARDAAKSOY3.webp"],
         documents: []
       }
@@ -405,7 +388,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/deniz3.webp"],
         documents: []
       }
@@ -422,7 +405,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/bengisu3.webp"],
         documents: []
       }
@@ -460,7 +443,7 @@ const Team2025 = () => {
         instagram: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ugur3.webp"],
         documents: []
       }
@@ -477,7 +460,7 @@ const Team2025 = () => {
         instagram: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/o.webp"],
         documents: []
       }
@@ -494,7 +477,7 @@ const Team2025 = () => {
         instagram: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: [""],
         documents: []
       }
@@ -511,7 +494,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/kaya.webp"],
         documents: []
       }
@@ -528,7 +511,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/tahaberke3.webp"],
         documents: []
       }
@@ -545,7 +528,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ardakeskin3.webp"],
         documents: []
       }
@@ -562,7 +545,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ardaakp3.webp"],
         documents: []
       }
@@ -579,8 +562,25 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/enis3.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Sarper Kahvecioğlu",
+      roleKey: "electronics_software_team_member",
+      role: t('roles.electronics_software_team_member'),
+      department: t('departments.computer_engineering'),
+      image: "/sarper3.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/sarper-kahvecio%C4%9Flu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        email: "@iztechracing.com",
+        github: "#"
+      },
+      profile: {
+        bio: "olmuşmusasl",
+        works: ["/sarper3.webp"],
         documents: []
       }
     },
@@ -596,8 +596,42 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/betulpelin3.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Asilkan Erken",
+      roleKey: "powertrain_team_member",
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.energy_engineering'),
+      image: "/asilkan.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/asilkan-erken-042451348?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        email: "",
+        github: "#"
+      },
+      profile: {
+        bio: "olmuşmusasl",
+        works: ["/asilkan.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Ali Kaan Kocabıyıkoğlu",
+      roleKey: "powertrain_team_member",
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.civil_engineering'),
+      image: "/o.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/ali-kaan-kocabiyiko%C4%9Flu-a1b5bb316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        email: "",
+        github: "#"
+      },
+      profile: {
+        bio: "olmuşmusasl",
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -613,7 +647,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ardayalcin3.webp"],
         documents: []
       }
@@ -630,7 +664,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/kaganpehlivan3.webp"],
         documents: []
       }
@@ -647,7 +681,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/batuhanelmaoglu3.webp"],
         documents: []
       }
@@ -664,7 +698,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/ecemsavas3.webp"],
         documents: []
       }
@@ -681,7 +715,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/erenkarasakal3.webp"],
         documents: []
       }
@@ -698,7 +732,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/tugceozcan3.webp"],
         documents: []
       }
@@ -715,7 +749,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/edz3.webp"],
         documents: []
       }
@@ -732,7 +766,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "",
+        bio: "olmuşmusasl",
         works: ["/o.webp"],
         documents: []
       }
@@ -1125,6 +1159,23 @@ const Team2025 = () => {
       profile: {
         bio: "olmuşmusasl",
         works: ["/betuluysal3.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Ada Toker",
+      roleKey: "business_development_team_member",
+      role: t('roles.business_development_team_member'),
+      department: t('departments.mbg'),
+      image: "/adatoker3.webp",
+      social: {
+        linkedin: "https://www.linkedin.com/in/adatoker?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app ",
+        email: "@iztechracing.com",
+        github: "#"
+      },
+      profile: {
+        bio: "olmuşmusasl",
+        works: ["/adatoker3.webp"],
         documents: []
       }
     },
