@@ -150,7 +150,7 @@ const Team2025 = () => {
         instagram: "#"
       },
       profile: {
-        bio: "Powertrain Team Leader",
+        bio: "",
         works: ["/onursen3.webp"],
         documents: []
       }
@@ -339,23 +339,6 @@ const Team2025 = () => {
       profile: {
         bio: "",
         works: ["/bakir3.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Rıfat Gürer Solak",
-      roleKey: "organization_team_member",
-      role: t('roles.organization_team_member'),
-      department: t('departments.computer_engineering'),
-      image: "/rifatgurersolak3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/rifat-gürer-solak-246b35398?utm_source=share_via&utm_content=profile&utm_medium=member_android ",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/rifatgurersolak3.webp"],
         documents: []
       }
     },
