@@ -732,7 +732,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/keremkatranci3.webp"],
         documents: []
       }
@@ -749,7 +749,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/egecem3.webp"],
         documents: []
       }
@@ -766,7 +766,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/emin15.webp"],
         documents: []
       }
@@ -783,7 +783,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/berkcankaya3.webp"],
         documents: []
       }
@@ -800,7 +800,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/emiryasa3.webp"],
         documents: []
       }
@@ -817,7 +817,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/tunakurban3.webp"],
         documents: []
       }
@@ -834,7 +834,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/RuZGARDORUK3.webp"],
         documents: []
       }
@@ -851,7 +851,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/yagizoz3.webp"],
         documents: []
       }
@@ -868,7 +868,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/kayrahanlkara3.webp"],
         documents: []
       }
@@ -885,7 +885,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/khayalmusayev3.webp"],
         documents: []
       }
@@ -902,7 +902,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/o.webp"],
         documents: []
       }
@@ -919,7 +919,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/canerkamar3.webp"],
         documents: []
       }
@@ -936,7 +936,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/yusufkoymatoglu3.webp"],
         documents: []
       }
@@ -953,7 +953,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/ahmetardakesaplı3.webp"],
         documents: []
       }
@@ -970,7 +970,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/ipeknazdursun3.webp"],
         documents: []
       }
@@ -987,7 +987,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/mahmutaligul3.webp"],
         documents: []
       }
@@ -1004,7 +1004,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/sinanefebayrak3.webp"],
         documents: []
       }
@@ -1021,7 +1021,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/aybars3.webp"],
         documents: []
       }
@@ -1038,7 +1038,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/huseyinesertur3.webp"],
         documents: []
       }
@@ -1055,7 +1055,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/furkanaktas3.webp"],
         documents: []
       }
@@ -1072,7 +1072,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/EFE.webp"],
         documents: []
       }
@@ -1089,7 +1089,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/kuzeydemirer3.webp"],
         documents: []
       }
@@ -1106,7 +1106,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/betuluysal3.webp"],
         documents: []
       }
@@ -1124,7 +1124,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/o.webp"],
         documents: []
       }
@@ -1141,7 +1141,7 @@ const Team2025 = () => {
         github: "#"
       },
       profile: {
-        bio: "olmuşmusasl",
+        bio: "",
         works: ["/kadrimericirmak3.webp"],
         documents: []
       }
