@@ -102,7 +102,7 @@ const Team2024 = () => {
         linkedin: "https://www.linkedin.com/in/serkan-do%C4%9Fan-evin-7569a61b8/",
         email: "@iztechracing.com",
         instagram: "#"
-      },gi
+      },
       profile: {
         bio: "",
         works: ["/SERKAN.webp"],
