@@ -87,7 +87,7 @@ const Team2024 = () => {
         email: "huseyinkocamis@std.iyte.edu.tr",
       },
       profile: {
-        bio: "olmuşmusal",
+        bio: "",
         works: ["/POYRAZ.webp"],
         documents: []
       }
@@ -102,9 +102,9 @@ const Team2024 = () => {
         linkedin: "https://www.linkedin.com/in/serkan-do%C4%9Fan-evin-7569a61b8/",
         email: "@iztechracing.com",
         instagram: "#"
-      },
+      },gi
       profile: {
-        bio: "olmuşmusal",
+        bio: "",
         works: ["/SERKAN.webp"],
         documents: []
       }
