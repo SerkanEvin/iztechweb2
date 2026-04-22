@@ -90,6 +90,7 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
     bio: "No bio available",
     works: [member.image],
     documents: [],
+    files: [], // Add default empty array
     teamPhoto: undefined
   };
 
@@ -259,23 +260,32 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
           </div>
 
           {/* Works Gallery */}
-          {profile.works.length > 0 && (
+          {((profile.works || []).length > 0 || (profile.files || []).some((f: any) => f.type.startsWith('image/'))) && (
             <div className="mb-12">
               <h4 className="text-2xl font-semibold text-white mb-6">{t('profile.works')}</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {profile.works.map((work: string, index: number) => (
-                  <div key={index} className="relative group">
+                {/* Hardcoded works */}
+                {(profile.works || []).map((work: string, index: number) => (
+                  <div key={`hardcoded-work-${index}`} className="relative group">
                     <img
                       src={work}
                       alt={`${t('profile.work')} ${index + 1}`}
                       className="w-full h-64 object-cover rounded-xl border-2 border-[#2a2a2a] transition-transform hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity rounded-lg flex items-center justify-center">
-                      <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                        {t('profile.viewImage')}
-                      </span>
-                    </div>
+                  </div>
+                ))}
+                {/* Uploaded images from DB */}
+                {(profile.files || [])
+                  .filter((f: any) => f.type.startsWith('image/'))
+                  .map((file: any, index: number) => (
+                  <div key={`uploaded-work-${index}`} className="relative group">
+                    <img
+                      src={file.url}
+                      alt={file.name}
+                      className="w-full h-64 object-cover rounded-xl border-2 border-[#2a2a2a] transition-transform hover:scale-105"
+                      loading="lazy"
+                    />
                   </div>
                 ))}
               </div>
@@ -283,19 +293,17 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
           )}
 
           {/* Documents */}
-          {profile.documents && profile.documents.length > 0 && (
+          {((profile.documents || []).length > 0 || (profile.files || []).some((f: any) => !f.type.startsWith('image/'))) && (
             <div>
               <h4 className="text-2xl font-semibold text-white mb-6">{t('profile.documents')}</h4>
               <div className="space-y-3">
-                {profile.documents.map((doc: string, index: number) => {
-                  // Extract filename from path
+                {/* Hardcoded documents */}
+                {(profile.documents || []).map((doc: string, index: number) => {
                   const filename = doc.split('/').pop() || `Document ${index + 1}`;
-                  // Remove file extension for display
                   const displayName = filename.replace(/\.[^/.]+$/, '').replace(/_/g, ' ');
-
                   return (
                     <a
-                      key={index}
+                      key={`hardcoded-doc-${index}`}
                       href={doc}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -304,12 +312,30 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
                       <FileText className="w-6 h-6 text-[#a02638] flex-shrink-0" />
                       <div className="flex-grow">
                         <span className="text-[#cccccc] text-lg block">{displayName}</span>
-                        <span className="text-gray-500 text-sm">{filename}</span>
                       </div>
                       <ExternalLink className="w-5 h-5 text-gray-400 ml-auto flex-shrink-0" />
                     </a>
                   );
                 })}
+                {/* Uploaded documents from DB */}
+                {(profile.files || [])
+                  .filter((f: any) => !f.type.startsWith('image/'))
+                  .map((file: any, index: number) => (
+                    <a
+                      key={`uploaded-doc-${index}`}
+                      href={file.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 p-4 border-2 border-[#2a2a2a] rounded-xl hover:bg-[#2a2a2a] transition-colors hover:border-[#a02638]"
+                    >
+                      <FileText className="w-6 h-6 text-[#a02638] flex-shrink-0" />
+                      <div className="flex-grow">
+                        <span className="text-[#cccccc] text-lg block">{file.name}</span>
+                        <span className="text-gray-500 text-sm">{(file.size / 1024).toFixed(1)} KB</span>
+                      </div>
+                      <ExternalLink className="w-5 h-5 text-gray-400 ml-auto flex-shrink-0" />
+                    </a>
+                  ))}
               </div>
             </div>
           )}

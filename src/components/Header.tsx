@@ -1,34 +1,12 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, User, LogOut, Settings } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const { t, i18n } = useTranslation();
     const [currentLanguage, setCurrentLanguage] = useState(i18n.language || 'en');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // Team menu state - keeping these in case we need them later
-    //const [isTeamOpen, setIsTeamOpen] = useState(false);
-    // const closeTimer = useRef<number | null>(null);
-
-    {/*const openTeam = () => {
-        if (closeTimer.current) {
-            clearTimeout(closeTimer.current);
-            closeTimer.current = null;
-        }
-        setIsTeamOpen(true);
-    }; */}
-
-    {/*const scheduleTeamClose = () => {
-        if (closeTimer.current) {
-            clearTimeout(closeTimer.current);
-        }
-        closeTimer.current = window.setTimeout(() => {
-            setIsTeamOpen(false);
-            closeTimer.current = null;
-        }, 150);
-    }; */}
-
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -40,28 +18,11 @@ const Header = () => {
     };
 
     const handleRefresh = () => {
-        window.location.href = '/';   // 🔹 Artık siteyi ana sayfaya yönlendiriyor, reload yerine route değiştiriyor
+        window.location.href = '/';
     };
 
     return (
         <header className="bg-black/95 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-[#9a0e20]/20" style={{ height: 88 }}>
-            {/* Top Ticker
-            <div className="w-full overflow-hidden border-b border-[#9a0e20]/20 bg-[#9a0e20]">
-                <div className="relative whitespace-nowrap">
-                    <style>{`
-                        @keyframes marquee-ltr { 
-                            0% { transform: translateX(-100%); }
-                            100% { transform: translateX(calc(100vw + 100%)); }
-                        }
-                    `}</style>
-                    <span
-                        className="inline-block text-[13px] leading-6 text-white/80 py-1 px-2"
-                        style={{ animation: 'marquee-ltr 10s linear infinite' }}
-                    >
-                        {t('header.ticker')}
-                    </span>
-                </div>
-            </div> */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 relative">
 
@@ -91,12 +52,11 @@ const Header = () => {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center space-x-8">
+                    <nav className="hidden md:flex items-center space-x-6">
                         <Link to="/" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
                             {t('header.home')}
                         </Link>
 
-                        {/* Team link with hover dropdown for seasons */}
                         <div className="relative group">
                             <Link to="/team" className="nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200">
                                 {t('header.team')}
@@ -126,28 +86,29 @@ const Header = () => {
                         <Link to="/contact" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
                             {t('header.contact')}
                         </Link>
-                        {/* <Link to="/support-us" className={`nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200`}>
-                            {t('header.supportUs')}
-                        </Link> */}
+
+                        {/* End Navigation Area */}
                     </nav>
 
                     {/* Mobile menu button */}
-                    <div className="md:hidden">
+                    <div className="md:hidden flex items-center space-x-4">
+                         {/* Language toggle for mobile */}
+                        <button
+                            onClick={toggleLanguage}
+                            className="px-2 py-1 rounded bg-[#9a0e20] text-white text-xs font-bold"
+                        >
+                            {currentLanguage.toUpperCase()}
+                        </button>
                         <button
                             onClick={toggleMenu}
                             className="text-white hover:text-[#9a0e20] transition-all duration-300 transform hover:scale-110 focus:outline-none"
-                            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                         >
-                            {isMenuOpen ? (
-                                <X className="h-7 w-7 transition-transform duration-300" />
-                            ) : (
-                                <Menu className="h-7 w-7 transition-transform duration-300" />
-                            )}
+                            {isMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
                         </button>
                     </div>
 
-                    {/* Language toggle button */}
-                    <div className="hidden md:flex items-center space-x-1">
+                    {/* Desktop Language toggle */}
+                    <div className="hidden md:flex items-center">
                         <button
                             onClick={toggleLanguage}
                             className="ml-4 px-3 py-1.5 rounded-md text-sm font-medium text-white bg-[#9a0e20] hover:bg-[#7a0b1a] transition-colors"
@@ -159,20 +120,21 @@ const Header = () => {
 
                 {/* Mobile Navigation */}
                 {isMenuOpen && (
-                    <div className="md:hidden">
-                        <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-sm border-t border-[#9a0e20]/20">
-                            <Link to="/" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.home')}</Link>
-                            <Link to="/team" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.team')}</Link>
-                            <div>
-                                <Link to="/team/2025-2026" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2025 - 2026</Link>
-                                <Link to="/team/2024-2025" className="block px-6 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>2024 - 2025</Link>
-                            </div>
-                            <Link to="/vehicles" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.vehicles')}</Link>
-                            <Link to="/documents" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.magazine')}</Link>
-                            <Link to="/gallery" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.gallery')}</Link>
-                            <Link to="/sponsors" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.sponsors')}</Link>
-                            <Link to="/contact" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.contact')}</Link>
-                            {/* <Link to="/support-us" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.supportUs')}</Link> */}
+                    <div className="md:hidden bg-black/95 backdrop-blur-sm border-t border-[#9a0e20]/20 max-h-[80vh] overflow-y-auto">
+                        <div className="px-4 pt-2 pb-6 space-y-2">
+                             <Link to="/" className="block py-2 text-white hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>{t('header.home')}</Link>
+                             <Link to="/team" className="block py-2 text-white hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>{t('header.team')}</Link>
+                             <div className="pl-4 space-y-2">
+                                 <Link to="/team/2025-2026" className="block py-1 text-zinc-400 hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>2025 - 2026</Link>
+                                 <Link to="/team/2024-2025" className="block py-1 text-zinc-400 hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>2024 - 2025</Link>
+                             </div>
+                             <Link to="/vehicles" className="block py-2 text-white hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>{t('header.vehicles')}</Link>
+                             <Link to="/documents" className="block py-2 text-white hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>{t('header.magazine')}</Link>
+                             <Link to="/gallery" className="block py-2 text-white hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>{t('header.gallery')}</Link>
+                             <Link to="/sponsors" className="block py-2 text-white hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>{t('header.sponsors')}</Link>
+                             <Link to="/contact" className="block py-2 text-white hover:text-[#9a0e20]" onClick={() => setIsMenuOpen(false)}>{t('header.contact')}</Link>
+                             
+                             {/* Mobile Auth Removed */}
                         </div>
                     </div>
                 )}

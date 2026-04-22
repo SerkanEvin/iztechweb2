@@ -1,10 +1,18 @@
 import { useTranslation } from 'react-i18next';
-import { Instagram, Linkedin, Mail, MapPin, Music2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Instagram, Linkedin, Mail, MapPin, Music2, User as UserIcon, LogOut, Settings } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Footer = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
+  const { user, isAdmin, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   const socialLinks = [
     {
@@ -32,13 +40,11 @@ const Footer = () => {
   const quickLinks = [
     { name: t('footer.links.about'), path: "/" },
     { name: t('footer.links.team'), path: "/team" },
-    //{/*{ name: t('footer.links.team'), path: "/team/2025-2026" },*/}
     { name: t('footer.links.vehicles'), path: "/vehicles" },
     { name: t('footer.links.magazine'), path: "/documents" },
     { name: t('footer.links.gallery'), path: "/gallery" },
     { name: t('footer.links.sponsors'), path: "/sponsors" },
     { name: t('footer.links.contact'), path: "/contact" },
-    // { name: t('supportUs.title'), path: "/support-us" }
   ];
 
   return (
@@ -129,28 +135,37 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-[#2a2a2a] py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-[#cccccc] text-sm mb-4 md:mb-0">
-              {t('footer.copyright', { year: currentYear })}
+            <div className="flex flex-col space-y-2 mb-4 md:mb-0">
+                <div className="text-[#cccccc] text-sm italic">
+                  {t('footer.copyright', { year: currentYear })}
+                </div>
+                {/* Auth Section in Footer */}
+                <div className="flex items-center space-x-6 pt-2">
+                    {user ? (
+                        <>
+                            <Link to="/profile" className="text-zinc-500 hover:text-white flex items-center gap-2 text-xs uppercase tracking-wider transition-colors duration-200">
+                                <UserIcon className="h-3 w-3" /> Profile
+                            </Link>
+                            {isAdmin && (
+                                <Link to="/admin" className="text-zinc-500 hover:text-white flex items-center gap-2 text-xs uppercase tracking-wider transition-colors duration-200">
+                                    <Settings className="h-3 w-3" /> Admin Panel
+                                </Link>
+                            )}
+                            <button onClick={handleLogout} className="text-zinc-500 hover:text-[#a02638] flex items-center gap-2 text-xs uppercase tracking-wider transition-colors duration-200">
+                                <LogOut className="h-3 w-3" /> Logout
+                            </button>
+                        </>
+                    ) : (
+                        <Link to="/login" className="text-[#a02638]/70 hover:text-[#a02638] font-bold text-xs uppercase tracking-widest transition-all duration-300">
+                            Team Access
+                        </Link>
+                    )}
+                </div>
             </div>
-            <div className="flex space-x-6 text-sm">
-              <a
-                href="#"
-                className="text-[#cccccc] hover:text-[#a02638] transition-colors duration-200"
-              >
-                {t('footer.privacy')}
-              </a>
-              <a
-                href="#"
-                className="text-[#cccccc] hover:text-[#a02638] transition-colors duration-200"
-              >
-                {t('footer.terms')}
-              </a>
-              <a
-                href="#"
-                className="text-[#cccccc] hover:text-[#a02638] transition-colors duration-200"
-              >
-                {t('footer.cookie')}
-              </a>
+            <div className="flex space-x-6 text-xs uppercase tracking-widest">
+              <a href="#" className="text-zinc-500 hover:text-white transition-colors duration-200">{t('footer.privacy')}</a>
+              <a href="#" className="text-zinc-500 hover:text-white transition-colors duration-200">{t('footer.terms')}</a>
+              <a href="#" className="text-zinc-500 hover:text-white transition-colors duration-200">{t('footer.cookie')}</a>
             </div>
           </div>
         </div>

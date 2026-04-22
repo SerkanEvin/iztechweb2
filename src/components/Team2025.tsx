@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { PlaceholderImage } from './PlaceholderImage';
 import ProfileModal from './ProfileModal';
+import { supabase } from '../utils/supabaseClient';
 import type { TeamMember } from '../types/team';
 
 const Team2025 = () => {
@@ -12,16 +13,18 @@ const Team2025 = () => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [mergedMembers, setMergedMembers] = useState<TeamMember[]>([]);
 
   // Find member by slug when URL changes
   useEffect(() => {
+    if (!mergedMembers.length) return;
     if (!memberName) {
       setSelectedMember(null);
       setIsModalOpen(false);
       return;
     }
 
-    const member = teamMembers.find(m =>
+    const member = mergedMembers.find(m =>
       createSlug(m.name) === memberName
     );
 
@@ -32,7 +35,7 @@ const Team2025 = () => {
       // If member not found, redirect to team page
       navigate('/team/2025-2026', { replace: true });
     }
-  }, [memberName]);
+  }, [memberName, mergedMembers]);
 
   const createSlug = (name: string): string => {
     return name
@@ -1149,8 +1152,40 @@ const Team2025 = () => {
   ];
 
   useEffect(() => {
+    const syncWithSupabase = async () => {
+      // Query from custom 'users' table instead of 'profiles'
+      const { data: users } = await supabase.from('users').select('*');
+      
+      const updated = teamMembers.map(member => {
+        const dbUser = users?.find(u => 
+          (u.full_name && u.full_name.trim().toLowerCase() === member.name.trim().toLowerCase())
+        );
+
+        if (dbUser) {
+          return {
+            ...member,
+            // Sync the bio from the user account if it exists
+            profile: {
+              ...member.profile,
+              bio: dbUser.bio || member.profile?.bio || "",
+              works: member.profile?.works || [member.image],
+              documents: member.profile?.documents || [],
+              files: dbUser.files || [] // Sync the new files column
+            }
+          };
+        }
+        return member;
+      });
+
+      setMergedMembers(updated);
+    };
+
+    syncWithSupabase();
+  }, [t]);
+
+  useEffect(() => {
     const preloadImages = async () => {
-      const imageUrls = teamMembers.map(p => p.image);
+      const imageUrls = mergedMembers.map(p => p.image);
       const imagePromises = imageUrls.map(url => {
         return new Promise((resolve, reject) => {
           const img = new Image();
@@ -1169,8 +1204,10 @@ const Team2025 = () => {
       }
     };
 
-    preloadImages();
-  }, []);
+    if (mergedMembers.length > 0) {
+      preloadImages();
+    }
+  }, [mergedMembers]);
 
   const TEAM_CATEGORY_MAP: Record<string, string> = {
     team_captain: t('roles.team_captain'),
@@ -1202,7 +1239,7 @@ const Team2025 = () => {
     return categories;
   };
 
-  const groupedMembers = categorizeTeamMembers(teamMembers);
+  const groupedMembers = categorizeTeamMembers(mergedMembers);
   const categories = Object.entries(groupedMembers);
 
   return (
