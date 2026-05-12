@@ -672,23 +672,7 @@ const Team2025 = () => {
         documents: []
       }
     },
-    {
-      name: "Tuğçe Özcan",
-      roleKey: "chassis_ergonomics_team_member",
-      role: t('roles.chassis_ergonomics_team_member'),
-      department: t('departments.materials_engineering'),
-      image: "/tugceozcan3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/tu%C4%9F%C3%A7e-%C3%B6zcan-19738133b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "tugceozcn0409@gmail.com",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/tugceozcan3.webp"],
-        documents: []
-      }
-    },
+
     {
       name: "Nevzat Ediz Burçoğlu",
       roleKey: "powertrain_team_member",
@@ -1155,9 +1139,9 @@ const Team2025 = () => {
     const syncWithSupabase = async () => {
       // Query from custom 'users' table instead of 'profiles'
       const { data: users } = await supabase.from('users').select('*');
-      
+
       const updated = teamMembers.map(member => {
-        const dbUser = users?.find(u => 
+        const dbUser = users?.find(u =>
           (u.full_name && u.full_name.trim().toLowerCase() === member.name.trim().toLowerCase())
         );
 

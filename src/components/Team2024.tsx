@@ -439,9 +439,9 @@ const Team2024 = () => {
     const syncWithSupabase = async () => {
       // Query from custom 'users' table instead of 'profiles'
       const { data: users } = await supabase.from('users').select('*');
-      
+
       const updated = teamMembers.map(member => {
-        const dbUser = users?.find(u => 
+        const dbUser = users?.find(u =>
           (u.full_name && u.full_name.trim().toLowerCase() === member.name.trim().toLowerCase())
         );
 

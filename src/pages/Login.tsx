@@ -67,7 +67,6 @@ const Login: React.FC = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="w-full bg-zinc-800 border border-zinc-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#9a0e20] transition-all"
-              placeholder="ArdaOnuk"
               required
             />
           </div>
@@ -79,7 +78,6 @@ const Login: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full bg-zinc-800 border border-zinc-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#9a0e20] transition-all"
-              placeholder="••••••••"
               required
             />
           </div>

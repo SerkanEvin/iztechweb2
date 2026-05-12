@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
-import { Check, X, Edit2, Trash2, Shield, User as UserIcon, Clock } from 'lucide-react';
+import { Check, X, Edit2, Trash2, Shield, User as UserIcon, Clock, FileText, ImageIcon, Download } from 'lucide-react';
+
+interface FileMetadata {
+  name: string;
+  url: string;
+  type: string;
+  size: number;
+  uploaded_at: string;
+}
 
 interface UserProfile {
   username: string;
@@ -10,6 +18,7 @@ interface UserProfile {
   is_restricted: boolean;
   is_approved: boolean;
   bio: string;
+  files?: FileMetadata[]; // New field
 }
 
 const AdminDashboard: React.FC = () => {
@@ -73,6 +82,37 @@ const AdminDashboard: React.FC = () => {
       setMessage({ type: 'success', text: 'User updated successfully' });
       setEditingUser(null);
       fetchProfiles();
+    }
+  };
+
+  const handleDeleteFile = async (fileUrl: string) => {
+    if (!editingUser) return;
+    
+    try {
+      // 1. Remove from Storage
+      const urlParts = fileUrl.split('profile-files/');
+      const fullPath = urlParts.length > 1 ? urlParts[1] : null;
+      
+      if (fullPath) {
+        const decodedPath = decodeURIComponent(fullPath);
+        await supabase.storage.from('profile-files').remove([decodedPath]);
+      }
+
+      // 2. Remove from DB array
+      const updatedFiles = (editingUser.files || []).filter((f: FileMetadata) => f.url !== fileUrl);
+      const { error } = await supabase
+        .from('users')
+        .update({ files: updatedFiles })
+        .eq('username', editingUser.username);
+
+      if (error) throw error;
+      
+      // Update local state to reflect change
+      setEditingUser({ ...editingUser, files: updatedFiles });
+      setMessage({ type: 'success', text: 'File deleted successfully' });
+      fetchProfiles(); // Refresh background list
+    } catch (err: any) {
+      setMessage({ type: 'error', text: 'Failed to delete file' });
     }
   };
 
@@ -265,7 +305,50 @@ const AdminDashboard: React.FC = () => {
                 />
               </div>
 
-              <div className="flex items-center gap-4 pt-4">
+              <div className="pt-4 border-t border-zinc-800">
+                <label className="block text-zinc-500 text-[10px] font-black uppercase tracking-widest mb-4">Member Files & Documents</label>
+                <div className="grid gap-3 max-h-[200px] overflow-y-auto pr-2 custom-scrollbar">
+                  {editingUser.files && editingUser.files.length > 0 ? (
+                    editingUser.files.map((file, idx) => (
+                      <div key={idx} className="bg-zinc-800/50 border border-zinc-700/50 rounded-xl p-3 flex items-center justify-between group/file">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-zinc-900 flex items-center justify-center text-zinc-500">
+                             {file.type.includes('image') ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+                          </div>
+                          <div className="overflow-hidden">
+                            <p className="text-[11px] font-bold text-white truncate max-w-[150px]">{file.name}</p>
+                            <p className="text-[9px] text-zinc-500 uppercase font-mono">{(file.size / 1024).toFixed(1)} KB</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-1">
+                          <a 
+                            href={file.url} 
+                            target="_blank" 
+                            rel="noreferrer"
+                            className="p-2 text-zinc-500 hover:text-white transition-colors"
+                          >
+                            <Download className="w-4 h-4" />
+                          </a>
+                          <button 
+                            type="button"
+                            onClick={() => handleDeleteFile(file.url)}
+                            className="p-2 text-zinc-500 hover:text-red-500 transition-colors"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="text-center py-6 bg-zinc-800/30 border border-dashed border-zinc-800 rounded-xl text-zinc-600 text-[10px] font-bold uppercase tracking-widest">
+                      No files uploaded
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 pt-6 mt-6 border-t border-zinc-800">
                 <button 
                   type="submit"
                   className="flex-1 bg-[#9a0e20] hover:bg-[#7a0b1a] text-white font-black uppercase tracking-widest p-4 rounded-xl shadow-xl shadow-[#9a0e20]/20 transition-all transform hover:scale-[1.02] active:scale-95"
