@@ -448,6 +448,15 @@ const Team2024 = () => {
         if (dbUser) {
           return {
             ...member,
+            social: {
+              ...member.social,
+              linkedin: dbUser.linkedin || member.social?.linkedin || "#",
+              email: dbUser.email || member.social?.email || "",
+              github: dbUser.github || member.social?.github || "#",
+              instagram: dbUser.instagram || member.social?.instagram || "",
+              x: dbUser.x || member.social?.x || "",
+              tiktok: dbUser.tiktok || member.social?.tiktok || ""
+            },
             // Sync the bio from the user account if it exists
             profile: {
               ...member.profile,

@@ -1,4 +1,4 @@
-import { X, Mail, Linkedin, Instagram, FileText, ExternalLink, ChevronUp, ChevronDown } from 'lucide-react';
+import { X, Mail, Linkedin, Instagram, FileText, ExternalLink, ChevronUp, ChevronDown, Twitter, Share2, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { TeamMember } from '../types/team';
 import { useEffect, useRef, useState, useCallback } from 'react';
@@ -228,23 +228,27 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
 
               {/* Social Links */}
               <div className="flex flex-wrap gap-4 mb-8">
-                <a
-                  href={`mailto:${member.social.email}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#a02638] text-white rounded-lg hover:bg-[#c03048] transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  {t('profile.email')}
-                </a>
-                <a
-                  href={member.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] text-white rounded-lg hover:bg-[#a02638] transition-colors border border-[#3a3a3a]"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </a>
-                {member.social.instagram && (
+                {member.social.email && (
+                  <a
+                    href={`mailto:${member.social.email}`}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#a02638] text-white rounded-lg hover:bg-[#c03048] transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                    {t('profile.email')}
+                  </a>
+                )}
+                {member.social.linkedin && member.social.linkedin !== '#' && (
+                  <a
+                    href={member.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] text-white rounded-lg hover:bg-[#a02638] transition-colors border border-[#3a3a3a]"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                )}
+                {member.social.instagram && member.social.instagram !== '#' && (
                   <a
                     href={member.social.instagram}
                     target="_blank"
@@ -253,6 +257,39 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
                   >
                     <Instagram className="w-4 h-4" />
                     Instagram
+                  </a>
+                )}
+                {member.social.x && member.social.x !== '#' && (
+                  <a
+                    href={member.social.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] text-white rounded-lg hover:bg-[#a02638] transition-colors border border-[#3a3a3a]"
+                  >
+                    <Twitter className="w-4 h-4" />
+                    X
+                  </a>
+                )}
+                {member.social.tiktok && member.social.tiktok !== '#' && (
+                  <a
+                    href={member.social.tiktok}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] text-white rounded-lg hover:bg-[#a02638] transition-colors border border-[#3a3a3a]"
+                  >
+                    <Share2 className="w-4 h-4" />
+                    TikTok
+                  </a>
+                )}
+                {member.social.github && member.social.github !== '#' && (
+                  <a
+                    href={member.social.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] text-white rounded-lg hover:bg-[#a02638] transition-colors border border-[#3a3a3a]"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
                   </a>
                 )}
               </div>

@@ -9,6 +9,8 @@ export interface TeamMember {
     email: string;
     github?: string;
     instagram?: string;
+    x?: string;
+    tiktok?: string;
   };
   profile?: {
     bio: string;

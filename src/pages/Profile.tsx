@@ -22,6 +22,11 @@ interface UserProfile {
   full_name: string;
   bio: string;
   email: string;
+  linkedin?: string;
+  instagram?: string;
+  x?: string;
+  tiktok?: string;
+  github?: string;
   files: FileMetadata[];
 }
 
@@ -32,6 +37,11 @@ const Profile: React.FC = () => {
   const [editing, setEditing] = useState(false);
   const [fullName, setFullName] = useState('');
   const [bio, setBio] = useState('');
+  const [linkedin, setLinkedin] = useState('');
+  const [instagram, setInstagram] = useState('');
+  const [x, setX] = useState('');
+  const [tiktok, setTiktok] = useState('');
+  const [github, setGithub] = useState('');
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
@@ -51,6 +61,11 @@ const Profile: React.FC = () => {
         setProfile(data);
         setFullName(data.full_name || '');
         setBio(data.bio || '');
+        setLinkedin(data.linkedin || '');
+        setInstagram(data.instagram || '');
+        setX(data.x || '');
+        setTiktok(data.tiktok || '');
+        setGithub(data.github || '');
       }
     }
     setLoading(false);
@@ -66,6 +81,11 @@ const Profile: React.FC = () => {
       .update({ 
         full_name: fullName, 
         bio: bio,
+        linkedin: linkedin,
+        instagram: instagram,
+        x: x,
+        tiktok: tiktok,
+        github: github,
         updated_at: new Date().toISOString()
       })
       .eq('username', profile.username);
@@ -200,6 +220,56 @@ const Profile: React.FC = () => {
                     placeholder="Briefly describe your role and contributions..."
                   />
                 </div>
+                <div>
+                  <label className="block text-zinc-400 text-sm mb-1">LinkedIn URL</label>
+                  <input
+                    type="text"
+                    value={linkedin}
+                    onChange={(e) => setLinkedin(e.target.value)}
+                    placeholder="https://linkedin.com/in/username"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-zinc-400 text-sm mb-1">Instagram URL</label>
+                  <input
+                    type="text"
+                    value={instagram}
+                    onChange={(e) => setInstagram(e.target.value)}
+                    placeholder="https://instagram.com/username"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-zinc-400 text-sm mb-1">X (Twitter) URL</label>
+                  <input
+                    type="text"
+                    value={x}
+                    onChange={(e) => setX(e.target.value)}
+                    placeholder="https://x.com/username"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-zinc-400 text-sm mb-1">TikTok URL</label>
+                  <input
+                    type="text"
+                    value={tiktok}
+                    onChange={(e) => setTiktok(e.target.value)}
+                    placeholder="https://tiktok.com/@username"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-zinc-400 text-sm mb-1">GitHub URL</label>
+                  <input
+                    type="text"
+                    value={github}
+                    onChange={(e) => setGithub(e.target.value)}
+                    placeholder="https://github.com/username"
+                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  />
+                </div>
                 <div className="flex space-x-4">
                   <button
                     type="submit"
@@ -227,6 +297,16 @@ const Profile: React.FC = () => {
                   <p className="text-[#cccccc] leading-relaxed">
                     {profile.bio || 'No bio written yet. Click edit to add one!'}
                   </p>
+                </div>
+                <div>
+                  <label className="block text-zinc-400 text-sm mb-1">Social Media Accounts</label>
+                  <div className="space-y-1 text-[#cccccc]">
+                    <p><span className="font-semibold">LinkedIn:</span> {profile.linkedin || 'Not set'}</p>
+                    <p><span className="font-semibold">Instagram:</span> {profile.instagram || 'Not set'}</p>
+                    <p><span className="font-semibold">X (Twitter):</span> {profile.x || 'Not set'}</p>
+                    <p><span className="font-semibold">TikTok:</span> {profile.tiktok || 'Not set'}</p>
+                    <p><span className="font-semibold">GitHub:</span> {profile.github || 'Not set'}</p>
+                  </div>
                 </div>
                 <div className="pt-2">
                   <button
