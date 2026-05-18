@@ -175,23 +175,7 @@ const Team2025 = () => {
         documents: []
       }
     },
-    {
-      name: "Zeynep Konuk",
-      roleKey: "organization_team_member",
-      role: t('roles.organization_team_member'),
-      department: t('departments.materials_engineering'),
-      image: "/ZEYNEPKONU3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/zeynep-konuk-638b09337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "zkonuk@std.iyte.edu.tr",
-        instagram: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/ZEYNEPKONU3.webp"],
-        documents: []
-      }
-    },
+
     {
       name: "Elif Kanat",
       roleKey: "organization_team_member",
@@ -328,23 +312,7 @@ const Team2025 = () => {
         documents: []
       }
     },
-    {
-      name: "Serhat Bakır",
-      roleKey: "electronics_software_team_member",
-      role: t('roles.electronics_software_team_member'),
-      department: t('departments.electronics_engineering'),
-      image: "/serhatbakir3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/serhat-bak%C4%B1r-313547247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/bakir3.webp"],
-        documents: []
-      }
-    },
+
     {
       name: "İpek Turan",
       roleKey: "organization_team_member",
@@ -741,23 +709,7 @@ const Team2025 = () => {
         documents: []
       }
     },
-    {
-      name: "Muhammet Emin Günümdoğdu",
-      roleKey: "powertrain_team_member",
-      role: t('roles.powertrain_team_member'),
-      department: t('departments.mechanical_engineering'),
-      image: "/emin15.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/muhammed-emin-g%C3%BCn%C3%BCmdo%C4%9Fdu-5754b4384?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/emin15.webp"],
-        documents: []
-      }
-    },
+
     {
       name: "Berkcan Kaya ",
       roleKey: "powertrain_team_member",
@@ -1130,6 +1082,40 @@ const Team2025 = () => {
       profile: {
         bio: "",
         works: ["/kadrimericirmak3.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Atilla Balaban",
+      roleKey: "business_development_team_member",
+      role: t('roles.business_development_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/KUZEY.webp",
+      social: {
+        linkedin: "#",
+        email: "",
+        github: "#"
+      },
+      profile: {
+        bio: "",
+        works: ["/KUZEY.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Zeynep Esra Uzel",
+      roleKey: "business_development_team_member",
+      role: t('roles.business_development_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/KUZEY.webp",
+      social: {
+        linkedin: "#",
+        email: "",
+        github: "#"
+      },
+      profile: {
+        bio: "",
+        works: ["/KUZEY.webp"],
         documents: []
       }
     }
