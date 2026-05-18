@@ -6,6 +6,20 @@ const Documents = () => {
 
     const magazines = [
         {
+            title: t('magazines.projekitabi.title'),
+            description: t('magazines.projekitabi.description'),
+            cover: "/proje_cover.webp",
+            pdf: "IZTECHRACINGProjeKitapçığı300426.pdf",
+            date: new Date(2026, 3, 30)
+        },
+        {
+            title: t('magazines.april.title'),
+            description: t('magazines.april.description'),
+            cover: "/april_cover.webp",
+            pdf: "APRILRECAP.pdf",
+            date: new Date(2026, 3, 1)
+        },
+        {
             title: t('magazines.november.title'),
             description: t('magazines.november.description'),
             cover: "/november.jpeg",

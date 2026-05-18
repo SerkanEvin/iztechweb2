@@ -19,7 +19,8 @@ export default function Sponsors() {
         { name: "Numesys", logo: "/numesys-logo-gri-min.png", url: "https://www.numesys.com.tr/" },
         { name: "Tekyaz", logo: "/TEKYAZ_LOGO_002.png", url: "https://www.tekyaz.com/" },
         { name: "Sibe", logo: "/sibe2.png", url: "https://www.sibe.io/" },
-        { name: "GT", logo: "/GT.png", url: "https://www.gtisoft.com/" }
+        { name: "GT", logo: "/GT.png", url: "https://www.gtisoft.com/" },
+        { name: "U Holding", logo: "/uholding.webp", url: "#" }
       ]
     },
     {
@@ -37,7 +38,8 @@ export default function Sponsors() {
         { name: "Yakup Yılmaz", logo: "/yakup.png", url: "https://www.yakupyilmazboru.com/" },
         { name: "KP", logo: "/kp-vertical-logo.png", url: "https://kompozitpazari.com/" },
         { name: "dekomod", logo: "/dekomod_logo_buyuk_1.webp", url: "https://dekomodmimarlik.com/" },
-        { name: "UTRONIX", logo: "/UTRONIX_logo.webp", url: "https://www.u-tronix.com/" }
+        { name: "UTRONIX", logo: "/UTRONIX_logo.webp", url: "https://www.u-tronix.com/" },
+        { name: "XXL", logo: "/xxl.webp", url: "#" }
       ]
     },
     {
@@ -51,7 +53,12 @@ export default function Sponsors() {
         { name: "kartesis", logo: "/kartesis.png", url: "https://www.kartesis.com/" },
         { name: "bosch", logo: "/bosch.png", url: "https://www.bosch.com.tr/" },
         { name: "yuksek", logo: "/yuksek.webp", url: "https://www.teknoparkizmir.com.tr/tr/firma-cron/izmir-teknoloji-sanayi-ve-ticaret-a-s/" },
-        { name: "slogan", logo: "/logoSlogan.webp", url: "https://artibeton.com.tr/" }
+        { name: "slogan", logo: "/logoSlogan.webp", url: "https://artibeton.com.tr/" },
+        { name: "Simetrisöve", logo: "/simetrisove.webp", url: "#" },
+        { name: "Plaka Metal Logo", logo: "/plaka_metal_logo.webp", url: "#" },
+        { name: "Onur Yapı Market", logo: "/onuryapimarket.webp", url: "#" },
+        { name: "Mustan Logo", logo: "/mustan_logo.webp", url: "#" },
+        { name: "S Axis", logo: "/s_axis.webp", url: "#" }
       ]
     }
   ];

@@ -471,23 +471,6 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Taha Berke Büyüktaş",
-      roleKey: "chassis_ergonomics_team_member",
-      role: t('roles.chassis_ergonomics_team_member'),
-      department: t('departments.civil_engineering'),
-      image: "/tahaberke3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/taha-berke-b%C3%BCy%C3%BCkta%C5%9F-56b525241/",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/tahaberke3.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Arda Keskin",
       roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
@@ -658,23 +641,7 @@ const Team2025 = () => {
         documents: []
       }
     },
-    {
-      name: "Mustafa Güngör ",
-      roleKey: "powertrain_team_member",
-      role: t('roles.powertrain_team_member'),
-      department: t('departments.mechanical_engineering'),
-      image: "/o.webp",
-      social: {
-        linkedin: " https://www.linkedin.com/in/mustafa-g%C3%BCng%C3%B6r-865b79398?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/o.webp"],
-        documents: []
-      }
-    },
+
     {
       name: "Kerem Katrancı",
       roleKey: "powertrain_team_member",
@@ -829,40 +796,8 @@ const Team2025 = () => {
         documents: []
       }
     },
-    {
-      name: "Anıl Hasan Paşaoğlu",
-      roleKey: "chassis_ergonomics_team_member",
-      role: t('roles.chassis_ergonomics_team_member'),
-      department: t('departments.mechanical_engineering'),
-      image: "/o.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/an%C4%B1l-hasan-pa%C5%9Fao%C4%9Flu-273255353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/o.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Caner Kamar",
-      roleKey: "chassis_ergonomics_team_member",
-      role: t('roles.chassis_ergonomics_team_member'),
-      department: t('departments.mechanical_engineering'),
-      image: "/canerkamar3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/caner-kamar-aa40172b3",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/canerkamar3.webp"],
-        documents: []
-      }
-    },
+
+
     {
       name: "Yusuf Koymatoğlu",
       roleKey: "chassis_ergonomics_team_member",
@@ -983,23 +918,6 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Furkan Aktaş",
-      roleKey: "aerodynamics_team_member",
-      role: t('roles.aerodynamics_team_member'),
-      department: t('departments.mechanical_engineering'),
-      image: "/furkanaktas3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/furkan-aktaş-386913229?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/furkanaktas3.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Efe Yıldırım",
       roleKey: "aerodynamics_team_member",
       role: t('roles.aerodynamics_advisor'),
@@ -1069,27 +987,10 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Kadri Meriç Irmak",
-      roleKey: "chassis_ergonomics_team_member",
-      role: t('roles.chassis_ergonomics_team_member'),
-      department: t('departments.industrial_design'),
-      image: "/kadrimericirmak3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/kadri-meri%C3%A7-irmak-b624a92a0/ ",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/kadrimericirmak3.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Atilla Balaban",
-      roleKey: "business_development_team_member",
-      role: t('roles.business_development_team_member'),
-      department: t('departments.mechanical_engineering'),
+      roleKey: "vehicle_dynamics_team_member",
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.materials_engineering'),
       image: "/KUZEY.webp",
       social: {
         linkedin: "#",
@@ -1106,7 +1007,7 @@ const Team2025 = () => {
       name: "Zeynep Esra Uzel",
       roleKey: "business_development_team_member",
       role: t('roles.business_development_team_member'),
-      department: t('departments.mechanical_engineering'),
+      department: t('departments.industrial_design'),
       image: "/KUZEY.webp",
       social: {
         linkedin: "#",
@@ -1116,6 +1017,23 @@ const Team2025 = () => {
       profile: {
         bio: "",
         works: ["/KUZEY.webp"],
+        documents: []
+      }
+    },
+    {
+      name: "Ata Boran Kılıç",
+      roleKey: "vehicle_dynamics_team_member",
+      role: t('roles.vehicle_dynamics_team_member'),
+      department: t('departments.mechanical_engineering'),
+      image: "/o.webp",
+      social: {
+        linkedin: "#",
+        email: "",
+        github: "#"
+      },
+      profile: {
+        bio: "",
+        works: ["/o.webp"],
         documents: []
       }
     }
