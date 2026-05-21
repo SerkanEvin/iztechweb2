@@ -1,4 +1,4 @@
-import { X, Mail, Linkedin, Instagram, FileText, ExternalLink, ChevronUp, ChevronDown, Twitter, Share2, Github } from 'lucide-react';
+import { X, Mail, Instagram, FileText, ExternalLink, ChevronUp, ChevronDown, Twitter, Share2, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { TeamMember } from '../types/team';
 import { useEffect, useRef, useState, useCallback } from 'react';
@@ -237,17 +237,7 @@ const ProfileModal = ({ member, isOpen, onClose }: ProfileModalProps) => {
                     {t('profile.email')}
                   </a>
                 )}
-                {member.social.linkedin && member.social.linkedin !== '#' && (
-                  <a
-                    href={member.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] text-white rounded-lg hover:bg-[#a02638] transition-colors border border-[#3a3a3a]"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </a>
-                )}
+
                 {member.social.instagram && member.social.instagram !== '#' && (
                   <a
                     href={member.social.instagram}

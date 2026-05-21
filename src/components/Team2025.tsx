@@ -1054,7 +1054,6 @@ const Team2025 = () => {
             ...member,
             social: {
               ...member.social,
-              linkedin: dbUser.linkedin || member.social?.linkedin || "#",
               email: dbUser.email || member.social?.email || "",
               github: dbUser.github || member.social?.github || "#",
               instagram: dbUser.instagram || member.social?.instagram || "",

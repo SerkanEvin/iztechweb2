@@ -22,14 +22,14 @@ const JoinUs = () => {
       </section>
 
       {/* 7 Full-page Sections stacked like the homepage composition */}
-        <BusinessDevelopment />
-        <Organization />
-        <ElectronicsSoftware />
-        <Aerodynamics />
-        <Powertrain />
-        <VehicleDynamics />
-        <ChassisErgonomics />
-      
+      <BusinessDevelopment />
+      <Organization />
+      <ElectronicsSoftware />
+      <Aerodynamics />
+      <Powertrain />
+      <VehicleDynamics />
+      <ChassisErgonomics />
+
       {/* Bottom Primary CTA */}
       <section className="relative z-10 py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

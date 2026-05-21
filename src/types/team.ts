@@ -5,7 +5,6 @@ export interface TeamMember {
   department: string;
   image: string;
   social: {
-    linkedin: string;
     email: string;
     github?: string;
     instagram?: string;

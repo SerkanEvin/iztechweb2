@@ -22,7 +22,7 @@ interface UserProfile {
   full_name: string;
   bio: string;
   email: string;
-  linkedin?: string;
+
   instagram?: string;
   x?: string;
   tiktok?: string;
@@ -37,7 +37,7 @@ const Profile: React.FC = () => {
   const [editing, setEditing] = useState(false);
   const [fullName, setFullName] = useState('');
   const [bio, setBio] = useState('');
-  const [linkedin, setLinkedin] = useState('');
+
   const [instagram, setInstagram] = useState('');
   const [x, setX] = useState('');
   const [tiktok, setTiktok] = useState('');
@@ -61,7 +61,7 @@ const Profile: React.FC = () => {
         setProfile(data);
         setFullName(data.full_name || '');
         setBio(data.bio || '');
-        setLinkedin(data.linkedin || '');
+
         setInstagram(data.instagram || '');
         setX(data.x || '');
         setTiktok(data.tiktok || '');
@@ -81,7 +81,7 @@ const Profile: React.FC = () => {
       .update({ 
         full_name: fullName, 
         bio: bio,
-        linkedin: linkedin,
+
         instagram: instagram,
         x: x,
         tiktok: tiktok,
@@ -220,16 +220,7 @@ const Profile: React.FC = () => {
                     placeholder="Briefly describe your role and contributions..."
                   />
                 </div>
-                <div>
-                  <label className="block text-zinc-400 text-sm mb-1">LinkedIn URL</label>
-                  <input
-                    type="text"
-                    value={linkedin}
-                    onChange={(e) => setLinkedin(e.target.value)}
-                    placeholder="https://linkedin.com/in/username"
-                    className="w-full bg-zinc-800 border border-zinc-700 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                  />
-                </div>
+
                 <div>
                   <label className="block text-zinc-400 text-sm mb-1">Instagram URL</label>
                   <input
@@ -301,7 +292,7 @@ const Profile: React.FC = () => {
                 <div>
                   <label className="block text-zinc-400 text-sm mb-1">Social Media Accounts</label>
                   <div className="space-y-1 text-[#cccccc]">
-                    <p><span className="font-semibold">LinkedIn:</span> {profile.linkedin || 'Not set'}</p>
+
                     <p><span className="font-semibold">Instagram:</span> {profile.instagram || 'Not set'}</p>
                     <p><span className="font-semibold">X (Twitter):</span> {profile.x || 'Not set'}</p>
                     <p><span className="font-semibold">TikTok:</span> {profile.tiktok || 'Not set'}</p>
