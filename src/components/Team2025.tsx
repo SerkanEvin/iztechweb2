@@ -176,23 +176,8 @@ const Team2025 = () => {
       }
     },
 
-    {
-      name: "Elif Kanat",
-      roleKey: "organization_team_member",
-      role: t('roles.organization_team_member'),
-      department: t('departments.architecture'),
-      image: "/elifkanat3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/elif-kanat-b1aa83398?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        email: "",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/elifkanat3.webp"],
-        documents: []
-      }
-    },
+
+
     {
       name: "Rumeysa Eda Çolak",
       roleKey: "organization_team_member",
@@ -518,23 +503,6 @@ const Team2025 = () => {
       profile: {
         bio: "",
         works: ["/enis3.webp"],
-        documents: []
-      }
-    },
-    {
-      name: "Betül Pelin Başaran",
-      roleKey: "electronics_software_team_member",
-      role: t('roles.electronics_software_team_member'),
-      department: t('departments.computer_engineering'),
-      image: "/betulpelin3.webp",
-      social: {
-        linkedin: "https://www.linkedin.com/in/bet%C3%BCl-pelin-ba%C5%9Faran-6912a9389?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app\n",
-        email: "@iztechracing.com",
-        github: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/betulpelin3.webp"],
         documents: []
       }
     },
