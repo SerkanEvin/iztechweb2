@@ -7,8 +7,7 @@ export default function Sponsors() {
       tier: "platinum",
       members: [
         { name: "Prokom", logo: "/sponsors/prokom.png", url: "https://prokomtech.com/" },
-        { name: "Olguntech", logo: "/sponsors/olguntech.png", url: "#" },
-        { name: "Ford Otosan", logo: "/sponsors/ford_otosan.png", url: "#" }
+        { name: "Olguntech", logo: "/sponsors/olguntech.png", url: "#" }
       ]
     },
     {
@@ -36,7 +35,6 @@ export default function Sponsors() {
         { name: "Erenli", logo: "/sponsors/erenli.png", url: "#" },
         { name: "Festo", logo: "/sponsors/festo.png", url: "#" },
         { name: "Menemen Belediyesi", logo: "/sponsors/menemen_belediyesi.png", url: "#" },
-        { name: "İYTE", logo: "/sponsors/iyte.png", url: "#" },
         { name: "İnci Holding", logo: "/sponsors/inci_holding.png", url: "#" },
         { name: "Urla Belediyesi", logo: "/sponsors/urla_belediyesi.png", url: "#" },
         { name: "Özgörkey", logo: "/sponsors/ozgorkey.png", url: "#" },
@@ -53,13 +51,13 @@ export default function Sponsors() {
         { name: "Galata Wind", logo: "/sponsors/galata_wind.png", url: "#" },
         { name: "Obel Cıvata", logo: "/sponsors/obel_civata.png", url: "#" },
         { name: "Spark", logo: "/sponsors/spark.png", url: "#" },
-        { name: "Şencanlar Egzoz Sistemleri", logo: "/sponsors/sencanlar_egzoz_sistemleri.png", url: "#" }
+        { name: "Şencanlar Egzoz Sistemleri", logo: "/sponsors/sencanlar_egzoz_sistemleri.png", url: "#" },
+        { name: "Urla Solar", logo: "/sponsors/urla_solar.png", url: "https://urlasolar.com/" }
       ]
     },
     {
       tier: "supporters",
       members: [
-        { name: "Urla Solar", logo: "/sponsors/urla_solar.png", url: "https://urlasolar.com/" },
         { name: "Bilişim Vadisi", logo: "/sponsors/bilisim_vadisi.png", url: "https://bilisimvadisi.com.tr/" },
         { name: "Teknopark İzmir", logo: "/sponsors/teknopark_izmir.png", url: "https://teknoparkizmir.com.tr/" },
         { name: "URİKAD", logo: "/sponsors/urikad.png", url: "#" },
