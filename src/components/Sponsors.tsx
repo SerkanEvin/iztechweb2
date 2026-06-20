@@ -6,63 +6,79 @@ export default function Sponsors() {
     {
       tier: "platinum",
       members: [
-        { name: "Prokom", logo: "/Logo_Prokom_W.png", url: "https://prokomtech.com/" },
-        { name: "Olguntech", logo: "/olguntech.webp", url: "#" }
+        { name: "Prokom", logo: "/sponsors/prokom.png", url: "https://prokomtech.com/" },
+        { name: "Olguntech", logo: "/sponsors/olguntech.png", url: "#" },
+        { name: "Ford Otosan", logo: "/sponsors/ford_otosan.png", url: "#" }
       ]
     },
     {
       tier: "gold",
       members: [
-        { name: "Altair", logo: "/altair.png", url: "https://altair.com/" },
-        { name: "ANSYS", logo: "/ANSYS_logo.png", url: "https://www.ansys.com/" },
-        { name: "Numesys", logo: "/numesys-logo-gri-min.png", url: "https://www.numesys.com.tr/" },
-        { name: "Tekyaz", logo: "/TEKYAZ_LOGO_002.png", url: "https://www.tekyaz.com/" },
-        { name: "Sibe", logo: "/sibe2.png", url: "https://www.sibe.io/" },
-        { name: "GT", logo: "/GT.png", url: "https://www.gtisoft.com/" },
-        { name: "U Holding", logo: "/uholding.webp", url: "#" },
-        { name: "Maxion", logo: "/maxion.webp", url: "#" },
-        { name: "SKF", logo: "/skf.webp", url: "#" }
+        { name: "Altair", logo: "/sponsors/altair.png", url: "https://altair.com/" },
+        { name: "ANSYS", logo: "/sponsors/ansys.png", url: "https://www.ansys.com/" },
+        { name: "Numesys", logo: "/sponsors/numesys.png", url: "https://www.numesys.com.tr/" },
+        { name: "Tekyaz", logo: "/sponsors/tekyaz.png", url: "https://www.tekyaz.com/" },
+        { name: "Sibe", logo: "/sponsors/sibe.png", url: "https://www.sibe.io/" },
+        { name: "GT", logo: "/sponsors/gt.png", url: "https://www.gtisoft.com/" },
+        { name: "U Holding", logo: "/sponsors/u_holding.png", url: "#" },
+        { name: "Maxion", logo: "/sponsors/maxion.png", url: "#" },
+        { name: "Magmaweld", logo: "/sponsors/magmaweld.png", url: "#" },
+        { name: "VI-grade", logo: "/sponsors/vi-grade.png", url: "#" },
+        { name: "Olgunçelik", logo: "/sponsors/olguncelik.png", url: "#" }
       ]
     },
     {
       tier: "silver",
       members: [
-        { name: "Avioni Technologies", logo: "/5958e813d0893.png", url: "https://www.avionitech.com/tr/" },
-        { name: "IZELTAŞ", logo: "/images.png", url: "https://izeltas.com.tr/" },
-        { name: "silvs", logo: "/sivs.webp", url: "https://iztechracing.com.tr/" },
-        { name: "Erenli", logo: "/erenli.webp", url: "#" },
-        { name: "Festo", logo: "/festo.webp", url: "#" }
+        { name: "Avioni Technologies", logo: "/sponsors/avioni_technologies.png", url: "https://www.avionitech.com/tr/" },
+        { name: "IZELTAŞ", logo: "/sponsors/izeltas.png", url: "https://izeltas.com.tr/" },
+        { name: "Uğur Makina", logo: "/sponsors/ugur_makina.png", url: "#" },
+        { name: "Erenli", logo: "/sponsors/erenli.png", url: "#" },
+        { name: "Festo", logo: "/sponsors/festo.png", url: "#" },
+        { name: "Menemen Belediyesi", logo: "/sponsors/menemen_belediyesi.png", url: "#" },
+        { name: "İYTE", logo: "/sponsors/iyte.png", url: "#" },
+        { name: "İnci Holding", logo: "/sponsors/inci_holding.png", url: "#" },
+        { name: "Urla Belediyesi", logo: "/sponsors/urla_belediyesi.png", url: "#" },
+        { name: "Özgörkey", logo: "/sponsors/ozgorkey.png", url: "#" },
+        { name: "SKF", logo: "/sponsors/skf.png", url: "#" },
+        { name: "XXL", logo: "/sponsors/xxl.png", url: "#" },
+        { name: "slogan", logo: "/sponsors/slogan.png", url: "https://artibeton.com.tr/" },
+        { name: "bosch", logo: "/sponsors/bosch.png", url: "https://www.bosch.com.tr/" }
       ]
     },
     {
       tier: "bronze",
       members: [
-        { name: "dekomod", logo: "/dekomod_logo_buyuk_1.webp", url: "https://dekomodmimarlik.com/" },
-        { name: "XXL", logo: "/xxl.webp", url: "#" }
+        { name: "dekomod", logo: "/sponsors/dekomod.png", url: "https://dekomodmimarlik.com/" },
+        { name: "Galata Wind", logo: "/sponsors/galata_wind.png", url: "#" },
+        { name: "Obel Cıvata", logo: "/sponsors/obel_civata.png", url: "#" },
+        { name: "Spark", logo: "/sponsors/spark.png", url: "#" },
+        { name: "Şencanlar Egzoz Sistemleri", logo: "/sponsors/sencanlar_egzoz_sistemleri.png", url: "#" }
       ]
     },
     {
       tier: "supporters",
       members: [
-        { name: "Urla Solar", logo: "/UrlaSolar_Tam_Logo.png", url: "https://urlasolar.com/" },
-        { name: "Bilişim Vadisi", logo: "/BV_Logo_H.png", url: "https://bilisimvadisi.com.tr/" },
-        { name: "Teknopark İzmir", logo: "/20190828083905.png", url: "https://teknoparkizmir.com.tr/" },
-        { name: "URİKAD", logo: "/URiKADW.png", url: "#" },
-        { name: "SCH-RA", logo: "/SCH-RA-White-N-L_2013W.png", url: "https://www.schrothracing.com/" },
-        { name: "bosch", logo: "/bosch.png", url: "https://www.bosch.com.tr/" },
-        { name: "yuksek", logo: "/yuksek.webp", url: "https://www.teknoparkizmir.com.tr/tr/firma-cron/izmir-teknoloji-sanayi-ve-ticaret-a-s/" },
-        { name: "slogan", logo: "/logoSlogan.webp", url: "https://artibeton.com.tr/" },
-        { name: "Simetrisöve", logo: "/simetrisove.webp", url: "#" },
-        { name: "Plaka Metal Logo", logo: "/plaka_metal_logo.webp", url: "#" },
-        { name: "Onur Yapı Market", logo: "/onuryapimarket.webp", url: "#" },
-        { name: "Mustan Logo", logo: "/mustan_logo.webp", url: "#" },
-        { name: "S Axis", logo: "/s_axis.webp", url: "#" },
-        { name: "İzmir AV Market", logo: "/izmiravmarket.webp", url: "#" },
-        { name: "Yeditepe Transportation", logo: "/yeditepe.webp", url: "#" },
-        { name: "Şencanlar Egzoz Sistemleri", logo: "/sencanlar.webp", url: "#" },
-        { name: "Spark", logo: "/spark.webp", url: "#" },
-        { name: "Kramsan", logo: "/kramsan.webp", url: "#" },
-        { name: "Alemdar", logo: "/alemdar.webp", url: "#" }
+        { name: "Urla Solar", logo: "/sponsors/urla_solar.png", url: "https://urlasolar.com/" },
+        { name: "Bilişim Vadisi", logo: "/sponsors/bilisim_vadisi.png", url: "https://bilisimvadisi.com.tr/" },
+        { name: "Teknopark İzmir", logo: "/sponsors/teknopark_izmir.png", url: "https://teknoparkizmir.com.tr/" },
+        { name: "URİKAD", logo: "/sponsors/urikad.png", url: "#" },
+        { name: "SCH-RA", logo: "/sponsors/sch-ra.png", url: "https://www.schrothracing.com/" },
+        { name: "yuksek", logo: "/sponsors/yuksek.png", url: "https://www.teknoparkizmir.com.tr/tr/firma-cron/izmir-teknoloji-sanayi-ve-ticaret-a-s/" },
+        { name: "Simetrisöve", logo: "/sponsors/simetrisove.png", url: "#" },
+        { name: "Plaka Metal Logo", logo: "/sponsors/plaka_metal_logo.png", url: "#" },
+        { name: "Onur Yapı Market", logo: "/sponsors/onur_yapi_market.png", url: "#" },
+        { name: "Mustan Logo", logo: "/sponsors/mustan_logo.png", url: "#" },
+        { name: "S Axis", logo: "/sponsors/s_axis.png", url: "#" },
+        { name: "İzmir AV Market", logo: "/sponsors/izmir_av_market.png", url: "#" },
+        { name: "Yeditepe Transportation", logo: "/sponsors/yeditepe_transportation.png", url: "#" },
+        { name: "Kramsan", logo: "/sponsors/kramsan.png", url: "#" },
+        { name: "Alemdar", logo: "/sponsors/alemdar.png", url: "#" },
+        { name: "Peak", logo: "/sponsors/peak.png", url: "#" },
+        { name: "İşgören", logo: "/sponsors/isgoren.png", url: "#" },
+        { name: "Plantero", logo: "/sponsors/plantero.png", url: "#" },
+        { name: "Pin Drinks", logo: "/sponsors/pin_drinks.png", url: "#" },
+        { name: "Katsimtaş", logo: "/sponsors/katsimtas.png", url: "#" }
       ]
     }
   ];
