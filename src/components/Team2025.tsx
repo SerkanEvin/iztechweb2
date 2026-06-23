@@ -663,6 +663,23 @@ const Team2025 = () => {
       }
     },
     {
+      name: "Burak Şuayıp Dönmez",
+      roleKey: "powertrain_team_member",
+      role: t('roles.powertrain_team_member'),
+      department: t('departments.energy_systems_engineering'),
+      image: "/burakdonmez.webp",
+      social: {
+        linkedin: "#",
+        email: "",
+        github: "#"
+      },
+      profile: {
+        bio: "",
+        works: ["/burakdonmez.webp"],
+        documents: []
+      }
+    },
+    {
       name: "Emir Yaşa",
       roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
