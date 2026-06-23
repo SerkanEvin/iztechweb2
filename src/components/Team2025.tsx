@@ -405,23 +405,6 @@ const Team2025 = () => {
       }
     },
     {
-      name: "Sena Özer",
-      roleKey: "chassis_ergonomics_team_member",
-      role: t('roles.chassis_ergonomics_team_member'),
-      department: t('departments.materials_engineering'),
-      image: "/o.webp",
-      social: {
-        linkedin: "www.linkedin.com/in/sena-özer-022707297",
-        email: "",
-        instagram: "#"
-      },
-      profile: {
-        bio: "",
-        works: ["/o.webp"],
-        documents: []
-      }
-    },
-    {
       name: "Güneş Işıldakoğlu ",
       roleKey: "chassis_ergonomics_team_member",
       role: t('roles.chassis_ergonomics_team_member'),
